@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxh59jhswaj30si0iyn0a.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fxh59e3nerj30qi0j0n08.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxh7svmrf2j31cq0u047i.jpg">
-<meta property="og:updated_time" content="2018-11-22T15:16:39.203Z">
+<meta property="og:updated_time" content="2018-11-23T10:36:59.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ARCore 3D模型">
 <meta name="twitter:description" content="本文档解决的问题  模型格式  支持动画的模型类型  是否需要人工打光   官方sample模型格式官方SDK的sample中均使用.obj格式文件。   obj文件：obj文件是3D模型文件格式。由Alias|Wavefront公司为3D建模和动画软件”Advanced Visualizer”开发的一种标准，适合用于3D软件模型之间的互导，也可以通过Maya读写。 文件特点：OBJ3.0文件格式">
@@ -400,7 +400,12 @@
 <p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxh7svmrf2j31cq0u047i.jpg" alt=""></p>
 <p><a href="https://developers.google.cn/ar/develop/java/sceneform/create-renderables" target="_blank" rel="noopener">官方文档：创建可渲染对象</a></p>
 <p><a href="https://developers.google.cn/ar/develop/java/sceneform/import-assets" target="_blank" rel="noopener">官方文档：导入和预览3D资产</a></p>
-<h2 id="三种模型比较"><a href="#三种模型比较" class="headerlink" title="三种模型比较"></a>三种模型比较</h2><p>(Todo)</p>
+<h2 id="三种模型比较"><a href="#三种模型比较" class="headerlink" title="三种模型比较"></a>三种模型比较</h2><h4 id="obj"><a href="#obj" class="headerlink" title=".obj"></a>.obj</h4><p>OBJ文件是Alias|Wavefront公司为它的一套基于工作站的3D建模和动画软件”Advanced Visualizer”开发的一种标准3D模型文件格式，很适合用于3D软件模型之间的互导。目前几乎所有知名的3D软件都支持OBJ文件的读写。OBJ文件是一种文本文件，可以直接用写字板打开进行查看和编辑修改。</p>
+<p>. obj 格式， 静态多边形模型 - 附带 UV 信息及材质路径！<strong>不包含动画</strong>、材质特性、贴图路径、动力学、粒子等信息。主要支持多边形(Polygons)模型。是最受欢迎的格式。</p>
+<h4 id="glTF"><a href="#glTF" class="headerlink" title=".glTF"></a>.glTF</h4><p>glTF是一种可以减少3D格式中与渲染无关的冗余数据并且在更加适合OpenGL簇加载的一种3D文件格式。glTF的提出是源自于3D工业和媒体发展的过程中，对3D格式统一化的急迫需求。如果用一句话来描述：glTF 就是三维文件的 JPEG ，三维格式的 MP3。在没有glTF的时候，大家都要花很长的的时间来处理模型的载入。很多的游戏引擎或者工控渲染引擎，都使用的是插件的方式来载入各种格式的模型。可是，各种格式的模型都包含了很多无关的信息。就glTF格式而言，虽然以前有很多3D格式，但是各种3D模型渲染程序都要处理很多种的格式。对于那些对载入格式不是那么重要的软件，可以显著减少代码量，所以也有人说，最大的受益者是那些对程序大小敏感的3D Web渲染引擎，只需要很少的代码就可以顺利地载入各种模型了。此外，glTF是对近二十年来各种3D格式的总结，使用最优的数据结构，来保证最大的兼容性以及可伸缩性。这就好比是本世纪初xml的提出。glTF使用json格式进行描述，也可以编译成二进制的内容：bglTF。<strong>glTF可以包括场景、摄像机、动画等，也可以包括网格、材质、纹理，甚至包括了渲染技术（technique）、着色器以及着色器程序。</strong>同时由于json格式的特点，它支持预留一般以及特定供应商的扩展。</p>
+<p>.glTF 格式，<strong>支持动画</strong>等！.gITF 2.0 格式逐步的完成了 WebGL 的布局，也成为了这个领域的专用格式，随着发展游戏领域的应用也会越来越广泛。官网细节：<a href="https://www.khronos.org/gltf/" target="_blank" rel="noopener">gltf</a></p>
+<h4 id="fbx"><a href="#fbx" class="headerlink" title=".fbx"></a>.fbx</h4><p>FBX 是 FilmBoX 这套软件所使用的格式，后改称 Motionbuilder。因为Motionbuilder扮演的是动作制作的平台，所以在前端的modeling和后端的rendering也都有赖于其它软件的配合，所以Motionbuilder在档案的转换上自然下了一番功夫。FBX最大的用途是用在诸如在 Max、Maya、Softimage 等软件间进行模型、材质、动作和摄影机信息的互导，这样就可以发挥 Max 和 Maya 等软件的优势。可以说，FBX 方案是非常好的互导方案。</p>
+<p>. fbx 格式，Autodesk 家族格式 ，<strong>支持动画</strong>！这是一个商业的格式，兼容最好的当属 Autodesk 家族的软件了。fbx 也开放给了第三方软件，但总是感觉除了他自己的软件之外或多或少的都有解决不完的问题。 毋庸置疑，FBX 现在是最受欢迎的格式。</p>
 <hr>
 <h1 id="Google-Poly（3D对象库）"><a href="#Google-Poly（3D对象库）" class="headerlink" title="Google Poly（3D对象库）"></a>Google Poly（3D对象库）</h1><p>网址：<a href="https://poly.google.com/" target="_blank" rel="noopener">Google Poly</a></p>
 <p>Google对外推出了Poly，这是一个用于增强和虚拟现实应用程序的对象库。3D对象可以免费下载，并且可以兼容ARR/VR平台，比如Google的ARCore和苹果的ARKit。</p>
@@ -408,7 +413,10 @@
 <hr>
 <h1 id="其他参考资料"><a href="#其他参考资料" class="headerlink" title="其他参考资料"></a>其他参考资料</h1><ul>
 <li><a href="http://www.zwqxin.com/archives/opengl/obj-model-format-import-and-render-1.html" target="_blank" rel="noopener">OBJ模型文件的结构、导入与渲染</a></li>
-<li><a href="http://www.zwqxin.com/archives/opengl/model-fbx-dae-format-import-animation.html" target="_blank" rel="noopener">FBX、DAE模型的格式、导入与骨骼动画</a></li>
+<li><p><a href="http://www.zwqxin.com/archives/opengl/model-fbx-dae-format-import-animation.html" target="_blank" rel="noopener">FBX、DAE模型的格式、导入与骨骼动画</a></p>
+</li>
+<li><p><a href="http://www.bgteach.com/article/132" target="_blank" rel="noopener">三维文件知多少</a></p>
+</li>
 </ul>
 
       
@@ -586,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本文档解决的问题"><span class="nav-number">1.</span> <span class="nav-text">本文档解决的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#官方sample模型格式"><span class="nav-number">2.</span> <span class="nav-text">官方sample模型格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ARCore-Sceneform支持的三种3D模型类型"><span class="nav-number">3.</span> <span class="nav-text">ARCore Sceneform支持的三种3D模型类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sceneform-概览"><span class="nav-number">3.1.</span> <span class="nav-text">Sceneform 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型类型支持"><span class="nav-number">3.2.</span> <span class="nav-text">模型类型支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种模型比较"><span class="nav-number">3.3.</span> <span class="nav-text">三种模型比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Google-Poly（3D对象库）"><span class="nav-number">4.</span> <span class="nav-text">Google Poly（3D对象库）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他参考资料"><span class="nav-number">5.</span> <span class="nav-text">其他参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#本文档解决的问题"><span class="nav-number">1.</span> <span class="nav-text">本文档解决的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#官方sample模型格式"><span class="nav-number">2.</span> <span class="nav-text">官方sample模型格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ARCore-Sceneform支持的三种3D模型类型"><span class="nav-number">3.</span> <span class="nav-text">ARCore Sceneform支持的三种3D模型类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sceneform-概览"><span class="nav-number">3.1.</span> <span class="nav-text">Sceneform 概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型类型支持"><span class="nav-number">3.2.</span> <span class="nav-text">模型类型支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三种模型比较"><span class="nav-number">3.3.</span> <span class="nav-text">三种模型比较</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#obj"><span class="nav-number">3.3.0.1.</span> <span class="nav-text">.obj</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#glTF"><span class="nav-number">3.3.0.2.</span> <span class="nav-text">.glTF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fbx"><span class="nav-number">3.3.0.3.</span> <span class="nav-text">.fbx</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#Google-Poly（3D对象库）"><span class="nav-number">4.</span> <span class="nav-text">Google Poly（3D对象库）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他参考资料"><span class="nav-number">5.</span> <span class="nav-text">其他参考资料</span></a></li></div>
             
 
           </div>
