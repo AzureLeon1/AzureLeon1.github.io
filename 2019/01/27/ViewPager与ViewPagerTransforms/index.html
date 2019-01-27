@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/icon.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Android,ViewPager,ViewPagerTransforms,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ViewPager 是 Android 官方支持的一个类，可以实现视图的切换，用于实现页面导航、图片轮播等功能，并支持自定义 ViewPager 的切换动画，自行实现翻页动画效果。 ViewPagerTransforms 是 github 上一个实现了 Viewpager 多种切换动画的开源库，提供了一些现成的PageTransformer 来实现一些动画，同样支持在此基础上进行自定义动画。 Vi">
+<meta name="keywords" content="Android,ViewPager,ViewPagerTransforms">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ViewPager与ViewPagerTransforms">
+<meta property="og:url" content="http://www.leonwang.top/2019/01/27/ViewPager与ViewPagerTransforms/index.html">
+<meta property="og:site_name" content="Leon&#39;s Blog">
+<meta property="og:description" content="ViewPager 是 Android 官方支持的一个类，可以实现视图的切换，用于实现页面导航、图片轮播等功能，并支持自定义 ViewPager 的切换动画，自行实现翻页动画效果。 ViewPagerTransforms 是 github 上一个实现了 Viewpager 多种切换动画的开源库，提供了一些现成的PageTransformer 来实现一些动画，同样支持在此基础上进行自定义动画。 Vi">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fzkxqmbey0j30pm0w813a.jpg">
+<meta property="og:updated_time" content="2019-01-27T02:40:18.047Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ViewPager与ViewPagerTransforms">
+<meta name="twitter:description" content="ViewPager 是 Android 官方支持的一个类，可以实现视图的切换，用于实现页面导航、图片轮播等功能，并支持自定义 ViewPager 的切换动画，自行实现翻页动画效果。 ViewPagerTransforms 是 github 上一个实现了 Viewpager 多种切换动画的开源库，提供了一些现成的PageTransformer 来实现一些动画，同样支持在此基础上进行自定义动画。 Vi">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fzkxqmbey0j30pm0w813a.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.leonwang.top/2019/01/27/ViewPager与ViewPagerTransforms/">
+
+
+
+
+
+  <title>ViewPager与ViewPagerTransforms | Leon's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2e891af0fec421b141ef1add26813124";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不曾经历过真正的沧桑，却失守了最后一点少年意气。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/AzureLeon1" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github"></i> <br>
+            
+            Github
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-e-mail">
+          <a href="mailto:leonwangchn@163.com" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-envelope"></i> <br>
+            
+            E-Mail
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2019/01/27/ViewPager与ViewPagerTransforms/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leon Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ViewPager与ViewPagerTransforms</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-27T10:35:51+08:00">
+                2019-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ViewPager 是 Android 官方支持的一个类，可以实现视图的切换，用于实现页面导航、图片轮播等功能，并支持自定义 ViewPager 的切换动画，自行实现翻页动画效果。</p>
+<p>ViewPagerTransforms 是 github 上一个实现了 Viewpager 多种切换动画的开源库，提供了一些现成的PageTransformer 来实现一些动画，同样支持在此基础上进行自定义动画。</p>
+<h2 id="ViewPager"><a href="#ViewPager" class="headerlink" title="ViewPager"></a>ViewPager</h2><p><a href="https://developer.android.com/reference/android/support/v4/view/ViewPager#setpagetransformer" target="_blank" rel="noopener">官方文档</a></p>
+<p><a href="https://www.runoob.com/w3cnote/android-tutorial-viewpager.html" target="_blank" rel="noopener">简介</a></p>
+<p><a href="https://www.jianshu.com/p/e5abbda4a71c" target="_blank" rel="noopener">优秀文章</a></p>
+<h3 id="ViewPager的简介和作用"><a href="#ViewPager的简介和作用" class="headerlink" title="ViewPager的简介和作用"></a>ViewPager的简介和作用</h3><p> ViewPager是android扩展包v4包中的类，这个类可以让用户左右切换当前的view<br> 1）ViewPager类直接继承了ViewGroup类，所有它是一个容器类，可以在其中添加其他的view类。<br> 2）ViewPager类需要一个PagerAdapter适配器类给它提供数据。<br> 3）ViewPager经常和Fragment一起使用，并且提供了专门的FragmentPagerAdapter和FragmentStatePagerAdapter类供Fragment中的ViewPager使用。</p>
+<h3 id="ViewPager的适配器"><a href="#ViewPager的适配器" class="headerlink" title="ViewPager的适配器"></a>ViewPager的适配器</h3><p> 简介中提到了PagerAdapter，和ListView等控件使用一样,需要ViewPager设置PagerAdapter来完成页面和数据的绑定，这个PagerAdapter是一个基类适配器，我们经常用它来实现app引导图，它的子类有FragmentPagerAdapter和FragmentStatePagerAdapter,这两个子类适配器用于和Fragment一起使用，在安卓应用中它们就像listview一样出现的频繁。</p>
+<h3 id="ViewPager的翻页动画"><a href="#ViewPager的翻页动画" class="headerlink" title="ViewPager的翻页动画"></a>ViewPager的翻页动画</h3><p> 为ViewPager设置适配器后，就可以正常使用了，接下来我们为ViewPager增加翻页动画，毕竟人的审美会疲劳，加上一些动画交互会提高不少逼格~~，ViewPager提供了<strong>PageTransformer</strong>接口用于实现翻页动画。<br> 官方提供了PageTransformer的实现例子。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DepthPageTransformer</span> <span class="keyword">implements</span> <span class="title">ViewPager</span>.<span class="title">PageTransformer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> MIN_SCALE = <span class="number">0.75f</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transformPage</span><span class="params">(View view, <span class="keyword">float</span> position)</span> </span>&#123;</span><br><span class="line">      Log.d(<span class="string">"DepthPageTransformer"</span>, view.getTag() + <span class="string">" , "</span> + position + <span class="string">""</span>);</span><br><span class="line">      <span class="keyword">int</span> pageWidth = view.getWidth();</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (position &lt; -<span class="number">1</span>) &#123; <span class="comment">// [-Infinity,-1)</span></span><br><span class="line">          <span class="comment">// This page is way off-screen to the left.</span></span><br><span class="line">          view.setAlpha(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (position &lt;= <span class="number">0</span>) &#123; <span class="comment">// [-1,0]</span></span><br><span class="line">          <span class="comment">// Use the default slide transition when moving to the left page</span></span><br><span class="line">          view.setAlpha(<span class="number">1</span>);</span><br><span class="line">          view.setTranslationX(<span class="number">0</span>);</span><br><span class="line">          view.setScaleX(<span class="number">1</span>);</span><br><span class="line">          view.setScaleY(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (position &lt;= <span class="number">1</span>) &#123; <span class="comment">// (0,1]</span></span><br><span class="line">          <span class="comment">// Fade the page out.</span></span><br><span class="line">          view.setAlpha(<span class="number">1</span> - position);</span><br><span class="line"></span><br><span class="line">          <span class="comment">// Counteract the default slide transition</span></span><br><span class="line">          view.setTranslationX(pageWidth * -position);</span><br><span class="line"></span><br><span class="line">          <span class="comment">// Scale the page down (between MIN_SCALE and 1)</span></span><br><span class="line">          <span class="keyword">float</span> scaleFactor = MIN_SCALE</span><br><span class="line">                  + (<span class="number">1</span> - MIN_SCALE) * (<span class="number">1</span> - Math.abs(position));</span><br><span class="line">          view.setScaleX(scaleFactor);</span><br><span class="line">          view.setScaleY(scaleFactor);</span><br><span class="line"></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123; <span class="comment">// (1,+Infinity]</span></span><br><span class="line">          <span class="comment">// This page is way off-screen to the right.</span></span><br><span class="line">          view.setAlpha(<span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZoomOutPageTransformer</span> <span class="keyword">implements</span> <span class="title">ViewPager</span>.<span class="title">PageTransformer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> MIN_SCALE = <span class="number">0.85f</span>;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> MIN_ALPHA = <span class="number">0.5f</span>;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@SuppressLint</span>(<span class="string">"NewApi"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transformPage</span><span class="params">(View view, <span class="keyword">float</span> position)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> pageWidth = view.getWidth();</span><br><span class="line">      <span class="keyword">int</span> pageHeight = view.getHeight();</span><br><span class="line"></span><br><span class="line">      Log.e(<span class="string">"TAG"</span>, view + <span class="string">" , "</span> + position + <span class="string">""</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (position &lt; -<span class="number">1</span>) &#123; <span class="comment">// [-Infinity,-1)</span></span><br><span class="line">          <span class="comment">// This page is way off-screen to the left.</span></span><br><span class="line">          view.setAlpha(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (position &lt;= <span class="number">1</span>) </span><br><span class="line">      &#123; <span class="comment">// [-1,1]</span></span><br><span class="line">          <span class="comment">// Modify the default slide transition to shrink the page as well</span></span><br><span class="line">          <span class="keyword">float</span> scaleFactor = Math.max(MIN_SCALE, <span class="number">1</span> - Math.abs(position));</span><br><span class="line">          <span class="keyword">float</span> vertMargin = pageHeight * (<span class="number">1</span> - scaleFactor) / <span class="number">2</span>;</span><br><span class="line">          <span class="keyword">float</span> horzMargin = pageWidth * (<span class="number">1</span> - scaleFactor) / <span class="number">2</span>;</span><br><span class="line">          <span class="keyword">if</span> (position &lt; <span class="number">0</span>) &#123;</span><br><span class="line">              view.setTranslationX(horzMargin - vertMargin / <span class="number">2</span>);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              view.setTranslationX(-horzMargin + vertMargin / <span class="number">2</span>);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="comment">// Scale the page down (between MIN_SCALE and 1)</span></span><br><span class="line">          view.setScaleX(scaleFactor);</span><br><span class="line">          view.setScaleY(scaleFactor);</span><br><span class="line"></span><br><span class="line">          <span class="comment">// Fade the page relative to its size.</span></span><br><span class="line">          view.setAlpha(MIN_ALPHA + (scaleFactor - MIN_SCALE)</span><br><span class="line">                  / (<span class="number">1</span> - MIN_SCALE) * (<span class="number">1</span> - MIN_ALPHA));</span><br><span class="line"></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123; <span class="comment">// (1,+Infinity]</span></span><br><span class="line">          <span class="comment">// This page is way off-screen to the right.</span></span><br><span class="line">          view.setAlpha(<span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现翻页动画的关键就是重写transformPage方法，方法里有两个参数view和position,理解这两个参数非常重要。假设有三个页面view1，view2，view3从左至右在viewPager中显示</p>
+<ul>
+<li>往左滑动时：view1，view2，view3的position都是不断变小的。<br>   view1的position: 0 → -1 → 负无穷大<br>   view2的position: 1 → 0 → -1<br>   view3的position: 1 → 0</li>
+<li>往右滑动时：view1，view2，view3的position都是不断变大的。<br>   view1的position: -1 → 0<br>   view2的position: -1 → 0 → 1<br>   view3的position: 0 → 1→ 正无穷大<br>   当position是正负无穷大时view就离开屏幕视野了。因此最核心的控制逻辑是在[-1,0]和(0,1]这两个区间，通过设置透明度，平移，旋转，缩放等动画组合可以实现各式各样的页面变化效果。</li>
+</ul>
+<h2 id="ViewPagerTransforms"><a href="#ViewPagerTransforms" class="headerlink" title="ViewPagerTransforms"></a>ViewPagerTransforms</h2><h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p>Github: <a href="https://github.com/ToxicBakery/ViewPagerTransforms" target="_blank" rel="noopener">https://github.com/ToxicBakery/ViewPagerTransforms</a></p>
+<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><strong>ViewPagerTransforms</strong>库的代码结构很简单，干干净净的只有各种PageTransformer：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fzkxqmbey0j30pm0w813a.jpg" alt="image-20190127103046569"></p>
+<p>有了<strong>ViewPagerTransforms</strong>提供的各种例子，即使不满足它的这些效果想自己实现更多更复杂的效果也会容易一些。</p>
+<p>不过<strong>ViewPagerTransforms</strong>因为使用了view的属性设置方法，所以并不支持2.x低版本，但是这个问题可以使用nineoldandroids解决。参见：<a href="http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0815/1651.html" target="_blank" rel="noopener">如何在低api中使用View的属性设置方法如setAlpha等</a></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li><p>添加依赖</p>
+<p>  在内部 build.gradle 的 dependencies 中添加</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &apos;com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用</p>
+<p>  引入 transforms 包：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.ToxicBakery.viewpager.transforms.*;</span><br></pre></td></tr></table></figure>
+<p>  设置 transform 效果：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">viewPager.setPageTransformer(<span class="keyword">true</span>, <span class="keyword">new</span> ZoomOutTranformer());</span><br></pre></td></tr></table></figure>
+<p>  完整 Activity 示例：</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> se.tongji.transformtest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> android.support.v4.view.PagerAdapter;</span><br><span class="line"><span class="keyword">import</span> android.support.v4.view.ViewPager;</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.view.ViewGroup;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.ToxicBakery.viewpager.transforms.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> View view1, view2, view3;</span><br><span class="line">    <span class="keyword">private</span> ViewPager viewPager;  <span class="comment">//对应的viewPager</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;View&gt; viewList;<span class="comment">//view数组</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 使用layout填充View</span></span><br><span class="line">        viewPager = (ViewPager) findViewById(R.id.viewpager);</span><br><span class="line">        LayoutInflater inflater=getLayoutInflater();</span><br><span class="line">        view1 = inflater.inflate(R.layout.layout1, <span class="keyword">null</span>);</span><br><span class="line">        view2 = inflater.inflate(R.layout.layout2,<span class="keyword">null</span>);</span><br><span class="line">        view3 = inflater.inflate(R.layout.layout3, <span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">        viewList = <span class="keyword">new</span> ArrayList&lt;View&gt;();<span class="comment">// 将要分页显示的View装入数组中</span></span><br><span class="line">        viewList.add(view1);</span><br><span class="line">        viewList.add(view2);</span><br><span class="line">        viewList.add(view3);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        PagerAdapter pagerAdapter = <span class="keyword">new</span> PagerAdapter() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View arg0, Object arg1)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                <span class="keyword">return</span> arg0 == arg1;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                <span class="keyword">return</span> viewList.size();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position,</span></span></span><br><span class="line"><span class="function"><span class="params">                                    Object object)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                container.removeView(viewList.get(position));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">                container.addView(viewList.get(position));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> viewList.get(position);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        viewPager.setAdapter(pagerAdapter);</span><br><span class="line"></span><br><span class="line">        viewPager.setPageTransformer(<span class="keyword">true</span>, <span class="keyword">new</span> ZoomOutTranformer());</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Custom"><a href="#Custom" class="headerlink" title="Custom"></a>Custom</h3><h4 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h4><p>All ViewPagerTransform implementations extend <a href="https://github.com/ToxicBakery/ViewPagerTransforms/blob/master/library/src/main/java/com/ToxicBakery/viewpager/transforms/ABaseTransformer.java" target="_blank" rel="noopener">ABaseTransformer</a> providing useful hooks improving readability of animations and basic functionality important when switching between animations. <a href="https://github.com/ToxicBakery/ViewPagerTransforms/blob/master/library/src/main/java/com/ToxicBakery/viewpager/transforms/ABaseTransformer.java" target="_blank" rel="noopener">ABaseTransformer</a> provides three lifecycle hooks and two flags for default handling of hiding offscreen fragments and mimicking the default paging functionality of the ViewPager.</p>
+<ul>
+<li><a href="https://github.com/ToxicBakery/ViewPagerTransforms/blob/master/library/src/main/java/com/ToxicBakery/viewpager/transforms/ABaseTransformer.java#L85" target="_blank" rel="noopener">onPreTransform(View view, float position)</a></li>
+<li>Default implementation resets the animation state of the fragment to defaults that will place it on the screen if its position permits.</li>
+<li><a href="https://github.com/ToxicBakery/ViewPagerTransforms/blob/master/library/src/main/java/com/ToxicBakery/viewpager/transforms/ABaseTransformer.java#L33" target="_blank" rel="noopener">onTransform(View view, float position)</a></li>
+<li>Animations should perform all or most of their work inside this callback.</li>
+<li><a href="https://github.com/ToxicBakery/ViewPagerTransforms/blob/master/library/src/main/java/com/ToxicBakery/viewpager/transforms/ABaseTransformer.java#L116" target="_blank" rel="noopener">onPostTransform(View view, float position)</a></li>
+<li>Default implementation does nothing. This provides a logical location for any additional work to be done that is not directly related to the animation.</li>
+</ul>
+<h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><p>extends TransformAdapter to custom view animations,for example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZoomBothTransform</span> <span class="keyword">extends</span> <span class="title">TransformAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRightScorlling</span><span class="params">(View view, <span class="keyword">float</span> position)</span> </span>&#123;</span><br><span class="line">        view.setScaleX(<span class="number">1</span> - position / <span class="number">2</span>);</span><br><span class="line">        view.setScaleY(<span class="number">1</span> - position / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLeftScorlling</span><span class="params">(View view, <span class="keyword">float</span> position)</span> </span>&#123;</span><br><span class="line">        view.setScaleX(<span class="number">1</span> + position / <span class="number">2</span>);</span><br><span class="line">        view.setScaleY(<span class="number">1</span> + position / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>TransformAdapter has 4 can override method</p>
+<ul>
+<li>onRightScorlling</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> view     right view</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> position right to center 1-&gt;0</span></span><br><span class="line"><span class="comment">    *                 center to right 0-&gt;1</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRightScorlling</span><span class="params">(View view, <span class="keyword">float</span> position)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>onLeftScorlling</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> view     left view</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> position left to center  -1-&gt;0</span></span><br><span class="line"><span class="comment">     *                 center to left  0-&gt;-1</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLeftScorlling</span><span class="params">(View view, <span class="keyword">float</span> position)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>onCenterIdle</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCenterIdle</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>onTransform</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> view left and right view both callback</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> position [-1,1]</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTransform</span><span class="params">(View view, <span class="keyword">float</span> position)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/ViewPager/" rel="tag"># ViewPager</a>
+          
+            <a href="/tags/ViewPagerTransforms/" rel="tag"># ViewPagerTransforms</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/14/Awesome-Solutions/" rel="next" title="Awesome Solutions">
+                <i class="fa fa-chevron-left"></i> Awesome Solutions
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Leon Wang">
+            
+              <p class="site-author-name" itemprop="name">Leon Wang</p>
+              <p class="site-description motion-element" itemprop="description">不曾经历过真正的沧桑，却失守了最后一点少年意气。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewPager"><span class="nav-number">1.</span> <span class="nav-text">ViewPager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ViewPager的简介和作用"><span class="nav-number">1.1.</span> <span class="nav-text">ViewPager的简介和作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ViewPager的适配器"><span class="nav-number">1.2.</span> <span class="nav-text">ViewPager的适配器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ViewPager的翻页动画"><span class="nav-number">1.3.</span> <span class="nav-text">ViewPager的翻页动画</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewPagerTransforms"><span class="nav-number">2.</span> <span class="nav-text">ViewPagerTransforms</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub"><span class="nav-number">2.1.</span> <span class="nav-text">GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#介绍"><span class="nav-number">2.2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Custom"><span class="nav-number">2.4.</span> <span class="nav-text">Custom</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#introduction"><span class="nav-number">2.4.1.</span> <span class="nav-text">introduction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#example"><span class="nav-number">2.4.2.</span> <span class="nav-text">example</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+
+<span>鲁ICP备 -
+  <a href="http://www.miitbeian.gov.cn/">18054179号</a></span>
+
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leon Wang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
