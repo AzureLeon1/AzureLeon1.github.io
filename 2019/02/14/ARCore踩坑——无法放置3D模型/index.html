@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Git,GitHub,分支,">
+  <meta name="keywords" content="ARCore,AR,Android,">
 
 
 
@@ -79,18 +79,24 @@
 
 
 
-<meta name="description" content="把远程仓库中已经有的dev分支同步到本地： git checkout -b dev 新建并切换到本地dev分支 git pull origin dev 本地分支与远程分支相关联 在本地新建dev分支并推送到远程： git checkout -b dev git push origin dev:dev   这样远程仓库中也就创建了一个dev分支。冒号左边是本地分支，右边是远程分支。  分支相关操作">
-<meta name="keywords" content="Git,GitHub,分支">
+<meta name="description" content="描述按照 Google ARCore 官方文档实践 Sceneform 项目，实现 hellosceneform 示例项目的效果。 要在项目中使用 Sceneform 和 ARCore，需要执行以下操作：  配置您项目的 build.gradle 文件 更新您的 AndroidManifest.xml 执行运行时检查并创建场景图 创建可渲染对象 构建场景  按照文档说明进行操作。在 Android">
+<meta name="keywords" content="ARCore,AR,Android">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git本地分支与远程分支">
-<meta property="og:url" content="http://www.leonwang.top/2019/02/02/Git本地分支与远程分支/index.html">
+<meta property="og:title" content="ARCore踩坑——无法放置3D模型">
+<meta property="og:url" content="http://www.leonwang.top/2019/02/14/ARCore踩坑——无法放置3D模型/index.html">
 <meta property="og:site_name" content="Leon&#39;s Blog">
-<meta property="og:description" content="把远程仓库中已经有的dev分支同步到本地： git checkout -b dev 新建并切换到本地dev分支 git pull origin dev 本地分支与远程分支相关联 在本地新建dev分支并推送到远程： git checkout -b dev git push origin dev:dev   这样远程仓库中也就创建了一个dev分支。冒号左边是本地分支，右边是远程分支。  分支相关操作">
+<meta property="og:description" content="描述按照 Google ARCore 官方文档实践 Sceneform 项目，实现 hellosceneform 示例项目的效果。 要在项目中使用 Sceneform 和 ARCore，需要执行以下操作：  配置您项目的 build.gradle 文件 更新您的 AndroidManifest.xml 执行运行时检查并创建场景图 创建可渲染对象 构建场景  按照文档说明进行操作。在 Android">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-02-02T03:28:24.611Z">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g05vipar3nj319a0luada.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g05visza9aj324u0eu7b2.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g05vivpwtrj325o0ssnb2.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g05vizf44gj30u01qdqbr.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g05vj3420sj30v802awem.jpg">
+<meta property="og:updated_time" content="2019-02-14T05:11:22.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git本地分支与远程分支">
-<meta name="twitter:description" content="把远程仓库中已经有的dev分支同步到本地： git checkout -b dev 新建并切换到本地dev分支 git pull origin dev 本地分支与远程分支相关联 在本地新建dev分支并推送到远程： git checkout -b dev git push origin dev:dev   这样远程仓库中也就创建了一个dev分支。冒号左边是本地分支，右边是远程分支。  分支相关操作">
+<meta name="twitter:title" content="ARCore踩坑——无法放置3D模型">
+<meta name="twitter:description" content="描述按照 Google ARCore 官方文档实践 Sceneform 项目，实现 hellosceneform 示例项目的效果。 要在项目中使用 Sceneform 和 ARCore，需要执行以下操作：  配置您项目的 build.gradle 文件 更新您的 AndroidManifest.xml 执行运行时检查并创建场景图 创建可渲染对象 构建场景  按照文档说明进行操作。在 Android">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g05vipar3nj319a0luada.jpg">
 
 
 
@@ -120,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://www.leonwang.top/2019/02/02/Git本地分支与远程分支/">
+  <link rel="canonical" href="http://www.leonwang.top/2019/02/14/ARCore踩坑——无法放置3D模型/">
 
 
 
 
 
-  <title>Git本地分支与远程分支 | Leon's Blog</title>
+  <title>ARCore踩坑——无法放置3D模型 | Leon's Blog</title>
   
 
 
@@ -283,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2019/02/02/Git本地分支与远程分支/">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2019/02/14/ARCore踩坑——无法放置3D模型/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leon Wang">
@@ -300,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git本地分支与远程分支</h1>
+          <h1 class="post-title" itemprop="name headline">ARCore踩坑——无法放置3D模型</h1>
         
 
         <div class="post-meta">
@@ -312,8 +318,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-02T11:17:49+08:00">
-                2019-02-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-14T12:13:27+08:00">
+                2019-02-14
               </time>
             
 
@@ -335,8 +341,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/ARCore/" itemprop="url" rel="index">
+                    <span itemprop="name">ARCore</span>
                   </a>
                 </span>
 
@@ -372,41 +378,34 @@
       
 
       
-        <p><strong>把远程仓库中已经有的dev分支同步到本地：</strong></p>
-<p>git checkout -b dev 新建并切换到本地dev分支</p>
-<p>git pull origin dev 本地分支与远程分支相关联</p>
-<p><strong>在本地新建dev分支并推送到远程：</strong></p>
-<p>git checkout -b dev</p>
-<p>git push origin dev:dev   这样远程仓库中也就创建了一个dev分支。冒号左边是本地分支，右边是远程分支。</p>
-<hr>
-<h2 id="分支相关操作"><a href="#分支相关操作" class="headerlink" title="分支相关操作"></a>分支相关操作</h2><ol>
-<li>克隆代码</li>
+        <h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>按照 Google ARCore 官方文档实践 Sceneform 项目，实现 hellosceneform 示例项目的效果。</p>
+<p>要在项目中使用 Sceneform 和 ARCore，需要执行以下操作：</p>
+<ol>
+<li><a href="https://developers.google.com/ar/develop/java/sceneform/?hl=zh-cn#configure-project" target="_blank" rel="noopener">配置您项目的 <code>build.gradle</code> 文件</a></li>
+<li><a href="https://developers.google.com/ar/develop/java/sceneform/?hl=zh-cn#manifest" target="_blank" rel="noopener">更新您的 <code>AndroidManifest.xml</code></a></li>
+<li><a href="https://developers.google.com/ar/develop/java/sceneform/?hl=zh-cn#scene-view" target="_blank" rel="noopener">执行运行时检查并创建场景图</a></li>
+<li><a href="https://developers.google.com/ar/develop/java/sceneform/?hl=zh-cn#renderables" target="_blank" rel="noopener">创建可渲染对象</a></li>
+<li><a href="https://developers.google.com/ar/develop/java/sceneform/?hl=zh-cn#scene" target="_blank" rel="noopener">构建场景</a></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/master-dev.git  </span><br><span class="line"><span class="comment"># 这个git路径是无效的，示例而已</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>查看所有分支</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch --all  </span><br><span class="line"><span class="comment"># 默认只有master分支，所以会看到如下两个分支</span></span><br><span class="line"><span class="comment"># master[本地主分支] origin/master[远程主分支]</span></span><br><span class="line"><span class="comment"># 新克隆下来的代码默认master和origin/master是关联的，也就是他们的代码保持同步</span></span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>创建本地新的dev分支</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch dev  <span class="comment"># 创建本地分支</span></span><br><span class="line">git branch  <span class="comment"># 查看分支</span></span><br><span class="line"><span class="comment"># 这是会看到master和dev，而且master上会有一个星号</span></span><br><span class="line"><span class="comment"># 这个时候dev是一个本地分支，远程仓库不知道它的存在</span></span><br><span class="line"><span class="comment"># 本地分支可以不同步到远程仓库，我们可以在dev开发，然后merge到master，使用master同步代码，当然也可以同步</span></span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>发布dev分支</li>
-</ol>
-<p>发布dev分支指的是同步dev分支的代码到远程服务器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin dev:dev  <span class="comment"># 这样远程仓库也有一个dev分支了</span></span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>在dev分支开发代码</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git checkout dev  <span class="comment"># 切换到dev分支进行开发</span></span><br><span class="line"><span class="comment"># 开发代码之后，我们有两个选择</span></span><br><span class="line"><span class="comment"># 第一个：如果功能开发完成了，可以合并主分支</span></span><br><span class="line">git checkout master  <span class="comment"># 切换到主分支</span></span><br><span class="line">git merge dev  <span class="comment"># 把dev分支的更改和master合并</span></span><br><span class="line">git push  <span class="comment"># 提交主分支代码远程</span></span><br><span class="line">git checkout dev  <span class="comment"># 切换到dev远程分支</span></span><br><span class="line">git push  <span class="comment"># 提交dev分支到远程</span></span><br><span class="line"><span class="comment"># 第二个：如果功能没有完成，可以直接推送</span></span><br><span class="line">git push  <span class="comment"># 提交到dev远程分支</span></span><br><span class="line"><span class="comment"># 注意：在分支切换之前最好先commit全部的改变，除非你真的知道自己在做什么</span></span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>删除分支</li>
-</ol>
-<p>删除远程dev分支，危险命令哦</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :dev</span><br></pre></td></tr></table></figure>
-<p>删除本地dev分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master  <span class="comment"># 切换到master分支</span></span><br><span class="line">git branch -d dev  <span class="comment"># 删除本地dev分</span></span><br></pre></td></tr></table></figure>
+<p>按照文档说明进行操作。在 Android Studio 中安装 <code>Google Sceneform Tools (Beta)</code> 插件，手动修改 <code>build.gradle</code> 和<code>AndroidManifest.xml</code>相关配置，导入3D asset，java和xml布局直接复制自 hellosceneform 示例。</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>运行发现点击屏幕并不能在相应的位置放置3D模型，除此之外其他功能均正常。</p>
+<h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><p>首先在负责响应点击事件的代码部分添加 Log 代码。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1g05vipar3nj319a0luada.jpg" alt="image-20190214124824509"></p>
+<p>其中第一个参数 TAG 定义为<code>private static final String TAG = MainActivity.class.getSimpleName();</code>，即类的名字<code>MainActivity</code>。</p>
+<p>重新运行，发现在点击屏幕后有以下 log 信息（用MainActivity进行过滤）：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g05visza9aj324u0eu7b2.jpg" alt="image-20190214125123892"></p>
+<p>可以知道 ModelRenderable 对象为 null。</p>
+<p>以 Debug 模式运行，查看 console 输出：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g05vivpwtrj325o0ssnb2.jpg" alt="image-20190214125521629"></p>
+<p>其中关键语句：<code>Rendercore bundle (.rcb) version not supported, max version supported is 0.52.X. Version requested for loading is 0.54.1</code></p>
+<p>基本可以确定问题是模型版本过高，渲染依赖不支持。</p>
+<p>通过Google该问题得到以下信息：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1g05vizf44gj30u01qdqbr.jpg" alt="image-20190214125931179"></p>
+<p>是官方github项目仓库中的一个issue，已经有人汇报过这个问题并得到了解决。</p>
+<p>进一步确定了该问题的原因：3D asset是通过最新的<code>Google Sceneform Tools (Beta)</code> 插件产生，而在<code>build.gradle</code>中添加的依赖<code>implementation &#39;com.google.ar.sceneform.ux:sceneform-ux:1.5.0&#39;</code>版本较低，无法渲染版本较高的3D asset。</p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1g05vj3420sj30v802awem.jpg" alt="image-20190214130618251"></p>
+<p>把<code>build.gradle</code>中依赖的版本由1.5.0改为最新的1.6.0</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>依赖信息是按照 Google 的官方文档添加，Google ARCore 相关文档的更新没有及时跟上 sdk 的更新速度。</p>
 
       
     </div>
@@ -424,11 +423,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
+            <a href="/tags/ARCore/" rel="tag"># ARCore</a>
           
-            <a href="/tags/GitHub/" rel="tag"># GitHub</a>
+            <a href="/tags/AR/" rel="tag"># AR</a>
           
-            <a href="/tags/分支/" rel="tag"># 分支</a>
+            <a href="/tags/Android/" rel="tag"># Android</a>
           
         </div>
       
@@ -441,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/27/ViewPager与ViewPagerTransforms/" rel="next" title="ViewPager与ViewPagerTransforms">
-                <i class="fa fa-chevron-left"></i> ViewPager与ViewPagerTransforms
+              <a href="/2019/02/02/Git本地分支与远程分支/" rel="next" title="Git本地分支与远程分支">
+                <i class="fa fa-chevron-left"></i> Git本地分支与远程分支
               </a>
             
           </div>
@@ -450,10 +449,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/14/ARCore踩坑——无法放置3D模型/" rel="prev" title="ARCore踩坑——无法放置3D模型">
-                ARCore踩坑——无法放置3D模型 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -587,7 +582,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分支相关操作"><span class="nav-number">1.</span> <span class="nav-text">分支相关操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#描述"><span class="nav-number">1.</span> <span class="nav-text">描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调试"><span class="nav-number">3.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决"><span class="nav-number">4.</span> <span class="nav-text">解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
