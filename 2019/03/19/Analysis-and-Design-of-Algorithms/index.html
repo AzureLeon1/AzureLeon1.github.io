@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/icon.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Algorithm,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Date Content     2019.3.19 [L1 : L2]    L1 绪论 每一步都是明确的 一个问题有不同的算法 一个算法有不同的描述 不同的算法有不同的思想和执行速度  Example：计算最大公约数  欧几里得算法    连续整数检测算法    中学时期的计算方法   算法设计策略：  重要的问题类型：  L2 算法效率分析基础本章重点：  算法的效率包括时间效率与空间">
+<meta name="keywords" content="Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Analysis and Design of Algorithms">
+<meta property="og:url" content="http://www.leonwang.top/2019/03/19/Analysis-and-Design-of-Algorithms/index.html">
+<meta property="og:site_name" content="Leon&#39;s Blog">
+<meta property="og:description" content="Date Content     2019.3.19 [L1 : L2]    L1 绪论 每一步都是明确的 一个问题有不同的算法 一个算法有不同的描述 不同的算法有不同的思想和执行速度  Example：计算最大公约数  欧几里得算法    连续整数检测算法    中学时期的计算方法   算法设计策略：  重要的问题类型：  L2 算法效率分析基础本章重点：  算法的效率包括时间效率与空间">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g182uv5x15j30js080t9f.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g182vbzz6bj30hs0bbgmc.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g1832ruixcj30md0fzdhi.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g1835v7zm1j30lq0g2ab9.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g186wwbh0bj30lr08cdgb.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g1871x6l1fj30s6098wf5.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g1875wwbvhj30bq022dfo.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g1882q7xrwj30nw0ev0u3.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g18842zv0bj30px0a8gmi.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g1885lrajxj30ci01m0sq.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g1886j0kmoj30pd0f2gns.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g189socljjj30nm0gf765.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g189wfq3irj30k302x74f.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g18aenp8gkj30rf09igmi.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g18alg6z57j31340ac3zh.jpg">
+<meta property="og:updated_time" content="2019-03-19T12:57:56.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Analysis and Design of Algorithms">
+<meta name="twitter:description" content="Date Content     2019.3.19 [L1 : L2]    L1 绪论 每一步都是明确的 一个问题有不同的算法 一个算法有不同的描述 不同的算法有不同的思想和执行速度  Example：计算最大公约数  欧几里得算法    连续整数检测算法    中学时期的计算方法   算法设计策略：  重要的问题类型：  L2 算法效率分析基础本章重点：  算法的效率包括时间效率与空间">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g182uv5x15j30js080t9f.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.leonwang.top/2019/03/19/Analysis-and-Design-of-Algorithms/">
+
+
+
+
+
+  <title>Analysis and Design of Algorithms | Leon's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2e891af0fec421b141ef1add26813124";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不曾经历过真正的沧桑，却失守了最后一点少年意气。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-github">
+          <a href="https://github.com/AzureLeon1" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-github"></i> <br>
+            
+            Github
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-e-mail">
+          <a href="mailto:leonwangchn@163.com" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-envelope"></i> <br>
+            
+            E-Mail
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2019/03/19/Analysis-and-Design-of-Algorithms/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leon Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Analysis and Design of Algorithms</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-19T20:55:58+08:00">
+                2019-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2019.3.19</td>
+<td>[L1 : L2]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="L1-绪论"><a href="#L1-绪论" class="headerlink" title="L1 绪论"></a>L1 绪论</h2><ul>
+<li>每一步都是明确的</li>
+<li>一个问题有不同的算法</li>
+<li>一个算法有不同的描述</li>
+<li>不同的算法有不同的思想和执行速度</li>
+</ul>
+<p>Example：计算最大公约数</p>
+<ol>
+<li><p>欧几里得算法</p>
+<p> <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g182uv5x15j30js080t9f.jpg" alt="image-20190319141615649"></p>
+</li>
+<li><p>连续整数检测算法</p>
+<p> <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g182vbzz6bj30hs0bbgmc.jpg" alt="image-20190319141642253"></p>
+</li>
+<li><p>中学时期的计算方法</p>
+</li>
+</ol>
+<p>算法设计策略：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1832ruixcj30md0fzdhi.jpg" alt="image-20190319142350864"></p>
+<p>重要的问题类型：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1835v7zm1j30lq0g2ab9.jpg" alt="image-20190319142649416"></p>
+<h2 id="L2-算法效率分析基础"><a href="#L2-算法效率分析基础" class="headerlink" title="L2 算法效率分析基础"></a>L2 算法效率分析基础</h2><p>本章重点：</p>
+<ul>
+<li>算法的效率包括时间效率与空间效率</li>
+<li>时间效率用输入规模的函数来度量，该函数的计算主要关注算法基本操作的执行次数。</li>
+<li>增长阶数</li>
+<li>最好、最坏、平均效率</li>
+<li>渐进符号表示</li>
+<li>递归与非递归算法的效率分析</li>
+</ul>
+<hr>
+<p>with respect to <strong>input size</strong>, <strong>input type</strong>, and <strong>algorithm function</strong> </p>
+<p>C=F(N, I, A) </p>
+<ul>
+<li><p>时间效率（时间复杂度）</p>
+<p>  Time efficiency T(N, I): </p>
+<p>  how fast an algorithm runs. </p>
+</li>
+<li><p>空间效率（空间复杂度）</p>
+<p>  Space efficiency S(N , I):<br>  the space an algorithm requires.</p>
+</li>
+</ul>
+<h3 id="分析框架"><a href="#分析框架" class="headerlink" title="分析框架"></a>分析框架</h3><p>对于输入规模为n的算法，统计它的<strong>基本操作执行次数</strong>，来对其<strong>时间效率</strong>进行度量；统计它<strong>消耗的额外存储单元</strong>的数量对其<strong>空间效率</strong>进行度量。</p>
+<p>主要关心一个算法基本操作次数的增长次数，并把它作为算法效率的主要指标。</p>
+<ul>
+<li><p>输入规模的度量</p>
+<p>  效率被定义为输入规模的函数</p>
+</li>
+<li><p>运行时间的度量</p>
+<p>  基本操作(Basic Operation)：算法中最重要的操作。通常是算法最内层循环中最费时的操作。<strong>最内层循环中，且每层循环中都会执行的操作。</strong>如if、while等结构中的关键操作是条件部分的操作。</p>
+<p>  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g186wwbh0bj30lr08cdgb.jpg" alt="image-20190319163635000"></p>
+<p>  本身是一个近似结果。</p>
+<p>  对于大规模的输入，忽略乘法常量，仅关注执行次数的增长次数。</p>
+</li>
+<li><p>增长次数</p>
+<p>  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1871x6l1fj30s6098wf5.jpg" alt="image-20190319164125125"></p>
+<p>  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1875wwbvhj30bq022dfo.jpg" alt="image-20190319164516568"></p>
+<p>  由于上面这个公式允许只要在对数部分以外增加一个乘法常量就能实现对数换底，因此我们忽略对数的底，简写成 log <em>n</em> 。</p>
+<p>  一个需要指数级操作的算法只能用来解决规模非常小的问题。</p>
+</li>
+<li><p>算法的最优、最差和平均效率</p>
+<p>  Tbest(n)   Tworst(n)   Tavg(n)</p>
+</li>
+</ul>
+<h3 id="渐进符号和基本效率类型"><a href="#渐进符号和基本效率类型" class="headerlink" title="渐进符号和基本效率类型"></a>渐进符号和基本效率类型</h3><p>为了对增长次数进行比较和归类</p>
+<ul>
+<li><p>渐进复杂度</p>
+<p>  <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1882q7xrwj30nw0ev0u3.jpg" alt="image-20190319171648802"></p>
+</li>
+<li><p>渐进符号</p>
+<p>  <strong>定义</strong>：</p>
+<p>  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g18842zv0bj30px0a8gmi.jpg" alt="image-20190319171807101"></p>
+<p>  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1885lrajxj30ci01m0sq.jpg" alt="image-20190319171934409"></p>
+<p>  &lt;=和&gt;=去掉等号，渐进符号用对应的小写字母表示：</p>
+<p>  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1886j0kmoj30pd0f2gns.jpg" alt="image-20190319172028100"></p>
+<p>  一些<strong>性质</strong>：</p>
+<p>  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g189socljjj30nm0gf765.jpg" alt="image-20190319181620976"></p>
+<p>  定理：</p>
+<p>  <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g189wfq3irj30k302x74f.jpg" alt="image-20190319181958008"></p>
+</li>
+<li><p>利用<strong>极限</strong>比较增长次数：</p>
+<p>  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g18aenp8gkj30rf09igmi.jpg" alt="image-20190319183728844"></p>
+<p>  可以利用洛必达法则和史特林公式计算极限：</p>
+<p>  <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g18alg6z57j31340ac3zh.jpg" alt="image-20190319184352595"></p>
+<p>  比较关系：<br>  $$<br>  1 &lt; logn &lt; n &lt; nlogn &lt; n^a &lt; a^n &lt;n! &lt; n^n<br>  $$<br>  求基本操作的增长次数的方法总结：</p>
+<ol>
+<li>计算极限（注意运用洛必达和史特林）</li>
+<li>利用性质</li>
+<li>利用定义</li>
+</ol>
+</li>
+</ul>
+<h3 id="非递归算法的数学分析"><a href="#非递归算法的数学分析" class="headerlink" title="非递归算法的数学分析"></a>非递归算法的数学分析</h3><p>通用方案：</p>
+<ol>
+<li>决定用哪个（哪些）参数表示<strong>输入规模</strong>。</li>
+<li>找出算法的<strong>基本操作</strong>（作为一个规律，它总是位于算法的最内层循环中）。</li>
+<li><strong>检查</strong>基本操作的执行次数是否只依赖于输入规模。如果它还依赖于一些其他的特性，则最差效率、平均效率以及最优效率（如有必要）需要分别研究。</li>
+<li>建立一个算法基本操作执行次数的<strong>求和表达式</strong>。</li>
+<li>利用求和运算的标准公式和法则来建立一个操作次数的闭合公式，或者至少确定它的<strong>增长次数</strong>。</li>
+</ol>
+<p><em>（附录A：求和公式和法则）</em></p>
+<p>例：</p>
+<ol>
+<li><p>求最大元素</p>
+<p> O(n)</p>
+</li>
+<li><p>元素唯一性问题</p>
+<ul>
+<li>两重循环算法：theta (n^2)</li>
+<li>先排序后比较算法：theta (nlogn)</li>
+</ul>
+</li>
+<li><p>n阶矩阵乘法</p>
+<p> O(n^3)</p>
+</li>
+<li><p>求十进制整数在二进制表示中二进制数字的个数</p>
+<p> 约是 log2(n)</p>
+</li>
+</ol>
+<h3 id="递归算法的数学分析"><a href="#递归算法的数学分析" class="headerlink" title="递归算法的数学分析"></a>递归算法的数学分析</h3><p>通用方案：</p>
+<ol>
+<li>决定用哪个（哪些）参数表示<strong>输入规模</strong>。</li>
+<li>找出算法的<strong>基本操作</strong>（作为一个规律，它总是位于算法的最内层循环中）。</li>
+<li><strong>检查</strong>基本操作的执行次数是否只依赖于输入规模。如果它还依赖于一些其他的特性，则最差效率、平均效率以及最优效率（如有必要）需要分别研究。</li>
+<li>对于算法基本操作的执行次数，建立一个<strong>递推关系</strong>以及相应的<strong>初始条件</strong>。</li>
+<li>解这个递推式，或者至少确定它的<strong>解的增长次数</strong>。</li>
+</ol>
+<p><em>（附录B：求解递推关系的方法。前向替代、反向替代、二阶常系数线性递推式）</em></p>
+<p>例：</p>
+<ol>
+<li>阶乘 theta (n)</li>
+<li>汉诺塔 theta (2^n)</li>
+<li>求十进制整数在二进制表示中二进制数字的个数 theta (logn)</li>
+<li>斐波那契数列</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/16/UML和模式应用-Note/" rel="next" title="UML和模式应用 Note">
+                <i class="fa fa-chevron-left"></i> UML和模式应用 Note
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Leon Wang">
+            
+              <p class="site-author-name" itemprop="name">Leon Wang</p>
+              <p class="site-description motion-element" itemprop="description">不曾经历过真正的沧桑，却失守了最后一点少年意气。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#L1-绪论"><span class="nav-number">1.</span> <span class="nav-text">L1 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L2-算法效率分析基础"><span class="nav-number">2.</span> <span class="nav-text">L2 算法效率分析基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析框架"><span class="nav-number">2.1.</span> <span class="nav-text">分析框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进符号和基本效率类型"><span class="nav-number">2.2.</span> <span class="nav-text">渐进符号和基本效率类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非递归算法的数学分析"><span class="nav-number">2.3.</span> <span class="nav-text">非递归算法的数学分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归算法的数学分析"><span class="nav-number">2.4.</span> <span class="nav-text">递归算法的数学分析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+
+<span>鲁ICP备 -
+  <a href="http://www.miitbeian.gov.cn/">18054179号</a></span>
+
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leon Wang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
