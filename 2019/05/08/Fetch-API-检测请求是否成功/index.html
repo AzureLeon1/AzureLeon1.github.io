@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Blog,Hexo,">
+  <meta name="keywords" content="Web,JavaScript,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta name="keywords" content="Blog,Hexo">
+<meta name="description" content="问题MDN Web docs中的解释：  请注意，fetch规范与jQuery.ajax()主要有两种方式的不同，牢记：  当接收到一个代表错误的 HTTP 状态码时，从 fetch()返回的 Promise 不会被标记为 reject， 即使该 HTTP 响应的状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 resolve 的返回值的 ok 属">
+<meta name="keywords" content="Web,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello Hexo">
-<meta property="og:url" content="http://www.leonwang.top/2018/11/16/hello-hexo/index.html">
+<meta property="og:title" content="Fetch API 检测请求是否成功">
+<meta property="og:url" content="http://www.leonwang.top/2019/05/08/Fetch-API-检测请求是否成功/index.html">
 <meta property="og:site_name" content="Leon&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="问题MDN Web docs中的解释：  请注意，fetch规范与jQuery.ajax()主要有两种方式的不同，牢记：  当接收到一个代表错误的 HTTP 状态码时，从 fetch()返回的 Promise 不会被标记为 reject， 即使该 HTTP 响应的状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 resolve 的返回值的 ok 属">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-17T03:55:29.148Z">
+<meta property="og:updated_time" content="2019-05-07T16:17:53.403Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello Hexo">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Fetch API 检测请求是否成功">
+<meta name="twitter:description" content="问题MDN Web docs中的解释：  请注意，fetch规范与jQuery.ajax()主要有两种方式的不同，牢记：  当接收到一个代表错误的 HTTP 状态码时，从 fetch()返回的 Promise 不会被标记为 reject， 即使该 HTTP 响应的状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 resolve 的返回值的 ok 属">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.leonwang.top/2018/11/16/hello-hexo/">
+  <link rel="canonical" href="http://www.leonwang.top/2019/05/08/Fetch-API-检测请求是否成功/">
 
 
 
 
 
-  <title>Hello Hexo | Leon's Blog</title>
+  <title>Fetch API 检测请求是否成功 | Leon's Blog</title>
   
 
 
@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2018/11/16/hello-hexo/">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2019/05/08/Fetch-API-检测请求是否成功/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leon Wang">
@@ -300,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello Hexo</h1>
+          <h1 class="post-title" itemprop="name headline">Fetch API 检测请求是否成功</h1>
         
 
         <div class="post-meta">
@@ -312,8 +312,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-16T14:55:16+08:00">
-                2018-11-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T00:12:09+08:00">
+                2019-05-08
               </time>
             
 
@@ -335,8 +335,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blog搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">Blog搭建</span>
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
                   </a>
                 </span>
 
@@ -372,16 +372,17 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener">MDN Web docs</a>中的解释：</p>
+<blockquote>
+<p>请注意，<code>fetch</code>规范与<code>jQuery.ajax()</code>主要有两种方式的不同，牢记：</p>
+<ul>
+<li>当接收到一个代表错误的 HTTP 状态码时，从 <code>fetch()</code>返回的 Promise <strong>不会被标记为 reject，</strong> 即使该 HTTP 响应的状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 resolve 的返回值的 <code>ok</code> 属性设置为 false ），仅当网络故障时或请求被阻止时，才会标记为 reject。</li>
+<li>默认情况下，<code>fetch</code> <strong>不会从服务端发送或接收任何 cookies</strong>, 如果站点依赖于用户 session，则会导致未经认证的请求（要发送 cookies，必须设置 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch#参数" target="_blank" rel="noopener">credentials</a> 选项）。自从2017年8月25日后，默认的credentials政策变更为<code>same-origin</code>Firefox也在61.0b13中改变默认值</li>
+</ul>
+</blockquote>
+<p>因为Promise不会被标记为reject，不能使用<code>.catch()</code>来检测请求是否成功（例如响应状态码是404或500）。</p>
+<h1 id="检测请求是否成功的方法"><a href="#检测请求是否成功的方法" class="headerlink" title="检测请求是否成功的方法"></a>检测请求是否成功的方法</h1><p>如果遇到网络故障，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch" target="_blank" rel="noopener"><code>fetch()</code></a> promise 将会 reject，带上一个 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypeError" target="_blank" rel="noopener"><code>TypeError</code></a> 对象。虽然这个情况经常是遇到了权限问题或类似问题——比如 404 不是一个网络故障。想要精确的判断 <code>fetch()</code> 是否成功，需要包含 promise resolved 的情况，此时再判断 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Response/ok" target="_blank" rel="noopener"><code>Response.ok</code></a> 是不是为 true。类似以下代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">'flowers.jpg'</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(response.ok) &#123;</span><br><span class="line">    <span class="keyword">return</span> response.blob();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Network response was not ok.'</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">myBlob</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">var</span> objectURL = URL.createObjectURL(myBlob); </span><br><span class="line">  myImage.src = objectURL; </span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'There has been a problem with your fetch operation: '</span>, error.message);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -398,9 +399,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Blog/" rel="tag"># Blog</a>
+            <a href="/tags/Web/" rel="tag"># Web</a>
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -413,15 +414,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/20/Stanford-ML-Note/" rel="next" title="Stanford ML Note">
+                <i class="fa fa-chevron-left"></i> Stanford ML Note
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/17/阿里云ECS-Hexo搭建个人博客/" rel="prev" title="阿里云ECS+Hexo搭建个人博客">
-                阿里云ECS+Hexo搭建个人博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -555,7 +556,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检测请求是否成功的方法"><span class="nav-number">2.</span> <span class="nav-text">检测请求是否成功的方法</span></a></li></ol></div>
             
 
           </div>
