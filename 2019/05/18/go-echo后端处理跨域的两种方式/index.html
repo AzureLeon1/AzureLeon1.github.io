@@ -79,16 +79,19 @@
 
 
 
-<meta name="description" content="不曾经历过真正的沧桑，却失守了最后一点少年意气。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Leon&#39;s Blog">
-<meta property="og:url" content="http://www.leonwang.top/categories/Solutions/index.html">
+<meta name="description" content="跨域报错：   跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨">
+<meta property="og:type" content="article">
+<meta property="og:title" content="go echo后端处理跨域的两种方式">
+<meta property="og:url" content="http://www.leonwang.top/2019/05/18/go-echo后端处理跨域的两种方式/index.html">
 <meta property="og:site_name" content="Leon&#39;s Blog">
-<meta property="og:description" content="不曾经历过真正的沧桑，却失守了最后一点少年意气。">
+<meta property="og:description" content="跨域报错：   跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1g34srohm0zj30vy03wjvt.jpg">
+<meta property="og:updated_time" content="2019-05-17T16:55:04.227Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leon&#39;s Blog">
-<meta name="twitter:description" content="不曾经历过真正的沧桑，却失守了最后一点少年意气。">
+<meta name="twitter:title" content="go echo后端处理跨域的两种方式">
+<meta name="twitter:description" content="跨域报错：   跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1g34srohm0zj30vy03wjvt.jpg">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://www.leonwang.top/categories/Solutions/">
+  <link rel="canonical" href="http://www.leonwang.top/2019/05/18/go-echo后端处理跨域的两种方式/">
 
 
 
 
 
-  <title>Category: Solutions | Leon's Blog</title>
+  <title>go echo后端处理跨域的两种方式 | Leon's Blog</title>
   
 
 
@@ -153,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -267,53 +270,153 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Solutions<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2019/05/18/go-echo后端处理跨域的两种方式/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leon Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/12/14/Awesome-Solutions/" itemprop="url">
-              
-                <span itemprop="name">Awesome Solutions</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">go echo后端处理跨域的两种方式</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-14T20:59:16+08:00" content="2018-12-14">
-          12-14
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-18T00:48:13+08:00">
+                2019-05-18
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>跨域报错：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g34srohm0zj30vy03wjvt.jpg" alt="image-20190518005108377"></p>
+<blockquote>
+<p>跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，<code>对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求）</code>，浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨域请求。服务器确认允许之后，才发起实际的 HTTP 请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证（包括 Cookies 和 HTTP 认证相关数据）。</p>
+</blockquote>
+<blockquote>
+<p>根据 CORS 的标准，当浏览器发送跨域请求时，如果请求不是GET或者特定POST（Content-Type只能是 application/x-www-form-urlencoded, multipart/form-data 或 text/plain的一种）时，强烈要求浏览器必须先以 OPTIONS 请求方式发送一个预请求(preflight request)，从而获知服务器端对跨源请求所支持 HTTP 方法。</p>
+</blockquote>
+<p>跨域问题一般需要在后台解决会比较好。</p>
+<p>1.第一种方式当然是接受所有的跨域方式：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setAccessOriginUrl</span><span class="params">(c echo.Context)</span></span> &#123;</span><br><span class="line">	c.Response().Header().Set(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.第二种接受指定地址的跨域请求：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setAccessOriginUrl</span><span class="params">(c echo.Context)</span></span> &#123;</span><br><span class="line">       c.Response().Header().Set(<span class="string">"Access-Control-Allow-Origin"</span>, Conf.Admin.AccessUrl)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/08/Fetch-API-检测请求是否成功/" rel="next" title="Fetch API 检测请求是否成功">
+                <i class="fa fa-chevron-left"></i> Fetch API 检测请求是否成功
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -321,6 +424,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -535,6 +642,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
