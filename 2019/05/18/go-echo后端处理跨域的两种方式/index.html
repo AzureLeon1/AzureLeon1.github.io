@@ -87,7 +87,7 @@
 <meta property="og:description" content="跨域报错：   跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1g34srohm0zj30vy03wjvt.jpg">
-<meta property="og:updated_time" content="2019-05-17T16:55:04.227Z">
+<meta property="og:updated_time" content="2019-05-17T16:59:16.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="go echo后端处理跨域的两种方式">
 <meta name="twitter:description" content="跨域报错：   跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨">
@@ -364,6 +364,7 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setAccessOriginUrl</span><span class="params">(c echo.Context)</span></span> &#123;</span><br><span class="line">	c.Response().Header().Set(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>2.第二种接受指定地址的跨域请求：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setAccessOriginUrl</span><span class="params">(c echo.Context)</span></span> &#123;</span><br><span class="line">       c.Response().Header().Set(<span class="string">"Access-Control-Allow-Origin"</span>, Conf.Admin.AccessUrl)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://ningyu1.github.io/site/post/92-cors-ajax/" target="_blank" rel="noopener">跨域踩坑经验总结（内涵：跨域知识科普）</a></p>
 
       
     </div>
