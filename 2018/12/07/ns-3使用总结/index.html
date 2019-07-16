@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="Leon&#39;s Blog">
 <meta property="og:description" content="ns-3使用及计网实验总结环境搭建 由于ubuntu18.04中删去了可视化工具pyViz依赖的几个python包，所以在ubuntu18.04下无法实现pyViz的可视化。 计网设计实验采用的环境：Ubuntu14.04.5 + ns-3.25  具体搭建过程参照官网installation instruction的wiki即可。   可视化方式 ns-3提供了两种可视化工具：  PyViz：功">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxymojcdawj30vd0u0b29.jpg">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fxymtq1zsbj30ve0u0ts0.jpg">
-<meta property="og:updated_time" content="2018-12-07T16:45:38.735Z">
+<meta property="og:image" content="http://img.cdn.leonwang.top/006tNbRwgy1fxymojcdawj30vd0u0b29.jpg">
+<meta property="og:image" content="http://img.cdn.leonwang.top/006tNbRwgy1fxymtq1zsbj30ve0u0ts0.jpg">
+<meta property="og:updated_time" content="2019-07-16T06:20:03.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ns-3使用及计网实验总结">
 <meta name="twitter:description" content="ns-3使用及计网实验总结环境搭建 由于ubuntu18.04中删去了可视化工具pyViz依赖的几个python包，所以在ubuntu18.04下无法实现pyViz的可视化。 计网设计实验采用的环境：Ubuntu14.04.5 + ns-3.25  具体搭建过程参照官网installation instruction的wiki即可。   可视化方式 ns-3提供了两种可视化工具：  PyViz：功">
-<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fxymojcdawj30vd0u0b29.jpg">
+<meta name="twitter:image" content="http://img.cdn.leonwang.top/006tNbRwgy1fxymojcdawj30vd0u0b29.jpg">
 
 
 
@@ -388,14 +388,14 @@
 <li><p>PyViz：功能较简单，运行时实时显示node和数据传输状态。使用方便，但功能相对单一。使用时需在脚本文件的<code>main()</code>中加入以下两行代码，并在terminal中运行时加入<code>--vis</code> 选项。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CommandLine cmd;</span><br><span class="line">cmd.Parse(argc,argv);</span><br></pre></td></tr></table></figure>
 <p>效果如下（鼠标悬停在结点处可显示结点详细信息）：</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fxymojcdawj30vd0u0b29.jpg" alt="image-20181208000522768"></p>
+<p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxymojcdawj30vd0u0b29.jpg" alt=""></p>
 </li>
 <li><p>NetAnim：一个独立的、基于Qt4的离线动画演示工具，在ns-3仿真过程中生成xml格式的trace文件，仿真结束后NetAnim读取该文件显示网络拓扑和结点间数据分组流等动画过程。</p>
 <p>NetAnim需单独编译。</p>
 <p>使用时需在脚本文件中加入生成xml文件的代码，如：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">AnimationInterface <span class="title">anim</span> <span class="params">(<span class="string">"animation.xml"</span>)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>使用NetAnim加载后效果如下（双击结点可显示结点详细信息）：</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxymtq1zsbj30ve0u0ts0.jpg" alt="image-20181208001030033"></p>
+<p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxymtq1zsbj30ve0u0ts0.jpg" alt=""></p>
 </li>
 </ul>
 </li>
@@ -818,7 +818,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -830,5 +830,5 @@
 
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":true},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":100,"height":200},"mobile":{"show":true},"log":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
