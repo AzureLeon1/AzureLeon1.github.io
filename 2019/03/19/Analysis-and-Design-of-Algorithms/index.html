@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="Date Content     2019.3.19 [L1 : L2]   2019.5.12 [L3 : L7] (outline)    [TOC] L1 绪论 每一步都是明确的 一个问题有不同的算法 一个算法有不同的描述 不同的算法有不同的思想和执行速度  Example：计算最大公约数  欧几里得算法    连续整数检测算法    中学时期的计算方法   算法设计策略：  重要的问">
+<meta name="description" content="Date Content     2019.3.19 [L1 : L2]   2019.5.12 [L3 : L7] (outline)    [TOC] L1 绪论算法的定义：算法是解决问题的一系列明确指令的有穷序列。对于符合一定规范的输入，能够在有限时间内获得要求的输出。 算法的定义2: 算法描述了求解一个可计算问题的计算流程。 算法的特点：输入(&amp;gt;=0个)，输出(&amp;gt;=1个)">
 <meta name="keywords" content="Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Analysis and Design of Algorithms">
 <meta property="og:url" content="http://www.leonwang.top/2019/03/19/Analysis-and-Design-of-Algorithms/index.html">
 <meta property="og:site_name" content="Leon&#39;s Blog">
-<meta property="og:description" content="Date Content     2019.3.19 [L1 : L2]   2019.5.12 [L3 : L7] (outline)    [TOC] L1 绪论 每一步都是明确的 一个问题有不同的算法 一个算法有不同的描述 不同的算法有不同的思想和执行速度  Example：计算最大公约数  欧几里得算法    连续整数检测算法    中学时期的计算方法   算法设计策略：  重要的问">
+<meta property="og:description" content="Date Content     2019.3.19 [L1 : L2]   2019.5.12 [L3 : L7] (outline)    [TOC] L1 绪论算法的定义：算法是解决问题的一系列明确指令的有穷序列。对于符合一定规范的输入，能够在有限时间内获得要求的输出。 算法的定义2: 算法描述了求解一个可计算问题的计算流程。 算法的特点：输入(&amp;gt;=0个)，输出(&amp;gt;=1个)">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g182uv5x15j30js080t9f.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g182vbzz6bj30hs0bbgmc.jpg">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190624174737692.png">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g1832ruixcj30md0fzdhi.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g1835v7zm1j30lq0g2ab9.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g186wwbh0bj30lr08cdgb.jpg">
@@ -96,20 +97,44 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g1875wwbvhj30bq022dfo.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g1882q7xrwj30nw0ev0u3.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1g18842zv0bj30px0a8gmi.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g1885lrajxj30ci01m0sq.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1g1886j0kmoj30pd0f2gns.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g189socljjj30nm0gf765.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g189wfq3irj30k302x74f.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1g18aenp8gkj30rf09igmi.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g18alg6z57j31340ac3zh.jpg">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190624204726135.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190624213812371.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190624213828340.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190624214000246.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190624214017677.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625092820854.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625094327936.png">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1g2ybjaucsdj30wc0lqjyl.jpg">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625101110798.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625101332727.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625102641764.png">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1g2yay5whe5j319w0r2grz.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1g2ybv20ac2j30my09c794.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1g2yd24ccsmj30og062wf8.jpg">
-<meta property="og:updated_time" content="2019-05-12T05:21:55.130Z">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625115557551.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625121722808.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625132118248.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625132156766.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625143750806.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625155332358.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625152306167.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625155252201.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625164946095.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625170849743.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625185745419.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625193156028.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625193653679.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625222440809.png">
+<meta property="og:image" content="http://www.leonwang.top/.top//image-20190625222727500.png">
+<meta property="og:updated_time" content="2019-06-25T15:58:46.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Analysis and Design of Algorithms">
-<meta name="twitter:description" content="Date Content     2019.3.19 [L1 : L2]   2019.5.12 [L3 : L7] (outline)    [TOC] L1 绪论 每一步都是明确的 一个问题有不同的算法 一个算法有不同的描述 不同的算法有不同的思想和执行速度  Example：计算最大公约数  欧几里得算法    连续整数检测算法    中学时期的计算方法   算法设计策略：  重要的问">
+<meta name="twitter:description" content="Date Content     2019.3.19 [L1 : L2]   2019.5.12 [L3 : L7] (outline)    [TOC] L1 绪论算法的定义：算法是解决问题的一系列明确指令的有穷序列。对于符合一定规范的输入，能够在有限时间内获得要求的输出。 算法的定义2: 算法描述了求解一个可计算问题的计算流程。 算法的特点：输入(&amp;gt;=0个)，输出(&amp;gt;=1个)">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1g182uv5x15j30js080t9f.jpg">
 
 
@@ -411,25 +436,95 @@
 </tbody>
 </table>
 <p>[TOC]</p>
-<h2 id="L1-绪论"><a href="#L1-绪论" class="headerlink" title="L1 绪论"></a>L1 绪论</h2><ul>
+<h2 id="L1-绪论"><a href="#L1-绪论" class="headerlink" title="L1 绪论"></a>L1 绪论</h2><p>算法的<strong>定义</strong>：算法是解决问题的一系列明确指令的有穷序列。对于符合一定规范的输入，能够在有限时间内获得要求的输出。</p>
+<p>算法的<strong>定义</strong>2: 算法描述了求解一个可计算问题的计算流程。</p>
+<p>算法的<strong>特点</strong>：输入(&gt;=0个)，输出(&gt;=1个)，确定性，有穷性，可行性</p>
+<blockquote>
+<p>确定性：每一步确定，输入的值域确定</p>
+<p>有穷性：指令数有穷，每条指令的执行次数有穷，每条指令的执行时间有穷</p>
+<p>可行性：能被有效地计算执行，步骤足够简单和基础</p>
+</blockquote>
+<p>关于算法的一些点：</p>
+<ul>
 <li>每一步都是明确的</li>
 <li>一个问题有不同的算法</li>
 <li>一个算法有不同的描述</li>
-<li>不同的算法有不同的思想和执行速度</li>
+<li>不同的算法有不同的思路和执行速度</li>
 </ul>
-<p>Example：计算最大公约数</p>
+<p>本课程中关于<strong>伪代码规范</strong>的说明：</p>
+<ol>
+<li>变量的生命不需要写</li>
+<li>使用缩进表示此类语句的范围，如for、if和while</li>
+<li>使用 &lt;- 表示赋值</li>
+</ol>
+<p>例子：计算最大公约数</p>
 <ol>
 <li><p>欧几里得算法</p>
 <p> <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g182uv5x15j30js080t9f.jpg" alt="image-20190319141615649"></p>
 </li>
 <li><p>连续整数检测算法</p>
+<p> 把m，n中小的一个数作为起点t，尝试用两个数去除，如果除不尽，t-1</p>
+<p> 两层if嵌套</p>
 <p> <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g182vbzz6bj30hs0bbgmc.jpg" alt="image-20190319141642253"></p>
 </li>
 <li><p>中学时期的计算方法</p>
+<p> 找到m所有的质因数</p>
+<p> 找到n所有的质因数</p>
+<p> 找到所有的公因数，注意如果出现多次，需要重复</p>
+<p> 计算乘积，返回结果</p>
 </li>
 </ol>
+<p><strong>算法 和 程序 的比较</strong>：</p>
+<ul>
+<li><p>相似点：</p>
+<ul>
+<li>指令的有穷序列</li>
+</ul>
+</li>
+<li><p>不同点：</p>
+<ul>
+<li><p>表现形式:</p>
+<p>  算法——自然语言，伪码，流程图</p>
+<p>  程序——用某些特定编程语言编码，可以由一些特定机器执行</p>
+</li>
+<li><p>执行：</p>
+<p>  算法——有限步骤</p>
+<p>  程序——可以无限执行</p>
+<blockquote>
+<p> E.G. 操作系统</p>
+<p>不是算法，而是无限执行的一个程序</p>
+<p>每一个任务都可以根据特定的算法被看成子程序</p>
+</blockquote>
+</li>
+<li><p>确定性</p>
+<p>  算法——逐步解决问题的大纲或流程图</p>
+<p>  程序——基于算法的问题解决方案的编码实现</p>
+</li>
+</ul>
+</li>
+<li><p>算法+数据结构=程序</p>
+</li>
+</ul>
+<p>算法设计与分析的过程：</p>
+<blockquote>
+<p>先设计后分析，分析的是算法的效率等，不是分析问题</p>
+</blockquote>
+<p><img src="/.top//image-20190624174737692.png" alt="image-20190624174737692"></p>
 <p>算法设计策略：</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1832ruixcj30md0fzdhi.jpg" alt="image-20190319142350864"></p>
+<p><strong>如何分析算法效率</strong>：</p>
+<ul>
+<li>现在的算法有多好？<ul>
+<li>时间效率</li>
+<li>空间效率</li>
+</ul>
+</li>
+<li>是否还有更好的算法？<ul>
+<li>下界</li>
+<li>最优性</li>
+</ul>
+</li>
+</ul>
 <p>重要的问题类型：</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1835v7zm1j30lq0g2ab9.jpg" alt="image-20190319142649416"></p>
 <h2 id="L2-算法效率分析基础"><a href="#L2-算法效率分析基础" class="headerlink" title="L2 算法效率分析基础"></a>L2 算法效率分析基础</h2><p>本章重点：</p>
@@ -475,6 +570,13 @@
 <p>  Tbest(n)   Tworst(n)   Tavg(n)</p>
 </li>
 </ul>
+<p>例子：顺序查找：求平均效率时，自己假设搜索成功的概率是p</p>
+<p>最优/最差 -&gt; 基本操作的执行次数C(n)最小/最大</p>
+<p><strong>平均效率，指的是随机情况，不是最好和最坏的平均</strong><br>$$<br>T_{a v g}(N)=\sum_{I \in D_{N}} P(I) T(N, I)=\sum_{I \in D_{N}} P(I) \sum_{i=1}^{k} t_{i} e_{i}(N, I)<br>$$</p>
+<blockquote>
+<p>I 是指输入的类型，不同的类型有不同的概率</p>
+<p>比如顺序搜索问题中，分为 可查找成功的输入 和 会查找失败的输入</p>
+</blockquote>
 <h3 id="渐进符号和基本效率类型"><a href="#渐进符号和基本效率类型" class="headerlink" title="渐进符号和基本效率类型"></a>渐进符号和基本效率类型</h3><p>为了对增长次数进行比较和归类</p>
 <ul>
 <li><p>渐进复杂度</p>
@@ -482,9 +584,7 @@
 </li>
 <li><p>渐进符号</p>
 <p>  <strong>定义</strong>：</p>
-<p>  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g18842zv0bj30px0a8gmi.jpg" alt="image-20190319171807101"></p>
-<p>  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1885lrajxj30ci01m0sq.jpg" alt="image-20190319171934409"></p>
-<p>  &lt;=和&gt;=去掉等号，渐进符号用对应的小写字母表示：</p>
+<p>  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g18842zv0bj30px0a8gmi.jpg" alt="image-20190319171807101"><br>$$<br>  \Theta(g(n))=O(g(n)) \cap \Omega(g(n))<br>$$<br>  &lt;=和&gt;=去掉等号，渐进符号用对应的小写字母表示：</p>
 <p>  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1886j0kmoj30pd0f2gns.jpg" alt="image-20190319172028100"></p>
 <p>  一些<strong>性质</strong>：</p>
 <p>  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g189socljjj30nm0gf765.jpg" alt="image-20190319181620976"></p>
@@ -499,7 +599,7 @@
 <ol>
 <li>计算极限（注意运用洛必达和史特林）</li>
 <li>利用性质</li>
-<li>利用定义</li>
+<li>利用$O, \Omega, \theta$ 的定义</li>
 </ol>
 </li>
 </ul>
@@ -507,8 +607,8 @@
 <ol>
 <li>决定用哪个（哪些）参数表示<strong>输入规模</strong>。</li>
 <li>找出算法的<strong>基本操作</strong>（作为一个规律，它总是位于算法的最内层循环中）。</li>
-<li><strong>检查</strong>基本操作的执行次数是否只依赖于输入规模。如果它还依赖于一些其他的特性，则最差效率、平均效率以及最优效率（如有必要）需要分别研究。</li>
-<li>建立一个算法基本操作执行次数的<strong>求和表达式</strong>。</li>
+<li><strong>检查</strong>基本操作的执行次数<strong>是否</strong>只依赖于输入规模。如果它还依赖于一些其他的特性，则最差效率、平均效率以及最优效率（如有必要）<strong>需要分别研究</strong>。</li>
+<li>建立一个算法基本操作执行次数C(n)的<strong>求和表达式</strong>。</li>
 <li>利用求和运算的标准公式和法则来建立一个操作次数的闭合公式，或者至少确定它的<strong>增长次数</strong>。</li>
 </ol>
 <p><em>（附录A：求和公式和法则）</em></p>
@@ -519,15 +619,18 @@
 </li>
 <li><p>元素唯一性问题</p>
 <ul>
-<li>两重循环算法：theta (n^2)</li>
-<li>先排序后比较算法：theta (nlogn)</li>
+<li>两重循环算法：$C_{\text {worst}}(n)\in\Theta\left(n^{2}\right)$</li>
+<li>先排序后比较算法：$\Theta(n \log n)$</li>
 </ul>
 </li>
 <li><p>n阶矩阵乘法</p>
 <p> O(n^3)</p>
 </li>
 <li><p>求十进制整数在二进制表示中二进制数字的个数</p>
-<p> 约是 log2(n)</p>
+<p> 约是 $\log _{2} n$</p>
+<blockquote>
+<p>循环变量以不同的方式变化（循环变量在循环体内改变），换一种研究方式</p>
+</blockquote>
 </li>
 </ol>
 <h3 id="递归算法的数学分析"><a href="#递归算法的数学分析" class="headerlink" title="递归算法的数学分析"></a>递归算法的数学分析</h3><p>通用方案：</p>
@@ -541,30 +644,129 @@
 <p><em>（附录B：求解递推关系的方法。前向替代、反向替代、二阶常系数线性递推式）</em></p>
 <p>例：</p>
 <ol>
-<li>阶乘 theta (n)</li>
-<li>汉诺塔 theta (2^n)</li>
-<li>求十进制整数在二进制表示中二进制数字的个数 theta (logn)</li>
-<li>斐波那契数列</li>
+<li><p>阶乘 theta (n)</p>
+</li>
+<li><p>汉诺塔 theta (2^n)</p>
+</li>
+<li><p>求十进制整数在二进制表示中二进制数字的个数 theta (logn)</p>
+<p> 技巧：let $n=2^{k}$</p>
+<p> <img src="/.top//image-20190624204726135.png" alt="image-20190624204726135"></p>
+</li>
+<li><p>斐波那契数列</p>
+</li>
 </ol>
-<h2 id="L3-蛮力法"><a href="#L3-蛮力法" class="headerlink" title="L3 蛮力法"></a>L3 蛮力法</h2><h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><h3 id="蛮力字符串匹配"><a href="#蛮力字符串匹配" class="headerlink" title="蛮力字符串匹配"></a><del>蛮力字符串匹配</del></h3><h3 id="最近对"><a href="#最近对" class="headerlink" title="最近对"></a><del>最近对</del></h3><h3 id="蛮力多项式求值"><a href="#蛮力多项式求值" class="headerlink" title="蛮力多项式求值"></a><del>蛮力多项式求值</del></h3><h3 id="穷举查找"><a href="#穷举查找" class="headerlink" title="穷举查找"></a>穷举查找</h3><ol>
-<li>旅行商问题</li>
-<li>背包问题</li>
-<li>分配问题</li>
+<h2 id="L3-蛮力法"><a href="#L3-蛮力法" class="headerlink" title="L3 蛮力法"></a>L3 蛮力法</h2><h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p><img src="/.top//image-20190624213812371.png" alt="image-20190624213812371"></p>
+<p><img src="/.top//image-20190624213828340.png" alt="image-20190624213828340"></p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p><img src="/.top//image-20190624214000246.png" alt="image-20190624214000246"></p>
+<p><img src="/.top//image-20190624214017677.png" alt="image-20190624214017677"></p>
+<h3 id="蛮力字符串匹配"><a href="#蛮力字符串匹配" class="headerlink" title="蛮力字符串匹配"></a><del>蛮力字符串匹配</del></h3><h3 id="最近对"><a href="#最近对" class="headerlink" title="最近对"></a><del>最近对</del></h3><h3 id="蛮力多项式求值"><a href="#蛮力多项式求值" class="headerlink" title="蛮力多项式求值"></a><del>蛮力多项式求值</del></h3><h3 id="穷举查找"><a href="#穷举查找" class="headerlink" title="穷举查找"></a>穷举查找</h3><p>通常涉及到组合对象，如组合、排列、子集问题</p>
+<p>许多问题是最优化问题，如路径长度、分配成本</p>
+<p>方法：</p>
+<ol>
+<li>系统地列出所有潜在解决方案</li>
+<li>逐个评估解决方案</li>
+<li>最终得到目标解</li>
 </ol>
-<h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><h3 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h3><h3 id="总结：蛮力法的优点和缺点"><a href="#总结：蛮力法的优点和缺点" class="headerlink" title="总结：蛮力法的优点和缺点"></a>总结：蛮力法的优点和缺点</h3><p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g2ybjaucsdj30wc0lqjyl.jpg" alt="image-20190512101920488"></p>
-<h2 id="L4-递归算法"><a href="#L4-递归算法" class="headerlink" title="L4 递归算法"></a>L4 递归算法</h2><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><ol>
-<li>阶乘</li>
-<li>斐波那契数列</li>
-<li>Ackerman 函数</li>
-<li>汉诺塔</li>
-<li>排列问题</li>
+<p>例子：</p>
+<ol>
+<li><p>旅行商问题</p>
+<p> 确定一个出发城市，旅行一遍所有城市，最后回到出发城市的最短路线</p>
+<p> 思路：加权连通图，寻找最短的哈密顿回路</p>
+<p> 本质：寻找最优化的<strong>排列</strong>问题（排列中一共有n+1个元素，但首尾两个元素是确定的）</p>
+<p> 分析： 排列总数：$(n-1)!$</p>
+</li>
+<li><p>0-1背包问题</p>
+<p> 给定了总空间，每个物品的体积和价值</p>
+<p> 本质：寻找最优化的子集问题（所有物品的子集）</p>
+<p> 分析： n个元素的子集数 $2^n$</p>
+<blockquote>
+<p>背包问题和旅行商问题都是 NP困难 问题</p>
+</blockquote>
+</li>
+<li><p>分配问题</p>
+<p> n个工作分配给n个人，一一对应，最小化成本</p>
+<p> 每一个一个可行方案是一个排列，其中第i个元素表示分给第i个人的工作</p>
+<p> 分析： 排列总数 $n!$</p>
+<p> 对于问题解空间随着实例规模呈指数增长的问题，没有已知的多项式时间解法</p>
+</li>
+</ol>
+<h3 id="深度优先搜索（图）"><a href="#深度优先搜索（图）" class="headerlink" title="深度优先搜索（图）"></a>深度优先搜索（图）</h3><p>使用<strong>栈</strong>来记录</p>
+<p>构造深度优先搜索森林</p>
+<p>算法：（递归）</p>
+<p><img src="/.top//image-20190625092820854.png" alt="image-20190625092820854"></p>
+<p>应用：</p>
+<ul>
+<li><p>检查图形的连接性</p>
+</li>
+<li><p>检查图的非循环性</p>
+</li>
+<li><p>找出有向图的强连通分量（极大强连通子图）</p>
+</li>
+<li><p>找出无向图的关节点</p>
+<blockquote>
+<p>删除顶点V以及V相关的边后，图的一个连通分量分割为两个或两个以上的连通分量</p>
+</blockquote>
+</li>
+<li><p>有向图拓扑排序</p>
+</li>
+<li><p>边的分类</p>
+</li>
+<li><p>验证无向图是否连通</p>
+</li>
+</ul>
+<h3 id="广度优先搜索（图）"><a href="#广度优先搜索（图）" class="headerlink" title="广度优先搜索（图）"></a>广度优先搜索（图）</h3><p><strong>队列</strong></p>
+<p>广度优先搜索森林</p>
+<p>交叉边连接BFS树相同或相邻级别上的顶点</p>
+<p>算法（非递归）：两层循环，while + foreach</p>
+<p><img src="/.top//image-20190625094327936.png" alt="image-20190625094327936"></p>
+<p>应用：</p>
+<ul>
+<li>检查图形的连接性</li>
+<li>检查图的非循环性</li>
+<li>在两个给定顶点之间找到一条边数最少的路径</li>
+</ul>
+<p>BFS 和 DFS 的效率：</p>
+<p>两者效率相同</p>
+<p>邻接矩阵：$\Theta\left(|V|^{2}\right)$</p>
+<p>邻接链表：$\Theta(|V|+|E|)$</p>
+<h3 id="总结：蛮力法的优点和缺点"><a href="#总结：蛮力法的优点和缺点" class="headerlink" title="总结：蛮力法的优点和缺点"></a>总结：蛮力法的优点和缺点</h3><p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1g2ybjaucsdj30wc0lqjyl.jpg" alt="image-20190512101920488"></p>
+<p>简单、适用范围广、对一些重要问题有合理的算法</p>
+<p>效率低、有些问题没有有效的算法、从设计角度缺少建设性</p>
+<h2 id="L4-递归算法"><a href="#L4-递归算法" class="headerlink" title="L4 递归算法"></a>L4 递归算法</h2><p>递归：方法自己调用自己。</p>
+<p>循环都可以改写成递归，递归未必能改写成循环</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><ol>
+<li><p>阶乘</p>
+<p> 初始条件：n=0 -&gt; f(0) = 1 -&gt; C(0)=0<br> $$<br> n !=\left{\begin{array}{cc}{1} &amp; {n=0} \ {n(n-1) !} &amp; {n&gt;0}\end{array}\right.<br> $$</p>
+<p> $$<br> \begin{array}{l}{C(0)=0} \ {C(n)=C(n-1)+1}\end{array}<br> $$</p>
+<p> $$<br> \begin{aligned} C(n) &amp;=C(n-1)+1 \ &amp;=[C(n-2)+1]+1=C(n-2)+2 \ &amp;=[C(n-3)+1]+2=C(n-3)+3 \ &amp; \ldots \ldots \ &amp;=[C(n-n)+1]+n-1=n \end{aligned}<br> $$</p>
+</li>
+<li><p>斐波那契数列<br> $$<br> F(n)=\left{\begin{array}{rl}{1} &amp; {n=0} \ {1} &amp; {n=1} \ {F(n-1)+F(n-2)} &amp; {n&gt;1}\end{array}\right.\<br> \begin{array}{c}{F(n)=\frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^{n}-\frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^{n}} \ {C(n) \in \Theta\left(\phi^{n}\right)}\end{array}<br> $$</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>Ackerman 函数<br> $$<br> \left{\begin{array}{cc}{A(1,0)=2} \ {A(0, m)=1} &amp; {m \geq 0} \ {A(n, 0)=n+2} &amp; {n \geq 2} \ {A(n, m)=A(A(n-1, m), m-1)} &amp; {n, m \geq 1}\end{array}\right.<br> $$</p>
+<p> $$<br> \begin{aligned} \boldsymbol{E} \boldsymbol{g} . &amp; A(0, y)=y+1 \ &amp; A(1, y)=y+2 \ A(2, y) &amp;=2 y+3 \ A(3, y) &amp;=2^{y+3}-3 \ A(4, y) &amp;=\frac{2^{2}}{y+3}-3 \end{aligned}<br> $$</p>
+</li>
+<li><p><strong>汉诺塔</strong></p>
+<p> <img src="/.top//image-20190625101110798.png" alt="image-20190625101110798"></p>
+<p> 基本操作：moving one disk<br> $$<br> \begin{array}{l}{C(1)=1} \ {C(n)=2 C(n-1)+1=2^{n}-1} \ {C(n) \in \Theta\left(2^{n}\right)}\end{array}<br> $$<br> <img src="/.top//image-20190625101332727.png" alt="image-20190625101332727"></p>
+</li>
+<li><p>排列问题</p>
+</li>
 </ol>
 <h3 id="重要的递推类型（附录B-3）"><a href="#重要的递推类型（附录B-3）" class="headerlink" title="重要的递推类型（附录B.3）"></a>重要的递推类型（附录B.3）</h3><ol>
-<li>减一法</li>
-<li>减常因子</li>
-<li>主定理</li>
+<li><p>减一法（属于减治法）<br> $$<br> T(n)=T(n-1)+f(n)<br> $$<br> $f(n)$是把问题规模减一后花费的时间</p>
+</li>
+<li><p>减常因子（也是减治法）<br> $$<br> T(n)=T(n / b)+f(n)<br> $$</p>
+<p> ​            例：折半查找、用平方求幂、俄式乘法、假币问题</p>
+<p> 推广：（分治法的递推式）    </p>
+<p> $$<br> T(n)=a T(n / b)+f(n)<br> $$<br> 上式适合<strong>主定理</strong></p>
+<p> <img src="/.top//image-20190625102641764.png" alt="image-20190625102641764"></p>
+</li>
 </ol>
-<h2 id="L5-分治法"><a href="#L5-分治法" class="headerlink" title="L5 分治法"></a>L5 分治法</h2><p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g2yay5whe5j319w0r2grz.jpg" alt="分治法"></p>
+<h2 id="L5-分治法"><a href="#L5-分治法" class="headerlink" title="L5 分治法"></a>L5 分治法</h2><p>分析时，可以直接用主定理</p>
+<p>也可以用递归算法中递推公式求C(n)，但是需要首先另 n=b^k，然后再换回来</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1g2yay5whe5j319w0r2grz.jpg" alt="分治法"></p>
 <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ol>
 <li><p>概念</p>
 <ul>
@@ -576,11 +778,15 @@
 </li>
 </ul>
 </li>
-<li><p>步骤</p>
+<li><p><strong>步骤</strong></p>
 <ol>
 <li>Divide</li>
 <li>Conquer</li>
-<li>Combine</li>
+<li><p>Combine</p>
+<blockquote>
+<p>具体到下面的四个问题：具体的三个步骤</p>
+</blockquote>
+</li>
 </ol>
 </li>
 <li><p>算法</p>
@@ -588,21 +794,107 @@
 </li>
 <li><p>算法分析</p>
 <p> <img src="https://ws4.sinaimg.cn/large/006tNc79ly1g2yd24ccsmj30og062wf8.jpg" alt="image-20190512103310623"></p>
+<p> 要求：$n=b^{k}$</p>
+<blockquote>
+<p>如果不满足这个要求，需要用平滑定理，不考</p>
+</blockquote>
 </li>
 </ol>
 <blockquote>
 <p>注意主定理的使用</p>
 </blockquote>
-<h3 id="大整数乘法"><a href="#大整数乘法" class="headerlink" title="大整数乘法"></a>大整数乘法</h3><ul>
-<li>第一种分治算法</li>
-<li>第二种分治算法</li>
+<h3 id="大整数乘法"><a href="#大整数乘法" class="headerlink" title="大整数乘法"></a>大整数乘法</h3><p>蛮力：$n^2$</p>
+<ul>
+<li><p>第一种分治算法</p>
+</li>
+<li><p><img src="/.top//image-20190625115557551.png" alt="image-20190625115557551"></p>
+<p>  基本操作：一位乘<br>  $$<br>  T(n)=\left{\begin{array}{cl}{O(1)} &amp; {n=1} \ {4 T(n / 2)+O(n)} &amp; {n&gt;1}\end{array}\right.<br>  $$</p>
+<p>  $$<br>  T(n)=O\left(n^{2}\right)<br>  $$</p>
+<p>  相比于蛮力，没有提升</p>
+<p>  求C(n)的方法：1. 递推公式 2. 直接用主定理</p>
+</li>
+<li><p>第二种分治算法（相当于对第一种分治进一步优化）</p>
+<p>  上面的方法需要4次$(n/2)$规模的的乘法，可以再减到3次</p>
+<p>  把中间的 (AD+BC)拆开<br>  $$<br>  (A D+B C)=(A+B) <em>(C+D)-A^{</em>} C-B^{*} D<br>  $$</p>
+<p>  $$<br>  T(n)=\left{\begin{array}{cc}{O(1)} &amp; {n=1} \ {3 T(n / 2)+O(n)} &amp; {n&gt;1}\end{array}\right.<br>  $$</p>
+<p>  $$<br>  T(n)=O\left(n^{\log 2^{3}}\right) \approx O\left(n^{1.585}\right)<br>  $$</p>
+<p>  一般认为$O\left(n^{\log ^{3}}\right) $即可，比蛮力好</p>
+<blockquote>
+<p>最终的，这个思想导致了快速傅利叶变换(Fast Fourier Transform)的产生。 该方法也可以看作是一个复杂的分治算法。</p>
+</blockquote>
+</li>
 </ul>
-<h3 id="Strassen-矩阵乘法"><a href="#Strassen-矩阵乘法" class="headerlink" title="Strassen 矩阵乘法"></a>Strassen 矩阵乘法</h3><h3 id="二分查找（折半查找）"><a href="#二分查找（折半查找）" class="headerlink" title="二分查找（折半查找）"></a>二分查找（折半查找）</h3><h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><h3 id="棋盘覆盖"><a href="#棋盘覆盖" class="headerlink" title="棋盘覆盖"></a><del>棋盘覆盖</del></h3><h3 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h3><h2 id="L6-减治法"><a href="#L6-减治法" class="headerlink" title="L6 减治法"></a>L6 减治法</h2><h3 id="三种变体"><a href="#三种变体" class="headerlink" title="三种变体"></a>三种变体</h3><ol>
-<li>Decrease by a constant</li>
-<li>Decrease by a constant factor (by half)</li>
-<li>Variable-size decrease</li>
+<h3 id="Strassen-矩阵乘法"><a href="#Strassen-矩阵乘法" class="headerlink" title="Strassen 矩阵乘法"></a>Strassen 矩阵乘法</h3><p>蛮力：n^3</p>
+<ul>
+<li><p>第一种分治<br>  $$<br>  \left[\begin{array}{ll}{C_{11}} &amp; {C_{12}} \ {C_{21}} &amp; {C_{22}}\end{array}\right]=\left[\begin{array}{ll}{A_{11}} &amp; {A_{12}} \ {A_{21}} &amp; {A_{22}}\end{array}\right]\left[\begin{array}{ll}{B_{11}} &amp; {B_{12}} \ {B_{21}} &amp; {B_{22}}\end{array}\right]\<br>  =\left[\begin{array}{ll}{A_{11} B_{11}+A_{12} B_{21}} &amp; {A_{11} B_{12}+A_{12} B_{22}} \ {A_{21} B_{11}+A_{22} B_{21}} &amp; {A_{21} B_{12}+A_{22} B_{22}}\end{array}\right]<br>  $$</p>
+<p>  $$<br>  T(n)=\left{\begin{array}{cc}{O(1)} &amp; {n=1} \ {8 T(n / 2)+O\left(n^{2}\right)} &amp; {n&gt;1}\end{array}\right.<br>  $$</p>
+<p>  $$<br>  T(n)=O\left(n^{3}\right)<br>  $$</p>
+<p>  相比蛮力，没有提升</p>
+</li>
+<li><p>第二种分治（对第一种分治的优化）</p>
+<p>  减少$(n/2)$规模矩阵乘法的次数，8次变成7次</p>
+<p>  <img src="/.top//image-20190625121722808.png" alt="image-20190625121722808"><br>  $$<br>  \begin{array}{l}{T(n)=7 T(n / 2)} \ {T(1)=1}\end{array}<br>  $$</p>
+<p>  $$<br>  T(n)=n^{\log _{2} 7} \approx n^{2.807}<br>  $$</p>
+<p>  比蛮力好</p>
+</li>
+</ul>
+<h3 id="二分查找（折半查找）"><a href="#二分查找（折半查找）" class="headerlink" title="二分查找（折半查找）"></a>二分查找（折半查找）</h3><p>首先要求有序</p>
+<p>迭代形式：</p>
+<p><img src="/.top//image-20190625132118248.png" alt="image-20190625132118248"></p>
+<p>递归形式：</p>
+<p><img src="/.top//image-20190625132156766.png" alt="image-20190625132156766"></p>
+<p>找到/找不到 -&gt; 最好、最坏、平均</p>
+<p>最坏：<br>$$<br>\begin{array}{l}{C_{w}(n)=C_{w}(\lfloor n / 2\rfloor)+1} \ {C_{w}(1)=1}\end{array}<br>$$</p>
+<p>$$<br>C_{w}(n)=\Theta(\log n)<br>$$</p>
+<p>最好：<br>$$<br>c_{b}(n)=1<br>$$<br>平均：</p>
+<p>以二叉搜索树的角度分析，k层，一共$n=2^{k}-1$个元素<br>$$<br>A(n)=\frac{1}{n} \sum_{i=1}^{k} i 2^{i-1} \approx \log (n+1)-1<br>$$<br>按层计算，第 i 层元素需要的比较次数时 i 次，第 i 层一共$2^(i-1)$个元素，最后求和平均</p>
+<p>思考：变三分？变四分？是否越多越好？</p>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>先分后合</p>
+<p>分到每个数组只有一个元素</p>
+<p>合并时需要三个指针<br>$$<br>C(n)=\Theta(n \log n)<br>$$</p>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>划分位pivot的选取：</p>
+<ol>
+<li>随机选取</li>
+<li>最简单的策略：选择第一个元素</li>
 </ol>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><h3 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h3><ol>
+<p>方法：</p>
+<ol>
+<li><p>单向扫描</p>
+</li>
+<li><p>双向扫描</p>
+<p> 双向扫描最后是把pivot元素与j指针指向的元素交换位置</p>
+<p> 最后i，j可能交叉了，可能在一个位置</p>
+</li>
+</ol>
+<p>划分位选的好不好 -&gt; 最优、最坏</p>
+<p>最好的情况$\Theta(n \log n)$：是pivot把问题分成了两个规模相同的子问题<br>$$<br>\begin{array}{l}{c_{b}(n)=2 C_{b}(n / 2)+\Theta(n)} \ {c_{b}(1)=0}\end{array}<br>$$<br>最坏的情况$\theta\left(n^{2}\right)$：递归从减常因子退化成了减一<br>$$<br>C_{m}(n)=C_{w}(n-1)+\Theta(n)<br>$$<br>平均：$O(n \log n)$</p>
+<p>改进：pivot采用随机选取</p>
+<h3 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h3><h2 id="L6-减治法"><a href="#L6-减治法" class="headerlink" title="L6 减治法"></a>L6 减治法</h2><h3 id="三种变体"><a href="#三种变体" class="headerlink" title="三种变体"></a>三种变体</h3><ol>
+<li><p>减常量（一般是1）</p>
+<p> 例：求阶乘</p>
+<p> 与蛮力法不是对立的</p>
+</li>
+<li><p>减常因子</p>
+<p> 例：用平方求幂</p>
+<p> 与分治法不是完全对立的</p>
+</li>
+<li><p>减变量</p>
+<p> 例：欧几里得算法求最大公因数</p>
+</li>
+</ol>
+<h3 id="减常量法"><a href="#减常量法" class="headerlink" title="减常量法"></a>减常量法</h3><p>本章主要对第一类减治法，即减常量法/减一法，进行了讲解</p>
+<h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><p>三种方式：</p>
+<ol>
+<li>从左向右扫描，找到位置插入</li>
+<li>从右向左扫描，找到位置插入</li>
+<li>进行折半查找，找到位置插入</li>
+</ol>
+<p>迭代实现（从右向左扫描插入）：</p>
+<p><img src="/.top//image-20190625143750806.png" alt="image-20190625143750806"></p>
+<p>最坏：$C_{\text {worst}}(n)=\sum_{i=1}^{n-1} \sum_{j=0}^{i-1} 1=\sum_{i=1}^{n-1} i=\frac{(n-1) n}{2} \in \theta\left(n^{2}\right)$</p>
+<p>最好：$C_{b e s t}(n)=\sum_{i=1}^{n-1} 1=n-1 \in \theta(n)$</p>
+<p>平均：$C_{a v g}(n) \approx \frac{n^{2}}{4} \in \theta\left(n^{2}\right)$</p>
+<h4 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h4><ol>
 <li>深度优先搜索<ul>
 <li>回溯法</li>
 </ul>
@@ -618,64 +910,267 @@
 <li>回溯法</li>
 <li>分治限界法</li>
 </ol>
-<h3 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h3><p>方法：</p>
+<h5 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h5><p>方法：</p>
 <ol>
 <li>基于DFS算法</li>
 <li>移除源节点法</li>
 </ol>
-<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><ul>
-<li>搜索算法</li>
-<li>搜索空间的三种表示</li>
-<li>搜索效率的思考：随即搜索</li>
-<li><strong>回溯法</strong><ul>
-<li>方法概述</li>
-<li>解空间和解空间树</li>
-<li>基本思想</li>
-<li>基本步骤</li>
-<li>常见解空间树</li>
-<li>举例：背包问题，TSP问题</li>
-<li>剪枝函数</li>
-<li>时空效率分析</li>
+<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><ul>
+<li><p>搜索算法</p>
+</li>
+<li><p>搜索空间的三种表示</p>
+</li>
+<li><p>搜索效率的思考：随即搜索</p>
+</li>
+<li><p><strong>回溯法</strong></p>
+<ul>
+<li><p>系统性+跳跃性</p>
+</li>
+<li><p>方法概述</p>
+</li>
+<li><p>解空间和解空间树</p>
+</li>
+<li><p>基本思想</p>
+</li>
+<li><p><strong>基本步骤</strong></p>
+<p>  定义解空间树后深搜，及时剪枝，直至完成全部搜索</p>
+<p>  <img src="/.top//image-20190625155332358.png" alt="image-20190625155332358"></p>
+</li>
+<li><p>常见解空间树</p>
+<ol>
+<li>子集树 0-1背包问题</li>
+<li>排列树 TSP问题</li>
+</ol>
+</li>
+<li><p>举例：</p>
+<ul>
+<li><p>背包问题</p>
+<ul>
+<li>约束函数即使剪枝</li>
+<li>限界函数可以减去右子树</li>
 </ul>
 </li>
-<li>分支限界法<ul>
-<li>基本思想</li>
-<li>与回溯法的区别</li>
-<li>求解步骤</li>
-<li>常见的分支限界法：队列式，优先队列</li>
-<li>举例：背包问题，TSP问题</li>
+<li><p>TSP问题</p>
+<p>  最坏情况下 $O(n!)$</p>
+<blockquote>
+<p>上述两个问题中，边表示选择，树中节点表示的都是某个状态，而不是某个物品或某个城市</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>剪枝函数</p>
+<ol>
+<li>约束函数 -&gt; 减去不满足约束的子树</li>
+<li>限界函数 -&gt; 减去得不到最优解的子树</li>
+</ol>
+</li>
+<li><p>时空效率分析</p>
+</li>
+</ul>
+</li>
+<li><p>分支限界法</p>
+<ul>
+<li><p>基本思想</p>
+<p>  广度优先或最小耗费/最大效益优先的方式</p>
+</li>
+<li><p>与回溯法的区别</p>
+<p>  <img src="/.top//image-20190625152306167.png" alt="image-20190625152306167"></p>
+</li>
+<li><p><strong>求解步骤</strong></p>
+<p>  定义解空间树后，维护队列直至找到最优解</p>
+<p>  <img src="/.top//image-20190625155252201.png" alt="image-20190625155252201"></p>
+</li>
+<li><p>常见的分支限界法：</p>
+<ul>
+<li><p>队列式（广度优先方式）</p>
+<p>  队列式分支限界法<strong>类似于广度优先</strong>的遍历算法，但<strong>不搜索</strong>以<strong>不可行</strong>结点为根的子树</p>
+</li>
+<li><p>优先队列（最优优先方式）</p>
+<p>  最大堆/最小堆</p>
+</li>
+</ul>
+</li>
+<li><p>举例：背包问题（有上界函数），TSP问题</p>
+</li>
 </ul>
 </li>
 </ul>
 <h2 id="L7-变治法"><a href="#L7-变治法" class="headerlink" title="L7 变治法"></a>L7 变治法</h2><h3 id="三种类型"><a href="#三种类型" class="headerlink" title="三种类型"></a>三种类型</h3><ol>
-<li>实例化简</li>
-<li>改变表现</li>
-<li>问题化简</li>
+<li>实例化简 -&gt; 变成同一个问题的更简单的实例 -&gt; 变简单</li>
+<li>改变表现 -&gt; 变成同一实例的不同表现形式 -&gt; 变形式</li>
+<li>问题转化 -&gt; 变成另一个问题的实例 -&gt; 变问题</li>
 </ol>
-<h3 id="预排序"><a href="#预排序" class="headerlink" title="预排序"></a>预排序</h3><h3 id="高斯消去法"><a href="#高斯消去法" class="headerlink" title="高斯消去法"></a>高斯消去法</h3><p>实例化简</p>
+<h3 id="实例化简"><a href="#实例化简" class="headerlink" title="实例化简"></a>实例化简</h3><h4 id="预排序"><a href="#预排序" class="headerlink" title="预排序"></a>预排序</h4><p>许多问题，先对其进行排序，能够让问题化简</p>
+<p>适用于：</p>
+<ol>
+<li>搜索问题</li>
+<li>求中位数/出现最多的数/…（选择问题）</li>
+<li>元素唯一性</li>
+</ol>
+<h4 id="高斯消去法"><a href="#高斯消去法" class="headerlink" title="高斯消去法"></a>高斯消去法</h4><p>问题：求解有任意系数矩阵的一个n元n个线性方程组成的方程组</p>
+<p>步骤</p>
+<ol>
+<li><p>通过初等变换系数矩阵变换成上三角形式 $\Theta\left(n^{3}\right)$</p>
+<p> <img src="/.top//image-20190625164946095.png" alt="image-20190625164946095"></p>
+<p> 初等变换：交换位置/乘倍数/加减</p>
+</li>
+<li><p>从下向上进行替换，把变量逐个求解出来 $\Theta\left(n^{2}\right)$</p>
+</li>
+</ol>
+<p>避免两个问题：</p>
+<ol>
+<li>避免主元是0</li>
+<li>避免主元太小（趋向于0）</li>
+</ol>
 <p>应用：</p>
 <ul>
 <li>LU 矩阵分解</li>
 <li>计算矩阵的逆</li>
 <li>计算行列式</li>
 </ul>
-<h3 id="堆和堆排序"><a href="#堆和堆排序" class="headerlink" title="堆和堆排序"></a>堆和堆排序</h3><h3 id="霍纳法则"><a href="#霍纳法则" class="headerlink" title="霍纳法则"></a>霍纳法则</h3><p>改变表现</p>
-<h3 id="问题化简"><a href="#问题化简" class="headerlink" title="问题化简"></a>问题化简</h3><ul>
-<li><p>线性规划</p>
+<h4 id="堆和堆排序"><a href="#堆和堆排序" class="headerlink" title="堆和堆排序"></a>堆和堆排序</h4><p>堆适合实现<strong>优先级</strong>队列</p>
+<p>每个元素有一个优先级</p>
+<p>数据结构：<strong>完全二叉树</strong></p>
+<p>上下层节点之间数据大小有要求，同层的左右节点的大小没有要求</p>
+<p>堆的性质：…</p>
+<p>区别层数和高度</p>
+<p><img src="/.top//image-20190625170849743.png" alt="image-20190625170849743"></p>
+<p>构造堆：</p>
+<ol>
+<li><p>自下而上</p>
+<p> 建立完全二叉树，插入，堆化</p>
+<p> 递归的伪代码 分析（基本操作，复杂度）<br> $$<br> C_{\text {worst}}(n)=\sum_{i=0}^{h-1} \sum_{\text { nodest leveli }} 2(h-i)=\sum_{i=0}^{h-1} 2(h-i) 2^{i}=2\left(n-\log _{2}(n+1)\right)<br> $$<br> 属于 O(n)</p>
+</li>
+<li><p>自上而下</p>
+<p> 插入，堆化。此方法插入<strong>一个</strong>结点的效率是<br> $$<br> O\left(\log _{2} n\right)<br> $$</p>
+</li>
+</ol>
+<p>删除根节点$<br>\Theta(\log n)<br>$：不是真的删除，而是与最右叶子节点交换，然后堆化</p>
+<p>堆排序：1. 自下而上构造堆 2. 进行删除根节点操作 </p>
+<p>构造堆是O(n)，删除n-1次根节点需要O(nlogn)，所以总的复杂度是$O\left(n\log _{2} n\right)$</p>
+<p>堆排序比快排慢，和归并排序相当</p>
+<h3 id="改变表现"><a href="#改变表现" class="headerlink" title="改变表现"></a>改变表现</h3><h4 id="霍纳法则"><a href="#霍纳法则" class="headerlink" title="霍纳法则"></a>霍纳法则</h4><p>计算多项式的值</p>
+<p>蛮力方法：大到小/小到大</p>
+<p>霍纳方法：拆开</p>
+<p><img src="/.top//image-20190625185745419.png" alt="image-20190625185745419"></p>
+<h3 id="问题转化"><a href="#问题转化" class="headerlink" title="问题转化"></a>问题转化</h3><p>思路：把问题变成另一个问题</p>
+<h4 id="求最小公倍数"><a href="#求最小公倍数" class="headerlink" title="求最小公倍数"></a>求最小公倍数</h4><p>num1 * num2 / 最大公约数</p>
+<h4 id="三点共线"><a href="#三点共线" class="headerlink" title="三点共线"></a>三点共线</h4><p>几何问题 &lt;=&gt; 判断行列式的符号问题<br>$$<br>\operatorname{det}\left|\begin{array}{lll}{x_{1}} &amp; {y_{1}} &amp; {1} \ {x_{2}} &amp; {y_{2}} &amp; {1} \ {x_{3}} &amp; {y_{3}} &amp; {1}\end{array}\right|=x_{1} y_{2}+x_{2} y_{3}+x_{3} y_{1}-x_{3} y_{2}-x_{2} y_{1}-x_{1} y_{3}<br>$$<br>值是正数 &lt;=&gt; 点3在直线12的左侧</p>
+<h4 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h4><p>最优决策问题 &lt;=&gt; 线性规划问题</p>
 <ul>
-<li><p>投资问题</p>
-</li>
-<li><p>背包问题</p>
-</li>
+<li>方法：单纯形法…</li>
+<li>问题<ul>
+<li>投资问题</li>
+<li>背包问题 连续/离散</li>
 </ul>
 </li>
-<li><p>化简成图的问题（状态空间图）</p>
+</ul>
+<h4 id="化简成图的问题（时空状态图）"><a href="#化简成图的问题（时空状态图）" class="headerlink" title="化简成图的问题（时空状态图）"></a>化简成图的问题（时空状态图）</h4><p>问题的解决方案 &lt;=&gt; 时空状态图中从初始状态结点到目标状态结点的路径</p>
 <ul>
-<li>过河问题</li>
+<li>过河问题（人狼羊菜）</li>
+</ul>
+<h2 id="L8-动态规划"><a href="#L8-动态规划" class="headerlink" title="L8 动态规划"></a>L8 动态规划</h2><h3 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h3><p>求解以<strong>时间</strong>划分<strong>阶段</strong>的动态过程的优过程的<strong>优化</strong>问题</p>
+<p>阶段之间是<strong>相互联系</strong>的</p>
+<p>一些与时间无关的静态规划(如线性规划、非线性规划)，可以人为地引进时间因素，把它视为多阶段决策过程，也可 以用动态规划方法方便地求解。</p>
+<p>最优性原理：求解问题的一个<strong>最优策略序列</strong>的<strong>子策略序列</strong>总是<strong>最优</strong>的，则称该问题满足最优性原理。</p>
+<p>动态规划和分治的比较：</p>
+<p>​        适合不同类型的问题</p>
+<p>​        - 分治法：子问题独立</p>
+<p>​        - 动态规划：子问题重叠</p>
+<p><img src="/.top//image-20190625193156028.png" alt="image-20190625193156028"></p>
+<p>步骤：</p>
+<p><img src="/.top//image-20190625193653679.png" alt="image-20190625193653679"></p>
+<blockquote>
+<p>如果问题只需要最优值，不需要最优解，则第四步可以省略</p>
+</blockquote>
+<p>适合动态规划法的<strong>问题的性质</strong>：</p>
+<ol>
+<li><p>最优子结构（能描述清楚）</p>
+<p> 问题的最优解由子问题的最优解来构造</p>
+<p> 证明问题：反证法</p>
+</li>
+<li><p>重叠子问题</p>
+<p> 子问题之间重叠。如果用递归自顶向下求解，会导致问题重复求解。</p>
+</li>
+</ol>
+<p>Fibonacci问题的形式：</p>
+<ol>
+<li>自顶向下（ 备忘录memory[] ）</li>
+<li>自底向上</li>
+<li>进一步压缩空间</li>
+</ol>
+<p>应用：</p>
+<p>​    计算二项式系数</p>
+<p>​    计算最长公共子序列</p>
+<p>​    计算最短公共超序列</p>
+<p>​    传递闭包的Warshall算法</p>
+<p>​    所有对最短路径的Floyd算法</p>
+<p>​    一些困难的离散优化问题实例：如背包</p>
+<h3 id="求二项式系数"><a href="#求二项式系数" class="headerlink" title="求二项式系数"></a>求二项式系数</h3><p>用二维表<br>$$<br>\begin{aligned} C(n, k) &amp;=C(n-1, k-1)+C(n-1, k), \text { for } n&gt;k&gt;0 \ C(n, 0) &amp;=C(n, n)=1 \end{aligned}<br>$$</p>
+<p>$$<br>A(n, k)\in \theta(n k)<br>$$</p>
+<h3 id="矩阵链相乘"><a href="#矩阵链相乘" class="headerlink" title="矩阵链相乘"></a>矩阵链相乘</h3><p>二维表</p>
+<h3 id="0-1背包问题"><a href="#0-1背包问题" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h3><p>递推表达形式 填表 算法分析 倒过来分析  <del>算法改进不讲</del></p>
+<p>V[n, W]表示对于n个物品，容量W的0-1背包问题的最优解的值<br>$$<br>\begin{array}{c}{V[0, j]=0 \quad \text { for } j \geq 0 ; \qquad V[i, 0]=0 \text { for } i \geq 0} \ {\qquad V(i, j)=\left{\begin{array}{cc}{\max \left{V(i-1, j), V\left(i-1, j-w_{i}\right)+v_{i}\right}} &amp; {j \geq w_{i}} \ {V(i-1, j)} &amp; {0 \leq j&lt;w_{i}}\end{array}\right.}\end{array}<br>$$</p>
+<h3 id="多阶段决策问题"><a href="#多阶段决策问题" class="headerlink" title="多阶段决策问题"></a>多阶段决策问题</h3><p>向前 代价的递推关系式和初始关系式 结果 解</p>
+<p>向后 </p>
+<p>求最优决策序列</p>
+<p>多段图问题：求s到t的最小成本路径</p>
+<h3 id="最短路径问题"><a href="#最短路径问题" class="headerlink" title="最短路径问题"></a>最短路径问题</h3><p>warshall算法 邻接矩阵 <strong>传递闭包（写中间过程）</strong> <strong>能写算法</strong></p>
+<p>floyd算法 权重/距离矩阵 和上个算法相似 也要写求解过程</p>
+<h2 id="L9-贪心"><a href="#L9-贪心" class="headerlink" title="L9 贪心"></a>L9 贪心</h2><p>找零问题</p>
+<p>局部最优-&gt; 全局最优</p>
+<p>每一步的选择：</p>
+<ol>
+<li>可行性</li>
+<li>局部最优解</li>
+<li>不可撤回</li>
+</ol>
+<p>可以通过贪心获得<strong>最优</strong>解的问题：</p>
+<ol>
+<li>一部分找零问题</li>
+<li>最小生成树问题</li>
+<li>单源最短路径问题</li>
+<li>哈夫曼编码</li>
+</ol>
+<p>可以通过贪心获得<strong>近似</strong>解的问题：</p>
+<ol>
+<li>TSP问题</li>
+<li>背包问题</li>
+<li>其他最优化问题</li>
+</ol>
+<p>活动安排（了解）</p>
+<p>贪心算法的基本要素：</p>
+<ul>
+<li>贪心选择性质——证明每一步的贪心选择最终导致整体最优解</li>
+<li>最优子结构性质</li>
+</ul>
+<p>动态规划和贪心的异同</p>
+<p><img src="/.top//image-20190625222440809.png" alt="image-20190625222440809"></p>
+<p><img src="/.top//image-20190625222727500.png" alt="image-20190625222727500"></p>
+<p>贪心问题的特征：解是<strong>子集</strong></p>
+<p>贪心方法：要根据某种度量标准进行排序</p>
+<p>贪心也要最优子结构</p>
+<ul>
+<li><p>背包</p>
+<p>  贪心不能求0-1背包的最优解</p>
+<p>  效率：主要是排序，上界是$nlogn$</p>
+</li>
+<li><p>单源最短路径</p>
+<ul>
+<li>Dijkstra <strong>填表</strong></li>
+</ul>
+</li>
+<li><p>最小生成树</p>
+<ul>
+<li>prim 填表 画树<ul>
+<li>和Dijkstra的比较</li>
+</ul>
+</li>
+<li>kruskal 填表 画树</li>
 </ul>
 </li>
 </ul>
-<h2 id="L8-动态规划"><a href="#L8-动态规划" class="headerlink" title="L8 动态规划"></a>L8 动态规划</h2><h2 id="L9-贪心"><a href="#L9-贪心" class="headerlink" title="L9 贪心"></a>L9 贪心</h2>
+
       
     </div>
     
@@ -796,7 +1291,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -818,7 +1313,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -851,7 +1346,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#L1-绪论"><span class="nav-number">1.</span> <span class="nav-text">L1 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L2-算法效率分析基础"><span class="nav-number">2.</span> <span class="nav-text">L2 算法效率分析基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析框架"><span class="nav-number">2.1.</span> <span class="nav-text">分析框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进符号和基本效率类型"><span class="nav-number">2.2.</span> <span class="nav-text">渐进符号和基本效率类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非递归算法的数学分析"><span class="nav-number">2.3.</span> <span class="nav-text">非递归算法的数学分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归算法的数学分析"><span class="nav-number">2.4.</span> <span class="nav-text">递归算法的数学分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L3-蛮力法"><span class="nav-number">3.</span> <span class="nav-text">L3 蛮力法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序"><span class="nav-number">3.1.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">3.2.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛮力字符串匹配"><span class="nav-number">3.3.</span> <span class="nav-text">蛮力字符串匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最近对"><span class="nav-number">3.4.</span> <span class="nav-text">最近对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛮力多项式求值"><span class="nav-number">3.5.</span> <span class="nav-text">蛮力多项式求值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#穷举查找"><span class="nav-number">3.6.</span> <span class="nav-text">穷举查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度优先搜索"><span class="nav-number">3.7.</span> <span class="nav-text">深度优先搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先搜索"><span class="nav-number">3.8.</span> <span class="nav-text">广度优先搜索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结：蛮力法的优点和缺点"><span class="nav-number">3.9.</span> <span class="nav-text">总结：蛮力法的优点和缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L4-递归算法"><span class="nav-number">4.</span> <span class="nav-text">L4 递归算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例题"><span class="nav-number">4.1.</span> <span class="nav-text">例题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要的递推类型（附录B-3）"><span class="nav-number">4.2.</span> <span class="nav-text">重要的递推类型（附录B.3）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L5-分治法"><span class="nav-number">5.</span> <span class="nav-text">L5 分治法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">5.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大整数乘法"><span class="nav-number">5.2.</span> <span class="nav-text">大整数乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Strassen-矩阵乘法"><span class="nav-number">5.3.</span> <span class="nav-text">Strassen 矩阵乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找（折半查找）"><span class="nav-number">5.4.</span> <span class="nav-text">二分查找（折半查找）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序"><span class="nav-number">5.5.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">5.6.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#棋盘覆盖"><span class="nav-number">5.7.</span> <span class="nav-text">棋盘覆盖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思考题"><span class="nav-number">5.8.</span> <span class="nav-text">思考题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L6-减治法"><span class="nav-number">6.</span> <span class="nav-text">L6 减治法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种变体"><span class="nav-number">6.1.</span> <span class="nav-text">三种变体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">6.2.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图的遍历"><span class="nav-number">6.3.</span> <span class="nav-text">图的遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拓扑排序"><span class="nav-number">6.4.</span> <span class="nav-text">拓扑排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索"><span class="nav-number">6.5.</span> <span class="nav-text">搜索</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L7-变治法"><span class="nav-number">7.</span> <span class="nav-text">L7 变治法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种类型"><span class="nav-number">7.1.</span> <span class="nav-text">三种类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预排序"><span class="nav-number">7.2.</span> <span class="nav-text">预排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高斯消去法"><span class="nav-number">7.3.</span> <span class="nav-text">高斯消去法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆和堆排序"><span class="nav-number">7.4.</span> <span class="nav-text">堆和堆排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#霍纳法则"><span class="nav-number">7.5.</span> <span class="nav-text">霍纳法则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题化简"><span class="nav-number">7.6.</span> <span class="nav-text">问题化简</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L8-动态规划"><span class="nav-number">8.</span> <span class="nav-text">L8 动态规划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L9-贪心"><span class="nav-number">9.</span> <span class="nav-text">L9 贪心</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#L1-绪论"><span class="nav-number">1.</span> <span class="nav-text">L1 绪论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L2-算法效率分析基础"><span class="nav-number">2.</span> <span class="nav-text">L2 算法效率分析基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析框架"><span class="nav-number">2.1.</span> <span class="nav-text">分析框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐进符号和基本效率类型"><span class="nav-number">2.2.</span> <span class="nav-text">渐进符号和基本效率类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非递归算法的数学分析"><span class="nav-number">2.3.</span> <span class="nav-text">非递归算法的数学分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递归算法的数学分析"><span class="nav-number">2.4.</span> <span class="nav-text">递归算法的数学分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L3-蛮力法"><span class="nav-number">3.</span> <span class="nav-text">L3 蛮力法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序"><span class="nav-number">3.1.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">3.2.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛮力字符串匹配"><span class="nav-number">3.3.</span> <span class="nav-text">蛮力字符串匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最近对"><span class="nav-number">3.4.</span> <span class="nav-text">最近对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蛮力多项式求值"><span class="nav-number">3.5.</span> <span class="nav-text">蛮力多项式求值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#穷举查找"><span class="nav-number">3.6.</span> <span class="nav-text">穷举查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度优先搜索（图）"><span class="nav-number">3.7.</span> <span class="nav-text">深度优先搜索（图）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#广度优先搜索（图）"><span class="nav-number">3.8.</span> <span class="nav-text">广度优先搜索（图）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结：蛮力法的优点和缺点"><span class="nav-number">3.9.</span> <span class="nav-text">总结：蛮力法的优点和缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L4-递归算法"><span class="nav-number">4.</span> <span class="nav-text">L4 递归算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例题"><span class="nav-number">4.1.</span> <span class="nav-text">例题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重要的递推类型（附录B-3）"><span class="nav-number">4.2.</span> <span class="nav-text">重要的递推类型（附录B.3）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L5-分治法"><span class="nav-number">5.</span> <span class="nav-text">L5 分治法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">5.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大整数乘法"><span class="nav-number">5.2.</span> <span class="nav-text">大整数乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Strassen-矩阵乘法"><span class="nav-number">5.3.</span> <span class="nav-text">Strassen 矩阵乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找（折半查找）"><span class="nav-number">5.4.</span> <span class="nav-text">二分查找（折半查找）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序"><span class="nav-number">5.5.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">5.6.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#思考题"><span class="nav-number">5.7.</span> <span class="nav-text">思考题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L6-减治法"><span class="nav-number">6.</span> <span class="nav-text">L6 减治法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种变体"><span class="nav-number">6.1.</span> <span class="nav-text">三种变体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#减常量法"><span class="nav-number">6.2.</span> <span class="nav-text">减常量法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入排序"><span class="nav-number">6.2.1.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图的遍历"><span class="nav-number">6.2.2.</span> <span class="nav-text">图的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#拓扑排序"><span class="nav-number">6.2.2.1.</span> <span class="nav-text">拓扑排序</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#搜索"><span class="nav-number">6.2.3.</span> <span class="nav-text">搜索</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L7-变治法"><span class="nav-number">7.</span> <span class="nav-text">L7 变治法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三种类型"><span class="nav-number">7.1.</span> <span class="nav-text">三种类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化简"><span class="nav-number">7.2.</span> <span class="nav-text">实例化简</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#预排序"><span class="nav-number">7.2.1.</span> <span class="nav-text">预排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高斯消去法"><span class="nav-number">7.2.2.</span> <span class="nav-text">高斯消去法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#堆和堆排序"><span class="nav-number">7.2.3.</span> <span class="nav-text">堆和堆排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变表现"><span class="nav-number">7.3.</span> <span class="nav-text">改变表现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#霍纳法则"><span class="nav-number">7.3.1.</span> <span class="nav-text">霍纳法则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题转化"><span class="nav-number">7.4.</span> <span class="nav-text">问题转化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#求最小公倍数"><span class="nav-number">7.4.1.</span> <span class="nav-text">求最小公倍数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三点共线"><span class="nav-number">7.4.2.</span> <span class="nav-text">三点共线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性规划"><span class="nav-number">7.4.3.</span> <span class="nav-text">线性规划</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#化简成图的问题（时空状态图）"><span class="nav-number">7.4.4.</span> <span class="nav-text">化简成图的问题（时空状态图）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L8-动态规划"><span class="nav-number">8.</span> <span class="nav-text">L8 动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念-1"><span class="nav-number">8.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#求二项式系数"><span class="nav-number">8.2.</span> <span class="nav-text">求二项式系数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵链相乘"><span class="nav-number">8.3.</span> <span class="nav-text">矩阵链相乘</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1背包问题"><span class="nav-number">8.4.</span> <span class="nav-text">0-1背包问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多阶段决策问题"><span class="nav-number">8.5.</span> <span class="nav-text">多阶段决策问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最短路径问题"><span class="nav-number">8.6.</span> <span class="nav-text">最短路径问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L9-贪心"><span class="nav-number">9.</span> <span class="nav-text">L9 贪心</span></a></li></ol></div>
             
 
           </div>
