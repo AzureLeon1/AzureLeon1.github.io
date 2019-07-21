@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="机器学习,">
 
 
 
@@ -79,19 +79,23 @@
 
 
 
-<meta name="description" content="跨域报错：   跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨">
+<meta name="description" content="[TOC] Siamese Network (2-branches network)siamese 网络， 是05年Yann Lecun提出来的。它的特点是它接收两个图片作为输入，而不是一张图片作为输入。    目的：比较两幅图片是否相似（相似度） 输入：两幅图片 输出：一个相似度数值 Siamese &amp;amp; Pseudo-Siamese Siamese Network: 两个神经网络共享权值">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="go echo后端处理跨域的两种方式">
-<meta property="og:url" content="http://www.leonwang.top/2019/05/18/go-echo后端处理跨域的两种方式/index.html">
+<meta property="og:title" content="Siamese Network">
+<meta property="og:url" content="http://www.leonwang.top/2019/07/21/Siamese-Network/index.html">
 <meta property="og:site_name" content="Leon&#39;s Blog">
-<meta property="og:description" content="跨域报错：   跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨">
+<meta property="og:description" content="[TOC] Siamese Network (2-branches network)siamese 网络， 是05年Yann Lecun提出来的。它的特点是它接收两个图片作为输入，而不是一张图片作为输入。    目的：比较两幅图片是否相似（相似度） 输入：两幅图片 输出：一个相似度数值 Siamese &amp;amp; Pseudo-Siamese Siamese Network: 两个神经网络共享权值">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://img.cdn.leonwang.top/image-20190518005108377.png">
-<meta property="og:updated_time" content="2019-06-06T07:01:54.468Z">
+<meta property="og:image" content="http://img.cdn.leonwang.top/sianet.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/decisionnet.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/Xnip2019-07-21_10-39-10.jpg">
+<meta property="og:image" content="http://img.cdn.leonwang.top/Xnip2019-07-21_10-42-34.jpg">
+<meta property="og:updated_time" content="2019-07-21T03:33:36.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="go echo后端处理跨域的两种方式">
-<meta name="twitter:description" content="跨域报错：   跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨">
-<meta name="twitter:image" content="http://img.cdn.leonwang.top/image-20190518005108377.png">
+<meta name="twitter:title" content="Siamese Network">
+<meta name="twitter:description" content="[TOC] Siamese Network (2-branches network)siamese 网络， 是05年Yann Lecun提出来的。它的特点是它接收两个图片作为输入，而不是一张图片作为输入。    目的：比较两幅图片是否相似（相似度） 输入：两幅图片 输出：一个相似度数值 Siamese &amp;amp; Pseudo-Siamese Siamese Network: 两个神经网络共享权值">
+<meta name="twitter:image" content="http://img.cdn.leonwang.top/sianet.png">
 
 
 
@@ -121,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://www.leonwang.top/2019/05/18/go-echo后端处理跨域的两种方式/">
+  <link rel="canonical" href="http://www.leonwang.top/2019/07/21/Siamese-Network/">
 
 
 
 
 
-  <title>go echo后端处理跨域的两种方式 | Leon's Blog</title>
+  <title>Siamese Network | Leon's Blog</title>
   
 
 
@@ -284,7 +288,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2019/05/18/go-echo后端处理跨域的两种方式/">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2019/07/21/Siamese-Network/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leon Wang">
@@ -301,7 +305,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">go echo后端处理跨域的两种方式</h1>
+          <h1 class="post-title" itemprop="name headline">Siamese Network</h1>
         
 
         <div class="post-meta">
@@ -313,8 +317,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-18T00:48:13+08:00">
-                2019-05-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T11:31:50+08:00">
+                2019-07-21
               </time>
             
 
@@ -351,20 +355,50 @@
       
 
       
-        <p>跨域报错：</p>
-<p><img src="http://img.cdn.leonwang.top/image-20190518005108377.png" alt=""></p>
-<blockquote>
-<p>跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，<code>对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求）</code>，浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨域请求。服务器确认允许之后，才发起实际的 HTTP 请求。在预检请求的返回中，服务器端也可以通知客户端，是否需要携带身份凭证（包括 Cookies 和 HTTP 认证相关数据）。</p>
-</blockquote>
-<blockquote>
-<p>根据 CORS 的标准，当浏览器发送跨域请求时，如果请求不是GET或者特定POST（Content-Type只能是 application/x-www-form-urlencoded, multipart/form-data 或 text/plain的一种）时，强烈要求浏览器必须先以 OPTIONS 请求方式发送一个预请求(preflight request)，从而获知服务器端对跨源请求所支持 HTTP 方法。</p>
-</blockquote>
-<p>跨域问题一般需要在后台解决会比较好。</p>
-<p>1.第一种方式当然是接受所有的跨域方式：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setAccessOriginUrl</span><span class="params">(c echo.Context)</span></span> &#123;</span><br><span class="line">	c.Response().Header().Set(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.第二种接受指定地址的跨域请求：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setAccessOriginUrl</span><span class="params">(c echo.Context)</span></span> &#123;</span><br><span class="line">       c.Response().Header().Set(<span class="string">"Access-Control-Allow-Origin"</span>, Conf.Admin.AccessUrl)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://ningyu1.github.io/site/post/92-cors-ajax/" target="_blank" rel="noopener">跨域踩坑经验总结（内涵：跨域知识科普）</a></p>
+        <p>[TOC]</p>
+<h2 id="Siamese-Network-2-branches-network"><a href="#Siamese-Network-2-branches-network" class="headerlink" title="Siamese Network (2-branches network)"></a>Siamese Network (2-branches network)</h2><p>siamese 网络， 是05年Yann Lecun提出来的。它的特点是它接收两个图片作为输入，而不是一张图片作为输入。</p>
+<p><img src="http://img.cdn.leonwang.top/sianet.png" alt=""></p>
+<hr>
+<p><img src="http://img.cdn.leonwang.top/decisionnet.png" alt=""></p>
+<p>目的：比较两幅图片是否相似（相似度）</p>
+<p>输入：两幅图片</p>
+<p>输出：一个相似度数值</p>
+<p><strong>Siamese &amp; Pseudo-Siamese</strong></p>
+<p>Siamese Network: 两个神经网络共享权值，在代码实现的时候，甚至可以是同一个网络，不用实现另外一个，因为权值都一样。</p>
+<p><img src="http://img.cdn.leonwang.top/Xnip2019-07-21_10-39-10.jpg" alt=""></p>
+<p>Pseudo-Siamese Network（伪孪生神经网络）：两边可以是不同的神经网络（如一个是lstm，一个是cnn），也可以是相同类型的神经网络。</p>
+<p><img src="http://img.cdn.leonwang.top/Xnip2019-07-21_10-42-34.jpg" alt=""></p>
+<p><strong>孪生神经网络和伪孪生神经网络分别适用的场景</strong></p>
+<p>孪生神经网络用于处理两个输入<strong>“比较类似”</strong>的情况。伪孪生神经网络适用于处理两个输入<strong>“有一定差别”</strong>的情况。比如，我们要计算两个句子或者词汇的语义相似度，使用siamese network比较适合；如果验证标题与正文的描述是否一致（标题和正文长度差别很大），或者文字是否描述了一幅图片（一个是图片，一个是文字），就应该使用pseudo-siamese network。也就是说，要根据具体的应用，判断应该使用哪一种结构，哪一种Loss。</p>
+<p><strong>Siamese network的用途</strong></p>
+<p>应用领域很多，nlp&amp;cv领域都有很多应用。</p>
+<ul>
+<li>词汇的语义相似度分析，QA中question和answer的匹配，签名/人脸验证。</li>
+<li>手写体识别（已有github代码）。</li>
+<li>kaggle上Quora的question pair的比赛，即判断两个提问是不是同一问题，冠军队伍用的就是n多特征+Siamese network。</li>
+<li>在图像上，基于Siamese网络的视觉跟踪算法也已经成为热点《<a href="https://link.springer.com/chapter/10.1007/978-3-319-48881-3_56" target="_blank" rel="noopener">Fully-convolutional siamese networks for object tracking</a>》。</li>
+</ul>
+<h2 id="改进的-Siamese-Network-2-channel-network"><a href="#改进的-Siamese-Network-2-channel-network" class="headerlink" title="改进的 Siamese Network (2-channel network)"></a>改进的 Siamese Network (2-channel network)</h2><p>2015年CVPR的一篇关于图像相似度计算的文章：《Learning to Compare Image Patches via Convolutional Neural Networks》，本篇文章对经典的算法Siamese Networks 做了改进。</p>
+<p>Siamese 网络(2-branches networks)的大体思路：</p>
+<ol>
+<li>让patch1、patch2分别经过网络，进行提取特征向量(Siamese 对于两张图片patch1、patch2的特征提取过程是相互独立的)</li>
+<li>然后在最后一层对两个两个特征向量做一个相似度损失函数，进行网络训练。</li>
+</ol>
+<p>paper所提出的算法(2-channel networks) 的大体思路：</p>
+<ol>
+<li>把patch1、patch2合在一起，把这两张图片，看成是一张双通道的图像。也就是把两个(1，64，64)单通道的数据，放在一起，成为了(2，64，64)的双通道矩阵，</li>
+<li>然后把这个矩阵数据作为网络的输入，这就是所谓的：2-channel。</li>
+</ol>
+<p>这样，跳过了分支的显式的特征提取过程，而是直接学习相似度评价函数。最后一层直接是全连接层，输出神经元个数直接为1，直接表示两张图片的相似度。当然CNN，如果输入的是双通道图片，也就是相当于网络的输入的是2个feature map，经过第一层的卷积后网，两张图片的像素就进行了相关的加权组合并映射，这也就是说，用2-channel的方法，经过了第一次的卷积后，两张输入图片就不分你我了。而Siamese网络是到了最后全连接的时候，两张图片的相关神经元才联系在一起。2015年CVPR文章几个重要创新写在下面：</p>
+<h2 id="损失函数：Contrastive-Loss（对比损失）"><a href="#损失函数：Contrastive-Loss（对比损失）" class="headerlink" title="损失函数：Contrastive Loss（对比损失）"></a>损失函数：Contrastive Loss（对比损失）</h2><p>传统的siamese network使用Contrastive Loss。损失函数还有更多的选择，siamese network的初衷是计算两个输入的相似度,。左右两个神经网络分别将输入转换成一个”向量”，在新的空间中，通过判断cosine距离就能得到相似度了。Cosine是一个选择，exp function也是一种选择，欧式距离什么的都可以，训练的目标是让两个相似的输入距离尽可能的小，两个不同类别的输入距离尽可能的大。</p>
+<p>在Keras的孪生神经网络（siamese network）中，其采用的损失函数是contrastive loss，这种损失函数可以有效的处理孪生神经网络中的paired data的关系。contrastive loss的表达式如下：<br>$$<br>L=\frac{1}{2 N} \sum_{n=1}^{N} y d^{2}+(1-y) m a x(\text {margin}-d, 0)^{2}<br>$$<br>其中$d=\left|a_{n}-b_{n}\right|_{2}$，代表两个样本特征的欧氏距离，y为两个样本是否匹配的标签，y=1代表两个样本相似或者匹配，y=0则代表不匹配，margin为设定的阈值。</p>
+<p>这种损失函数最初来源于Yann LeCun的Dimensionality Reduction by Learning an Invariant Mapping，主要是用在降维中，即本来相似的样本，在经过降维（特征提取）后，在特征空间中，两个样本仍旧相似；而原本不相似的样本，在经过降维后，在特征空间中，两个样本仍旧不相似。</p>
+<p>观察上述的contrastive loss的表达式可以发现，这种损失函数可以很好的表达成对样本的匹配程度，也能够很好用于训练提取特征的模型。当y=1（即样本相似）时，损失函数只剩下$\sum y d^{2}$，即原本相似的样本，如果在特征空间的欧式距离较大，则说明当前的模型不好，因此加大损失。而当y=0时（即样本不相似）时，损失函数为$\sum(1-y) \max (\operatorname{margin}-d, 0)^{2}$，即当样本不相似时，其特征空间的欧式距离反而小的话，损失值会变大，这也正好符合我们的要求。</p>
+<hr>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a><em>References</em></h2><p>[1] S. Chopra, R. Hadsell, and Y. LeCun. Learning a similarity metric discriminatively, with application to face verification. In Computer Vision and Pattern Recognition, 2005. CVPR 2005. IEEE Computer Society Conference on, volume 1, pages 539–546. IEEE, 2005. </p>
+<p>[2]Hadsell, R., Chopra, S., LeCun, Y.. Dimensionality Reduction by Learning an Invariant Mapping[P]. Computer Vision and Pattern Recognition, 2006 IEEE Computer Society Conference on,2006.</p>
+<p>[3] <a href="https://blog.csdn.net/qq_15192373/article/details/78404761" target="_blank" rel="noopener">siamese(孪生) 网络 ——CSDN</a></p>
+<p>[4][Contrastive Loss（损失函数）——CSDN](</p>
 
       
     </div>
@@ -380,6 +414,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
 
       
       
@@ -389,8 +429,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/08/Fetch-API-检测请求是否成功/" rel="next" title="Fetch API 检测请求是否成功">
-                <i class="fa fa-chevron-left"></i> Fetch API 检测请求是否成功
+              <a href="/2019/07/21/Keras-中的损失函数/" rel="next" title="Keras 中的损失函数">
+                <i class="fa fa-chevron-left"></i> Keras 中的损失函数
               </a>
             
           </div>
@@ -399,8 +439,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/05/ajax和axios、fetch的区别/" rel="prev" title="ajax和axios、fetch的区别">
-                ajax和axios、fetch的区别 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/21/ResNet-K-Fold-Cross-Validation/" rel="prev" title="ResNet & K-Fold Cross Validation">
+                ResNet & K-Fold Cross Validation <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -453,8 +493,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -516,6 +565,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Siamese-Network-2-branches-network"><span class="nav-number">1.</span> <span class="nav-text">Siamese Network (2-branches network)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进的-Siamese-Network-2-channel-network"><span class="nav-number">2.</span> <span class="nav-text">改进的 Siamese Network (2-channel network)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#损失函数：Contrastive-Loss（对比损失）"><span class="nav-number">3.</span> <span class="nav-text">损失函数：Contrastive Loss（对比损失）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">4.</span> <span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
