@@ -119,7 +119,8 @@
 <meta property="og:image" content="http://img.cdn.leonwang.top/20190725214908.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20190725214854.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20190725215818.png">
-<meta property="og:updated_time" content="2019-07-25T14:07:11.401Z">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20190809221747.png">
+<meta property="og:updated_time" content="2019-08-11T06:25:24.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stanford ML Note">
 <meta name="twitter:description" content="讲师：Andrew Ng     Date Content     2019-3-16 [L1 : L4]   2019-3-20 [L6 : L12]   2019-4-7 [L14 : L27]   2019-6-6 [L28 : L35]   2019-7-24 [L46 : L51]    第1章 绪论：初识机器学习L2 什么是机器学习任务T 经验E 性能度量P L3 监督学习Super">
@@ -636,7 +637,14 @@
 <h2 id="L71-多元分类"><a href="#L71-多元分类" class="headerlink" title="L71 多元分类"></a>L71 多元分类</h2><p>神经网络实现多元分类的原理：</p>
 <p>输出层神经元的个数与类别的个数相同，假设函数的函数值是类别的 one-hot 编码形式</p>
 <p><img src="http://img.cdn.leonwang.top/20190725215818.png" alt=""></p>
-<h1 id="第10章-神经网络参数的反向传播算法"><a href="#第10章-神经网络参数的反向传播算法" class="headerlink" title="第10章 神经网络参数的反向传播算法"></a>第10章 神经网络参数的反向传播算法</h1><h2 id="L72-代价函数"><a href="#L72-代价函数" class="headerlink" title="L72 代价函数"></a>L72 代价函数</h2><h2 id="L73-反向传播算法"><a href="#L73-反向传播算法" class="headerlink" title="L73 反向传播算法"></a>L73 反向传播算法</h2><h2 id="L74-理解反向传播"><a href="#L74-理解反向传播" class="headerlink" title="L74 理解反向传播"></a>L74 理解反向传播</h2><h2 id="L75-使用注意：展开参数"><a href="#L75-使用注意：展开参数" class="headerlink" title="L75 使用注意：展开参数"></a>L75 使用注意：展开参数</h2><h2 id="L76-梯度检测"><a href="#L76-梯度检测" class="headerlink" title="L76 梯度检测"></a>L76 梯度检测</h2><h2 id="L77-随机初始化"><a href="#L77-随机初始化" class="headerlink" title="L77 随机初始化"></a>L77 随机初始化</h2><h2 id="L78-组合到一起"><a href="#L78-组合到一起" class="headerlink" title="L78 组合到一起"></a>L78 组合到一起</h2><h2 id="L80-无人驾驶"><a href="#L80-无人驾驶" class="headerlink" title="L80 无人驾驶"></a>L80 无人驾驶</h2>
+<h1 id="第10章-神经网络参数的反向传播算法"><a href="#第10章-神经网络参数的反向传播算法" class="headerlink" title="第10章 神经网络参数的反向传播算法"></a>第10章 神经网络参数的反向传播算法</h1><h2 id="L72-代价函数"><a href="#L72-代价函数" class="headerlink" title="L72 代价函数"></a>L72 代价函数</h2><p>L：神经网络总层数</p>
+<p>$s_l$ ：第 $l$ 层的神经元个数（不包括偏差单元）</p>
+<p>神经网络中的代价函数 是 Logistic回归的代价函数 的一般形式：</p>
+<p><img src="http://img.cdn.leonwang.top/20190809221747.png" alt=""></p>
+<h2 id="L73-反向传播算法"><a href="#L73-反向传播算法" class="headerlink" title="L73 反向传播算法"></a>L73 反向传播算法</h2><p>神经网络中让代价函数最小的方法</p>
+<p>$\delta_{j}^{(l)}$：第 l 层的第 j 个神经元的激活值的<strong>误差</strong></p>
+<p>计算误差项的过程，是从输出层开始，逐渐向前计算</p>
+<h2 id="L74-理解反向传播"><a href="#L74-理解反向传播" class="headerlink" title="L74 理解反向传播"></a>L74 理解反向传播</h2><h2 id="L75-使用注意：展开参数"><a href="#L75-使用注意：展开参数" class="headerlink" title="L75 使用注意：展开参数"></a>L75 使用注意：展开参数</h2><h2 id="L76-梯度检测"><a href="#L76-梯度检测" class="headerlink" title="L76 梯度检测"></a>L76 梯度检测</h2><h2 id="L77-随机初始化"><a href="#L77-随机初始化" class="headerlink" title="L77 随机初始化"></a>L77 随机初始化</h2><h2 id="L78-组合到一起"><a href="#L78-组合到一起" class="headerlink" title="L78 组合到一起"></a>L78 组合到一起</h2><h2 id="L80-无人驾驶"><a href="#L80-无人驾驶" class="headerlink" title="L80 无人驾驶"></a>L80 无人驾驶</h2>
       
     </div>
     
@@ -677,6 +685,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/09/yolov3-Keras实现解读/" rel="prev" title="yolov3 Keras实现解读">
+                yolov3 Keras实现解读 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -755,7 +767,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
