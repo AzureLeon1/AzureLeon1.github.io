@@ -87,13 +87,10 @@
 <meta property="og:site_name" content="Leon&#39;s Blog">
 <meta property="og:description" content="引言使用GAN做异常检测有两个思路  【原始GAN】（generator + discriminator):在推断阶段，GAN的输入的是随机的噪声向量z，输出为discriminator的对G(z)的分数。 【变异GAN】(encoder + generator + discriminator)：在推断阶段，GAN的输入是样本x，输出为discriminator对重构样本x’(x’ = G(E(x">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=L_G">
-<meta property="og:image" content="https://www.zhihu.com/equation?tex=L_D">
-<meta property="og:updated_time" content="2019-11-07T13:35:30.987Z">
+<meta property="og:updated_time" content="2019-11-07T13:45:39.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GAN异常检测">
 <meta name="twitter:description" content="引言使用GAN做异常检测有两个思路  【原始GAN】（generator + discriminator):在推断阶段，GAN的输入的是随机的噪声向量z，输出为discriminator的对G(z)的分数。 【变异GAN】(encoder + generator + discriminator)：在推断阶段，GAN的输入是样本x，输出为discriminator对重构样本x’(x’ = G(E(x">
-<meta name="twitter:image" content="https://www.zhihu.com/equation?tex=L_G">
 
 
 
@@ -386,17 +383,23 @@
 <p>原始的信号是正常样本， generator生成的信号是异常样本。</p>
 <p>原始特征+encoder之后的隐层特征作为discriminator的输入特征.</p>
 <h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><p>三个网络联合训练，，然后把正常样本和异常样本一起丢进discriminator。</p>
-<p>目标函数定义为：<br>$$<br>\min _{G, E} \max <em>{D} V(D, E, G)<br>$$<br>其中<br>$$<br>V(D, E, G)=\mathbb{E}</em>{x \sim p_{X}}\left[\mathbb{E}<em>{z \sim p</em>{E}(\cdot | x)}[\log D(x, z)]\right]+\mathbb{E}<em>{z \sim p</em>{Z}}\left[\mathbb{E}<em>{x \sim p</em>{G}(\cdot | z)}[1-\log D(x, z)]\right]<br>$$<br>这个目标函数左边是正常样本 ，右边是异常样本。</p>
+<p>目标函数定义为：</p>
+<p>$$\min _{G, E} \max _{D} V(D, E, G)$$</p>
+<p>其中</p>
+<p>$$V(D, E, G)=\mathbb{E}<em>{x \sim p</em>{X}}\left[\mathbb{E}<em>{z \sim p</em>{E}(\cdot | x)}[\log D(x, z)]\right]+\mathbb{E}<em>{z \sim p</em>{Z}}\left[\mathbb{E}<em>{x \sim p</em>{G}(\cdot | z)}[1-\log D(x, z)]\right]$$</p>
+<p>这个目标函数左边是正常样本 ，右边是异常样本。</p>
 <p>D是discriminator预测x是正常的概率，log项表示预测值和真实值的交叉熵的负数。</p>
 <h2 id="推断"><a href="#推断" class="headerlink" title="推断"></a>推断</h2><p>通过训练固定好GAN的参数之后，就可以来检测新来样本是否是异常了。</p>
-<p>定义:计算异常得分的函数可以定义为：<br>$$<br>A(x)=\alpha L_{G}(x)+(1-\alpha) L_{D}(x)<br>$$<br>这里 <img src="https://www.zhihu.com/equation?tex=L_G" alt="[公式]">表示重构误差， <img src="https://www.zhihu.com/equation?tex=L_D" alt="[公式]">表示判别器误差（discriminator-based）误差。</p>
+<p>定义:计算异常得分的函数可以定义为：<br>$$<br>A(x)=\alpha L_{G}(x)+(1-\alpha) L_{D}(x)<br>$$<br>这里 $L_{G}$ 表示重构误差， $L_D$ 表示判别器误差（discriminator-based）误差。</p>
 <p>背后的intution是：</p>
 <ul>
 <li>重构误差：利用生成模型，来判断x跟真实数据的差异。</li>
 <li>判别器误差: 从判别器的角度来确定x跟真实样本的差异。</li>
 </ul>
 <p>—没想清楚这两种误差有什么联系？</p>
-<p>具体来说<br>$$<br>L_{G}(x)=|x-G(E(x))|<em>{1}<br>$$<br>$L</em>{D}(x)=\sigma(D(x, E(x)), 1)$ , 表示预测概率与真实值的交叉熵，当x越异常时，D就会远离1，交叉熵就越大。</p>
+<p>具体来说</p>
+<p>$$L_{G}(x)=|x-G(E(x))|_{1}$$</p>
+<p>$L_{D}(x)=\sigma(D(x, E(x)), 1)$ , 表示预测概率与真实值的交叉熵，当x越异常时，D就会远离1，交叉熵就越大。</p>
 <p>x是原始信号，G(z)是重构信号，然后分别把这两个信号通过f映射到另外一个空间，在另外一个空间衡量距离，如果x是正常的，应该跟G(z)的距离很小，映射到另外一个空间之后，距离也会保持很小。经过f之后 ，能把 正常样本 跟 异常样本分的更开，</p>
 <p>参考资料</p>
 <p>[1] <a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1703.05921.pdf" target="_blank" rel="noopener">方法1</a></p>
