@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="Leon&#39;s Blog">
 <meta property="og:description" content="引言使用GAN做异常检测有两个思路  【原始GAN】（generator + discriminator):在推断阶段，GAN的输入的是随机的噪声向量z，输出为discriminator的对G(z)的分数。 【变异GAN】(encoder + generator + discriminator)：在推断阶段，GAN的输入是样本x，输出为discriminator对重构样本x’(x’ = G(E(x">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-07T13:45:39.967Z">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20191107214752.png">
+<meta property="og:updated_time" content="2019-11-07T13:48:01.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GAN异常检测">
 <meta name="twitter:description" content="引言使用GAN做异常检测有两个思路  【原始GAN】（generator + discriminator):在推断阶段，GAN的输入的是随机的噪声向量z，输出为discriminator的对G(z)的分数。 【变异GAN】(encoder + generator + discriminator)：在推断阶段，GAN的输入是样本x，输出为discriminator对重构样本x’(x’ = G(E(x">
+<meta name="twitter:image" content="http://img.cdn.leonwang.top/20191107214752.png">
 
 
 
@@ -386,7 +388,7 @@
 <p>目标函数定义为：</p>
 <p>$$\min _{G, E} \max _{D} V(D, E, G)$$</p>
 <p>其中</p>
-<p>$$V(D, E, G)=\mathbb{E}<em>{x \sim p</em>{X}}\left[\mathbb{E}<em>{z \sim p</em>{E}(\cdot | x)}[\log D(x, z)]\right]+\mathbb{E}<em>{z \sim p</em>{Z}}\left[\mathbb{E}<em>{x \sim p</em>{G}(\cdot | z)}[1-\log D(x, z)]\right]$$</p>
+<p><img src="http://img.cdn.leonwang.top/20191107214752.png" alt=""></p>
 <p>这个目标函数左边是正常样本 ，右边是异常样本。</p>
 <p>D是discriminator预测x是正常的概率，log项表示预测值和真实值的交叉熵的负数。</p>
 <h2 id="推断"><a href="#推断" class="headerlink" title="推断"></a>推断</h2><p>通过训练固定好GAN的参数之后，就可以来检测新来样本是否是异常了。</p>
