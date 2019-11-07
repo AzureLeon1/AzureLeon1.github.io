@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="solutions,">
+  <meta name="keywords" content="深度学习,GAN,异常检测,">
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="Awesome Solutions 解决MacBook外接2k显示器出现的字小和字虚的问题  Windows下Apache的安装  Mac下配置Apache服务器">
-<meta name="keywords" content="solutions">
+<meta name="description" content="引言使用GAN做异常检测有两个思路  【原始GAN】（generator + discriminator):在推断阶段，GAN的输入的是随机的噪声向量z，输出为discriminator的对G(z)的分数。 【变异GAN】(encoder + generator + discriminator)：在推断阶段，GAN的输入是样本x，输出为discriminator对重构样本x’(x’ = G(E(x">
+<meta name="keywords" content="深度学习,GAN,异常检测">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Awesome Solutions">
-<meta property="og:url" content="http://www.leonwang.top/2018/12/14/Awesome-Solutions/index.html">
+<meta property="og:title" content="GAN异常检测">
+<meta property="og:url" content="http://www.leonwang.top/2019/11/07/GAN异常检测/index.html">
 <meta property="og:site_name" content="Leon&#39;s Blog">
-<meta property="og:description" content="Awesome Solutions 解决MacBook外接2k显示器出现的字小和字虚的问题  Windows下Apache的安装  Mac下配置Apache服务器">
+<meta property="og:description" content="引言使用GAN做异常检测有两个思路  【原始GAN】（generator + discriminator):在推断阶段，GAN的输入的是随机的噪声向量z，输出为discriminator的对G(z)的分数。 【变异GAN】(encoder + generator + discriminator)：在推断阶段，GAN的输入是样本x，输出为discriminator对重构样本x’(x’ = G(E(x">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-03-07T08:56:42.951Z">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=L_G">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=L_D">
+<meta property="og:updated_time" content="2019-11-07T13:35:30.987Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Awesome Solutions">
-<meta name="twitter:description" content="Awesome Solutions 解决MacBook外接2k显示器出现的字小和字虚的问题  Windows下Apache的安装  Mac下配置Apache服务器">
+<meta name="twitter:title" content="GAN异常检测">
+<meta name="twitter:description" content="引言使用GAN做异常检测有两个思路  【原始GAN】（generator + discriminator):在推断阶段，GAN的输入的是随机的噪声向量z，输出为discriminator的对G(z)的分数。 【变异GAN】(encoder + generator + discriminator)：在推断阶段，GAN的输入是样本x，输出为discriminator对重构样本x’(x’ = G(E(x">
+<meta name="twitter:image" content="https://www.zhihu.com/equation?tex=L_G">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://www.leonwang.top/2018/12/14/Awesome-Solutions/">
+  <link rel="canonical" href="http://www.leonwang.top/2019/11/07/GAN异常检测/">
 
 
 
 
 
-  <title>Awesome Solutions | Leon's Blog</title>
+  <title>GAN异常检测 | Leon's Blog</title>
   
 
 
@@ -283,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2018/12/14/Awesome-Solutions/">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2019/11/07/GAN异常检测/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leon Wang">
@@ -300,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Awesome Solutions</h1>
+          <h1 class="post-title" itemprop="name headline">GAN异常检测</h1>
         
 
         <div class="post-meta">
@@ -312,8 +315,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-14T20:59:16+08:00">
-                2018-12-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-07T21:34:36+08:00">
+                2019-11-07
               </time>
             
 
@@ -335,8 +338,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Solutions/" itemprop="url" rel="index">
-                    <span itemprop="name">Solutions</span>
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
                   </a>
                 </span>
 
@@ -372,14 +375,33 @@
       
 
       
-        <h1 id="Awesome-Solutions"><a href="#Awesome-Solutions" class="headerlink" title="Awesome Solutions"></a>Awesome Solutions</h1><ul>
-<li><p><a href="https://www.jianshu.com/p/40cee8ab3d0f" target="_blank" rel="noopener">解决MacBook外接2k显示器出现的字小和字虚的问题</a></p>
-</li>
-<li><p><a href="https://www.cnblogs.com/wcwnina/p/8044353.html" target="_blank" rel="noopener">Windows下Apache的安装</a></p>
-</li>
-<li><p><a href="https://www.cnblogs.com/wanxudong/p/5846907.html" target="_blank" rel="noopener">Mac下配置Apache服务器</a></p>
-</li>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>使用GAN做异常检测有两个思路</p>
+<ol>
+<li>【原始GAN】（generator + discriminator):在推断阶段，GAN的输入的是随机的噪声向量z，输出为discriminator的对G(z)的分数。</li>
+<li>【变异GAN】(encoder + generator + discriminator)：在推断阶段，GAN的输入是样本x，输出为discriminator对重构样本x’(x’ = G(E(x)))的分数。</li>
+</ol>
+<p>那么，【变异GAN】相对【原始GAN】有哪些方面的改进？这种改进是为了解决了什么问题？</p>
+<p>【原始GAN】通过训练，得到了一个 generator（使用z生成x） 和1个 discriminator（对x打分）。但是在inference阶段，我们拿到手的样本是想，而这个时候gan的generator用不了这种输入，还要做一层变换–即<strong>“找到x对应的z”</strong>，然后使用generator生成对应的x。但是“找到x对应的z”，就是去解另外一个优化问题了（梯度下降，迭代），计算量很大。所以【变异GAN】就在【原始GAN】的架构最前面加了一个encoder，目的是，在训练的时候把这个encoder一起训练出来了，后面就不用做一次推断再接一个优化问题（“<strong>找到x对应的z</strong>”）了。</p>
+<h2 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h2><p>构建 三个网络结构, E(encoder /G的逆)， G(generator/decoder）， D(discriminator)。</p>
+<p>原始的信号是正常样本， generator生成的信号是异常样本。</p>
+<p>原始特征+encoder之后的隐层特征作为discriminator的输入特征.</p>
+<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><p>三个网络联合训练，，然后把正常样本和异常样本一起丢进discriminator。</p>
+<p>目标函数定义为：<br>$$<br>\min _{G, E} \max <em>{D} V(D, E, G)<br>$$<br>其中<br>$$<br>V(D, E, G)=\mathbb{E}</em>{x \sim p_{X}}\left[\mathbb{E}<em>{z \sim p</em>{E}(\cdot | x)}[\log D(x, z)]\right]+\mathbb{E}<em>{z \sim p</em>{Z}}\left[\mathbb{E}<em>{x \sim p</em>{G}(\cdot | z)}[1-\log D(x, z)]\right]<br>$$<br>这个目标函数左边是正常样本 ，右边是异常样本。</p>
+<p>D是discriminator预测x是正常的概率，log项表示预测值和真实值的交叉熵的负数。</p>
+<h2 id="推断"><a href="#推断" class="headerlink" title="推断"></a>推断</h2><p>通过训练固定好GAN的参数之后，就可以来检测新来样本是否是异常了。</p>
+<p>定义:计算异常得分的函数可以定义为：<br>$$<br>A(x)=\alpha L_{G}(x)+(1-\alpha) L_{D}(x)<br>$$<br>这里 <img src="https://www.zhihu.com/equation?tex=L_G" alt="[公式]">表示重构误差， <img src="https://www.zhihu.com/equation?tex=L_D" alt="[公式]">表示判别器误差（discriminator-based）误差。</p>
+<p>背后的intution是：</p>
+<ul>
+<li>重构误差：利用生成模型，来判断x跟真实数据的差异。</li>
+<li>判别器误差: 从判别器的角度来确定x跟真实样本的差异。</li>
 </ul>
+<p>—没想清楚这两种误差有什么联系？</p>
+<p>具体来说<br>$$<br>L_{G}(x)=|x-G(E(x))|<em>{1}<br>$$<br>$L</em>{D}(x)=\sigma(D(x, E(x)), 1)$ , 表示预测概率与真实值的交叉熵，当x越异常时，D就会远离1，交叉熵就越大。</p>
+<p>x是原始信号，G(z)是重构信号，然后分别把这两个信号通过f映射到另外一个空间，在另外一个空间衡量距离，如果x是正常的，应该跟G(z)的距离很小，映射到另外一个空间之后，距离也会保持很小。经过f之后 ，能把 正常样本 跟 异常样本分的更开，</p>
+<p>参考资料</p>
+<p>[1] <a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1703.05921.pdf" target="_blank" rel="noopener">方法1</a></p>
+<p>[2] <a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1802.06222.pdf" target="_blank" rel="noopener">方法2</a></p>
+<p>[3] <a href="https://link.zhihu.com/?target=https%3A//github.com/houssamzenati/Efficient-GAN-Anomaly-Detection" target="_blank" rel="noopener">houssamzenati/Efficient-GAN-Anomaly-Detection</a></p>
 
       
     </div>
@@ -397,7 +419,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/solutions/" rel="tag"># solutions</a>
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/GAN/" rel="tag"># GAN</a>
+          
+            <a href="/tags/异常检测/" rel="tag"># 异常检测</a>
           
         </div>
       
@@ -410,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/14/Web开发笔记/" rel="next" title="Web开发笔记">
-                <i class="fa fa-chevron-left"></i> Web开发笔记
+              <a href="/2019/11/07/机器学习分类/" rel="next" title="机器学习分类">
+                <i class="fa fa-chevron-left"></i> 机器学习分类
               </a>
             
           </div>
@@ -419,10 +445,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/27/ViewPager与ViewPagerTransforms/" rel="prev" title="ViewPager与ViewPagerTransforms">
-                ViewPager与ViewPagerTransforms <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -556,7 +578,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Awesome-Solutions"><span class="nav-number">1.</span> <span class="nav-text">Awesome Solutions</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建模"><span class="nav-number">2.</span> <span class="nav-text">建模</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">3.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推断"><span class="nav-number">4.</span> <span class="nav-text">推断</span></a></li></ol></div>
             
 
           </div>
