@@ -1822,7 +1822,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff258a;
+  background: #9ff683;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2661,7 +2661,7 @@ embed {
   display: inline-block;
 }
 body {
-  background: url("http://img.cdn.leonwang.top/20191108202118.png") no-repeat center fixed;
+  background: url("http://img.cdn.leonwang.top/20191108203618.png") no-repeat center fixed;
   background-size: 100%;
 }
 .main-inner {
@@ -2670,9 +2670,6 @@ body {
 }
 .header-inner {
   opacity: 0.8;
-}
-.site-subtitle {
-  color: #fff;
 }
 .use-motion .post-block,
 .use-motion .pagination,
