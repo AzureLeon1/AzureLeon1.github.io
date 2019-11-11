@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="朴素贝叶斯算法是分类算法。 朴素贝叶斯算法基于贝叶斯公式和特征条件独立假设。 所谓”朴素“，指的是特征之间是条件独立的。  下面的一篇文章来自知乎：带你理解朴素贝叶斯分类算法。有助于理解朴素贝叶斯算法的基本概念。但文章中有一处错误：  作者这里在分母上的换算是错误的，因为特征条件独立并不是特征独立，计算分母的联合特征概率时应该用贝叶斯全概率公式，这样就可转化为特征条件独立进行计算，即p(不帅、性">
+<meta name="description" content="朴素贝叶斯算法是分类算法。 朴素贝叶斯算法基于贝叶斯公式和特征条件独立假设。 所谓”朴素“，指的是特征之间是条件独立的。 根据后验概率最大化来确定最终分类。《统计学习方法》对后验概率最大化的解释是，从令损失函数最小化推导转化而来。更为直接得来看，根据已知的数据集，在当前给出的特征下，出现哪种类型的概率最大，则预测是这种类型。 推导的中间结果，在预测类别时，需要根据不同的类别 $c_k$ 求 $a">
 <meta name="keywords" content="机器学习,朴素贝叶斯">
 <meta property="og:type" content="article">
 <meta property="og:title" content="朴素贝叶斯分类算法">
 <meta property="og:url" content="http://www.leonwang.top/2019/11/11/朴素贝叶斯分类算法/index.html">
 <meta property="og:site_name" content="Leon&#39;s Blog">
-<meta property="og:description" content="朴素贝叶斯算法是分类算法。 朴素贝叶斯算法基于贝叶斯公式和特征条件独立假设。 所谓”朴素“，指的是特征之间是条件独立的。  下面的一篇文章来自知乎：带你理解朴素贝叶斯分类算法。有助于理解朴素贝叶斯算法的基本概念。但文章中有一处错误：  作者这里在分母上的换算是错误的，因为特征条件独立并不是特征独立，计算分母的联合特征概率时应该用贝叶斯全概率公式，这样就可转化为特征条件独立进行计算，即p(不帅、性">
+<meta property="og:description" content="朴素贝叶斯算法是分类算法。 朴素贝叶斯算法基于贝叶斯公式和特征条件独立假设。 所谓”朴素“，指的是特征之间是条件独立的。 根据后验概率最大化来确定最终分类。《统计学习方法》对后验概率最大化的解释是，从令损失函数最小化推导转化而来。更为直接得来看，根据已知的数据集，在当前给出的特征下，出现哪种类型的概率最大，则预测是这种类型。 推导的中间结果，在预测类别时，需要根据不同的类别 $c_k$ 求 $a">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20191111165011.png">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=C%3D%7B%7By_%7B1%7D%2Cy_%7B2%7D%2C....y_%7Bn%7D%7D+%7D">
@@ -116,10 +116,10 @@
 <meta property="og:image" content="http://img.cdn.leonwang.top/20191111181628.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20191111181648.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20191111181702.png">
-<meta property="og:updated_time" content="2019-11-11T10:19:35.581Z">
+<meta property="og:updated_time" content="2019-11-11T10:50:55.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯分类算法">
-<meta name="twitter:description" content="朴素贝叶斯算法是分类算法。 朴素贝叶斯算法基于贝叶斯公式和特征条件独立假设。 所谓”朴素“，指的是特征之间是条件独立的。  下面的一篇文章来自知乎：带你理解朴素贝叶斯分类算法。有助于理解朴素贝叶斯算法的基本概念。但文章中有一处错误：  作者这里在分母上的换算是错误的，因为特征条件独立并不是特征独立，计算分母的联合特征概率时应该用贝叶斯全概率公式，这样就可转化为特征条件独立进行计算，即p(不帅、性">
+<meta name="twitter:description" content="朴素贝叶斯算法是分类算法。 朴素贝叶斯算法基于贝叶斯公式和特征条件独立假设。 所谓”朴素“，指的是特征之间是条件独立的。 根据后验概率最大化来确定最终分类。《统计学习方法》对后验概率最大化的解释是，从令损失函数最小化推导转化而来。更为直接得来看，根据已知的数据集，在当前给出的特征下，出现哪种类型的概率最大，则预测是这种类型。 推导的中间结果，在预测类别时，需要根据不同的类别 $c_k$ 求 $a">
 <meta name="twitter:image" content="http://img.cdn.leonwang.top/20191111165011.png">
 
 
@@ -363,7 +363,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-11-11T18:19:35+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-11-11T18:50:55+08:00">
                 2019-11-11
               </time>
             
@@ -433,6 +433,8 @@
 <li>朴素贝叶斯算法是<strong>分类</strong>算法。</li>
 <li>朴素贝叶斯算法基于<strong>贝叶斯公式</strong>和<strong>特征条件独立假设</strong>。</li>
 <li>所谓”<strong>朴素</strong>“，指的是<strong>特征之间是条件独立的</strong>。</li>
+<li>根据后验概率最大化来确定最终分类。《统计学习方法》对后验概率最大化的解释是，从令损失函数最小化推导转化而来。更为直接得来看，根据已知的数据集，在当前给出的特征下，出现哪种类型的概率最大，则预测是这种类型。</li>
+<li>推导的中间结果，在预测类别时，需要根据不同的类别 $c_k$ 求 $arg max_{c_k}$ ，在利用贝叶斯公式计算时，不同 $c_k$ 对应的分母是相同的，所以只需要求最大化分子即可。</li>
 </ol>
 <p>下面的一篇文章来自知乎：<a href="https://zhuanlan.zhihu.com/p/26262151" target="_blank" rel="noopener">带你理解朴素贝叶斯分类算法</a>。有助于理解朴素贝叶斯算法的基本概念。但文章中有一处错误：</p>
 <p><img src="http://img.cdn.leonwang.top/20191111165011.png" alt=""></p>
