@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,16 +79,13 @@
 
 
 
-<meta name="description" content="不曾经历过真正的沧桑，却失守了最后一点少年意气。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Leon&#39;s Blog">
+<meta property="og:title" content="Leon Wang">
 <meta property="og:url" content="http://www.leonwang.top/page/2/index.html">
-<meta property="og:site_name" content="Leon&#39;s Blog">
-<meta property="og:description" content="不曾经历过真正的沧桑，却失守了最后一点少年意气。">
+<meta property="og:site_name" content="Leon Wang">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leon&#39;s Blog">
-<meta name="twitter:description" content="不曾经历过真正的沧桑，却失守了最后一点少年意气。">
+<meta name="twitter:title" content="Leon Wang">
 
 
 
@@ -96,9 +93,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -124,7 +121,7 @@
 
 
 
-  <title>Leon's Blog</title>
+  <title>Leon Wang</title>
   
 
 
@@ -146,8 +143,7 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-  <script src="/live2d-widget/autoload.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -158,7 +154,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-right 
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
 
@@ -170,12 +166,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Leon's Blog</span>
+        <span class="site-title">Leon Wang</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">不曾经历过真正的沧桑，却失守了最后一点少年意气。</p>
+        <p class="site-subtitle"></p>
       
   </div>
 
@@ -205,22 +201,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            Categories
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
           </a>
         </li>
       
@@ -235,22 +231,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-github">
-          <a href="https://github.com/AzureLeon1" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-github"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
-            Github
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-e-mail">
-          <a href="mailto:leonwangchn@163.com" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-envelope"></i> <br>
-            
-            E-Mail
+            About
           </a>
         </li>
       
@@ -296,7 +282,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon's Blog">
+      <meta itemprop="name" content="Leon Wang">
     </span>
 
     
@@ -366,16 +352,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/21/Siamese-Network/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/21/Siamese-Network/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -403,14 +379,7 @@
         
           
           [TOC]
-Siamese Network (2-branches network)siamese 网络， 是05年Yann Lecun提出来的。它的特点是它接收两个图片作为输入，而不是一张图片作为输入。
-
-
-
-目的：比较两幅图片是否相似（相似度）
-输入：两幅图片
-输出：一个相似度数值
-Siames
+Siamese Network (2-branches network)siamese 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -474,7 +443,7 @@ Siames
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon's Blog">
+      <meta itemprop="name" content="Leon Wang">
     </span>
 
     
@@ -544,16 +513,6 @@ Siames
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/21/Keras-中的损失函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/21/Keras-中的损失函数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -581,8 +540,7 @@ Siames
         
           
           Keras 中的损失函数Keras 中的损失函数
-损失函数是模型优化的目标，所以又叫目标函数、优化评分函数，在keras中，模型编译的参数loss指定了损失函数的类别，有两种指定方法：
-1model.compile(loss='mean_squared_error', optimizer='sgd'
+损失函数是模型优化的目标，所以又叫目标函数、优化评
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -646,7 +604,7 @@ Siames
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon's Blog">
+      <meta itemprop="name" content="Leon Wang">
     </span>
 
     
@@ -694,16 +652,6 @@ Siames
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/16/Xrandr-displaying-“Failed-to-get-size-of-gamma-for-output-default”/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/16/Xrandr-displaying-“Failed-to-get-size-of-gamma-for-output-default”/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -731,10 +679,7 @@ Siames
         
           
           Ubuntu 16.04 使用 xrandr 修改分辨率报错：
-1Failed to get size of gamma for output default
-解决办法：
-Based on info in this article I’ve found answer.
-You need to add
+1Failed to get siz
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -798,7 +743,7 @@ You need to add
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon's Blog">
+      <meta itemprop="name" content="Leon Wang">
     </span>
 
     
@@ -846,16 +791,6 @@ You need to add
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/07/el-button样式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/07/el-button样式/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -885,10 +820,7 @@ You need to add
           一篇没用的水博客
 做数据库小学期时踩到的小坑
 定义el-button样式，改变focus状态样式
-el-button 采用button实现，在点击之后button处于focus状态。
-修改focus状态样式：
-（需要为el-button设置class名称为btn）
-1234567891011.btn
+e
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -952,7 +884,7 @@ el-button 采用button实现，在点击之后button处于focus状态。
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon's Blog">
+      <meta itemprop="name" content="Leon Wang">
     </span>
 
     
@@ -1000,16 +932,6 @@ el-button 采用button实现，在点击之后button处于focus状态。
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/06/05/ajax和axios、fetch的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/05/ajax和axios、fetch的区别/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1037,7 +959,7 @@ el-button 采用button实现，在点击之后button处于focus状态。
         
           
           1.jQuery ajax
-12345678$.ajax(&#123;   type: 'POST',   url: url,   data: data,   dataType: dataType,   success: function () &#123;&#125;,   error: func
+12345678$.ajax(&#123;   type: 'POST'
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1101,7 +1023,7 @@ el-button 采用button实现，在点击之后button处于focus状态。
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon's Blog">
+      <meta itemprop="name" content="Leon Wang">
     </span>
 
     
@@ -1149,16 +1071,6 @@ el-button 采用button实现，在点击之后button处于focus状态。
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/05/18/go-echo后端处理跨域的两种方式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/18/go-echo后端处理跨域的两种方式/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1188,7 +1100,7 @@ el-button 采用button实现，在点击之后button处于focus状态。
           跨域报错：
 
 
-跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有权限访问哪些资源。另外，规范要求，对那些可能对服务器数据产生副作用的HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 O
+跨域资源共享(CORS)标准新增了一组 HTTP 首部字段，允许服务器声明哪些源站有
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1252,7 +1164,7 @@ el-button 采用button实现，在点击之后button处于focus状态。
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon's Blog">
+      <meta itemprop="name" content="Leon Wang">
     </span>
 
     
@@ -1322,16 +1234,6 @@ el-button 采用button实现，在点击之后button处于focus状态。
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/05/08/Fetch-API-检测请求是否成功/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/08/Fetch-API-检测请求是否成功/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1360,9 +1262,7 @@ el-button 采用button实现，在点击之后button处于focus状态。
           
           问题MDN Web docs中的解释：
 
-请注意，fetch规范与jQuery.ajax()主要有两种方式的不同，牢记：
-
-当接收到一个代表错误的 HTTP 状态码时，从 fetch()返回的 Promise 不会被标记为 reject， 即使该 HTTP 响应的状态码是 404 或 500。相反，
+请注意，fetch规范与jQuery.ajax()主要有两
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1426,7 +1326,7 @@ el-button 采用button实现，在点击之后button处于focus状态。
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon's Blog">
+      <meta itemprop="name" content="Leon Wang">
     </span>
 
     
@@ -1496,16 +1396,6 @@ el-button 采用button实现，在点击之后button处于focus状态。
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/19/Analysis-and-Design-of-Algorithms/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/19/Analysis-and-Design-of-Algorithms/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1545,17 +1435,7 @@ Content
 [L1 : L2]
 
 
-2019.5.12
-[L3 : L7] (outline)
-
-
-2019.6.24
-done
-
-
-
-[TOC]
-L1 绪论算法的定义：算法是解决问题的一系列明确指令的有穷序列。对于符合一定规范的输入，能够在有限时间内
+2019.5.1
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1619,7 +1499,7 @@ L1 绪论算法的定义：算法是解决问题的一系列明确指令的有�
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon's Blog">
+      <meta itemprop="name" content="Leon Wang">
     </span>
 
     
@@ -1689,16 +1569,6 @@ L1 绪论算法的定义：算法是解决问题的一系列明确指令的有�
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/16/UML和模式应用-Note/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/16/UML和模式应用-Note/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1735,14 +1605,7 @@ Content
 
 
 2019-3-16
-[Chapter 1 : Chapter 5]
-
-
-
-本书的内容是在OOA/D（面向对象的分析和设计）和相关需求分析的语境下，对UML应用、模型和迭代过程的全景揭示。
-一、绪论面向对象分析和设计
-在需求分析中进行用例的编写。
-在OO开发中，
+[Chapter 1 : Chapter
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1806,7 +1669,7 @@ Content
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Leon's Blog">
+      <meta itemprop="name" content="Leon Wang">
     </span>
 
     
@@ -1876,16 +1739,6 @@ Content
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/16/React-Note/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/16/React-Note/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -1927,12 +1780,7 @@ Content
 
 
 
-React 是一个使用 JavaScript 和 XML 技术（可选）构建可组合用户界面的引擎。
-JSX语法扩展，可以直接在代码中书写XML（以生成HTML）。
 
-单页应用程序
-概念：
-只有一张Web
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2016,7 +1864,7 @@ JSX语法扩展，可以直接在代码中书写XML（以生成HTML）。
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Leon Wang">
             
               <p class="site-author-name" itemprop="name">Leon Wang</p>
-              <p class="site-description motion-element" itemprop="description">不曾经历过真正的沧桑，却失守了最后一点少年意气。</p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -2085,7 +1933,7 @@ JSX语法扩展，可以直接在代码中书写XML（以生成HTML）。
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
 
 <span>鲁ICP备 -
   <a href="http://www.miitbeian.gov.cn/">18054179号</a></span>
@@ -2240,28 +2088,6 @@ JSX语法扩展，可以直接在代码中书写XML（以生成HTML）。
 
 
 
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: false,
-        notify: false,
-        appId: '6H6O6z5ru3s3ntPnkG7uPToO-gzGzoHsz',
-        appKey: 'av56Nth02TRfuXyEDGp7wclw',
-        placeholder: 'Just go go',
-        avatar:'mm',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
 
 
 
