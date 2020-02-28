@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。  参考教材：《矩阵论(第3版)》程文鹏 著  论述前提  $A^H$在实数范围内等价于$A^T$  奇异值定义：  奇异值分解定义  酉矩阵在实数范围内等价于正交矩阵，即$A^T=A^{-1}$  证明在证明过程中构造了V和U，可以通过学习证明过程学习如何构造V和U">
+<meta name="description" content="特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。  参考教材：《矩阵论(第3版)》程文鹏 著  论述前提  $\boldsymbol{A} \in \mathbf{C}_{r}^{m \times n}$表示A为m行n列的矩阵，矩阵的秩为r $A^H$在实数范围内等价于$A^T$  奇异值定义：  奇异值分解定义">
 <meta name="keywords" content="数学,线性代数,奇异值,奇异值分解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="奇异值分解 (SVD, Singular Value Decomposition)">
 <meta property="og:url" content="http://www.leonwang.top/2020/02/29/奇异值分解-SVD-Singular-Value-Decomposition/index.html">
 <meta property="og:site_name" content="Leon Wang">
-<meta property="og:description" content="特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。  参考教材：《矩阵论(第3版)》程文鹏 著  论述前提  $A^H$在实数范围内等价于$A^T$  奇异值定义：  奇异值分解定义  酉矩阵在实数范围内等价于正交矩阵，即$A^T=A^{-1}$  证明在证明过程中构造了V和U，可以通过学习证明过程学习如何构造V和U">
+<meta property="og:description" content="特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。  参考教材：《矩阵论(第3版)》程文鹏 著  论述前提  $\boldsymbol{A} \in \mathbf{C}_{r}^{m \times n}$表示A为m行n列的矩阵，矩阵的秩为r $A^H$在实数范围内等价于$A^T$  奇异值定义：  奇异值分解定义">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200229011023.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200229011058.png">
@@ -95,10 +95,10 @@
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200229011914.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200229011952.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200229012014.png">
-<meta property="og:updated_time" content="2020-02-28T17:28:13.631Z">
+<meta property="og:updated_time" content="2020-02-28T17:45:50.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="奇异值分解 (SVD, Singular Value Decomposition)">
-<meta name="twitter:description" content="特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。  参考教材：《矩阵论(第3版)》程文鹏 著  论述前提  $A^H$在实数范围内等价于$A^T$  奇异值定义：  奇异值分解定义  酉矩阵在实数范围内等价于正交矩阵，即$A^T=A^{-1}$  证明在证明过程中构造了V和U，可以通过学习证明过程学习如何构造V和U">
+<meta name="twitter:description" content="特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。  参考教材：《矩阵论(第3版)》程文鹏 著  论述前提  $\boldsymbol{A} \in \mathbf{C}_{r}^{m \times n}$表示A为m行n列的矩阵，矩阵的秩为r $A^H$在实数范围内等价于$A^T$  奇异值定义：  奇异值分解定义">
 <meta name="twitter:image" content="http://img.cdn.leonwang.top/20200229011023.png">
 
 
@@ -331,7 +331,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-02-29T01:28:13+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-02-29T01:45:50+08:00">
                 2020-02-29
               </time>
             
@@ -393,11 +393,13 @@
 </blockquote>
 <h2 id="论述前提"><a href="#论述前提" class="headerlink" title="论述前提"></a>论述前提</h2><p><img src="http://img.cdn.leonwang.top/20200229011023.png" alt=""></p>
 <blockquote>
+<p>$\boldsymbol{A} \in \mathbf{C}_{r}^{m \times n}$表示A为m行n列的矩阵，矩阵的秩为r</p>
 <p>$A^H$在实数范围内等价于$A^T$</p>
 </blockquote>
 <h2 id="奇异值"><a href="#奇异值" class="headerlink" title="奇异值"></a>奇异值</h2><p>定义：</p>
 <p><img src="http://img.cdn.leonwang.top/20200229011058.png" alt=""></p>
 <h2 id="奇异值分解"><a href="#奇异值分解" class="headerlink" title="奇异值分解"></a>奇异值分解</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="http://img.cdn.leonwang.top/20200229011310.png" alt=""></p>
+<p>(4.4.4)式通过证明表示成如下形式就是奇异值分解：<br>$$<br>A=U\left[\begin{array}{ll}\Sigma &amp; 0 \ 0 &amp; 0\end{array}\right] V^{T}<br>$$</p>
 <blockquote>
 <p>酉矩阵在实数范围内等价于正交矩阵，即$A^T=A^{-1}$</p>
 </blockquote>
@@ -407,7 +409,8 @@
 <p><img src="http://img.cdn.leonwang.top/20200229011914.png" alt=""></p>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><img src="http://img.cdn.leonwang.top/20200229011952.png" alt=""></p>
 <p><img src="http://img.cdn.leonwang.top/20200229012014.png" alt=""></p>
-<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="图像压缩"><a href="#图像压缩" class="headerlink" title="图像压缩"></a>图像压缩</h4><h4 id="矩阵乘法加速"><a href="#矩阵乘法加速" class="headerlink" title="矩阵乘法加速"></a>矩阵乘法加速</h4>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>说点人话，奇异值分解，就是在矩阵A左右两边分别乘以 $U^H$ 和 $V$，得到一个对称矩阵，最后通过证明得到了下面的形式：<br>$$<br>A=U\left[\begin{array}{ll}\Sigma &amp; 0 \ 0 &amp; 0\end{array}\right] V^{T}<br>$$<br>上式中各自的shape如下：<br>$$<br>\begin{array}{l}\mathrm{A}: \mathrm{m} \times \mathrm{n} \ \mathrm{U}: \mathrm{m} \times \mathrm{m} \ \left[\begin{array}{cc}\Sigma &amp; 0 \ 0 &amp; 0\end{array}\right]: \mathrm{m} \times \mathrm{n} \ V^{T}: \mathrm{n} \times \mathrm{n}\end{array}<br>$$<br>如果矩阵A的秩R(A)=r，则Σ是r×r对角阵，对角线上的元素就是 $A^TA$ 的不为0的特征值，把U和V写成列向量的形式：<br>$$<br>A=\left[u_{1}, u_{2}, \ldots, u_{r}, u_{r+1}, \ldots, u_{m}\right]\left[\begin{array}{ccccccc}\sigma_{1} &amp; 0 &amp; \cdots &amp; &amp; &amp; &amp; \ 0 &amp; \sigma_{2} &amp; 0 &amp; \cdots &amp; &amp; &amp; \ \vdots &amp; 0 &amp; \ddots &amp; &amp; &amp; &amp; \ &amp; \vdots &amp; 0 &amp; \sigma_{r} &amp; 0 &amp; &amp; \ &amp; &amp; &amp; &amp; 0 &amp; &amp; \ &amp; &amp; &amp; &amp; &amp; \ddots &amp; 0 \ &amp; &amp; &amp; &amp; &amp; 0 &amp; 0\end{array}\right]<em>{m \times n}\left[\begin{array}{c}v</em>{1}^{T} \ \vdots \ v_{r}^{T} \ \vdots \ v_{n}^{T}\end{array}\right]<br>$$<br>展开后：<br>$$<br>A=\sigma_{1} u_{1} v_{1}^{T}+\sigma_{2} u_{2} v_{2}^{T}+\ldots+\sigma_{r} u_{r} v_{r}^{T}<br>$$<br>根据奇异值的定义，有：<br>$$<br>\sigma_{1} \geq \sigma_{2} \geq \ldots \geq \sigma_{r}&gt;0<br>$$<br>根据上式可以分析SVD的一些应用：</p>
+<h4 id="图像压缩"><a href="#图像压缩" class="headerlink" title="图像压缩"></a>图像压缩</h4><h4 id="矩阵乘法加速"><a href="#矩阵乘法加速" class="headerlink" title="矩阵乘法加速"></a>矩阵乘法加速</h4>
       
     </div>
     
