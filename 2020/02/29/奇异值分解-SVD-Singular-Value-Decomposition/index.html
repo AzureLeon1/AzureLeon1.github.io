@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="深度学习,">
+  <meta name="keywords" content="数学,线性代数,奇异值,奇异值分解,">
 
 
 
@@ -79,21 +79,27 @@
 
 
 
-<meta name="description" content="背景 1234最近在整理 Grad-CAM的资料，再一次看到了 GAP (Global Average Pooling)这个模块，之前在做图像分类的比赛时，看到有大佬在模型微调 (fine tune) 时使用了这个模块，而且效果显著，因此觉得有必要研究一下到底是怎么回事了。论文为主 要想理解深度学习的一些知识，最好的方法就是回归原论文。GAP 最早是由 Min Lin 等人在论文《Network">
-<meta name="keywords" content="深度学习">
+<meta name="description" content="特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。  参考教材：《矩阵论(第3版)》程文鹏 著  论述前提  $A^H$在实数范围内等价于$A^T$  奇异值定义：  奇异值分解定义  酉矩阵在实数范围内等价于正交矩阵，即$A^T=A^{-1}$  证明在证明过程中构造了V和U，可以通过学习证明过程学习如何构造V和U">
+<meta name="keywords" content="数学,线性代数,奇异值,奇异值分解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Global Average Pooling">
-<meta property="og:url" content="http://www.leonwang.top/2019/07/23/Global-Average-Pooling/index.html">
+<meta property="og:title" content="奇异值分解 (SVD, Singular Value Decomposition)">
+<meta property="og:url" content="http://www.leonwang.top/2020/02/29/奇异值分解-SVD-Singular-Value-Decomposition/index.html">
 <meta property="og:site_name" content="Leon Wang">
-<meta property="og:description" content="背景 1234最近在整理 Grad-CAM的资料，再一次看到了 GAP (Global Average Pooling)这个模块，之前在做图像分类的比赛时，看到有大佬在模型微调 (fine tune) 时使用了这个模块，而且效果显著，因此觉得有必要研究一下到底是怎么回事了。论文为主 要想理解深度学习的一些知识，最好的方法就是回归原论文。GAP 最早是由 Min Lin 等人在论文《Network">
+<meta property="og:description" content="特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。  参考教材：《矩阵论(第3版)》程文鹏 著  论述前提  $A^H$在实数范围内等价于$A^T$  奇异值定义：  奇异值分解定义  酉矩阵在实数范围内等价于正交矩阵，即$A^T=A^{-1}$  证明在证明过程中构造了V和U，可以通过学习证明过程学习如何构造V和U">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://img.cdn.leonwang.top/20190723152433.png">
-<meta property="og:image" content="http://img.cdn.leonwang.top/20190723152449.png">
-<meta property="og:updated_time" content="2019-07-23T07:26:10.622Z">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200229011023.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200229011058.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200229011310.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200229011839.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200229011858.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200229011914.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200229011952.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200229012014.png">
+<meta property="og:updated_time" content="2020-02-28T17:28:13.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Global Average Pooling">
-<meta name="twitter:description" content="背景 1234最近在整理 Grad-CAM的资料，再一次看到了 GAP (Global Average Pooling)这个模块，之前在做图像分类的比赛时，看到有大佬在模型微调 (fine tune) 时使用了这个模块，而且效果显著，因此觉得有必要研究一下到底是怎么回事了。论文为主 要想理解深度学习的一些知识，最好的方法就是回归原论文。GAP 最早是由 Min Lin 等人在论文《Network">
-<meta name="twitter:image" content="http://img.cdn.leonwang.top/20190723152433.png">
+<meta name="twitter:title" content="奇异值分解 (SVD, Singular Value Decomposition)">
+<meta name="twitter:description" content="特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。  参考教材：《矩阵论(第3版)》程文鹏 著  论述前提  $A^H$在实数范围内等价于$A^T$  奇异值定义：  奇异值分解定义  酉矩阵在实数范围内等价于正交矩阵，即$A^T=A^{-1}$  证明在证明过程中构造了V和U，可以通过学习证明过程学习如何构造V和U">
+<meta name="twitter:image" content="http://img.cdn.leonwang.top/20200229011023.png">
 
 
 
@@ -123,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://www.leonwang.top/2019/07/23/Global-Average-Pooling/">
+  <link rel="canonical" href="http://www.leonwang.top/2020/02/29/奇异值分解-SVD-Singular-Value-Decomposition/">
 
 
 
 
 
-  <title>Global Average Pooling | Leon Wang</title>
+  <title>奇异值分解 (SVD, Singular Value Decomposition) | Leon Wang</title>
   
 
 
@@ -280,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2019/07/23/Global-Average-Pooling/">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2020/02/29/奇异值分解-SVD-Singular-Value-Decomposition/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Leon Wang">
@@ -297,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Global Average Pooling</h1>
+          <h1 class="post-title" itemprop="name headline">奇异值分解 (SVD, Singular Value Decomposition)</h1>
         
 
         <div class="post-meta">
@@ -309,8 +315,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-23T15:25:20+08:00">
-                2019-07-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-29T01:26:56+08:00">
+                2020-02-29
               </time>
             
 
@@ -325,8 +331,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-23T15:26:10+08:00">
-                2019-07-23
+              <time title="Post modified" itemprop="dateModified" datetime="2020-02-29T01:28:13+08:00">
+                2020-02-29
               </time>
             
           </span>
@@ -344,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/深度学习/" itemprop="url" rel="index">
-                    <span itemprop="name">深度学习</span>
+                  <a href="/categories/数学/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
                   </a>
                 </span>
 
@@ -381,24 +387,27 @@
       
 
       
-        <p><strong>背景</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">最近在整理 Grad-CAM的资料，再一次看到了 GAP (Global Average Pooling)这个模块，</span><br><span class="line">之前在做图像分类的比赛时，看到有大佬在模型微调 (fine tune) 时使用了这个模块，</span><br><span class="line">而且效果显著，因此觉得有必要研究一下到底是怎么回事了。</span><br><span class="line">论文为主</span><br></pre></td></tr></table></figure>
-<p>要想理解深度学习的一些知识，最好的方法就是回归原论文。GAP 最早是由 Min Lin 等人在论文<a href="https://arxiv.org/abs/1312.4400" target="_blank" rel="noopener">《Network In Network》</a>中提出的，推荐阅读一下这篇文章，里面的创新点值得一看。</p>
-<p>在讲解 GAP 之前先做些铺垫，以便更好的理解。我们知道，常见 CNN 的网络结构如下图所示：</p>
-<p><img src="http://img.cdn.leonwang.top/20190723152433.png" alt=""></p>
-<p>在全连接层以前的<code>卷积层</code>负责对图像进行特征提取，<code>池化层</code>负责降采样：保留显著的特征、降低特征维度同时增大 kernel 的感受野 1。实际运用中发现网络层数越深越能获得较丰富的<code>空间信息</code>和<code>语义信息</code>，而这些也需要较大的感受野才能满足。在获取特征后，传统的做法是接上<code>全连接层</code>后再进行激活分类。问题也出在这个全连接层，虽然可以做到对 feature map2 进行降维，但是参数实在太大了，很容易造成过拟合, 既然都是为了降维，那么这个工作是不是<code>池化层</code>也可以做呢？</p>
-<p><strong>答案是肯定的。</strong></p>
-<p>论文作者使用 GAP 来替代最后的全连接层, 直接实现了降维，并且也极大地降低了网络参数 (全连接层的参数在整个 CNN 中占有很大的比重)，更重要的一点是保留了由前面各个卷积层和池化层提取到的空间信息，实际应用中效果提升也比较明显。另外 GAP 的另一个重要作用就是去除了对输入大小的限制，这一方面在卷积可视化 Grad-CAM 中比较重要。GAP 的网络结构图如下：</p>
-<p><img src="http://img.cdn.leonwang.top/20190723152449.png" alt=""></p>
-<p>GAP 真正的意义在于它实现了在整个网络结构上的正则化以实现防止过拟合的功能，原理在于传统的全连接网络 (如上图的左图) 对 feature map 进行处理时附带了庞大的参数以达到 “暗箱操作” 获取足够多的非线性特征，然后接上分类器, 由于参数众多，难免存在过拟合的现象。GAP 直接从 feature map 的通道信息下手，比如我们现在的分类有 20 种，那么最后一层的卷积输出的 feature map 就只有 20 个通道，然后对这个 feature map 进行全局池化操作，获得长度为 20 的向量，这就相当于直接赋予了每个通道类别的意义。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注：</span><br><span class="line">1. 增大感受野就好比你站在地球上看不出它是圆的，站在外太空就可以；</span><br><span class="line">2. feature map 就是全连接层之前的长x高x深的块，通常称一片长x高的特征为一个feature map，深也就是最初的图像通道数；</span><br></pre></td></tr></table></figure>
-<p>另外在 keras 中已经定义好了，调用方式如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> GlobalAveragePooling2D,Dense</span><br><span class="line"><span class="keyword">from</span> keras.applications <span class="keyword">import</span> VGG16</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Model</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_model</span><span class="params">()</span>:</span></span><br><span class="line">    base_model = VGG16(weights=<span class="string">"imagenet"</span>,include_top=<span class="keyword">False</span>)</span><br><span class="line">    <span class="comment">#在分类器之前使用</span></span><br><span class="line">    gap = GlobalAveragePooling2D()(base_model)</span><br><span class="line">    predictions = Dense(<span class="number">20</span>,activation=<span class="string">"softmax"</span>)(gap)</span><br><span class="line">    model = Model(inputs=base_model.input,outputs=predictions)</span><br><span class="line">    <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
-<p>参考文献：</p>
-<ul>
-<li><a href="https://arxiv.org/abs/1312.4400" target="_blank" rel="noopener">Network In Network</a></li>
-</ul>
-
+        <p>特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。</p>
+<blockquote>
+<p>参考教材：《矩阵论(第3版)》程文鹏 著</p>
+</blockquote>
+<h2 id="论述前提"><a href="#论述前提" class="headerlink" title="论述前提"></a>论述前提</h2><p><img src="http://img.cdn.leonwang.top/20200229011023.png" alt=""></p>
+<blockquote>
+<p>$A^H$在实数范围内等价于$A^T$</p>
+</blockquote>
+<h2 id="奇异值"><a href="#奇异值" class="headerlink" title="奇异值"></a>奇异值</h2><p>定义：</p>
+<p><img src="http://img.cdn.leonwang.top/20200229011058.png" alt=""></p>
+<h2 id="奇异值分解"><a href="#奇异值分解" class="headerlink" title="奇异值分解"></a>奇异值分解</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="http://img.cdn.leonwang.top/20200229011310.png" alt=""></p>
+<blockquote>
+<p>酉矩阵在实数范围内等价于正交矩阵，即$A^T=A^{-1}$</p>
+</blockquote>
+<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><p>在证明过程中构造了V和U，可以通过学习证明过程学习如何构造V和U，如何进行奇异值分解的计算。</p>
+<p><img src="http://img.cdn.leonwang.top/20200229011839.png" alt=""></p>
+<p><img src="http://img.cdn.leonwang.top/20200229011858.png" alt=""></p>
+<p><img src="http://img.cdn.leonwang.top/20200229011914.png" alt=""></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><img src="http://img.cdn.leonwang.top/20200229011952.png" alt=""></p>
+<p><img src="http://img.cdn.leonwang.top/20200229012014.png" alt=""></p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="图像压缩"><a href="#图像压缩" class="headerlink" title="图像压缩"></a>图像压缩</h4><h4 id="矩阵乘法加速"><a href="#矩阵乘法加速" class="headerlink" title="矩阵乘法加速"></a>矩阵乘法加速</h4>
       
     </div>
     
@@ -415,7 +424,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+            <a href="/tags/数学/" rel="tag"># 数学</a>
+          
+            <a href="/tags/线性代数/" rel="tag"># 线性代数</a>
+          
+            <a href="/tags/奇异值/" rel="tag"># 奇异值</a>
+          
+            <a href="/tags/奇异值分解/" rel="tag"># 奇异值分解</a>
           
         </div>
       
@@ -428,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/23/卷积可视化：Grad-CAM/" rel="next" title="卷积可视化：Grad-CAM">
-                <i class="fa fa-chevron-left"></i> 卷积可视化：Grad-CAM
+              <a href="/2020/02/29/Linear-Algebra/" rel="next" title="Linear Algebra">
+                <i class="fa fa-chevron-left"></i> Linear Algebra
               </a>
             
           </div>
@@ -437,10 +452,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/24/Stanford-ML-Note/" rel="prev" title="Stanford ML Note">
-                Stanford ML Note <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -495,8 +506,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -558,6 +578,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论述前提"><span class="nav-number">1.</span> <span class="nav-text">论述前提</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奇异值"><span class="nav-number">2.</span> <span class="nav-text">奇异值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#奇异值分解"><span class="nav-number">3.</span> <span class="nav-text">奇异值分解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#证明"><span class="nav-number">3.2.</span> <span class="nav-text">证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子"><span class="nav-number">3.3.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">3.4.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图像压缩"><span class="nav-number">3.4.1.</span> <span class="nav-text">图像压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#矩阵乘法加速"><span class="nav-number">3.4.2.</span> <span class="nav-text">矩阵乘法加速</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
