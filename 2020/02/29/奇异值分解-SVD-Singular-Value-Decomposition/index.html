@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200229011914.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200229011952.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200229012014.png">
-<meta property="og:updated_time" content="2020-02-29T16:16:30.372Z">
+<meta property="og:updated_time" content="2020-02-29T16:20:41.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="奇异值分解 (SVD, Singular Value Decomposition)">
 <meta name="twitter:description" content="特征值分解的方法只适用于实对称矩阵，对于更一般的矩阵，一般采用奇异值分解。这里简单记录一下有关奇异值和奇异值分解的内容，不详细论述。 博客插件对LaTex数学公式的支持有点差，好多都挂了orz…难搞哦🤕  参考教材：《矩阵论(第3版)》程文鹏 著  论述前提  $\boldsymbol{A} \in \mathbf{C}_{r}^{m \times n}$表示A为m行n列的矩阵，矩阵的秩为r $">
@@ -331,7 +331,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-03-01T00:16:30+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-01T00:20:41+08:00">
                 2020-03-01
               </time>
             
@@ -415,7 +415,7 @@
 <p>上式中各自的shape如下：</p>
 <p>$$<br>\begin{array}{l}\mathrm{A}: \mathrm{m} \times \mathrm{n} \<br>\mathrm{U}: \mathrm{m} \times \mathrm{m} \<br>\left[\begin{array}{cc}\Sigma &amp; 0 \ 0 &amp; 0\end{array}\right]: \mathrm{m} \times \mathrm{n} \<br>V^{T}: \mathrm{n} \times \mathrm{n}\end{array}<br>$$</p>
 <p>如果矩阵A的秩R(A)=r，则Σ是r×r对角阵，对角线上的元素就是 $A^TA$ 的不为0的特征值，把U和V写成列向量的形式：</p>
-<p>$$<br>A=\left[u_{1}, u_{2}, \ldots, u_{r}, u_{r+1}, \ldots, u_{m}\right]\left[\begin{array}{ccccccc}\sigma_{1} &amp; 0 &amp; \cdots &amp; &amp; &amp; &amp; \ 0 &amp; \sigma_{2} &amp; 0 &amp; \cdots &amp; &amp; &amp; \ \vdots &amp; 0 &amp; \ddots &amp; &amp; &amp; &amp; \ &amp; \vdots &amp; 0 &amp; \sigma_{r} &amp; 0 &amp; &amp; \ &amp; &amp; &amp; &amp; 0 &amp; &amp; \ &amp; &amp; &amp; &amp; &amp; \ddots &amp; 0 \ &amp; &amp; &amp; &amp; &amp; 0 &amp; 0\end{array}\right]<em>{m \times n}\left[\begin{array}{c}v</em>{1}^{T} \ \vdots \ v_{r}^{T} \ \vdots \ v_{n}^{T}\end{array}\right]<br>$$</p>
+<p>$$<br>A=\left[u_{1}, u_{2}, \ldots, u_{r}, u_{r+1}, \ldots, u_{m}\right]\left[\begin{array}{ccccccc}\sigma_{1} &amp; 0 &amp; \cdots &amp; &amp; &amp; &amp; \<br>0 &amp; \sigma_{2} &amp; 0 &amp; \cdots &amp; &amp; &amp; \<br>\vdots &amp; 0 &amp; \ddots &amp; &amp; &amp; &amp; \<br>&amp; \vdots &amp; 0 &amp; \sigma_{r} &amp; 0 &amp; &amp; \<br>&amp; &amp; &amp; &amp; 0 &amp; &amp; \ &amp; &amp; &amp; &amp; &amp; \ddots &amp; 0 \<br>&amp; &amp; &amp; &amp; &amp; 0 &amp; 0\end{array}\right]<em>{m \times n}\left[\begin{array}{c}v</em>{1}^{T} \<br>\vdots \<br>v_{r}^{T} \<br>\vdots \<br>v_{n}^{T}\end{array}\right]<br>$$</p>
 <p>展开后：</p>
 <p>$$<br>A=\sigma_{1} u_{1} v_{1}^{T}+\sigma_{2} u_{2} v_{2}^{T}+\ldots+\sigma_{r} u_{r} v_{r}^{T}<br>$$</p>
 <p>根据奇异值的定义，有：</p>
