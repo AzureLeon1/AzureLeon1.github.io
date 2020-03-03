@@ -490,6 +490,7 @@
   
     <div class="comments" id="comments">
     </div>
+
   
 
 
@@ -782,6 +783,24 @@
 
 
 
+
+
+
+   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+   <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'e25cb882a9cfd69b0fcf',
+          clientSecret: 'd5aa7f1f939ecb26efd4c1279013d10158e19c7f',
+          repo: 'comments',
+          owner: 'AzureLeon1',
+          admin: ['AzureLeon1'],
+          id: md5(window.location.pathname),
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')
+       </script>
 
 
 
