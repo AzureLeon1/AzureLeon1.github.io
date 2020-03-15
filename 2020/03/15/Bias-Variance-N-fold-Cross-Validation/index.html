@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/icon.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,过拟合,欠拟合,Cross Validation,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased 用$s^2$来估测$\sigma^2$，它是biased   其中">
+<meta name="keywords" content="机器学习,过拟合,欠拟合,Cross Validation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bias, Variance, N-fold Cross Validation">
+<meta property="og:url" content="http://www.leonwang.top/2020/03/15/Bias-Variance-N-fold-Cross-Validation/index.html">
+<meta property="og:site_name" content="Leon Wang">
+<meta property="og:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased 用$s^2$来估测$\sigma^2$，它是biased   其中">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315091529.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315091810.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315085814.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315091920.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315092159.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315093711.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315094023.png">
+<meta property="og:updated_time" content="2020-03-15T02:02:44.918Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bias, Variance, N-fold Cross Validation">
+<meta name="twitter:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased 用$s^2$来估测$\sigma^2$，它是biased   其中">
+<meta name="twitter:image" content="http://img.cdn.leonwang.top/20200315091529.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.leonwang.top/2020/03/15/Bias-Variance-N-fold-Cross-Validation/">
+
+
+
+
+
+  <title>Bias, Variance, N-fold Cross Validation | Leon Wang</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2e891af0fec421b141ef1add26813124";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leon Wang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2020/03/15/Bias-Variance-N-fold-Cross-Validation/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leon Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leon Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Bias, Variance, N-fold Cross Validation</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-15T10:00:37+08:00">
+                2020-03-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-15T10:02:44+08:00">
+                2020-03-15
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Bias-and-Variance"><a href="#Bias-and-Variance" class="headerlink" title="Bias and Variance"></a>Bias and Variance</h2><p>在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。</p>
+<p>模型的误差来自两个方面：Bias和Variance。</p>
+<p>用$m$来估测$μ$，它是unbiased</p>
+<p>用$s^2$来估测$\sigma^2$，它是biased</p>
+<p><img src="http://img.cdn.leonwang.top/20200315091529.png" width="350"></p>
+<p><img src="http://img.cdn.leonwang.top/20200315091810.png" width="500"></p>
+<p>其中，n是每次取样中样本点的个数，不是取样的次数。可以看出，每次取样取的样本点越多，E[s]越接近$\sigma^2$。</p>
+<p>回到回归这个问题，把寻找合适的模型看作打靶，靶心是模型的ground truth，但实际这个靶心的具体formulation我们是不知道的。</p>
+<p><img src="http://img.cdn.leonwang.top/20200315085814.png" width="500"></p>
+<p>选择不同的模型进行回归，因为不同模型有不同的 bias 和 variance，所以最终也会有不同的error。</p>
+<p>选定一类模型（假设是3次多项式），进行多次回归，能够得到多个不同的模型（例如每次回归设定的学习率不同，就将得到不同的训练效果），每一个模型在靶上都是一个点，但它们都属于同一类模型。<strong>把这些模型取平均，与靶心之间的差距，就是这类模型的bias。这些模型的分散程度，就是这个模型的variance。</strong></p>
+<p>比较不同的模型，其中的黑线表示ground truth，蓝线表示对应模型的平均：</p>
+<p><img src="http://img.cdn.leonwang.top/20200315091920.png" width="500"></p>
+<p><strong>简单的模型（如线性回归）有大的 bias 和小的 variance</strong></p>
+<p><strong>复杂的模型（如五次多项式回归）有小的 bias 和大的 variance</strong></p>
+<h2 id="欠拟合与过拟合"><a href="#欠拟合与过拟合" class="headerlink" title="欠拟合与过拟合"></a>欠拟合与过拟合</h2><p>据此来解释<strong>过拟合</strong>与<strong>欠拟合</strong>的问题：</p>
+<p><img src="http://img.cdn.leonwang.top/20200315092159.png" width="500"></p>
+<p>简单的模型的error主要来自bias，属于欠拟合</p>
+<p>复杂的模型的error主要来自variance，属于过拟合</p>
+<p>如何处理太大的bias（欠拟合）：</p>
+<ul>
+<li>增加更多的features</li>
+<li>选择更加复杂的model</li>
+</ul>
+<p>如何处理太大的variance（过拟合）：</p>
+<ul>
+<li>获取更多的数据（很有效，但是往往不现实）</li>
+<li>正则化（曲线会更平滑，但有可能会导致bias增大）</li>
+</ul>
+<h2 id="模型选择"><a href="#模型选择" class="headerlink" title="模型选择"></a>模型选择</h2><h3 id="Cross-Validation"><a href="#Cross-Validation" class="headerlink" title="Cross Validation"></a>Cross Validation</h3><p>如果是参加比赛，会有public testing set，也会有private testing set。在public上error小，往往不一定在private上的error也小。</p>
+<p>由于这种做法会把public testing set中的某些特点考虑进去，所以直接选择在public testing set上error最小的model往往不是最好的选择，一个比较好的做法是采用交叉验证（Cross Validation）。</p>
+<p><img src="http://img.cdn.leonwang.top/20200315093711.png" style="zoom: 33%;"></p>
+<h3 id="N-fold-Cross-Validation"><a href="#N-fold-Cross-Validation" class="headerlink" title="N-fold Cross Validation"></a>N-fold Cross Validation</h3><p>如果不相信training set和validation set划分的足够好，可以采用N折交叉验证。</p>
+<p><img src="http://img.cdn.leonwang.top/20200315094023.png" style="zoom:33%;"></p>
+<p>比如图中所示，把训练集分成3折，来从三类model中进行选择。对应训练集的三种划分情况，分别训练三类模型，最终得到九个训练好的模型，计算每个模型在各自的validation set上的error。</p>
+<p>计算每一类模型在所有划分情况下的平均error，选择平均error最小的那个Model，这个例子中是Model 1。</p>
+<p>然后用Model 1重新在全体训练集上训练一次，训练出了最终模型。</p>
+<h3 id="N折交叉验证的意义"><a href="#N折交叉验证的意义" class="headerlink" title="N折交叉验证的意义"></a>N折交叉验证的意义</h3><ul>
+<li><strong>防止过拟合</strong>，尤其是在数据集样本量较少的情况下。</li>
+</ul>
+<p>上面讲的比赛中public测试集和private测试集的问题，实际上是希望通过交叉验证的方式，避免在训练时考虑public testing set中一些独有的特点，从而避免模型在public测试集上error小却在private测试集上error大的现象。所以这本质上也是在解决过拟合的问题。</p>
+<p>而在实际项目中，N折交叉验证更常用于解决样本量少、训练集测试集划分地不好而引起的过拟合。</p>
+<blockquote>
+<p>Reference: Dr Hung-yi Lee’s Machine Learning course</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/过拟合/" rel="tag"># 过拟合</a>
+          
+            <a href="/tags/欠拟合/" rel="tag"># 欠拟合</a>
+          
+            <a href="/tags/Cross-Validation/" rel="tag"># Cross Validation</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/01/概率论与数理统计/" rel="next" title="概率论与数理统计">
+                <i class="fa fa-chevron-left"></i> 概率论与数理统计
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Leon Wang">
+            
+              <p class="site-author-name" itemprop="name">Leon Wang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bias-and-Variance"><span class="nav-number">1.</span> <span class="nav-text">Bias and Variance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#欠拟合与过拟合"><span class="nav-number">2.</span> <span class="nav-text">欠拟合与过拟合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型选择"><span class="nav-number">3.</span> <span class="nav-text">模型选择</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cross-Validation"><span class="nav-number">3.1.</span> <span class="nav-text">Cross Validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N-fold-Cross-Validation"><span class="nav-number">3.2.</span> <span class="nav-text">N-fold Cross Validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#N折交叉验证的意义"><span class="nav-number">3.3.</span> <span class="nav-text">N折交叉验证的意义</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+
+<span>鲁ICP备 -
+  <a href="http://www.beian.miit.gov.cn">18054179号</a></span>
+
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leon Wang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人</span>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+
+
+
+
+</body>
+</html>
