@@ -79,27 +79,27 @@
 
 
 
-<meta name="description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 如何理解Bias和Variance呢？先举两个概率与统计中的例子：  用样本的均值$m$来估测随机变量的均值$">
+<meta name="description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 如何理解Bias和Variance呢？先举两个概率与统计中的例子（无偏估计和有偏估计）：  用样本的均值$m$">
 <meta name="keywords" content="机器学习,过拟合,欠拟合,Cross Validation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bias, Variance, N-fold Cross Validation">
 <meta property="og:url" content="http://www.leonwang.top/2020/03/15/Bias-Variance-N-fold-Cross-Validation/index.html">
 <meta property="og:site_name" content="Leon Wang">
-<meta property="og:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 如何理解Bias和Variance呢？先举两个概率与统计中的例子：  用样本的均值$m$来估测随机变量的均值$">
+<meta property="og:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 如何理解Bias和Variance呢？先举两个概率与统计中的例子（无偏估计和有偏估计）：  用样本的均值$m$">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315100536.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315102217.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315100702.png">
-<meta property="og:image" content="http://img.cdn.leonwang.top/20200315102644.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315165438.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315085814.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315091920.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315092159.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315093711.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315094023.png">
-<meta property="og:updated_time" content="2020-03-15T02:39:44.249Z">
+<meta property="og:updated_time" content="2020-03-15T08:55:46.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bias, Variance, N-fold Cross Validation">
-<meta name="twitter:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 如何理解Bias和Variance呢？先举两个概率与统计中的例子：  用样本的均值$m$来估测随机变量的均值$">
+<meta name="twitter:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 如何理解Bias和Variance呢？先举两个概率与统计中的例子（无偏估计和有偏估计）：  用样本的均值$m$">
 <meta name="twitter:image" content="http://img.cdn.leonwang.top/20200315100536.png">
 
 
@@ -332,7 +332,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-03-15T10:39:44+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-15T16:55:46+08:00">
                 2020-03-15
               </time>
             
@@ -390,7 +390,7 @@
       
         <h2 id="Bias-and-Variance"><a href="#Bias-and-Variance" class="headerlink" title="Bias and Variance"></a>Bias and Variance</h2><p>在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。</p>
 <p>模型的误差来自两个方面：Bias和Variance。</p>
-<p>如何理解Bias和Variance呢？先举两个概率与统计中的例子：</p>
+<p>如何理解Bias和Variance呢？先举两个概率与统计中的例子（无偏估计和有偏估计）：</p>
 <ol>
 <li><p>用样本的均值$m$来估测随机变量的均值$μ$，分析m的bias和variance。</p>
 <p> 通过计算m的期望和方差，可以知道m这个estimator是unbiased的，即bias是0，variance是$\sigma^2/N$。</p>
@@ -406,7 +406,9 @@
 </li>
 </ol>
 <p><img src="http://img.cdn.leonwang.top/20200315100702.png" style="zoom:33%;"></p>
-<p><img src="http://img.cdn.leonwang.top/20200315102644.png" style="zoom:30%;"></p>
+<p><img src="http://img.cdn.leonwang.top/20200315165438.png" style="zoom:30%;"></p>
+<font color="red">（其实上面用到的样本方差的概念是李宏毅博士在机器学习课程中用到的概念，是样本二阶中心矩，用样本二阶中心矩来估计总体方差（即总体二阶中心矩）是有偏估计。但是实际上，不论是在同济概统课本还是在浙大概统课本里，所谓的“样本方差”的概念都不是用的样本二阶中心矩，“样本方差”的系数的分母是n-1而不是n，这样用“样本方差”去估计“总体方差”就是无偏的。具体可以去看一下概率论与数理统计那篇blog post。）</font>
+
 <p>总而言之，当用一个模型来估测一个数据时，bias表示这个模型的期望与ground truth之间的差距，variance表示这个模型的离散程度。</p>
 <p>回到回归这个问题，把寻找合适的模型看作打靶，靶心是模型的ground truth，但实际这个靶心的具体formulation我们是不知道的。</p>
 <p><img src="http://img.cdn.leonwang.top/20200315085814.png" width="500"></p>
