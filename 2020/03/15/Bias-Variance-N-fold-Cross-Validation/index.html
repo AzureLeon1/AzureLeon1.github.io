@@ -79,26 +79,28 @@
 
 
 
-<meta name="description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased  用$s^2$来估测$\sigma^2$，它是biased   其">
+<meta name="description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 如何理解Bias和Variance呢？先举两个概率与统计中的例子：  用样本的均值$m$来估测随机变量的均值$">
 <meta name="keywords" content="机器学习,过拟合,欠拟合,Cross Validation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bias, Variance, N-fold Cross Validation">
 <meta property="og:url" content="http://www.leonwang.top/2020/03/15/Bias-Variance-N-fold-Cross-Validation/index.html">
 <meta property="og:site_name" content="Leon Wang">
-<meta property="og:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased  用$s^2$来估测$\sigma^2$，它是biased   其">
+<meta property="og:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 如何理解Bias和Variance呢？先举两个概率与统计中的例子：  用样本的均值$m$来估测随机变量的均值$">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315100536.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315102156.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315102217.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315100702.png">
-<meta property="og:image" content="http://img.cdn.leonwang.top/20200315091810.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315102644.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315085814.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315091920.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315092159.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315093711.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315094023.png">
-<meta property="og:updated_time" content="2020-03-15T02:10:54.914Z">
+<meta property="og:updated_time" content="2020-03-15T02:36:53.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bias, Variance, N-fold Cross Validation">
-<meta name="twitter:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased  用$s^2$来估测$\sigma^2$，它是biased   其">
+<meta name="twitter:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 如何理解Bias和Variance呢？先举两个概率与统计中的例子：  用样本的均值$m$来估测随机变量的均值$">
 <meta name="twitter:image" content="http://img.cdn.leonwang.top/20200315100536.png">
 
 
@@ -331,7 +333,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-03-15T10:10:54+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-15T10:36:53+08:00">
                 2020-03-15
               </time>
             
@@ -389,12 +391,24 @@
       
         <h2 id="Bias-and-Variance"><a href="#Bias-and-Variance" class="headerlink" title="Bias and Variance"></a>Bias and Variance</h2><p>在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。</p>
 <p>模型的误差来自两个方面：Bias和Variance。</p>
-<p>用$m$来估测$μ$，它是unbiased</p>
-<p><img src="http://img.cdn.leonwang.top/20200315100536.png" style="zoom:33%;"></p>
-<p>用$s^2$来估测$\sigma^2$，它是biased</p>
+<p>如何理解Bias和Variance呢？先举两个概率与统计中的例子：</p>
+<ol>
+<li><p>用样本的均值$m$来估测随机变量的均值$μ$，分析m的bias和variance。</p>
+<p> 通过计算m的期望和方差，可以知道m这个estimator是unbiased的，即bias是0，variance是$\sigma^2/N$。</p>
+<p> 其中，n是每次取样中样本点的个数，不是取样的次数。可以看出，取样取的样本点越多，m的variance越小。</p>
+</li>
+</ol>
+<p><img src="http://img.cdn.leonwang.top/20200315100536.png" style="zoom:33%;"><img src="http://img.cdn.leonwang.top/20200315102156.png" alt=""></p>
+<p><img src="http://img.cdn.leonwang.top/20200315102217.png" style="zoom:33%;"></p>
+<ol start="2">
+<li><p>用样本的方差$s$来估测随机变量的方差$\sigma^2$，分析s的bias。</p>
+<p> 通过计算s的期望，可以知道s这个estimator是biased的。</p>
+<p> 其中，n是每次取样中样本点的个数，不是取样的次数。可以看出，取样取的样本点越多，E[s]越接近$\sigma^2$，也就是estimator的bias越小。</p>
+</li>
+</ol>
 <p><img src="http://img.cdn.leonwang.top/20200315100702.png" style="zoom:33%;"></p>
-<p><img src="http://img.cdn.leonwang.top/20200315091810.png" width="500"></p>
-<p>其中，n是每次取样中样本点的个数，不是取样的次数。可以看出，每次取样取的样本点越多，E[s]越接近$\sigma^2$。</p>
+<p><img src="http://img.cdn.leonwang.top/20200315102644.png" style="zoom:30%;"></p>
+<p>总而言之，当用一个模型来估测一个数据时，bias表示这个模型的期望与ground truth之间的差距，variance表示这个模型的离散程度。</p>
 <p>回到回归这个问题，把寻找合适的模型看作打靶，靶心是模型的ground truth，但实际这个靶心的具体formulation我们是不知道的。</p>
 <p><img src="http://img.cdn.leonwang.top/20200315085814.png" width="500"></p>
 <p>选择不同的模型进行回归，因为不同模型有不同的 bias 和 variance，所以最终也会有不同的error。</p>
