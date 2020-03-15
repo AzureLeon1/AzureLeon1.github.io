@@ -79,26 +79,27 @@
 
 
 
-<meta name="description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased 用$s^2$来估测$\sigma^2$，它是biased   其中">
+<meta name="description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased  用$s^2$来估测$\sigma^2$，它是biased   其">
 <meta name="keywords" content="机器学习,过拟合,欠拟合,Cross Validation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Bias, Variance, N-fold Cross Validation">
 <meta property="og:url" content="http://www.leonwang.top/2020/03/15/Bias-Variance-N-fold-Cross-Validation/index.html">
 <meta property="og:site_name" content="Leon Wang">
-<meta property="og:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased 用$s^2$来估测$\sigma^2$，它是biased   其中">
+<meta property="og:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased  用$s^2$来估测$\sigma^2$，它是biased   其">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://img.cdn.leonwang.top/20200315091529.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315100536.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/20200315100702.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315091810.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315085814.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315091920.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315092159.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315093711.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/20200315094023.png">
-<meta property="og:updated_time" content="2020-03-15T02:02:44.918Z">
+<meta property="og:updated_time" content="2020-03-15T02:10:54.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Bias, Variance, N-fold Cross Validation">
-<meta name="twitter:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased 用$s^2$来估测$\sigma^2$，它是biased   其中">
-<meta name="twitter:image" content="http://img.cdn.leonwang.top/20200315091529.png">
+<meta name="twitter:description" content="Bias and Variance在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。 模型的误差来自两个方面：Bias和Variance。 用$m$来估测$μ$，它是unbiased  用$s^2$来估测$\sigma^2$，它是biased   其">
+<meta name="twitter:image" content="http://img.cdn.leonwang.top/20200315100536.png">
 
 
 
@@ -330,7 +331,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-03-15T10:02:44+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-15T10:10:54+08:00">
                 2020-03-15
               </time>
             
@@ -389,8 +390,9 @@
         <h2 id="Bias-and-Variance"><a href="#Bias-and-Variance" class="headerlink" title="Bias and Variance"></a>Bias and Variance</h2><p>在模型选择时往往面临多种选择，例如进行多项式回归可以用一次多项式、二次多项式、…、五次多项式等。人们都知道模型太简单容易欠拟合，太复杂会导致过拟合，这个问题可以从模型的误差（error）角度给出解释。</p>
 <p>模型的误差来自两个方面：Bias和Variance。</p>
 <p>用$m$来估测$μ$，它是unbiased</p>
+<p><img src="http://img.cdn.leonwang.top/20200315100536.png" style="zoom:33%;"></p>
 <p>用$s^2$来估测$\sigma^2$，它是biased</p>
-<p><img src="http://img.cdn.leonwang.top/20200315091529.png" width="350"></p>
+<p><img src="http://img.cdn.leonwang.top/20200315100702.png" style="zoom:33%;"></p>
 <p><img src="http://img.cdn.leonwang.top/20200315091810.png" width="500"></p>
 <p>其中，n是每次取样中样本点的个数，不是取样的次数。可以看出，每次取样取的样本点越多，E[s]越接近$\sigma^2$。</p>
 <p>回到回归这个问题，把寻找合适的模型看作打靶，靶心是模型的ground truth，但实际这个靶心的具体formulation我们是不知道的。</p>
@@ -421,7 +423,7 @@
 <h3 id="N-fold-Cross-Validation"><a href="#N-fold-Cross-Validation" class="headerlink" title="N-fold Cross Validation"></a>N-fold Cross Validation</h3><p>如果不相信training set和validation set划分的足够好，可以采用N折交叉验证。</p>
 <p><img src="http://img.cdn.leonwang.top/20200315094023.png" style="zoom:33%;"></p>
 <p>比如图中所示，把训练集分成3折，来从三类model中进行选择。对应训练集的三种划分情况，分别训练三类模型，最终得到九个训练好的模型，计算每个模型在各自的validation set上的error。</p>
-<p>计算每一类模型在所有划分情况下的平均error，选择平均error最小的那个Model，这个例子中是Model 1。</p>
+<p>计算每一类模型在所有划分情况下的平均error，选择平均error最小的那类Model，这个例子中是Model 1。</p>
 <p>然后用Model 1重新在全体训练集上训练一次，训练出了最终模型。</p>
 <h3 id="N折交叉验证的意义"><a href="#N折交叉验证的意义" class="headerlink" title="N折交叉验证的意义"></a>N折交叉验证的意义</h3><ul>
 <li><strong>防止过拟合</strong>，尤其是在数据集样本量较少的情况下。</li>
