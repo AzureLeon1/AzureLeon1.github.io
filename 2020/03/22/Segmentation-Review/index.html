@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/icon.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,深度学习,分割,计算机视觉,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="[TOC] 需要进行像素级别的分类 分割任务分类 语义分割 实例分割 全景分割  分割方法的分类2015-2018  基于上采样/SPP/ASPP方法 Encoder-Decoder：FCN, U-Net, SegNet, RefineNet SPP（空间金字塔池化，并行的多尺度融合）: PSPNet ASPP（空洞/带孔卷积）: DeepLab Encoder-Decoder与ASPP结合: D">
+<meta name="keywords" content="机器学习,深度学习,分割,计算机视觉">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Segmentation Review">
+<meta property="og:url" content="http://www.leonwang.top/2020/03/22/Segmentation-Review/index.html">
+<meta property="og:site_name" content="Leon Wang">
+<meta property="og:description" content="[TOC] 需要进行像素级别的分类 分割任务分类 语义分割 实例分割 全景分割  分割方法的分类2015-2018  基于上采样/SPP/ASPP方法 Encoder-Decoder：FCN, U-Net, SegNet, RefineNet SPP（空间金字塔池化，并行的多尺度融合）: PSPNet ASPP（空洞/带孔卷积）: DeepLab Encoder-Decoder与ASPP结合: D">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320173319438.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320191637474.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320173343473.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320173018319.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320120502137.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320201013615.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320192300069.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320173402352.png">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd0fc46ecbeea8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd0fc4ddbe2ce4?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320144821299.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320144840958.png">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-88f9571550eb123ce18c43ec99efdb4c_b.jpg">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320143632042.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320145044074.png">
+<meta property="og:updated_time" content="2020-03-22T01:59:19.340Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Segmentation Review">
+<meta name="twitter:description" content="[TOC] 需要进行像素级别的分类 分割任务分类 语义分割 实例分割 全景分割  分割方法的分类2015-2018  基于上采样/SPP/ASPP方法 Encoder-Decoder：FCN, U-Net, SegNet, RefineNet SPP（空间金字塔池化，并行的多尺度融合）: PSPNet ASPP（空洞/带孔卷积）: DeepLab Encoder-Decoder与ASPP结合: D">
+<meta name="twitter:image" content="http://img.cdn.leonwang.top/image-20200320173319438.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.leonwang.top/2020/03/22/Segmentation-Review/">
+
+
+
+
+
+  <title>Segmentation Review | Leon Wang</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2e891af0fec421b141ef1add26813124";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leon Wang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2020/03/22/Segmentation-Review/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leon Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leon Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Segmentation Review</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-22T09:52:25+08:00">
+                2020-03-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-03-22T09:59:19+08:00">
+                2020-03-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<p>需要进行像素级别的分类</p>
+<h2 id="分割任务分类"><a href="#分割任务分类" class="headerlink" title="分割任务分类"></a>分割任务分类</h2><ul>
+<li>语义分割</li>
+<li>实例分割</li>
+<li>全景分割</li>
+</ul>
+<h2 id="分割方法的分类"><a href="#分割方法的分类" class="headerlink" title="分割方法的分类"></a>分割方法的分类</h2><p><strong>2015-2018</strong></p>
+<ul>
+<li>基于上采样/SPP/ASPP方法<ul>
+<li>Encoder-Decoder：FCN, U-Net, SegNet, RefineNet</li>
+<li>SPP（空间金字塔池化，并行的多尺度融合）: PSPNet</li>
+<li>ASPP（空洞/带孔卷积）: DeepLab</li>
+<li>Encoder-Decoder与ASPP结合: DeepLab v3+</li>
+</ul>
+</li>
+<li>基于区域选择的方法<ul>
+<li>Mask R-CNN</li>
+<li>Mask Scoring R-CNN (2019 CVPR oral)</li>
+</ul>
+</li>
+<li>弱监督的方法</li>
+<li>GAN的方法</li>
+</ul>
+<p><strong>2018-2020</strong></p>
+<p>non-local (Attention)</p>
+<p>DANet, CCNet</p>
+<h2 id="分割方法2015-2018"><a href="#分割方法2015-2018" class="headerlink" title="分割方法2015-2018"></a>分割方法2015-2018</h2><h3 id="传统的基于CNN的分割"><a href="#传统的基于CNN的分割" class="headerlink" title="传统的基于CNN的分割"></a>传统的基于CNN的分割</h3><p>使用像素周围的一个图块作为输入，不断滑动窗口，输出尺寸是固定的</p>
+<h3 id="FCN"><a href="#FCN" class="headerlink" title="FCN"></a>FCN</h3><p><img src="http://img.cdn.leonwang.top/image-20200320173319438.png" alt="image-20200320173319438"></p>
+<p><img src="http://img.cdn.leonwang.top/image-20200320191637474.png" alt="image-20200320191637474"></p>
+<p>“Fully convolutional networks for semantic segmentation.” Long, Jonathan, Evan Shelhamer, and Trevor Darrell. <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em>. 2015.</p>
+<p>把后面的几个<strong>全连接层全都换成卷积</strong>，用反卷积层对最后一个卷积层上采样，恢复到输入图像的尺寸。后面接softmax，从而获得每个像素的分类。</p>
+<p>输入可以是任意尺寸</p>
+<p>跳级(skip)结构：实际上是加和</p>
+<p>缺点：</p>
+<ul>
+<li>上采样得到的结果不够精细；</li>
+<li>没考虑到像素之间的关系。通常在像素分类的分割方法中会使用空间规整spatial regularization。</li>
+</ul>
+<h3 id="U-Net"><a href="#U-Net" class="headerlink" title="U-Net"></a>U-Net</h3><p><img src="http://img.cdn.leonwang.top/image-20200320173343473.png" alt="image-20200320173343473"></p>
+<p>“U-net: Convolutional networks for biomedical image segmentation. “<em>International Conference on Medical image computing and computer-assisted intervention</em>. Springer, Cham, 2015. 2015 年 arxiv，Ronneberger, Olaf, Philipp Fischer, and Thomas Brox</p>
+<p>基于FCN</p>
+<p>收缩路径+扩展路径</p>
+<p>连接融合操作</p>
+<p>可学习：1. 如果要切patch，可以对边缘进行镜像操作 2. 带边界权值的损失函数</p>
+<h3 id="SegNet"><a href="#SegNet" class="headerlink" title="SegNet"></a>SegNet</h3><p><img src="http://img.cdn.leonwang.top/image-20200320173018319.png" alt="image-20200320173402352"></p>
+<p>Badrinarayanan, Vijay, Alex Kendall, and Roberto Cipolla. “Segnet: A deep convolutional encoder-decoder architecture for image segmentation.” IEEE transactions on pattern analysis and machine intelligence 39.12 (2017): 2481-2495.</p>
+<p>SegNet: 基于FCN，修改VGG-16网络得到的语义分割网络，属于基础的综合网络之一，很好的入门分割模型。</p>
+<p>encoder+decoder结构：encoder与vgg13层卷积层相同，decoder<strong>使用最大池化层的池化索引进行非线性上采样</strong>，上采样过程不需要学习。</p>
+<h3 id="RefineNet"><a href="#RefineNet" class="headerlink" title="RefineNet"></a>RefineNet</h3><p>2016</p>
+<p>encoder采用了<strong>ResNet</strong>，然后把四个resnet block的输出作为四个path通过refinenet block进行融合refine。</p>
+<p>借鉴了ResNet的残差网络结构</p>
+<p>每个refineNet block包含四部分：残差卷积单元、多分辨率融合单元、链式残差池化、输出卷积单元</p>
+<p><img src="http://img.cdn.leonwang.top/image-20200320120502137.png" alt="image-20200320144821299" style="zoom: 67%;"></p>
+<p><img src="http://img.cdn.leonwang.top/image-20200320201013615.png" alt="image-20200320144840958" style="zoom:25%;"></p>
+<h3 id="PSPNet"><a href="#PSPNet" class="headerlink" title="PSPNet"></a>PSPNet</h3><p>Zhao, Hengshuang, et al. “Pyramid scene parsing network.”Proceedings of the IEEE conference on computer vision and pattern recognition. 2017.</p>
+<p><img src="http://img.cdn.leonwang.top/image-20200320192300069.png" alt="image-20200320173018319"></p>
+<p>金字塔场景稀疏网络语义分割模型（Pyramid Scene Parsing Network，PSP）首先结合预训练网络 ResNet和扩张网络来提取图像的特征，得到原图像 1/8 大小的特征图，然后，采用<strong>金字塔池化模块</strong>将特征图同时通过四个并行的池化层得到四个不同大小的输出，将四个不同大小的输出<strong>分别进行上采样</strong>，还原到原特征图大小，最后与之前的特征图进行<strong>连接</strong>后经过卷积层得到最后的预测分割图像。</p>
+<h3 id="DeepLab系列"><a href="#DeepLab系列" class="headerlink" title="DeepLab系列"></a>DeepLab系列</h3><h4 id="v1"><a href="#v1" class="headerlink" title="v1"></a>v1</h4><p>DeepLab 是结合了深度卷积神经网络（DCNNs）和概率图模型（DenseCRFs）的方法。  </p>
+<h4 id="v2"><a href="#v2" class="headerlink" title="v2"></a>v2</h4><p>Chen,Liang-Chieh, et al. “Deeplab: Semantic image segmentation with deep convolutional nets, atrous convolution, and fully connected crfs.” IEEE transactions on pattern analysis and machine intelligence 40.4 (2017): 834-848.</p>
+<p>DeepLab v2: <strong>多尺度空洞卷积</strong>(ASPP)。DeepLab v1的带孔卷积是串行的，v2用一个ASPP模块改为并行的，每个分支采用不同的rate（获得不同的感知野），以解决多尺度问题。用ASPP可获得更好的分割效果且基础层由VGG16转为ResNet也对结果的提升有所帮助。</p>
+<h4 id="v3"><a href="#v3" class="headerlink" title="v3"></a>v3</h4><p>比较了多种捕获多尺度信息的方式</p>
+<p><img src="http://img.cdn.leonwang.top/image-20200320173402352.png" alt="image-20200320120502137"></p>
+<h4 id="v3-1"><a href="#v3-1" class="headerlink" title="v3+"></a>v3+</h4><p>v3+主要目的在于解决这个问题：</p>
+<p>因为深度网络存在stride=2的层，会导致feature分辨率下降，从而导致预测精度降低，而造成的边界信息丢失问题。  </p>
+<p>解决方案：</p>
+<ol>
+<li><p>编解码器结构；</p>
+</li>
+<li><p>Modified Aligned Xception</p>
+</li>
+</ol>
+<h3 id="Mask-RCNN"><a href="#Mask-RCNN" class="headerlink" title="Mask-RCNN"></a>Mask-RCNN</h3><p><strong>1.技术要点1 - 强化的基础网络</strong>  </p>
+<p><strong>2.技术要点2 - ROIAlign</strong>  </p>
+<p><strong>3.技术要点3 - Loss Function</strong>  </p>
+<h3 id="LinkNet"><a href="#LinkNet" class="headerlink" title="LinkNet"></a>LinkNet</h3><p>Chaurasia, Abhishek, and Eugenio Culurciello. “Linknet: Exploiting encoder representations for efficient semantic segmentation.” 2017 IEEE Visual Communications and Image Processing (VCIP). IEEE, 2017.</p>
+<p>LinkNet: 该文章的创新点在于，网络结构简单，有效减少训练参数，从而加快网络训练。<strong>轻量级网络</strong>。</p>
+<p>本文主要侧重语义分割的速度问题，算法思路类似 U-Net，引入了 residual blocks</p>
+<h2 id="分割方法2018-2020"><a href="#分割方法2018-2020" class="headerlink" title="分割方法2018-2020"></a>分割方法2018-2020</h2><h3 id="non-local-attention"><a href="#non-local-attention" class="headerlink" title="non-local (attention)"></a>non-local (attention)</h3><p>2018CVPR何凯明non-local networks</p>
+<p>Attention 机制继在 NLP 领域取得主导地位之后，近两年在 CV 领域也开始独领风骚。率先将之引入的是 Kaiming He 组的 Nonlocal。此后层出不穷的文章，引发了一波研究 attention 机制的热潮。</p>
+<p>仅2018年，在语义分割领域就有多篇高影响力文章出炉，如 PSANet，DANet，OCNet，CCNet，以及今年的Local Relation Net。此外，针对 Attention 数学形式的优化，又衍生出A2Net，CGNL。而 A2Net 又开启了本人称之为“低秩”重建的探索，同一时期的SGR，Beyonds Grids，GloRe，LatentGNN 都可以此归类。</p>
+<h3 id="DANet"><a href="#DANet" class="headerlink" title="DANet"></a>DANet</h3><p>Dual Attention Network for Scene Segmentation</p>
+<p>2019 CVPR</p>
+<p>成绩：<br>Cityscape：81.5%</p>
+<p><strong>双注意力机制</strong>：Channel Attention+Spatial Attention，得到 non-local 的信息</p>
+<p>（1） 提出了Position Attention Module，也就是把Non-Local用在H*W轴和C轴（特征通道）上，这样可以增强特征的远距离上下文表示能力。</p>
+<p>（2） 基于Position Attention Module，加上ResNet作为base model，提出了Dual Attention Network。</p>
+<p>（3） 在Cityscapes、PASCAL、COCO数据集上的表现不错。</p>
+<h3 id="CCNet"><a href="#CCNet" class="headerlink" title="CCNet"></a>CCNet</h3><p>CCNet: Criss-Cross Attention for Semantic Segmentation</p>
+<p>Contribution:</p>
+<p>（1） 提出了Criss-Cross Attention Module，解决图像分割中像素点的远距离依赖问题，并且这个module只增加很少的参数量。</p>
+<p>（2） 基于提出的module，提出CCNet用于图像分割。</p>
+<p>Nonlocal 对于每个 <img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd0fc46ecbeea8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"> 的计算，都要在全图上进行，因此复杂度为 <img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd0fc4ddbe2ce4?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"> 。CCNet将<strong>全图计算分解为两步，一步是按行计算，一步是按列计算。</strong></p>
+<h3 id="Asymmetric-Non-local-Neural-Networks-for-Semantic-Segmentation"><a href="#Asymmetric-Non-local-Neural-Networks-for-Semantic-Segmentation" class="headerlink" title="Asymmetric Non-local Neural Networks for Semantic Segmentation"></a>Asymmetric Non-local Neural Networks for Semantic Segmentation</h3><p>ICCV 2019 </p>
+<p>实现高效计算</p>
+<h3 id="EMANet"><a href="#EMANet" class="headerlink" title="EMANet"></a>EMANet</h3><p>Expectation-Maximization Attention Networks for Semantic Segmentation</p>
+<p>ICCV 2019 oral</p>
+<p>EM方法与attention结合，定义了EMA模块</p>
+<p><img src="http://img.cdn.leonwang.top/image-20200320144821299.png" alt="image-20200320201013615"></p>
+<p>此篇论文的主要贡献如下：</p>
+<ul>
+<li>作者将自注意力基础重定义为一个迭代的最大期望方法，能够学习到一个更紧密的数据基础集合，大大地降低了计算复杂度。在作者认知范围内，其论文首次将迭代EM引入注意力机制。</li>
+<li>作者将提出的最大期望注意力构建为一个轻量级的神经网络模块，建立了维护、归一化数据基础的特定方法。</li>
+<li>在三个具有挑战性的数据集上进行了扩展实验，包括PASCAL VOC， PASCAL Context，和 COCO Stuff，证明了其方法可以超出现有的最佳方法。</li>
+</ul>
+<h2 id="CVPR-2020"><a href="#CVPR-2020" class="headerlink" title="CVPR 2020"></a>CVPR 2020</h2><p><strong>Cars Can’t Fly up in the Sky: Improving Urban-Scene Segmentation via Height-driven Attention Networks</strong></p>
+<ul>
+<li>论文：<a href="https://arxiv.org/abs/2003.05128" target="_blank" rel="noopener">https://arxiv.org/abs/2003.05128</a></li>
+<li>代码：<a href="https://github.com/shachoi/HANet" target="_blank" rel="noopener">https://github.com/shachoi/HANet</a></li>
+</ul>
+<ol>
+<li><p><del>Semi-Supervised Semantic Image Segmentation with Self-correcting Networks</del><br> 论文地址：<a href="https://arxiv.org/abs/1811.07073" target="_blank" rel="noopener">https://arxiv.org/abs/1811.07073</a></p>
+<p> <img src="http://img.cdn.leonwang.top/image-20200320144840958.png" alt="image-20200320192300069"></p>
+<p> 半监督</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>Deep Snake for Real-Time Instance Segmentation<br> 论文地址：<a href="https://arxiv.org/abs/2001.01629" target="_blank" rel="noopener">https://arxiv.org/abs/2001.01629</a></p>
+<p> 提出了圆形卷积，基于轮廓的分割，在迭代过程中轮廓逐渐变形，接近对象的边界。和图卷积进行了对比</p>
+</li>
+</ol>
+<ol start="3">
+<li>CenterMask : Real-Time Anchor-Free Instance Segmentation<br> 论文地址：<a href="https://arxiv.org/abs/1911.06667" target="_blank" rel="noopener">https://arxiv.org/abs/1911.06667</a><br> 代码：<a href="https://github.com/youngwanLEE/CenterMask" target="_blank" rel="noopener">https://github.com/youngwanLEE/CenterMask</a></li>
+</ol>
+<ol start="4">
+<li><p>SketchGCN: Semantic Sketch Segmentation with Graph Convolutional Networks<br> 论文地址：<a href="https://arxiv.org/abs/2003.00678" target="_blank" rel="noopener">https://arxiv.org/abs/2003.00678</a></p>
+<p> 图卷积神经网络 手绘草图分割 把图片看成2D点集</p>
+</li>
+</ol>
+<ol start="5">
+<li><p>PolarMask: Single Shot Instance Segmentation with Polar Representation<br> 论文地址：<a href="https://arxiv.org/abs/1909.13226" target="_blank" rel="noopener">https://arxiv.org/abs/1909.13226</a><br> 代码：<a href="https://github.com/xieenze/PolarMask" target="_blank" rel="noopener">https://github.com/xieenze/PolarMask</a></p>
+<p> 极坐标 基于轮廓的分割</p>
+</li>
+</ol>
+<ol start="6">
+<li><p>xMUDA: Cross-Modal Unsupervised Domain Adaptation for <strong>3D</strong> Semantic Segmentation<br> 论文地址：<a href="https://arxiv.org/abs/1911.12676" target="_blank" rel="noopener">https://arxiv.org/abs/1911.12676</a></p>
+<p> 点云 无监督</p>
+</li>
+</ol>
+<h2 id="医学图像"><a href="#医学图像" class="headerlink" title="医学图像"></a>医学图像</h2><h3 id="医学图像的特点"><a href="#医学图像的特点" class="headerlink" title="医学图像的特点"></a>医学图像的特点</h3><ol>
+<li><p>图像语义较为简单、结构较为固定。</p>
+</li>
+<li><p>数据量少。医学影像的数据获取相对难一些，很多比赛只提供不到100例数据。所以我们设计的模型不宜多大，参数过多，很容易导致过拟合。</p>
+</li>
+<li><p>多模态。相比自然影像，医疗影像比较有趣和不同的一点是，医疗影像是具有多种模态的。以ISLES脑梗竞赛为例，其官方提供了CBF,MTT,CBV,TMAX,CTP等多种模态的数据。</p>
+<p> 这就需要我们更好的设计网络去提取不同模态的特征feature。这里提供两篇论文供大家参考。 </p>
+<p> Joint Sequence Learning and Cross-Modality Convolution for 3D Biomedical Segmentation(CVPR 2017) , </p>
+<p> Dense Multi-path U-Net for Ischemic Stroke Lesion Segmentation in Multiple Image Modalities.</p>
+</li>
+<li><p>可解释性重要。由于医疗影像最终是辅助医生的临床诊断，所以网络告诉医生一个3D的CT有没有病是远远不够的，医生还要进一步的想知道，病灶在哪一层，在哪一层的哪个位置，分割出来了吗，能求体积嘛？同时对于网络给出的分类和分割等结果，医生还想知道为什么，所以一些神经网络可解释性的trick就有用处了，比较常用的就是画activation map。看网络的哪些区域被激活了，如下图。 </p>
+<p> <img src="https://pic1.zhimg.com/v2-88f9571550eb123ce18c43ec99efdb4c_b.jpg" alt="img" style="zoom: 67%;"></p>
+</li>
+</ol>
+<h3 id="AAAI-2020-医学图像分割的Non-local-U-Nets"><a href="#AAAI-2020-医学图像分割的Non-local-U-Nets" class="headerlink" title="[AAAI 2020] 医学图像分割的Non-local U-Nets"></a>[AAAI 2020] 医学图像分割的Non-local U-Nets</h3><p>global aggregation block 获取全图信息</p>
+<p>减少参数量</p>
+<h3 id="Multi-scale-self-guided-attention-for-medical-image-segmentation"><a href="#Multi-scale-self-guided-attention-for-medical-image-segmentation" class="headerlink" title="Multi-scale self-guided attention for medical image segmentation"></a>Multi-scale self-guided attention for medical image segmentation</h3><p><a href="https://arxiv.org/abs/1906.02849" target="_blank" rel="noopener">https://arxiv.org/abs/1906.02849</a></p>
+<p>dual attention方法用于医学图像分割</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="弱监督学习"><a href="#弱监督学习" class="headerlink" title="弱监督学习"></a>弱监督学习</h3><p>图像分割数据标注是比较困难的</p>
+<h4 id="Scribble标记"><a href="#Scribble标记" class="headerlink" title="Scribble标记"></a>Scribble标记</h4><p>论文地址：<a href="https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Lin_ScribbleSup_Scribble-Supervised_Convolutional_CVPR_2016_paper.pdf" target="_blank" rel="noopener">ScribbleSup: Scribble-Supervised Convolutional Networks for Semantic Segmentation (CVPR 2016)</a>  </p>
+<p>只需要<strong>画五条线</strong>就能完成对一副图像的标记工作。</p>
+<h4 id="图像级别标记"><a href="#图像级别标记" class="headerlink" title="图像级别标记"></a>图像级别标记</h4><p>论文地址：<a href="https://www.cv-foundation.org/openaccess/content_iccv_2015/papers/Pathak_Constrained_Convolutional_Neural_ICCV_2015_paper.pdf" target="_blank" rel="noopener">Constrained Convolutional Neural Networks for Weakly Supervised Segmentation （ICCV 2015）</a>  </p>
+<p><strong>只给出图像中包含某种物体</strong>，但是没有其位置信息和所包含的像素信息。该文章的方法将image tags转化为对CNN输出的label分布的限制条件，因此称为 Constrained convolutional neural network (CCNN).</p>
+<h4 id="DeepLab-bounding-box-image-level-labels"><a href="#DeepLab-bounding-box-image-level-labels" class="headerlink" title="DeepLab+bounding box+image-level labels"></a>DeepLab+bounding box+image-level labels</h4><p>论文地址：<a href="https://arxiv.org/pdf/1502.02734.pdf" target="_blank" rel="noopener">Weakly-and Semi-Supervised Learning of a DCNN for Semantic Image Segmentation</a>  </p>
+<p>使用<strong>bounding box</strong>和<strong>image-level labels</strong>作为标记的训练数据。使用了期望值最大化算法（EM）来估计未标记的像素的类别和CNN的参数。</p>
+<h4 id="统一的框架"><a href="#统一的框架" class="headerlink" title="统一的框架"></a>统一的框架</h4><p>提出了一个统一的框架来<strong>处理各种不同类型的弱标记</strong>：图像级别的标记、bounding box和部分像素标记如scribbles。</p>
+<h4 id="弱监督学习的最新进展"><a href="#弱监督学习的最新进展" class="headerlink" title="弱监督学习的最新进展"></a>弱监督学习的最新进展</h4><ul>
+<li><p>bbox监督</p>
+<ul>
+<li><p>Learning to Segment via Cut-and-Paste（ECCV 2018）</p>
+<p>  利用GAN对抗学习的思想，在cut-paste思想指导下利用bbox弱监督进行实例分割。</p>
+</li>
+<li><p>Simple Does It: Weakly Supervised Instance and Semantic Segmentation（CVPR2017）</p>
+<p>  讨论了使用弱监督语义标签进行迭代训练的方法，以及其限制和不足之处；证明了通过类似GrabCut的算法能通过bbox生成分割训练标签方法的可行性，可以避免像上面的迭代方法重新调整网络训练策略；在VOC数据集上逼近监督学习的分割任务效果。</p>
+</li>
+</ul>
+</li>
+<li><p>分类监督</p>
+<ul>
+<li>Weakly Supervised Learning of Instance Segmentation with Inter-pixel Relations(CVPR2019)</li>
+<li>Weakly Supervised Instance Segmentation using Class Peak Response（CVPR2018）</li>
+<li>Weakly Supervised Semantic Segmentation Using Superpixel Pooling Network（AAAI 2017）</li>
+</ul>
+</li>
+</ul>
+<h3 id="DenseNet"><a href="#DenseNet" class="headerlink" title="DenseNet"></a>DenseNet</h3><p>CVPR 2017 最佳论文</p>
+<p>key：identify mapping</p>
+<p><img src="http://img.cdn.leonwang.top/image-20200320143632042.png" alt="image-20200320143632042" style="zoom:25%;"></p>
+<p>更密集的resnet，实现特征重用</p>
+<p>和resnet的区别：1. resnet是值相加、densenet是通道合并 2. densenet的输出是后面所有层的输入</p>
+<h3 id="空洞卷积-dilated-convolution"><a href="#空洞卷积-dilated-convolution" class="headerlink" title="空洞卷积 dilated convolution"></a>空洞卷积 dilated convolution</h3><p>传统的增大感受野的方式：先pooling 再deconv，会损失信息</p>
+<p>空洞卷积：不做pooling损失信息的情况下也能有较大感受野</p>
+<p><img src="http://img.cdn.leonwang.top/image-20200320145044074.png" alt="image-20200320145044074" style="zoom:25%;"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>特征提取网络的backbone</li>
+<li>多尺度融合、高层特征与底层特征融合：编解码器、金字塔池化(spp)、多尺度空洞卷积(aspp)</li>
+<li>Attention</li>
+<li>loss function</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/分割/" rel="tag"># 分割</a>
+          
+            <a href="/tags/计算机视觉/" rel="tag"># 计算机视觉</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/15/Bias-Variance-N-fold-Cross-Validation/" rel="next" title="Bias, Variance, N-fold Cross Validation">
+                <i class="fa fa-chevron-left"></i> Bias, Variance, N-fold Cross Validation
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/22/U-Net/" rel="prev" title="U-Net">
+                U-Net <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Leon Wang">
+            
+              <p class="site-author-name" itemprop="name">Leon Wang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分割任务分类"><span class="nav-number">1.</span> <span class="nav-text">分割任务分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割方法的分类"><span class="nav-number">2.</span> <span class="nav-text">分割方法的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割方法2015-2018"><span class="nav-number">3.</span> <span class="nav-text">分割方法2015-2018</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#传统的基于CNN的分割"><span class="nav-number">3.1.</span> <span class="nav-text">传统的基于CNN的分割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FCN"><span class="nav-number">3.2.</span> <span class="nav-text">FCN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#U-Net"><span class="nav-number">3.3.</span> <span class="nav-text">U-Net</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SegNet"><span class="nav-number">3.4.</span> <span class="nav-text">SegNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RefineNet"><span class="nav-number">3.5.</span> <span class="nav-text">RefineNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PSPNet"><span class="nav-number">3.6.</span> <span class="nav-text">PSPNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DeepLab系列"><span class="nav-number">3.7.</span> <span class="nav-text">DeepLab系列</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#v1"><span class="nav-number">3.7.1.</span> <span class="nav-text">v1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v2"><span class="nav-number">3.7.2.</span> <span class="nav-text">v2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v3"><span class="nav-number">3.7.3.</span> <span class="nav-text">v3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#v3-1"><span class="nav-number">3.7.4.</span> <span class="nav-text">v3+</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mask-RCNN"><span class="nav-number">3.8.</span> <span class="nav-text">Mask-RCNN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LinkNet"><span class="nav-number">3.9.</span> <span class="nav-text">LinkNet</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割方法2018-2020"><span class="nav-number">4.</span> <span class="nav-text">分割方法2018-2020</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#non-local-attention"><span class="nav-number">4.1.</span> <span class="nav-text">non-local (attention)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DANet"><span class="nav-number">4.2.</span> <span class="nav-text">DANet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CCNet"><span class="nav-number">4.3.</span> <span class="nav-text">CCNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Asymmetric-Non-local-Neural-Networks-for-Semantic-Segmentation"><span class="nav-number">4.4.</span> <span class="nav-text">Asymmetric Non-local Neural Networks for Semantic Segmentation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EMANet"><span class="nav-number">4.5.</span> <span class="nav-text">EMANet</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CVPR-2020"><span class="nav-number">5.</span> <span class="nav-text">CVPR 2020</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#医学图像"><span class="nav-number">6.</span> <span class="nav-text">医学图像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#医学图像的特点"><span class="nav-number">6.1.</span> <span class="nav-text">医学图像的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AAAI-2020-医学图像分割的Non-local-U-Nets"><span class="nav-number">6.2.</span> <span class="nav-text">[AAAI 2020] 医学图像分割的Non-local U-Nets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Multi-scale-self-guided-attention-for-medical-image-segmentation"><span class="nav-number">6.3.</span> <span class="nav-text">Multi-scale self-guided attention for medical image segmentation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">7.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#弱监督学习"><span class="nav-number">7.1.</span> <span class="nav-text">弱监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scribble标记"><span class="nav-number">7.1.1.</span> <span class="nav-text">Scribble标记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图像级别标记"><span class="nav-number">7.1.2.</span> <span class="nav-text">图像级别标记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DeepLab-bounding-box-image-level-labels"><span class="nav-number">7.1.3.</span> <span class="nav-text">DeepLab+bounding box+image-level labels</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#统一的框架"><span class="nav-number">7.1.4.</span> <span class="nav-text">统一的框架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弱监督学习的最新进展"><span class="nav-number">7.1.5.</span> <span class="nav-text">弱监督学习的最新进展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DenseNet"><span class="nav-number">7.2.</span> <span class="nav-text">DenseNet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空洞卷积-dilated-convolution"><span class="nav-number">7.3.</span> <span class="nav-text">空洞卷积 dilated convolution</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+
+<span>鲁ICP备 -
+  <a href="http://www.beian.miit.gov.cn">18054179号</a></span>
+
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leon Wang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人</span>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+
+
+
+
+</body>
+</html>
