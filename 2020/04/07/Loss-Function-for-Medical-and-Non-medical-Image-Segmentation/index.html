@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review 将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  本篇学习报告主要关注第三部分，即医学、非医学图像深度模型中的损失函数。  除了使用第2节中提到的架构修改来">
+<meta name="description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review  这篇论文将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  除了通过修改模型架构来提高分割速度/准确性外，设计新的损失函数也可以提高分割精度。 本篇学习报告">
 <meta name="keywords" content="机器学习,深度学习,分割,计算机视觉,损失函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Loss Function for Medical and Non-medical Image Segmentation">
 <meta property="og:url" content="http://www.leonwang.top/2020/04/07/Loss-Function-for-Medical-and-Non-medical-Image-Segmentation/index.html">
 <meta property="og:site_name" content="Leon Wang">
-<meta property="og:description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review 将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  本篇学习报告主要关注第三部分，即医学、非医学图像深度模型中的损失函数。  除了使用第2节中提到的架构修改来">
+<meta property="og:description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review  这篇论文将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  除了通过修改模型架构来提高分割速度/准确性外，设计新的损失函数也可以提高分割精度。 本篇学习报告">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200325083606109.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200325182618956.png">
-<meta property="og:updated_time" content="2020-04-07T11:17:37.852Z">
+<meta property="og:updated_time" content="2020-04-07T11:23:31.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loss Function for Medical and Non-medical Image Segmentation">
-<meta name="twitter:description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review 将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  本篇学习报告主要关注第三部分，即医学、非医学图像深度模型中的损失函数。  除了使用第2节中提到的架构修改来">
+<meta name="twitter:description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review  这篇论文将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  除了通过修改模型架构来提高分割速度/准确性外，设计新的损失函数也可以提高分割精度。 本篇学习报告">
 <meta name="twitter:image" content="http://img.cdn.leonwang.top/image-20200325083606109.png">
 
 
@@ -325,7 +325,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-04-07T19:17:37+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-07T19:23:31+08:00">
                 2020-04-07
               </time>
             
@@ -383,7 +383,8 @@
       
         <p>论文：</p>
 <p>Deep Semantic Segmentation of Natural and Medical Images: A Review</p>
-<p>将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：</p>
+<p><img src="http://img.cdn.leonwang.top/image-20200325083606109.png" alt="image-20200325182618956" style="zoom:50%;"></p>
+<p>这篇论文将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：</p>
 <ul>
 <li>模型架构改进</li>
 <li>基于数据合成的改进</li>
@@ -392,9 +393,8 @@
 <li>弱监督</li>
 <li>多任务方法</li>
 </ul>
+<p>除了通过修改模型架构来提高分割速度/准确性外，设计新的损失函数也可以提高分割精度。</p>
 <p>本篇学习报告主要关注第三部分，即医学、非医学图像深度模型中的<strong>损失函数</strong>。</p>
-<p><img src="http://img.cdn.leonwang.top/image-20200325083606109.png" alt="image-20200325182618956" style="zoom:50%;"></p>
-<p>除了使用第2节中提到的架构修改来提高分割速度/准确性外，设计新的损失函数还可以提高后续推理时的分割精度。</p>
 <h2 id="非医学图像分割中的损失函数"><a href="#非医学图像分割中的损失函数" class="headerlink" title="非医学图像分割中的损失函数"></a>非医学图像分割中的损失函数</h2><p>可以分为两大类：CE-based 和 Dice Loss-based。</p>
 <p>CE - base 方法主要包括传统CE、加权CE以及Focal Loss。</p>
 <p>Dice Loss - base 方法主要包括 Dice Loss 及其各种变体。</p>
