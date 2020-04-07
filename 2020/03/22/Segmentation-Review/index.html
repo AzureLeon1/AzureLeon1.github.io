@@ -82,7 +82,7 @@
 <meta name="description" content="[TOC] 需要进行像素级别的分类 分割任务分类 语义分割 实例分割 全景分割  分割方法的分类2015-2018  基于上采样/SPP/ASPP方法 Encoder-Decoder：FCN, U-Net, SegNet, RefineNet SPP（空间金字塔池化，并行的多尺度融合）: PSPNet ASPP（空洞/带孔卷积）: DeepLab Encoder-Decoder与ASPP结合: D">
 <meta name="keywords" content="机器学习,深度学习,分割,计算机视觉">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Segmentation Review">
+<meta property="og:title" content="Segmentation Model Architectures Review">
 <meta property="og:url" content="http://www.leonwang.top/2020/03/22/Segmentation-Review/index.html">
 <meta property="og:site_name" content="Leon Wang">
 <meta property="og:description" content="[TOC] 需要进行像素级别的分类 分割任务分类 语义分割 实例分割 全景分割  分割方法的分类2015-2018  基于上采样/SPP/ASPP方法 Encoder-Decoder：FCN, U-Net, SegNet, RefineNet SPP（空间金字塔池化，并行的多尺度融合）: PSPNet ASPP（空洞/带孔卷积）: DeepLab Encoder-Decoder与ASPP结合: D">
@@ -95,16 +95,14 @@
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320201013615.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320192300069.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320173402352.png">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd0fc46ecbeea8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd0fc4ddbe2ce4?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320144821299.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320144840958.png">
 <meta property="og:image" content="https://pic1.zhimg.com/v2-88f9571550eb123ce18c43ec99efdb4c_b.jpg">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320143632042.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200320145044074.png">
-<meta property="og:updated_time" content="2020-03-22T01:59:19.340Z">
+<meta property="og:updated_time" content="2020-04-07T11:16:37.258Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Segmentation Review">
+<meta name="twitter:title" content="Segmentation Model Architectures Review">
 <meta name="twitter:description" content="[TOC] 需要进行像素级别的分类 分割任务分类 语义分割 实例分割 全景分割  分割方法的分类2015-2018  基于上采样/SPP/ASPP方法 Encoder-Decoder：FCN, U-Net, SegNet, RefineNet SPP（空间金字塔池化，并行的多尺度融合）: PSPNet ASPP（空洞/带孔卷积）: DeepLab Encoder-Decoder与ASPP结合: D">
 <meta name="twitter:image" content="http://img.cdn.leonwang.top/image-20200320173319438.png">
 
@@ -142,7 +140,7 @@
 
 
 
-  <title>Segmentation Review | Leon Wang</title>
+  <title>Segmentation Model Architectures Review | Leon Wang</title>
   
 
 
@@ -310,7 +308,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Segmentation Review</h1>
+          <h1 class="post-title" itemprop="name headline">Segmentation Model Architectures Review</h1>
         
 
         <div class="post-meta">
@@ -338,8 +336,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-03-22T09:59:19+08:00">
-                2020-03-22
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-07T19:16:37+08:00">
+                2020-04-07
               </time>
             
           </span>
@@ -486,7 +484,7 @@
 <p>Contribution:</p>
 <p>（1） 提出了Criss-Cross Attention Module，解决图像分割中像素点的远距离依赖问题，并且这个module只增加很少的参数量。</p>
 <p>（2） 基于提出的module，提出CCNet用于图像分割。</p>
-<p>Nonlocal 对于每个 <img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd0fc46ecbeea8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"> 的计算，都要在全图上进行，因此复杂度为 <img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd0fc4ddbe2ce4?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="img"> 。CCNet将<strong>全图计算分解为两步，一步是按行计算，一步是按列计算。</strong></p>
+<p>Nonlocal 对于每个 $\mathbf{y}_{i}$ 的计算，都要在全图上进行，因此复杂度为 $O\left(N^{2} C\right)$ 。CCNet将<strong>全图计算分解为两步，一步是按行计算，一步是按列计算。</strong></p>
 <h3 id="Asymmetric-Non-local-Neural-Networks-for-Semantic-Segmentation"><a href="#Asymmetric-Non-local-Neural-Networks-for-Semantic-Segmentation" class="headerlink" title="Asymmetric Non-local Neural Networks for Semantic Segmentation"></a>Asymmetric Non-local Neural Networks for Semantic Segmentation</h3><p>ICCV 2019 </p>
 <p>实现高效计算</p>
 <h3 id="EMANet"><a href="#EMANet" class="headerlink" title="EMANet"></a>EMANet</h3><p>Expectation-Maximization Attention Networks for Semantic Segmentation</p>
@@ -723,7 +721,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -745,7 +743,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

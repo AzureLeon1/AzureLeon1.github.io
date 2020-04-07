@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon-180.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/icon.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="机器学习,深度学习,分割,计算机视觉,损失函数,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review 将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  本篇学习报告主要关注第三部分，即医学、非医学图像深度模型中的损失函数。  除了使用第2节中提到的架构修改来">
+<meta name="keywords" content="机器学习,深度学习,分割,计算机视觉,损失函数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Loss Function for Medical and Non-medical Image Segmentation">
+<meta property="og:url" content="http://www.leonwang.top/2020/04/07/Loss-Function-for-Medical-and-Non-medical-Image-Segmentation/index.html">
+<meta property="og:site_name" content="Leon Wang">
+<meta property="og:description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review 将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  本篇学习报告主要关注第三部分，即医学、非医学图像深度模型中的损失函数。  除了使用第2节中提到的架构修改来">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200325083606109.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200325182618956.png">
+<meta property="og:updated_time" content="2020-04-07T11:17:37.852Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Loss Function for Medical and Non-medical Image Segmentation">
+<meta name="twitter:description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review 将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  本篇学习报告主要关注第三部分，即医学、非医学图像深度模型中的损失函数。  除了使用第2节中提到的架构修改来">
+<meta name="twitter:image" content="http://img.cdn.leonwang.top/image-20200325083606109.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.leonwang.top/2020/04/07/Loss-Function-for-Medical-and-Non-medical-Image-Segmentation/">
+
+
+
+
+
+  <title>Loss Function for Medical and Non-medical Image Segmentation | Leon Wang</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2e891af0fec421b141ef1add26813124";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Leon Wang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.leonwang.top/2020/04/07/Loss-Function-for-Medical-and-Non-medical-Image-Segmentation/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leon Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leon Wang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Loss Function for Medical and Non-medical Image Segmentation</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-07T19:08:53+08:00">
+                2020-04-07
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-07T19:17:37+08:00">
+                2020-04-07
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>论文：</p>
+<p>Deep Semantic Segmentation of Natural and Medical Images: A Review</p>
+<p>将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：</p>
+<ul>
+<li>模型架构改进</li>
+<li>基于数据合成的改进</li>
+<li>基于损失函数的改进</li>
+<li>序列模型</li>
+<li>弱监督</li>
+<li>多任务方法</li>
+</ul>
+<p>本篇学习报告主要关注第三部分，即医学、非医学图像深度模型中的<strong>损失函数</strong>。</p>
+<p><img src="http://img.cdn.leonwang.top/image-20200325083606109.png" alt="image-20200325182618956" style="zoom:50%;"></p>
+<p>除了使用第2节中提到的架构修改来提高分割速度/准确性外，设计新的损失函数还可以提高后续推理时的分割精度。</p>
+<h2 id="非医学图像分割中的损失函数"><a href="#非医学图像分割中的损失函数" class="headerlink" title="非医学图像分割中的损失函数"></a>非医学图像分割中的损失函数</h2><p>可以分为两大类：CE-based 和 Dice Loss-based。</p>
+<p>CE - base 方法主要包括传统CE、加权CE以及Focal Loss。</p>
+<p>Dice Loss - base 方法主要包括 Dice Loss 及其各种变体。</p>
+<h3 id="CE-based"><a href="#CE-based" class="headerlink" title="CE - based"></a>CE - based</h3><ul>
+<li><p>交叉熵</p>
+<ul>
+<li><p>逐像素交叉熵损失</p>
+</li>
+<li><p>二类像素的分割：</p>
+<p>  p表示ground truth</p>
+<p>  p^ 表示prediction</p>
+<p>  $\operatorname{CE}(p, \hat{p})=-(p \log (\hat{p})+(1-p) \log (1-\hat{p}))$</p>
+<p>  <img src="http://img.cdn.leonwang.top/image-20200325182618956.png" alt="image-20200325083606109" style="zoom: 33%;"></p>
+</li>
+<li><p>多类像素的分割：$\mathrm{CE}=-\sum_{\text {classes}} p \log \hat{p}$</p>
+</li>
+</ul>
+</li>
+<li><p>加权交叉熵</p>
+<ul>
+<li><p>交叉熵损失会分别评估每个像素的类别预测，然后对所有像素取平均，这意味着对图像中每个像素的学习是平等的。如果各个类别在图像中的表示不平衡，则可能会出现问题，因为训练过程可能会由最普遍的类别主导。</p>
+</li>
+<li><p>weighting the cross entropy loss (WCE): $\operatorname{WCE}(p, \hat{p})=-(\beta p \log (\hat{p})+(1-p) \log (1-\hat{p}))$</p>
+<p>  为了减少假阴性的数目，β被设置为大于1的值；为了减少假阳性的数目，β被设置为小于1的值。</p>
+</li>
+<li><p>为了对负像素也加权</p>
+<p>  balanced cross entropy (BCE)</p>
+<p>  $\operatorname{BCE}(p, \hat{p})=-(\beta p \log (\hat{p})+(1-\beta)(1-p) \log (1-\hat{p}))$</p>
+</li>
+<li><p>在交叉熵函数中添加了距离函数，加强在对象彼此非常接近的情况下的学习效果（可以理解为加强对边界处像素的影响），实现更好的分割，如下所示：</p>
+<p>  $\operatorname{BCE}(p, \hat{p})+w_{0} \cdot \exp \left(-\frac{\left(d_{1}(x)+d_{2}(x)\right)^{2}}{2 \sigma^{2}}\right)$</p>
+<p>  后面的距离函数在U-Net损失函数中也用到了，不过U-Net把这一项加到了每个像素的CE的权重当中，而这里是在BCE的基础上在加上这一项。二者都把“边界”这一因素加入到了CE当中，只是方式不一样。</p>
+</li>
+</ul>
+</li>
+<li><p>Focal Loss</p>
+<ul>
+<li><p>RetinaNet 目标检测 样本不平衡问题 降低简单（容易分类）样本的权重 增加困难（难分类）样本的权重，基于交叉熵损失，添加了一项：</p>
+<p>  $\begin{aligned} \operatorname{FL}(p, \hat{p}) &amp;=-\left(\alpha(1-\hat{p})^{\gamma} p \log (\hat{p})\right. \left.+(1-\alpha) \hat{p}^{\gamma}(1-p) \log (1-\hat{p})\right) \end{aligned}$</p>
+<p>  当$\gamma=0$时，FL 变成 BCE</p>
+<p>  $\gamma$称作focusing parameter，$\left(1-p_{t}\right)^{\gamma}$称为调制系数（modulating factor）。加上这个调制系数<strong>目的是通过减少易分类样本的权重，从而使得模型在训练时更专注于难分类的样本。</strong></p>
+<p>  <a href="https://zhuanlan.zhihu.com/p/32423092" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/32423092</a></p>
+<p>  BCE和focal loss都是对不同像素进行加权，只是加权的方式不同。BCE对不同的类别进行加权。focal loss是在BCE的基础之上，再次根据样本分类的难度进行加权，比如用softmax进行分类，预测为真实类别的概率值和1之间的差距越大，则认为是样本分类的难度越大；或者在sigmoid中，0.6和0.9都被分类为positive，但是0.9的样本就是更容易分类的样本。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Dice-Loss-based"><a href="#Dice-Loss-based" class="headerlink" title="Dice Loss - based"></a>Dice Loss - based</h3><ul>
+<li><p>Overlap Measure based Loss Function</p>
+<ul>
+<li><p>Dice Loss / F1 Score</p>
+<ul>
+<li><p>Dice系数（==F1 Score）</p>
+<p>  $\mathrm{DC}=\frac{2 T P}{2 T P+F P+F N}=\frac{2|X \cap Y|}{|X|+|Y|}$</p>
+<p>  另外，Jaccard Metric(交并比): $\mathrm{IoU}=\frac{T P}{T P+F P+F N}=\frac{|X \cap Y|}{|X|+|Y|-|X \cap Y|}$，可知$\mathrm{DC} \geq \mathrm{IoU}$</p>
+<p>  Dice Loss: $\operatorname{DL}(p, \hat{p})=\frac{2\langle p, \hat{p}\rangle}{|p|_{1}+|\hat{p}|_{1}}$</p>
+</li>
+</ul>
+</li>
+<li><p>Tversky Loss</p>
+<ul>
+<li><p>Dice Loss 的推广</p>
+<p>  $\operatorname{TL}(p, \hat{p})=\frac{\langle p, \hat{p}\rangle}{\langle p, \hat{p}\rangle+\beta(1-p, \hat{p}\rangle+(1-\beta)(p, 1-\hat{p})}$</p>
+<p>  $\beta=0.5$是退化成Dice Loss</p>
+</li>
+</ul>
+</li>
+<li><p>Exponential Logarithmic Loss</p>
+<p>  指数对数Dice Loss：$\mathcal{L}_{\mathrm{ELD}}=\mathbf{E}\left[\left(-\ln \left(D_{i}\right)\right)^{\gamma_{D}}\right]$</p>
+<p>  加权指数交叉熵Loss：$\mathcal{L}_{\mathrm{wece}}=\mathbf{E}\left[\left(-\ln \left(p_{l}(\mathbf{x})\right)\right)^{\gamma_{C E}}\right]$</p>
+<p>  上述二者加权求和：$\mathcal{L}=w_{\mathrm{eld}} \mathcal{L}_{\mathrm{eld}}+w_{\mathrm{wece}} \mathcal{L}_{\mathrm{wece}}$</p>
+<p>  x，i和l表示像素位置，预测标签和ground truth标签。 $D_i$表示平滑的Dice损失</p>
+</li>
+<li><p>Lov´asz-Softmax loss</p>
+<p>  是离散Jaccard Loss的平滑扩展，可用于多类分割，定义为：</p>
+<p>  $\mathcal{L}_{\text {Lovasz Softmax }}=\frac{1}{|\mathcal{C}|} \sum_{c \in \mathcal{C}} \overline{\Delta_{J_{c}}}(\boldsymbol{m}(c))$</p>
+<p>  有点复杂没细看</p>
+</li>
+<li><p>Boundary Loss</p>
+<p>  $\alpha \mathcal{L}_{G D}(\theta)+(1-\alpha) \mathcal{L}_{B}(\theta)$</p>
+<p>  $\mathcal{L}_{B}$: Boundary Loss</p>
+<p>  $\mathcal{L}_{G D}$: Generalized Dice Loss</p>
+<p>  综述里对数学符号的解释不太完整</p>
+</li>
+<li><p>Conservative Loss</p>
+<p>  保守损失，以通过惩罚极端情况和鼓励中等情况来在域适应任务中获得良好的泛化能力。保守损失定义为</p>
+<p>  $C L\left(p_{t}\right)=\lambda\left(1+\log _{a}\left(p_{t}\right)\right)^{2} * \log _{a}\left(-\log _{a}\left(p_{t}\right)\right)$</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>其他工作还包括优化分割指标的方法，加权损失函数以及向损失函数添加正则化器以编码几何和拓扑形状先验。</p>
+<h2 id="医学图像分割中的损失函数"><a href="#医学图像分割中的损失函数" class="headerlink" title="医学图像分割中的损失函数"></a>医学图像分割中的损失函数</h2><p>图像分割（尤其是医学图像）中的<strong>主要问题是克服类别不平衡</strong>，对于此类不平衡，基于重叠度量的方法在克服不平衡方面显示出相当好的性能。在下一节中,我们总结了使用新损失函数（特别是用于医学图像分割）或使用上述（修正）损失函数的方法。</p>
+<p>如上一节所述，<strong>标准的CE损失函数及其加权版本</strong>已应用于众多医学图像分割问题。但是，Miletari等人发现在某些情况下Dice Loss其效果要优于原始的交叉熵，例如，在大背景中具有非常小的前景对象的情况下。</p>
+<p>本节主要介绍了以下方法：</p>
+<ul>
+<li><p>向交叉熵损失函数中<strong>加入正则化项</strong>，以实现更平稳的分段输出。正则项为：</p>
+<p>  $R=\sum_{i=1}^{N} \mathbb{E}_{\xi^{\prime}, \xi}\left|f\left(x_{i} ; \theta, \xi^{\prime}\right)-f\left(x_{i} ; \theta, \xi\right)\right|^{2}$</p>
+</li>
+<li><p>tradition active contour energy minimization <strong>通过定义如下损失函数的方式，把主动轮廓模型（一种传统的图像分割方法）的思想引入CNN</strong>模型.</p>
+<p>  $\text { Loss }=\text { Length }+\lambda \cdot \text { Region }$</p>
+<p>  Length和Region具体的formulation定义可以看综述论文或者原文.</p>
+<blockquote>
+<p>X. Chen, B. Williams, S. Vallabhaneni, G. Czanner, R. Williams, Y. Zheng. Learning Active Contour Models for Medical Image Segmentation. <em>CVPR 2019</em>.</p>
+</blockquote>
+</li>
+<li><p>optimized Hausdorff distance based function <strong>把Dice与Hausdorff距离（一种可以用在边缘匹配的方法）结合</strong></p>
+<p>  $f_{\mathrm{HD}}(p, q)=\operatorname{Loss}(p, q)+\lambda\left(1-\frac{2 \sum_{\Omega}(p \circ q)}{\sum_{\Omega}\left(p^{2}+q^{2}\right)}\right)$</p>
+<p>  第二项是Dice Loss，第一项可以选择Hausdorff距离的三个版本</p>
+</li>
+</ul>
+<p>本节中讨论的大多数方法都尝试通过在损失函数中<strong>提供权重/惩罚项</strong>来处理输入图像中的<strong>类不平衡问题</strong>，即小前景与大背景。其他方法包括首先确定感兴趣的对象，围绕该对象裁剪，然后以更好的平衡类执行任务。这种类型的级联方法已应用于脊髓多发性硬化病灶的分割</p>
+<h2 id="CE-VS-Dice-Loss"><a href="#CE-VS-Dice-Loss" class="headerlink" title="CE VS Dice Loss"></a>CE VS Dice Loss</h2><p>语义分割中一般用交叉熵来做损失函数，而评价的时候却使用IOU来作为评价指标，（GIOU这篇文章中说道：给定优化指标本身与代理损失函数之间的选择，最优选择就是指标本身。）为什么不直接拿类似IOU的损失函数来进行优化呢？</p>
+<ul>
+<li><p>CE的优势：首先采用<strong>交叉熵损失函数</strong>，而非 dice-coefficient 和类似 IoU 度量的损失函数，一个令人信服的愿意是其<strong>梯度形式更优</strong>：</p>
+<p>  交叉熵损失函数中交叉熵值关于 logits 的梯度计算形式类似于p−t，其中，p是 softmax 输出；t为 target；而关于 dice-coefficient 的可微形式，loss 值为 2pt/(p^2+t^2) 或 2pt/(p+t)，其关于p的梯度形式是比较复杂的：2t^2/(p+t)^2 或 2t*(t^2−p^2)/(p^2+t^2)^2. 极端场景下，当p和t的值都非常小时，计算得到的梯度值可能会非常大. 通常情况下，可能导致训练更加不稳定.</p>
+</li>
+<li><p>Dice Loss的优势：直接采用 <strong>dice-coefficient 或者 IoU</strong> 作为损失函数的原因，是因为<strong>分割的真实目标</strong>就是最大化 dice-coefficient 和 IoU 度量. 而交叉熵仅是一种代理形式，利用其在 BP 中易于最大化优化的特点.</p>
+</li>
+</ul>
+<h2 id="案例：U-Net损失函数"><a href="#案例：U-Net损失函数" class="headerlink" title="案例：U-Net损失函数"></a>案例：U-Net损失函数</h2><p>加权交叉熵</p>
+<p>像素级softmax + cross entropy</p>
+<p>像素类别真值，和1之间的交叉熵</p>
+<p>对边界像素进行加权 The separation border is computed <strong>using morphological operations</strong>. The weight map is then computed as</p>
+<p>$w(\mathbf{x})=w_{c}(\mathbf{x})+w_{0} \cdot \exp \left(-\frac{\left(d_{1}(\mathbf{x})+d_{2}(\mathbf{x})\right)^{2}}{2 \sigma^{2}}\right)$</p>
+<p>其中$w_c$：Ω→R是用来平衡类频率的权重图，d1：Ω→R表示到最近一个单元格的边界的距离，d2：Ω→R是到第二个最近格的边界的距离。在我们的实验中，我们设置w0 = 10和σ≈5像素。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>主要有基于CE和基于Dice Loss两类方法，CE的梯度形式更优，Dice Loss的优化目标与评价指标更吻合。</li>
+<li>可以考虑在CE或Dice方法上进行改进。改进的方式包括增加线性加权、对数指数加权、增加正则项/惩罚项等。改进的目的主要是增加对类别、样本分类难易程度、边缘/轮廓/边界等因素的考虑。</li>
+<li>也有一些损失函数不属于上述两类风格，比如通过损失函数实现Active Contour Model思想的方法。</li>
+</ol>
+<blockquote>
+<p>2019年5篇图像分割算法最佳综述<br><a href="https://cloud.tencent.com/developer/article/1550320" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1550320</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/分割/" rel="tag"># 分割</a>
+          
+            <a href="/tags/计算机视觉/" rel="tag"># 计算机视觉</a>
+          
+            <a href="/tags/损失函数/" rel="tag"># 损失函数</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/22/U-Net/" rel="next" title="U-Net">
+                <i class="fa fa-chevron-left"></i> U-Net
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Leon Wang">
+            
+              <p class="site-author-name" itemprop="name">Leon Wang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#非医学图像分割中的损失函数"><span class="nav-number">1.</span> <span class="nav-text">非医学图像分割中的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CE-based"><span class="nav-number">1.1.</span> <span class="nav-text">CE - based</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dice-Loss-based"><span class="nav-number">1.2.</span> <span class="nav-text">Dice Loss - based</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#医学图像分割中的损失函数"><span class="nav-number">2.</span> <span class="nav-text">医学图像分割中的损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CE-VS-Dice-Loss"><span class="nav-number">3.</span> <span class="nav-text">CE VS Dice Loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：U-Net损失函数"><span class="nav-number">4.</span> <span class="nav-text">案例：U-Net损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+
+<span>鲁ICP备 -
+  <a href="http://www.beian.miit.gov.cn">18054179号</a></span>
+
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Leon Wang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"></span>人</span>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+
+
+
+
+</body>
+</html>
