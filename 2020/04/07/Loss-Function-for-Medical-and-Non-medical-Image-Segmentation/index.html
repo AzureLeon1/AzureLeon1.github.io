@@ -89,7 +89,9 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200325083606109.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200325182618956.png">
-<meta property="og:updated_time" content="2020-04-07T11:25:38.798Z">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200407212218750.png">
+<meta property="og:image" content="http://img.cdn.leonwang.top/image-20200407212239314.png">
+<meta property="og:updated_time" content="2020-04-07T13:25:06.615Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loss Function for Medical and Non-medical Image Segmentation">
 <meta name="twitter:description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review  这篇论文将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  除了通过修改模型架构来提高分割速度/准确性外，设计新的损失函数也可以提高分割精度。 本篇学习报告">
@@ -325,7 +327,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-04-07T19:25:38+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-07T21:25:06+08:00">
                 2020-04-07
               </time>
             
@@ -398,7 +400,7 @@
 <h2 id="非医学图像分割中的损失函数"><a href="#非医学图像分割中的损失函数" class="headerlink" title="非医学图像分割中的损失函数"></a>非医学图像分割中的损失函数</h2><p>可以分为两大类：CE-based 和 Dice Loss-based。</p>
 <p>CE - base 方法主要包括传统CE、加权CE以及Focal Loss。</p>
 <p>Dice Loss - base 方法主要包括 Dice Loss 及其各种变体。</p>
-<h3 id="CE-based"><a href="#CE-based" class="headerlink" title="CE - based"></a>CE - based</h3><ul>
+<h3 id="CE-based（基于分布相似度）"><a href="#CE-based（基于分布相似度）" class="headerlink" title="CE - based（基于分布相似度）"></a>CE - based（基于分布相似度）</h3><ul>
 <li><p>交叉熵</p>
 <ul>
 <li><p>逐像素交叉熵损失</p>
@@ -414,18 +416,20 @@
 </ul>
 </li>
 <li><p>加权交叉熵</p>
+<p>  交叉熵损失会分别评估每个像素的类别预测，然后对所有像素取平均，这意味着对图像中每个像素的学习是平等的。如果各个类别在图像中的表示不平衡，则可能会出现问题，因为训练过程可能会由最普遍的类别主导。</p>
 <ul>
-<li><p>交叉熵损失会分别评估每个像素的类别预测，然后对所有像素取平均，这意味着对图像中每个像素的学习是平等的。如果各个类别在图像中的表示不平衡，则可能会出现问题，因为训练过程可能会由最普遍的类别主导。</p>
-</li>
-<li><p>weighting the cross entropy loss (WCE): $\operatorname{WCE}(p, \hat{p})=-(\beta p \log (\hat{p})+(1-p) \log (1-\hat{p}))$</p>
+<li><p><strong>WCE</strong> 只对正像素进行加权 </p>
+<p>  weighting the cross entropy loss (WCE): $\operatorname{WCE}(p, \hat{p})=-(\beta p \log (\hat{p})+(1-p) \log (1-\hat{p}))$</p>
 <p>  为了减少假阴性的数目，β被设置为大于1的值；为了减少假阳性的数目，β被设置为小于1的值。</p>
 </li>
-<li><p>为了对负像素也加权</p>
+<li><p><strong>BCE</strong> 对正负像素都加权</p>
 <p>  balanced cross entropy (BCE)</p>
 <p>  $\operatorname{BCE}(p, \hat{p})=-(\beta p \log (\hat{p})+(1-\beta)(1-p) \log (1-\hat{p}))$</p>
 </li>
-<li><p>在交叉熵函数中添加了距离函数，加强在对象彼此非常接近的情况下的学习效果（可以理解为加强对边界处像素的影响），实现更好的分割，如下所示：</p>
+<li><p><strong>引入与最近的cell的距离</strong></p>
+<p>  在交叉熵函数中添加了距离函数，加强在对象彼此非常接近的情况下的学习效果（可以理解为加强对边界处像素的学习），实现更好的分割，如下所示：</p>
 <p>  $\operatorname{BCE}(p, \hat{p})+w_{0} \cdot \exp \left(-\frac{\left(d_{1}(x)+d_{2}(x)\right)^{2}}{2 \sigma^{2}}\right)$</p>
+<p>  其中$d_1(x)$和$d_2(x)$为两个距离函数，表示点x与最近和第二近的cell的距离。</p>
 <p>  后面的距离函数在U-Net损失函数中也用到了，不过U-Net把这一项加到了每个像素的CE的权重当中，而这里是在BCE的基础上在加上这一项。二者都把“边界”这一因素加入到了CE当中，只是方式不一样。</p>
 </li>
 </ul>
@@ -442,7 +446,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Dice-Loss-based"><a href="#Dice-Loss-based" class="headerlink" title="Dice Loss - based"></a>Dice Loss - based</h3><ul>
+<h3 id="Dice-Loss-based（基于重叠）"><a href="#Dice-Loss-based（基于重叠）" class="headerlink" title="Dice Loss - based（基于重叠）"></a>Dice Loss - based（基于重叠）</h3><ul>
 <li><p>Overlap Measure based Loss Function</p>
 <ul>
 <li><p>Dice Loss / F1 Score</p>
@@ -451,16 +455,20 @@
 <p>  $\mathrm{DC}=\frac{2 T P}{2 T P+F P+F N}=\frac{2|X \cap Y|}{|X|+|Y|}$</p>
 <p>  另外，Jaccard Metric(交并比): $\mathrm{IoU}=\frac{T P}{T P+F P+F N}=\frac{|X \cap Y|}{|X|+|Y|-|X \cap Y|}$，可知$\mathrm{DC} \geq \mathrm{IoU}$</p>
 <p>  Dice Loss: $\operatorname{DL}(p, \hat{p})=\frac{2\langle p, \hat{p}\rangle}{|p|_{1}+|\hat{p}|_{1}}$</p>
+<p>  分子的计算：</p>
+<p>  <img src="http://img.cdn.leonwang.top/image-20200407212218750.png" alt="image-20200407212218750"></p>
+<p>  分母的计算：</p>
+<p>  <img src="http://img.cdn.leonwang.top/image-20200407212239314.png" alt="image-20200407212239314"></p>
+<blockquote>
+<p>Dice损失比较适合样本极度不平衡的情况，但会对反向传播造成影响，导致反向传播不稳定。</p>
+</blockquote>
 </li>
 </ul>
 </li>
 <li><p>Tversky Loss</p>
-<ul>
-<li><p>Dice Loss 的推广</p>
+<p>  Dice Loss 的推广，给FP和FN加上权重。</p>
 <p>  $\operatorname{TL}(p, \hat{p})=\frac{\langle p, \hat{p}\rangle}{\langle p, \hat{p}\rangle+\beta(1-p, \hat{p}\rangle+(1-\beta)(p, 1-\hat{p})}$</p>
-<p>  $\beta=0.5$是退化成Dice Loss</p>
-</li>
-</ul>
+<p>  $\beta=0.5$时退化成Dice Loss</p>
 </li>
 <li><p>Exponential Logarithmic Loss</p>
 <p>  指数对数Dice Loss：$\mathcal{L}_{\mathrm{ELD}}=\mathbf{E}\left[\left(-\ln \left(D_{i}\right)\right)^{\gamma_{D}}\right]$</p>
@@ -713,7 +721,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#非医学图像分割中的损失函数"><span class="nav-number">1.</span> <span class="nav-text">非医学图像分割中的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CE-based"><span class="nav-number">1.1.</span> <span class="nav-text">CE - based</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dice-Loss-based"><span class="nav-number">1.2.</span> <span class="nav-text">Dice Loss - based</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#医学图像分割中的损失函数"><span class="nav-number">2.</span> <span class="nav-text">医学图像分割中的损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CE-vs-Dice-Loss"><span class="nav-number">3.</span> <span class="nav-text">CE vs Dice Loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：U-Net损失函数"><span class="nav-number">4.</span> <span class="nav-text">案例：U-Net损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#非医学图像分割中的损失函数"><span class="nav-number">1.</span> <span class="nav-text">非医学图像分割中的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CE-based（基于分布相似度）"><span class="nav-number">1.1.</span> <span class="nav-text">CE - based（基于分布相似度）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dice-Loss-based（基于重叠）"><span class="nav-number">1.2.</span> <span class="nav-text">Dice Loss - based（基于重叠）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#医学图像分割中的损失函数"><span class="nav-number">2.</span> <span class="nav-text">医学图像分割中的损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CE-vs-Dice-Loss"><span class="nav-number">3.</span> <span class="nav-text">CE vs Dice Loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：U-Net损失函数"><span class="nav-number">4.</span> <span class="nav-text">案例：U-Net损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
