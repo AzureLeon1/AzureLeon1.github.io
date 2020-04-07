@@ -89,7 +89,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200325083606109.png">
 <meta property="og:image" content="http://img.cdn.leonwang.top/image-20200325182618956.png">
-<meta property="og:updated_time" content="2020-04-07T11:23:31.679Z">
+<meta property="og:updated_time" content="2020-04-07T11:25:38.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Loss Function for Medical and Non-medical Image Segmentation">
 <meta name="twitter:description" content="论文： Deep Semantic Segmentation of Natural and Medical Images: A Review  这篇论文将基于深度学习的医学和非医学图像分割解决方案主要分为六个方面：  模型架构改进 基于数据合成的改进 基于损失函数的改进 序列模型 弱监督 多任务方法  除了通过修改模型架构来提高分割速度/准确性外，设计新的损失函数也可以提高分割精度。 本篇学习报告">
@@ -325,7 +325,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2020-04-07T19:23:31+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2020-04-07T19:25:38+08:00">
                 2020-04-07
               </time>
             
@@ -507,7 +507,7 @@
 </li>
 </ul>
 <p>本节中讨论的大多数方法都尝试通过在损失函数中<strong>提供权重/惩罚项</strong>来处理输入图像中的<strong>类不平衡问题</strong>，即小前景与大背景。其他方法包括首先确定感兴趣的对象，围绕该对象裁剪，然后以更好的平衡类执行任务。这种类型的级联方法已应用于脊髓多发性硬化病灶的分割</p>
-<h2 id="CE-VS-Dice-Loss"><a href="#CE-VS-Dice-Loss" class="headerlink" title="CE VS Dice Loss"></a>CE VS Dice Loss</h2><p>语义分割中一般用交叉熵来做损失函数，而评价的时候却使用IOU来作为评价指标，（GIOU这篇文章中说道：给定优化指标本身与代理损失函数之间的选择，最优选择就是指标本身。）为什么不直接拿类似IOU的损失函数来进行优化呢？</p>
+<h2 id="CE-vs-Dice-Loss"><a href="#CE-vs-Dice-Loss" class="headerlink" title="CE vs Dice Loss"></a>CE vs Dice Loss</h2><p>语义分割中一般用交叉熵来做损失函数，而评价的时候却使用IOU来作为评价指标，（GIOU这篇文章中说道：给定优化指标本身与代理损失函数之间的选择，最优选择就是指标本身。）为什么不直接拿类似IOU的损失函数来进行优化呢？</p>
 <ul>
 <li><p>CE的优势：首先采用<strong>交叉熵损失函数</strong>，而非 dice-coefficient 和类似 IoU 度量的损失函数，一个令人信服的愿意是其<strong>梯度形式更优</strong>：</p>
 <p>  交叉熵损失函数中交叉熵值关于 logits 的梯度计算形式类似于p−t，其中，p是 softmax 输出；t为 target；而关于 dice-coefficient 的可微形式，loss 值为 2pt/(p^2+t^2) 或 2pt/(p+t)，其关于p的梯度形式是比较复杂的：2t^2/(p+t)^2 或 2t*(t^2−p^2)/(p^2+t^2)^2. 极端场景下，当p和t的值都非常小时，计算得到的梯度值可能会非常大. 通常情况下，可能导致训练更加不稳定.</p>
@@ -713,7 +713,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#非医学图像分割中的损失函数"><span class="nav-number">1.</span> <span class="nav-text">非医学图像分割中的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CE-based"><span class="nav-number">1.1.</span> <span class="nav-text">CE - based</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dice-Loss-based"><span class="nav-number">1.2.</span> <span class="nav-text">Dice Loss - based</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#医学图像分割中的损失函数"><span class="nav-number">2.</span> <span class="nav-text">医学图像分割中的损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CE-VS-Dice-Loss"><span class="nav-number">3.</span> <span class="nav-text">CE VS Dice Loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：U-Net损失函数"><span class="nav-number">4.</span> <span class="nav-text">案例：U-Net损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#非医学图像分割中的损失函数"><span class="nav-number">1.</span> <span class="nav-text">非医学图像分割中的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CE-based"><span class="nav-number">1.1.</span> <span class="nav-text">CE - based</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dice-Loss-based"><span class="nav-number">1.2.</span> <span class="nav-text">Dice Loss - based</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#医学图像分割中的损失函数"><span class="nav-number">2.</span> <span class="nav-text">医学图像分割中的损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CE-vs-Dice-Loss"><span class="nav-number">3.</span> <span class="nav-text">CE vs Dice Loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例：U-Net损失函数"><span class="nav-number">4.</span> <span class="nav-text">案例：U-Net损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
