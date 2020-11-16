@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   <title>ResNet &amp; K-Fold Cross Validation | Leon Wang</title>
   <meta name="keywords" content=" 机器学习 ">
   <meta name="description" content="ResNet &amp; K-Fold Cross Validation | Leon Wang">
@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="http://img.cdn.leonwang.top/pic.jpeg">
 
 
-<link rel="icon" href="/img/avatar.jpg">
+<link rel="icon" href="/images/avatar.jpeg">
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
@@ -43,7 +43,7 @@
 
 <script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
 
-<script src="/js/iconfont.js?v=1.1.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/iconfont.js?v=1.1.0"></script>
 
 </head>
 <div style="display: none">
@@ -58,10 +58,10 @@
 
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.jpg">
+    <img class="avatar" src="/images/avatar.jpeg">
 </a>
 <div class="author">
     <span>Leon Wang</span>
@@ -70,17 +70,7 @@
 <div class="icon">
     
         
-        <a title="rss" href="/atom.xml" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-rss"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="github" href="https://github.com/yelog" target="_blank">
+        <a title="github" href="https://github.com/AzureLeon1" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-github"/>
@@ -90,61 +80,17 @@
         
     
         
-        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+        <a title="linkedin" href="https://www.linkedin.com/in/%E4%BA%AE-%E7%8E%8B-a1baab193/" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-facebook"/>
+                    <use xlink:href="#icon-linkedin"/>
                 </svg>
             
         </a>
         
     
         
-    
-        
-    
-        
-        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-instagram"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-reddit"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-weibo"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-jianshu"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+        <a title="zhihu" href="https://www.zhihu.com/people/wang-liang-62-42" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-zhihu"/>
@@ -154,54 +100,10 @@
         
     
         
-    
-        
-        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-oschina"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-    
-        
-        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+        <a title="email" href="mailto:wangliang.leon20@gmail.com" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-email"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-qq"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="kugou" href="https://www.kugou.com/" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-kugou"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
                 </svg>
             
         </a>
@@ -327,10 +229,10 @@
     
     
     </div>
-    <div><a class="about  hasFriend  site_url" href="/about">About</a><a style="width: 50%" class="friends">Friends</a></div>
+    <div><a class="about  site_url" href="/about">About</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="39">
-
+<input type="hidden" id="yelog_site_word_count" value="49.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -345,8 +247,6 @@
     </div>
     <div class="friends-content">
         <ul>
-            
-            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
             
         </ul>
     </div>
@@ -563,6 +463,10 @@
 
 </div>
 
+    
+    <div id="local-search-result">
+
+    </div>
     
     <nav id="title-list-nav">
         
@@ -810,6 +714,8 @@
     </div>
     <div class="article-meta">
         
+        <span>Count:2.1k</span>
+        
         
         <span id="busuanzi_container_page_pv">
             Views 👀 :<span id="busuanzi_value_page_pv">
@@ -822,6 +728,17 @@
             </span>
         </span>
         
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
         
     </div>
     
@@ -870,9 +787,42 @@
 <p><a href="https://keras.io/zh/scikit-learn-api/" target="_blank" rel="noopener">Keras 中的 Scikit-Learn API 的封装器文档</a></p>
 <p><a href="https://scikit-learn.org/stable/modules/cross_validation.html#k-fold" target="_blank" rel="noopener">Scikit-Learn 交叉验证文档</a></p>
 <h2 id="Scikit-Learn-中的交叉验证"><a href="#Scikit-Learn-中的交叉验证" class="headerlink" title="Scikit-Learn 中的交叉验证"></a>Scikit-Learn 中的交叉验证</h2><p>基础验证法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris <span class="comment"># iris数据集</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split <span class="comment"># 分割数据模块</span></span><br><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier <span class="comment"># K最近邻(kNN，k-NearestNeighbor)分类算法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#加载iris数据集</span></span><br><span class="line">iris = load_iris()</span><br><span class="line">X = iris.data</span><br><span class="line">y = iris.target</span><br><span class="line"></span><br><span class="line"><span class="comment">#分割数据并</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#建立模型</span></span><br><span class="line">knn = KNeighborsClassifier()</span><br><span class="line"></span><br><span class="line"><span class="comment">#训练模型</span></span><br><span class="line">knn.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment">#将准确率打印出</span></span><br><span class="line">print(knn.score(X_test, y_test))</span><br><span class="line"><span class="comment"># 0.973684210526</span></span><br></pre></td></tr></table></figure>
+<pre><code class="python">from sklearn.datasets import load_iris # iris数据集
+from sklearn.model_selection import train_test_split # 分割数据模块
+from sklearn.neighbors import KNeighborsClassifier # K最近邻(kNN，k-NearestNeighbor)分类算法
+
+#加载iris数据集
+iris = load_iris()
+X = iris.data
+y = iris.target
+
+#分割数据并
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=4)
+
+#建立模型
+knn = KNeighborsClassifier()
+
+#训练模型
+knn.fit(X_train, y_train)
+
+#将准确率打印出
+print(knn.score(X_test, y_test))
+# 0.973684210526
+</code></pre>
 <p>交叉验证法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> cross_val_score <span class="comment"># K折交叉验证模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用K折交叉验证模块</span></span><br><span class="line">scores = cross_val_score(knn, X, y, cv=<span class="number">5</span>, scoring=<span class="string">'accuracy'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#将5次的预测准确率打印出</span></span><br><span class="line">print(scores)</span><br><span class="line"><span class="comment"># [ 0.96666667  1.          0.93333333  0.96666667  1.        ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#将5次的预测准确平均率打印出</span></span><br><span class="line">print(scores.mean())</span><br><span class="line"><span class="comment"># 0.973333333333</span></span><br></pre></td></tr></table></figure>
+<pre><code class="python">from sklearn.cross_validation import cross_val_score # K折交叉验证模块
+
+#使用K折交叉验证模块
+scores = cross_val_score(knn, X, y, cv=5, scoring=&#39;accuracy&#39;)
+
+#将5次的预测准确率打印出
+print(scores)
+# [ 0.96666667  1.          0.93333333  0.96666667  1.        ]
+
+#将5次的预测准确平均率打印出
+print(scores.mean())
+# 0.973333333333
+</code></pre>
 <h2 id="Scikit-Learn-对-Keras-模型的交叉验证"><a href="#Scikit-Learn-对-Keras-模型的交叉验证" class="headerlink" title="Scikit-Learn 对 Keras 模型的交叉验证"></a>Scikit-Learn 对 Keras 模型的交叉验证</h2><h3 id="Tutorial-1：使用Scikit-learn调用Keras模型"><a href="#Tutorial-1：使用Scikit-learn调用Keras模型" class="headerlink" title="Tutorial 1：使用Scikit-learn调用Keras模型"></a>Tutorial 1：使用Scikit-learn调用Keras模型</h3><p><a href="https://cnbeining.github.io/deep-learning-with-python-cn/3-multi-layer-perceptrons/ch9-use-keras-models-with-scikit-learn-for-general-machine-learning.html" target="_blank" rel="noopener">使用Scikit-Learn调用Keras的模型</a></p>
 <ul>
 <li>使用scikit-learn封装Keras的模型</li>
@@ -881,16 +831,89 @@
 </ul>
 <p>(关于交叉验证的代码有点过时，cross_validation已经被model_selection取代)</p>
 <p>使用交叉验证检验深度学习模型</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MLP for Pima Indians Dataset with 10-fold cross validation via sklearn</span></span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> keras.wrappers.scikit_learn <span class="keyword">import</span> KerasClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> StratifiedKFold</span><br><span class="line"><span class="keyword">from</span> sklearn.cross_validation <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> pandas</span><br><span class="line"><span class="comment"># Function to create model, required for KerasClassifier</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_model</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># create model</span></span><br><span class="line">    model = Sequential()</span><br><span class="line">    model.add(Dense(<span class="number">12</span>, input_dim=<span class="number">8</span>, init=<span class="string">'uniform'</span>, activation=<span class="string">'relu'</span>)) model.add(Dense(<span class="number">8</span>, init=<span class="string">'uniform'</span>, activation=<span class="string">'relu'</span>)) model.add(Dense(<span class="number">1</span>, init=<span class="string">'uniform'</span>, activation=<span class="string">'sigmoid'</span>))</span><br><span class="line">    <span class="comment"># Compile model</span></span><br><span class="line">    model.compile(loss=<span class="string">'binary_crossentropy'</span>, optimizer=<span class="string">'adam'</span>, metrics=[<span class="string">'accuracy'</span>]) <span class="keyword">return</span> model</span><br><span class="line"><span class="comment"># fix random seed for reproducibility</span></span><br><span class="line">seed = <span class="number">7</span></span><br><span class="line">numpy.random.seed(seed)</span><br><span class="line"><span class="comment"># load pima indians dataset</span></span><br><span class="line">dataset = numpy.loadtxt(<span class="string">"pima-indians-diabetes.csv"</span>, delimiter=<span class="string">","</span>)</span><br><span class="line"><span class="comment"># split into input (X) and output (Y) variables</span></span><br><span class="line">X = dataset[:,<span class="number">0</span>:<span class="number">8</span>]</span><br><span class="line">Y = dataset[:,<span class="number">8</span>]</span><br><span class="line"><span class="comment"># create model</span></span><br><span class="line">model = KerasClassifier(build_fn=create_model, nb_epoch=<span class="number">150</span>, batch_size=<span class="number">10</span>)</span><br><span class="line"><span class="comment"># evaluate using 10-fold cross validation</span></span><br><span class="line">kfold = StratifiedKFold(y=Y, n_folds=<span class="number">10</span>, shuffle=<span class="keyword">True</span>, random_state=seed)</span><br><span class="line">results = cross_val_score(model, X, Y, cv=kfold)</span><br><span class="line">print(results.mean())</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># MLP for Pima Indians Dataset with 10-fold cross validation via sklearn
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.wrappers.scikit_learn import KerasClassifier
+from sklearn.cross_validation import StratifiedKFold
+from sklearn.cross_validation import cross_val_score
+import numpy
+import pandas
+# Function to create model, required for KerasClassifier
+def create_model():
+    # create model
+    model = Sequential()
+    model.add(Dense(12, input_dim=8, init=&#39;uniform&#39;, activation=&#39;relu&#39;)) model.add(Dense(8, init=&#39;uniform&#39;, activation=&#39;relu&#39;)) model.add(Dense(1, init=&#39;uniform&#39;, activation=&#39;sigmoid&#39;))
+    # Compile model
+    model.compile(loss=&#39;binary_crossentropy&#39;, optimizer=&#39;adam&#39;, metrics=[&#39;accuracy&#39;]) return model
+# fix random seed for reproducibility
+seed = 7
+numpy.random.seed(seed)
+# load pima indians dataset
+dataset = numpy.loadtxt(&quot;pima-indians-diabetes.csv&quot;, delimiter=&quot;,&quot;)
+# split into input (X) and output (Y) variables
+X = dataset[:,0:8]
+Y = dataset[:,8]
+# create model
+model = KerasClassifier(build_fn=create_model, nb_epoch=150, batch_size=10)
+# evaluate using 10-fold cross validation
+kfold = StratifiedKFold(y=Y, n_folds=10, shuffle=True, random_state=seed)
+results = cross_val_score(model, X, Y, cv=kfold)
+print(results.mean())
+</code></pre>
 <h3 id="Tutorial-2：基于-skl3earn-和-keras-的数据切分与交叉验证"><a href="#Tutorial-2：基于-skl3earn-和-keras-的数据切分与交叉验证" class="headerlink" title="Tutorial 2：基于 skl3earn 和 keras 的数据切分与交叉验证"></a>Tutorial 2：基于 skl3earn 和 keras 的数据切分与交叉验证</h3><p><a href="https://www.cnblogs.com/bymo/p/9026198.html#_label2" target="_blank" rel="noopener"><a href="https://www.cnblogs.com/bymo/p/9026198.html" target="_blank" rel="noopener">基于sklearn和keras的数据切分与交叉验证</a></a></p>
 <h4 id="自动切分"><a href="#自动切分" class="headerlink" title="自动切分"></a>自动切分</h4><p>在Keras中，可以从数据集中切分出一部分作为验证集，并且在每次迭代(epoch)时在验证集中评估模型的性能．</p>
 <p>具体地，调用<strong>model.fit()</strong>训练模型时，可通过<strong>validation_split</strong>参数来指定从数据集中切分出验证集的比例．</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MLP with automatic validation set</span></span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="comment"># fix random seed for reproducibility</span></span><br><span class="line">numpy.random.seed(<span class="number">7</span>)</span><br><span class="line"><span class="comment"># load pima indians dataset</span></span><br><span class="line">dataset = numpy.loadtxt(<span class="string">"pima-indians-diabetes.csv"</span>, delimiter=<span class="string">","</span>)</span><br><span class="line"><span class="comment"># split into input (X) and output (Y) variables</span></span><br><span class="line">X = dataset[:,<span class="number">0</span>:<span class="number">8</span>]</span><br><span class="line">Y = dataset[:,<span class="number">8</span>]</span><br><span class="line"><span class="comment"># create model</span></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(<span class="number">12</span>, input_dim=<span class="number">8</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(<span class="number">8</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(<span class="number">1</span>, activation=<span class="string">'sigmoid'</span>))</span><br><span class="line"><span class="comment"># Compile model</span></span><br><span class="line">model.compile(loss=<span class="string">'binary_crossentropy'</span>, optimizer=<span class="string">'adam'</span>, metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"><span class="comment"># Fit the model</span></span><br><span class="line">model.fit(X, Y, validation_split=<span class="number">0.33</span>, epochs=<span class="number">150</span>, batch_size=<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># MLP with automatic validation set
+from keras.models import Sequential
+from keras.layers import Dense
+import numpy
+# fix random seed for reproducibility
+numpy.random.seed(7)
+# load pima indians dataset
+dataset = numpy.loadtxt(&quot;pima-indians-diabetes.csv&quot;, delimiter=&quot;,&quot;)
+# split into input (X) and output (Y) variables
+X = dataset[:,0:8]
+Y = dataset[:,8]
+# create model
+model = Sequential()
+model.add(Dense(12, input_dim=8, activation=&#39;relu&#39;))
+model.add(Dense(8, activation=&#39;relu&#39;))
+model.add(Dense(1, activation=&#39;sigmoid&#39;))
+# Compile model
+model.compile(loss=&#39;binary_crossentropy&#39;, optimizer=&#39;adam&#39;, metrics=[&#39;accuracy&#39;])
+# Fit the model
+model.fit(X, Y, validation_split=0.33, epochs=150, batch_size=10)
+</code></pre>
 <p>validation_split：0~1之间的浮点数，用来指定训练集的一定比例数据作为验证集。验证集将不参与训练，并在每个epoch结束后测试的模型的指标，如损失函数、精确度等。</p>
 <p><strong>注意，validation_split的划分在shuffle之前，因此如果你的数据本身是有序的，需要先手工打乱再指定validation_split，否则可能会出现验证集样本不均匀。</strong></p>
 <h4 id="手动切分"><a href="#手动切分" class="headerlink" title="手动切分"></a>手动切分</h4><p>Keras允许在训练模型的时候手动指定验证集．</p>
 <p>例如，用<strong>sklearn</strong>库中的<strong>train_test_split()</strong>函数将数据集进行切分，然后在<strong>keras</strong>的<strong>model.fit()</strong>的时候通过<strong>validation_data</strong>参数指定前面切分出来的验证集．</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MLP with manual validation set</span></span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="comment"># fix random seed for reproducibility</span></span><br><span class="line">seed = <span class="number">7</span></span><br><span class="line">numpy.random.seed(seed)</span><br><span class="line"><span class="comment"># load pima indians dataset</span></span><br><span class="line">dataset = numpy.loadtxt(<span class="string">"pima-indians-diabetes.csv"</span>, delimiter=<span class="string">","</span>)</span><br><span class="line"><span class="comment"># split into input (X) and output (Y) variables</span></span><br><span class="line">X = dataset[:,<span class="number">0</span>:<span class="number">8</span>]</span><br><span class="line">Y = dataset[:,<span class="number">8</span>]</span><br><span class="line"><span class="comment"># split into 67% for train and 33% for test</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=<span class="number">0.33</span>, random_state=seed)</span><br><span class="line"><span class="comment"># create model</span></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(Dense(<span class="number">12</span>, input_dim=<span class="number">8</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(<span class="number">8</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dense(<span class="number">1</span>, activation=<span class="string">'sigmoid'</span>))</span><br><span class="line"><span class="comment"># Compile model</span></span><br><span class="line">model.compile(loss=<span class="string">'binary_crossentropy'</span>, optimizer=<span class="string">'adam'</span>, metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"><span class="comment"># Fit the model</span></span><br><span class="line">model.fit(X_train, y_train, validation_data=(X_test,y_test), epochs=<span class="number">150</span>, batch_size=<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># MLP with manual validation set
+from keras.models import Sequential
+from keras.layers import Dense
+from sklearn.model_selection import train_test_split
+import numpy
+# fix random seed for reproducibility
+seed = 7
+numpy.random.seed(seed)
+# load pima indians dataset
+dataset = numpy.loadtxt(&quot;pima-indians-diabetes.csv&quot;, delimiter=&quot;,&quot;)
+# split into input (X) and output (Y) variables
+X = dataset[:,0:8]
+Y = dataset[:,8]
+# split into 67% for train and 33% for test
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.33, random_state=seed)
+# create model
+model = Sequential()
+model.add(Dense(12, input_dim=8, activation=&#39;relu&#39;))
+model.add(Dense(8, activation=&#39;relu&#39;))
+model.add(Dense(1, activation=&#39;sigmoid&#39;))
+# Compile model
+model.compile(loss=&#39;binary_crossentropy&#39;, optimizer=&#39;adam&#39;, metrics=[&#39;accuracy&#39;])
+# Fit the model
+model.fit(X_train, y_train, validation_data=(X_test,y_test), epochs=150, batch_size=10)
+</code></pre>
 <h4 id="K折交叉验证"><a href="#K折交叉验证" class="headerlink" title="K折交叉验证"></a>K折交叉验证</h4><p>将数据集分成k份，每一轮用其中(k-1)份做训练而剩余1份做验证，以这种方式执行k轮，得到k个模型．将k次的性能取平均，作为该算法的整体性能．k一般取值为5或者10．</p>
 <ul>
 <li>优点：能比较鲁棒性地评估模型在未知数据上的性能．</li>
@@ -898,23 +921,71 @@
 </ul>
 <p><strong>sklearn.model_selection</strong>提供了<strong>KFold</strong>以及<strong>RepeatedKFold, LeaveOneOut, LeavePOut, ShuffleSplit, StratifiedKFold, GroupKFold, TimeSeriesSplit</strong>等变体．</p>
 <p>下面的例子中用的StratifiedKFold采用的是分层抽样，它保证各类别的样本在切割后每一份小数据集中的比例都与原数据集中的比例相同．</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># MLP for Pima Indians Dataset with 10-fold cross validation</span></span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> StratifiedKFold</span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="comment"># fix random seed for reproducibility</span></span><br><span class="line">seed = <span class="number">7</span></span><br><span class="line">numpy.random.seed(seed)</span><br><span class="line"><span class="comment"># load pima indians dataset</span></span><br><span class="line">dataset = numpy.loadtxt(<span class="string">"pima-indians-diabetes.csv"</span>, delimiter=<span class="string">","</span>)</span><br><span class="line"><span class="comment"># split into input (X) and output (Y) variables</span></span><br><span class="line">X = dataset[:,<span class="number">0</span>:<span class="number">8</span>]</span><br><span class="line">Y = dataset[:,<span class="number">8</span>]</span><br><span class="line"><span class="comment"># define 10-fold cross validation test harness</span></span><br><span class="line">kfold = StratifiedKFold(n_splits=<span class="number">10</span>, shuffle=<span class="keyword">True</span>, random_state=seed)</span><br><span class="line">cvscores = []</span><br><span class="line"><span class="keyword">for</span> train, test <span class="keyword">in</span> kfold.split(X, Y):</span><br><span class="line">  	<span class="comment"># create model</span></span><br><span class="line">    model = Sequential()</span><br><span class="line">    model.add(Dense(<span class="number">12</span>, input_dim=<span class="number">8</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">    model.add(Dense(<span class="number">8</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">    model.add(Dense(<span class="number">1</span>, activation=<span class="string">'sigmoid'</span>))</span><br><span class="line">    <span class="comment"># Compile model</span></span><br><span class="line">    model.compile(loss=<span class="string">'binary_crossentropy'</span>, optimizer=<span class="string">'adam'</span>, metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line">    <span class="comment"># Fit the model</span></span><br><span class="line">    model.fit(X[train], Y[train], epochs=<span class="number">150</span>, batch_size=<span class="number">10</span>, verbose=<span class="number">0</span>)</span><br><span class="line">    <span class="comment"># evaluate the model</span></span><br><span class="line">    scores = model.evaluate(X[test], Y[test], verbose=<span class="number">0</span>)</span><br><span class="line">    print(<span class="string">"%s: %.2f%%"</span> % (model.metrics_names[<span class="number">1</span>], scores[<span class="number">1</span>]*<span class="number">100</span>))</span><br><span class="line">    cvscores.append(scores[<span class="number">1</span>] * <span class="number">100</span>)</span><br><span class="line">print(<span class="string">"%.2f%% (+/- %.2f%%)"</span> % (numpy.mean(cvscores), numpy.std(cvscores)))</span><br></pre></td></tr></table></figure>
+<pre><code class="python"># MLP for Pima Indians Dataset with 10-fold cross validation
+from keras.models import Sequential
+from keras.layers import Dense
+from sklearn.model_selection import StratifiedKFold
+import numpy
+# fix random seed for reproducibility
+seed = 7
+numpy.random.seed(seed)
+# load pima indians dataset
+dataset = numpy.loadtxt(&quot;pima-indians-diabetes.csv&quot;, delimiter=&quot;,&quot;)
+# split into input (X) and output (Y) variables
+X = dataset[:,0:8]
+Y = dataset[:,8]
+# define 10-fold cross validation test harness
+kfold = StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)
+cvscores = []
+for train, test in kfold.split(X, Y):
+      # create model
+    model = Sequential()
+    model.add(Dense(12, input_dim=8, activation=&#39;relu&#39;))
+    model.add(Dense(8, activation=&#39;relu&#39;))
+    model.add(Dense(1, activation=&#39;sigmoid&#39;))
+    # Compile model
+    model.compile(loss=&#39;binary_crossentropy&#39;, optimizer=&#39;adam&#39;, metrics=[&#39;accuracy&#39;])
+    # Fit the model
+    model.fit(X[train], Y[train], epochs=150, batch_size=10, verbose=0)
+    # evaluate the model
+    scores = model.evaluate(X[test], Y[test], verbose=0)
+    print(&quot;%s: %.2f%%&quot; % (model.metrics_names[1], scores[1]*100))
+    cvscores.append(scores[1] * 100)
+print(&quot;%.2f%% (+/- %.2f%%)&quot; % (numpy.mean(cvscores), numpy.std(cvscores)))
+</code></pre>
 <blockquote>
 <p>这里只用了sklearn做了数据集的切分，没有用sklearn中的cross_val_score()做训练和交叉验证，而是用的keras中的model.fit()进行训练</p>
 </blockquote>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a><em>References</em></h2><p><a href="https://blog.csdn.net/lanran2/article/details/79057994" target="_blank" rel="noopener">ResNet 解析 ——CSDN</a></p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wangliang.leon20@gmail.com </span>
     </div>
 </article>
 
 
-<p>
-    <a class="dashang" onclick="dashangToggle()">💰</a>
-</p>
 
 
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e25cb882a9cfd69b0fcf',
+            clientSecret: '866a281dc860e73a14108d1a2e93dc2e8302340d',
+            repo: 'AzureLeon1.github.io',
+            owner: 'AzureLeon1',
+            admin: ['Leon'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
 
 
 
@@ -964,8 +1035,12 @@
 
     </div>
     <div class="copyright">
-        <p class="footer-entry">
-    ©2016-2020 Yelog
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a href="http://beian.miit.gov.cn/">鲁ICP备18054179号</a>
+        </span>
+    
+    ©2018-2021 Leon
 </p>
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
@@ -976,41 +1051,6 @@
 
     </div>
 </div>
-
-<div class="hide_box" onclick="dashangToggle()"></div>
-<div class="shang_box">
-    <a class="shang_close" onclick="dashangToggle()">×</a>
-    <div class="shang_tit">
-        <p>Help us with donation</p>
-    </div>
-    <div class="shang_payimg">
-        <div class="pay_img">
-            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
-            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
-        </div>
-    </div>
-    <div class="shang_payselect">
-        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
-    </div>
-</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-
 
 </body>
 <script src="/js/jquery.pjax.js?v=1.1.0"></script>
@@ -1026,16 +1066,22 @@
 
         /*渲染打赏样式*/
         
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
-        
 
         /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
         
 
         /*访问数量*/
@@ -1052,15 +1098,42 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
 <!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
 
 <!--自定义样式设置-->
 <style>

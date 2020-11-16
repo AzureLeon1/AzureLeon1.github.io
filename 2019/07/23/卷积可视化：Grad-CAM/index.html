@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   <title>卷积可视化：Grad-CAM | Leon Wang</title>
   <meta name="keywords" content=" 深度学习 ">
   <meta name="description" content="卷积可视化：Grad-CAM | Leon Wang">
@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="http://img.cdn.leonwang.top/pic.jpeg">
 
 
-<link rel="icon" href="/img/avatar.jpg">
+<link rel="icon" href="/images/avatar.jpeg">
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
@@ -43,7 +43,7 @@
 
 <script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
 
-<script src="/js/iconfont.js?v=1.1.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/iconfont.js?v=1.1.0"></script>
 
 </head>
 <div style="display: none">
@@ -58,10 +58,10 @@
 
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.jpg">
+    <img class="avatar" src="/images/avatar.jpeg">
 </a>
 <div class="author">
     <span>Leon Wang</span>
@@ -70,17 +70,7 @@
 <div class="icon">
     
         
-        <a title="rss" href="/atom.xml" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-rss"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="github" href="https://github.com/yelog" target="_blank">
+        <a title="github" href="https://github.com/AzureLeon1" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-github"/>
@@ -90,61 +80,17 @@
         
     
         
-        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+        <a title="linkedin" href="https://www.linkedin.com/in/%E4%BA%AE-%E7%8E%8B-a1baab193/" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-facebook"/>
+                    <use xlink:href="#icon-linkedin"/>
                 </svg>
             
         </a>
         
     
         
-    
-        
-    
-        
-        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-instagram"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-reddit"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-weibo"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-jianshu"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+        <a title="zhihu" href="https://www.zhihu.com/people/wang-liang-62-42" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-zhihu"/>
@@ -154,54 +100,10 @@
         
     
         
-    
-        
-        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-oschina"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-    
-        
-        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+        <a title="email" href="mailto:wangliang.leon20@gmail.com" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-email"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-qq"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="kugou" href="https://www.kugou.com/" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-kugou"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
                 </svg>
             
         </a>
@@ -327,10 +229,10 @@
     
     
     </div>
-    <div><a class="about  hasFriend  site_url" href="/about">About</a><a style="width: 50%" class="friends">Friends</a></div>
+    <div><a class="about  site_url" href="/about">About</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="39">
-
+<input type="hidden" id="yelog_site_word_count" value="49.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -345,8 +247,6 @@
     </div>
     <div class="friends-content">
         <ul>
-            
-            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
             
         </ul>
     </div>
@@ -563,6 +463,10 @@
 
 </div>
 
+    
+    <div id="local-search-result">
+
+    </div>
     
     <nav id="title-list-nav">
         
@@ -810,6 +714,8 @@
     </div>
     <div class="article-meta">
         
+        <span>Count:2.9k</span>
+        
         
         <span id="busuanzi_container_page_pv">
             Views 👀 :<span id="busuanzi_value_page_pv">
@@ -822,6 +728,17 @@
             </span>
         </span>
         
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
         
     </div>
     
@@ -865,9 +782,385 @@
 <p><strong>提醒：</strong><br>论文中对最终的加权结果进行了一次 ReLU 激活处理，目的是只考虑对类别 c 有正影响的像素点。</p>
 <h5 id="3-效果展示"><a href="#3-效果展示" class="headerlink" title="3. 效果展示"></a>3. 效果展示</h5><p><img src="http://img.cdn.leonwang.top/20190723144712.png" alt=""></p>
 <h5 id="4-keras-实现-Grad-CAM"><a href="#4-keras-实现-Grad-CAM" class="headerlink" title="4. keras 实现 Grad-CAM"></a>4. keras 实现 Grad-CAM</h5><p>源码为 <a href="https://github.com/jacobgil/keras-grad-cam" target="_blank" rel="noopener">Github:keras-grad-cam</a>，但是可能因为框架版本的原因，存在较多的 bug 我修改后可以正常运行，贴出我纠正好的代码，另外这里只给出了 VGG16 的实现，其他模型请自行阅读模型复现源码，进行修改即可，比较容易。<br><code>python 3.6</code> <code>python-opencv 3.4.2.17</code> <code>keras 2.2.0</code> <code>tensorflow 1.9.0</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.applications.vgg16 <span class="keyword">import</span> (</span><br><span class="line">    VGG16, preprocess_input, decode_predictions)</span><br><span class="line"><span class="keyword">from</span> keras.preprocessing <span class="keyword">import</span> image</span><br><span class="line"><span class="keyword">from</span> keras.layers.core <span class="keyword">import</span> Lambda</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Model</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.framework <span class="keyword">import</span> ops</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> keras.backend <span class="keyword">as</span> K</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">target_category_loss</span><span class="params">(x, category_index, nb_classes)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.multiply(x, K.one_hot([category_index], nb_classes))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">target_category_loss_output_shape</span><span class="params">(input_shape)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> input_shape</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">normalize</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="comment"># utility function to normalize a tensor by its L2 norm</span></span><br><span class="line">    <span class="keyword">return</span> x / (K.sqrt(K.mean(K.square(x))) + <span class="number">1e-5</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_image</span><span class="params">(path)</span>:</span></span><br><span class="line">    img_path = path</span><br><span class="line">    img = image.load_img(img_path, target_size=(<span class="number">224</span>, <span class="number">224</span>))</span><br><span class="line">    x = image.img_to_array(img)</span><br><span class="line">    x = np.expand_dims(x, axis=<span class="number">0</span>)</span><br><span class="line">    x = preprocess_input(x)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">register_gradient</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">"GuidedBackProp"</span> <span class="keyword">not</span> <span class="keyword">in</span> ops._gradient_registry._registry:</span><br><span class="line"><span class="meta">        @ops.RegisterGradient("GuidedBackProp")</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">_GuidedBackProp</span><span class="params">(op, grad)</span>:</span></span><br><span class="line">            dtype = op.inputs[<span class="number">0</span>].dtype</span><br><span class="line">            <span class="keyword">return</span> grad * tf.cast(grad &gt; <span class="number">0.</span>, dtype) * \</span><br><span class="line">                tf.cast(op.inputs[<span class="number">0</span>] &gt; <span class="number">0.</span>, dtype)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compile_saliency_function</span><span class="params">(model, activation_layer=<span class="string">'block5_conv3'</span>)</span>:</span></span><br><span class="line">    input_img = model.input</span><br><span class="line">    layer_dict = dict([(layer.name, layer) <span class="keyword">for</span> layer <span class="keyword">in</span> model.layers[<span class="number">1</span>:]])</span><br><span class="line">    layer_output = layer_dict[activation_layer].output</span><br><span class="line">    max_output = K.max(layer_output, axis=<span class="number">3</span>)</span><br><span class="line">    saliency = K.gradients(K.sum(max_output), input_img)[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> K.function([input_img, K.learning_phase()], [saliency])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">modify_backprop</span><span class="params">(model, name)</span>:</span></span><br><span class="line">    g = tf.get_default_graph()</span><br><span class="line">    <span class="keyword">with</span> g.gradient_override_map(&#123;<span class="string">'Relu'</span>: name&#125;):</span><br><span class="line"></span><br><span class="line">        <span class="comment"># get layers that have an activation</span></span><br><span class="line">        layer_dict = [layer <span class="keyword">for</span> layer <span class="keyword">in</span> model.layers[<span class="number">1</span>:]</span><br><span class="line">                      <span class="keyword">if</span> hasattr(layer, <span class="string">'activation'</span>)]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># replace relu activation</span></span><br><span class="line">        <span class="keyword">for</span> layer <span class="keyword">in</span> layer_dict:</span><br><span class="line">            <span class="keyword">if</span> layer.activation == keras.activations.relu:</span><br><span class="line">                layer.activation = tf.nn.relu</span><br><span class="line"></span><br><span class="line">        <span class="comment"># re-instanciate a new model</span></span><br><span class="line">        new_model = VGG16(weights=<span class="string">'imagenet'</span>)</span><br><span class="line">    <span class="keyword">return</span> new_model</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deprocess_image</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    Same normalization as in:</span></span><br><span class="line"><span class="string">    https://github.com/fchollet/keras/blob/master/examples/conv_filter_visualization.py</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> np.ndim(x) &gt; <span class="number">3</span>:</span><br><span class="line">        x = np.squeeze(x)</span><br><span class="line">    <span class="comment"># normalize tensor: center on 0., ensure std is 0.1</span></span><br><span class="line">    x -= x.mean()</span><br><span class="line">    x /= (x.std() + <span class="number">1e-5</span>)</span><br><span class="line">    x *= <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># clip to [0, 1]</span></span><br><span class="line">    x += <span class="number">0.5</span></span><br><span class="line">    x = np.clip(x, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># convert to RGB array</span></span><br><span class="line">    x *= <span class="number">255</span></span><br><span class="line">    <span class="keyword">if</span> K.image_dim_ordering() == <span class="string">'th'</span>:</span><br><span class="line">        x = x.transpose((<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>))</span><br><span class="line">    x = np.clip(x, <span class="number">0</span>, <span class="number">255</span>).astype(<span class="string">'uint8'</span>)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_compute_gradients</span><span class="params">(tensor, var_list)</span>:</span></span><br><span class="line">  grads = tf.gradients(tensor, var_list)</span><br><span class="line">  <span class="keyword">return</span> [grad <span class="keyword">if</span> grad <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">else</span> tf.zeros_like(var)</span><br><span class="line">          <span class="keyword">for</span> var, grad <span class="keyword">in</span> zip(var_list, grads)]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">grad_cam</span><span class="params">(input_model, image, category_index, layer_name)</span>:</span></span><br><span class="line">    nb_classes = <span class="number">1000</span></span><br><span class="line">    target_layer = <span class="keyword">lambda</span> x: target_category_loss(x, category_index, nb_classes)</span><br><span class="line">    x = Lambda(target_layer, output_shape = target_category_loss_output_shape)(input_model.output)</span><br><span class="line">    model = Model(inputs=input_model.input, outputs=x)</span><br><span class="line">    model.summary()</span><br><span class="line">    loss = K.sum(model.output)</span><br><span class="line">    conv_output =  [l <span class="keyword">for</span> l <span class="keyword">in</span> model.layers <span class="keyword">if</span> l.name <span class="keyword">is</span> layer_name][<span class="number">0</span>].output</span><br><span class="line">    grads = normalize(_compute_gradients(loss, [conv_output])[<span class="number">0</span>])</span><br><span class="line">    gradient_function = K.function([model.input], [conv_output, grads])</span><br><span class="line"></span><br><span class="line">    output, grads_val = gradient_function([image])</span><br><span class="line">    output, grads_val = output[<span class="number">0</span>, :], grads_val[<span class="number">0</span>, :, :, :]</span><br><span class="line"></span><br><span class="line">    weights = np.mean(grads_val, axis = (<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">    cam = np.ones(output.shape[<span class="number">0</span> : <span class="number">2</span>], dtype = np.float32)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i, w <span class="keyword">in</span> enumerate(weights):</span><br><span class="line">        cam += w * output[:, :, i]</span><br><span class="line"></span><br><span class="line">    cam = cv2.resize(cam, (<span class="number">224</span>, <span class="number">224</span>))</span><br><span class="line">    cam = np.maximum(cam, <span class="number">0</span>)</span><br><span class="line">    heatmap = cam / np.max(cam)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#Return to BGR [0..255] from the preprocessed image</span></span><br><span class="line">    image = image[<span class="number">0</span>, :]</span><br><span class="line">    image -= np.min(image)</span><br><span class="line">    image = np.minimum(image, <span class="number">255</span>)</span><br><span class="line"></span><br><span class="line">    cam = cv2.applyColorMap(np.uint8(<span class="number">255</span>*heatmap), cv2.COLORMAP_JET)</span><br><span class="line">    cam = np.float32(cam) + np.float32(image)</span><br><span class="line">    cam = <span class="number">255</span> * cam / np.max(cam)</span><br><span class="line">    <span class="keyword">return</span> np.uint8(cam), heatmap</span><br><span class="line"></span><br><span class="line">preprocessed_input = load_image(<span class="string">"../../images/dog-cat.jpg"</span>)</span><br><span class="line"></span><br><span class="line">model = VGG16(weights=<span class="string">'imagenet'</span>)</span><br><span class="line"></span><br><span class="line">predictions = model.predict(preprocessed_input)</span><br><span class="line">top_1 = decode_predictions(predictions)[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">print(<span class="string">'Predicted class:'</span>)</span><br><span class="line">print(<span class="string">'%s (%s) with probability %.2f'</span> % (top_1[<span class="number">1</span>], top_1[<span class="number">0</span>], top_1[<span class="number">2</span>]))</span><br><span class="line"></span><br><span class="line">predicted_class = np.argmax(predictions)</span><br><span class="line">cam, heatmap = grad_cam(model, preprocessed_input, predicted_class, <span class="string">"block5_conv3"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># cv2.imwrite("../../images/gradcam.jpg", cam)</span></span><br><span class="line"></span><br><span class="line">register_gradient()</span><br><span class="line">guided_model = modify_backprop(model, <span class="string">'GuidedBackProp'</span>)</span><br><span class="line">saliency_fn = compile_saliency_function(guided_model)</span><br><span class="line">saliency = saliency_fn([preprocessed_input, <span class="number">0</span>])</span><br><span class="line">gradcam = saliency[<span class="number">0</span>] * heatmap[..., np.newaxis]</span><br><span class="line"><span class="comment"># cv2.imwrite("../../images/guided_gradcam.jpg", deprocess_image(gradcam))</span></span><br><span class="line"></span><br><span class="line">origin_img = cv2.imread(<span class="string">"../../images/dog-cat.jpg"</span>)</span><br><span class="line">origin_img = cv2.resize(origin_img,(<span class="number">414</span>,<span class="number">414</span>))</span><br><span class="line">cam = cv2.resize(cam,(<span class="number">414</span>,<span class="number">414</span>))</span><br><span class="line">guided_gradcam = cv2.resize(deprocess_image(gradcam),(<span class="number">414</span>,<span class="number">414</span>))</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">1</span>), plt.imshow(origin_img), plt.title(<span class="string">'origin'</span>), plt.xticks([]), plt.yticks([])</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>), plt.imshow(cam), plt.title(<span class="string">'gradcam'</span>), plt.xticks([]), plt.yticks([])</span><br><span class="line">plt.subplot(<span class="number">2</span>,<span class="number">2</span>,<span class="number">4</span>), plt.imshow(guided_gradcam), plt.title(<span class="string">'guided_gradcam'</span>), plt.xticks([]), plt.yticks([])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<pre><code class="python">from keras.applications.vgg16 import (
+    VGG16, preprocess_input, decode_predictions)
+from keras.preprocessing import image
+from keras.layers.core import Lambda
+from keras.models import Model
+from tensorflow.python.framework import ops
+import matplotlib.pyplot as plt
+import keras.backend as K
+import tensorflow as tf
+import numpy as np
+import keras
+import sys
+import cv2
+
+def target_category_loss(x, category_index, nb_classes):
+    return tf.multiply(x, K.one_hot([category_index], nb_classes))
+
+def target_category_loss_output_shape(input_shape):
+    return input_shape
+
+def normalize(x):
+    # utility function to normalize a tensor by its L2 norm
+    return x / (K.sqrt(K.mean(K.square(x))) + 1e-5)
+
+def load_image(path):
+    img_path = path
+    img = image.load_img(img_path, target_size=(224, 224))
+    x = image.img_to_array(img)
+    x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
+    return x
+
+def register_gradient():
+    if &quot;GuidedBackProp&quot; not in ops._gradient_registry._registry:
+        @ops.RegisterGradient(&quot;GuidedBackProp&quot;)
+        def _GuidedBackProp(op, grad):
+            dtype = op.inputs[0].dtype
+            return grad * tf.cast(grad &gt; 0., dtype) * \
+                tf.cast(op.inputs[0] &gt; 0., dtype)
+
+def compile_saliency_function(model, activation_layer=&#39;block5_conv3&#39;):
+    input_img = model.input
+    layer_dict = dict([(layer.name, layer) for layer in model.layers[1:]])
+    layer_output = layer_dict[activation_layer].output
+    max_output = K.max(layer_output, axis=3)
+    saliency = K.gradients(K.sum(max_output), input_img)[0]
+    return K.function([input_img, K.learning_phase()], [saliency])
+
+def modify_backprop(model, name):
+    g = tf.get_default_graph()
+    with g.gradient_override_map({&#39;Relu&#39;: name}):
+
+        # get layers that have an activation
+        layer_dict = [layer for layer in model.layers[1:]
+                      if hasattr(layer, &#39;activation&#39;)]
+
+        # replace relu activation
+        for layer in layer_dict:
+            if layer.activation == keras.activations.relu:
+                layer.activation = tf.nn.relu
+
+        # re-instanciate a new model
+        new_model = VGG16(weights=&#39;imagenet&#39;)
+    return new_model
+
+def deprocess_image(x):
+    &#39;&#39;&#39;
+    Same normalization as in:
+    https://github.com/fchollet/keras/blob/master/examples/conv_filter_visualization.py
+    &#39;&#39;&#39;
+    if np.ndim(x) &gt; 3:
+        x = np.squeeze(x)
+    # normalize tensor: center on 0., ensure std is 0.1
+    x -= x.mean()
+    x /= (x.std() + 1e-5)
+    x *= 0.1
+
+    # clip to [0, 1]
+    x += 0.5
+    x = np.clip(x, 0, 1)
+
+    # convert to RGB array
+    x *= 255
+    if K.image_dim_ordering() == &#39;th&#39;:
+        x = x.transpose((1, 2, 0))
+    x = np.clip(x, 0, 255).astype(&#39;uint8&#39;)
+    return x
+def _compute_gradients(tensor, var_list):
+  grads = tf.gradients(tensor, var_list)
+  return [grad if grad is not None else tf.zeros_like(var)
+          for var, grad in zip(var_list, grads)]
+
+def grad_cam(input_model, image, category_index, layer_name):
+    nb_classes = 1000
+    target_layer = lambda x: target_category_loss(x, category_index, nb_classes)
+    x = Lambda(target_layer, output_shape = target_category_loss_output_shape)(input_model.output)
+    model = Model(inputs=input_model.input, outputs=x)
+    model.summary()
+    loss = K.sum(model.output)
+    conv_output =  [l for l in model.layers if l.name is layer_name][0].output
+    grads = normalize(_compute_gradients(loss, [conv_output])[0])
+    gradient_function = K.function([model.input], [conv_output, grads])
+
+    output, grads_val = gradient_function([image])
+    output, grads_val = output[0, :], grads_val[0, :, :, :]
+
+    weights = np.mean(grads_val, axis = (0, 1))
+    cam = np.ones(output.shape[0 : 2], dtype = np.float32)
+
+    for i, w in enumerate(weights):
+        cam += w * output[:, :, i]
+
+    cam = cv2.resize(cam, (224, 224))
+    cam = np.maximum(cam, 0)
+    heatmap = cam / np.max(cam)
+
+    #Return to BGR [0..255] from the preprocessed image
+    image = image[0, :]
+    image -= np.min(image)
+    image = np.minimum(image, 255)
+
+    cam = cv2.applyColorMap(np.uint8(255*heatmap), cv2.COLORMAP_JET)
+    cam = np.float32(cam) + np.float32(image)
+    cam = 255 * cam / np.max(cam)
+    return np.uint8(cam), heatmap
+
+preprocessed_input = load_image(&quot;../../images/dog-cat.jpg&quot;)
+
+model = VGG16(weights=&#39;imagenet&#39;)
+
+predictions = model.predict(preprocessed_input)
+top_1 = decode_predictions(predictions)[0][0]
+print(&#39;Predicted class:&#39;)
+print(&#39;%s (%s) with probability %.2f&#39; % (top_1[1], top_1[0], top_1[2]))
+
+predicted_class = np.argmax(predictions)
+cam, heatmap = grad_cam(model, preprocessed_input, predicted_class, &quot;block5_conv3&quot;)
+
+# cv2.imwrite(&quot;../../images/gradcam.jpg&quot;, cam)
+
+register_gradient()
+guided_model = modify_backprop(model, &#39;GuidedBackProp&#39;)
+saliency_fn = compile_saliency_function(guided_model)
+saliency = saliency_fn([preprocessed_input, 0])
+gradcam = saliency[0] * heatmap[..., np.newaxis]
+# cv2.imwrite(&quot;../../images/guided_gradcam.jpg&quot;, deprocess_image(gradcam))
+
+origin_img = cv2.imread(&quot;../../images/dog-cat.jpg&quot;)
+origin_img = cv2.resize(origin_img,(414,414))
+cam = cv2.resize(cam,(414,414))
+guided_gradcam = cv2.resize(deprocess_image(gradcam),(414,414))
+
+plt.subplot(2,2,1), plt.imshow(origin_img), plt.title(&#39;origin&#39;), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,3), plt.imshow(cam), plt.title(&#39;gradcam&#39;), plt.xticks([]), plt.yticks([])
+plt.subplot(2,2,4), plt.imshow(guided_gradcam), plt.title(&#39;guided_gradcam&#39;), plt.xticks([]), plt.yticks([])
+plt.show()   
+</code></pre>
 <h5 id="5-pytorch-实现-Grad-CAM展开目录"><a href="#5-pytorch-实现-Grad-CAM展开目录" class="headerlink" title="5. pytorch 实现 Grad-CAM展开目录"></a>5. pytorch 实现 Grad-CAM展开目录</h5><p>另外再附上一份 pytorch 版本的实现，原地址为：<a href="https://github.com/jacobgil/pytorch-grad-cam" target="_blank" rel="noopener">pytorch-grad-cam</a>，由于版本的原因，需要做一些调整，我这边使用的是 <code>pytorch 0.4.0</code>，pytorch 不像 keras 那样接口一致，所以不同的网络模型实现方式有所不同，这里只给出了 VGG 的实现方式，若想要进行修改，详细阅读模型复现源码进行修改，或者移步 <a href="https://github.com/utkuozbulak/pytorch-cnn-visualizations" target="_blank" rel="noopener">pytorch-cnn-visualizations</a> ，这里给出了比较多的可视化方法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Variable</span><br><span class="line"><span class="keyword">from</span> torch.autograd <span class="keyword">import</span> Function</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> torchvision <span class="keyword">import</span> utils</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FeatureExtractor</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">""" Class for extracting activations and </span></span><br><span class="line"><span class="string">    registering gradients from targetted intermediate layers """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, model, target_layers)</span>:</span></span><br><span class="line">        self.model = model</span><br><span class="line">        self.target_layers = target_layers</span><br><span class="line">        self.gradients = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_gradient</span><span class="params">(self, grad)</span>:</span></span><br><span class="line">        self.gradients.append(grad)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        outputs = []</span><br><span class="line">        self.gradients = []</span><br><span class="line">        <span class="keyword">for</span> name, module <span class="keyword">in</span> self.model._modules.items():</span><br><span class="line">            x = module(x)</span><br><span class="line">            <span class="keyword">if</span> name <span class="keyword">in</span> self.target_layers:</span><br><span class="line">                x.register_hook(self.save_gradient)</span><br><span class="line">                outputs += [x]</span><br><span class="line">        <span class="keyword">return</span> outputs, x</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ModelOutputs</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">""" Class for making a forward pass, and getting:</span></span><br><span class="line"><span class="string">    1. The network output.</span></span><br><span class="line"><span class="string">    2. Activations from intermeddiate targetted layers.</span></span><br><span class="line"><span class="string">    3. Gradients from intermeddiate targetted layers. """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, model, target_layers)</span>:</span></span><br><span class="line">        self.model = model</span><br><span class="line">        self.feature_extractor = FeatureExtractor(self.model.features, target_layers)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_gradients</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.feature_extractor.gradients</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, x)</span>:</span></span><br><span class="line">        target_activations, output  = self.feature_extractor(x)</span><br><span class="line">        output = output.view(output.size(<span class="number">0</span>), <span class="number">-1</span>)</span><br><span class="line">        output = self.model.classifier(output)</span><br><span class="line">        <span class="keyword">return</span> target_activations, output</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">preprocess_image</span><span class="params">(img)</span>:</span></span><br><span class="line">    means=[<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>]</span><br><span class="line">    stds=[<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>]</span><br><span class="line"></span><br><span class="line">    preprocessed_img = img.copy()[: , :, ::<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>):</span><br><span class="line">        preprocessed_img[:, :, i] = preprocessed_img[:, :, i] - means[i]</span><br><span class="line">        preprocessed_img[:, :, i] = preprocessed_img[:, :, i] / stds[i]</span><br><span class="line">    preprocessed_img = \</span><br><span class="line">        np.ascontiguousarray(np.transpose(preprocessed_img, (<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>)))</span><br><span class="line">    preprocessed_img = torch.from_numpy(preprocessed_img)</span><br><span class="line">    preprocessed_img.unsqueeze_(<span class="number">0</span>)</span><br><span class="line">    input = Variable(preprocessed_img, requires_grad = <span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">return</span> input</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_cam_on_image</span><span class="params">(img, mask)</span>:</span></span><br><span class="line">    heatmap = cv2.applyColorMap(np.uint8(<span class="number">255</span>*mask), cv2.COLORMAP_JET)</span><br><span class="line">    heatmap = np.float32(heatmap) / <span class="number">255</span></span><br><span class="line">    cam = heatmap + np.float32(img)</span><br><span class="line">    cam = cam / np.max(cam)</span><br><span class="line">    cv2.imwrite(<span class="string">"../../images/cam01.jpg"</span>, np.uint8(<span class="number">255</span> * cam))</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GradCam</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, model, target_layer_names, use_cuda)</span>:</span></span><br><span class="line">        self.model = model</span><br><span class="line">        self.model.eval()</span><br><span class="line">        self.cuda = use_cuda</span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            self.model = model.cuda()</span><br><span class="line"></span><br><span class="line">        self.extractor = ModelOutputs(self.model, target_layer_names)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, input)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.model(input) </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, input, index = None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            features, output = self.extractor(input.cuda())</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            features, output = self.extractor(input)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> index == <span class="keyword">None</span>:</span><br><span class="line">            index = np.argmax(output.cpu().data.numpy())</span><br><span class="line"></span><br><span class="line">        one_hot = np.zeros((<span class="number">1</span>, output.size()[<span class="number">-1</span>]), dtype = np.float32)</span><br><span class="line">        one_hot[<span class="number">0</span>][index] = <span class="number">1</span></span><br><span class="line">        one_hot = Variable(torch.from_numpy(one_hot), requires_grad = <span class="keyword">True</span>)</span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            one_hot = torch.sum(one_hot.cuda() * output)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            one_hot = torch.sum(one_hot * output)</span><br><span class="line"></span><br><span class="line">        self.model.features.zero_grad()</span><br><span class="line">        self.model.classifier.zero_grad()</span><br><span class="line">        <span class="comment">#one_hot.backward(retain_variables=True)</span></span><br><span class="line">        one_hot.backward()</span><br><span class="line">        grads_val = self.extractor.get_gradients()[<span class="number">-1</span>].cpu().data.numpy()</span><br><span class="line"></span><br><span class="line">        target = features[<span class="number">-1</span>]</span><br><span class="line">        target = target.cpu().data.numpy()[<span class="number">0</span>, :]</span><br><span class="line"></span><br><span class="line">        weights = np.mean(grads_val, axis = (<span class="number">2</span>, <span class="number">3</span>))[<span class="number">0</span>, :]</span><br><span class="line">        cam = np.zeros(target.shape[<span class="number">1</span> : ], dtype = np.float32)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i, w <span class="keyword">in</span> enumerate(weights):</span><br><span class="line">            cam += w * target[i, :, :]</span><br><span class="line"></span><br><span class="line">        cam = np.maximum(cam, <span class="number">0</span>)</span><br><span class="line">        cam = cv2.resize(cam, (<span class="number">224</span>, <span class="number">224</span>))</span><br><span class="line">        cam = cam - np.min(cam)</span><br><span class="line">        cam = cam / np.max(cam)</span><br><span class="line">        <span class="keyword">return</span> cam</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GuidedBackpropReLU</span><span class="params">(Function)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, input)</span>:</span></span><br><span class="line">        positive_mask = (input &gt; <span class="number">0</span>).type_as(input)</span><br><span class="line">        output = torch.addcmul(torch.zeros(input.size()).type_as(input), input, positive_mask)</span><br><span class="line">        self.save_for_backward(input, output)</span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">backward</span><span class="params">(self, grad_output)</span>:</span></span><br><span class="line">        input, output = self.saved_tensors</span><br><span class="line">        grad_input = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">        positive_mask_1 = (input &gt; <span class="number">0</span>).type_as(grad_output)</span><br><span class="line">        positive_mask_2 = (grad_output &gt; <span class="number">0</span>).type_as(grad_output)</span><br><span class="line">        grad_input = torch.addcmul(torch.zeros(input.size()).type_as(input), torch.addcmul(torch.zeros(input.size()).type_as(input), grad_output, positive_mask_1), positive_mask_2)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> grad_input</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GuidedBackpropReLUModel</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, model, use_cuda)</span>:</span></span><br><span class="line">        self.model = model</span><br><span class="line">        self.model.eval()</span><br><span class="line">        self.cuda = use_cuda</span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            self.model = model.cuda()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># replace ReLU with GuidedBackpropReLU</span></span><br><span class="line">        <span class="keyword">for</span> idx, module <span class="keyword">in</span> self.model.features._modules.items():</span><br><span class="line">            <span class="keyword">if</span> module.__class__.__name__ == <span class="string">'ReLU'</span>:</span><br><span class="line">                self.model.features._modules[idx] = GuidedBackpropReLU()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, input)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.model(input)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(self, input, index = None)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            output = self.forward(input.cuda())</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            output = self.forward(input)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> index == <span class="keyword">None</span>:</span><br><span class="line">            index = np.argmax(output.cpu().data.numpy())</span><br><span class="line"></span><br><span class="line">        one_hot = np.zeros((<span class="number">1</span>, output.size()[<span class="number">-1</span>]), dtype = np.float32)</span><br><span class="line">        one_hot[<span class="number">0</span>][index] = <span class="number">1</span></span><br><span class="line">        one_hot = Variable(torch.from_numpy(one_hot), requires_grad = <span class="keyword">True</span>)</span><br><span class="line">        <span class="keyword">if</span> self.cuda:</span><br><span class="line">            one_hot = torch.sum(one_hot.cuda() * output)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            one_hot = torch.sum(one_hot * output)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># self.model.features.zero_grad()</span></span><br><span class="line">        <span class="comment"># self.model.classifier.zero_grad()</span></span><br><span class="line">        one_hot.backward()</span><br><span class="line"></span><br><span class="line">        output = input.grad.cpu().data.numpy()</span><br><span class="line">        output = output[<span class="number">0</span>,:,:,:]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="string">""" python grad_cam.py &lt;path_to_image&gt;</span></span><br><span class="line"><span class="string">    1. Loads an image with opencv.</span></span><br><span class="line"><span class="string">    2. Preprocesses it for VGG19 and converts to a pytorch variable.</span></span><br><span class="line"><span class="string">    3. Makes a forward pass to find the category index with the highest score,</span></span><br><span class="line"><span class="string">    and computes intermediate activations.</span></span><br><span class="line"><span class="string">    Makes the visualization. """</span></span><br><span class="line"></span><br><span class="line">    image_path = <span class="string">"../../images/dog-cat.jpg"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Can work with any model, but it assumes that the model has a </span></span><br><span class="line">    <span class="comment"># feature method, and a classifier method,</span></span><br><span class="line">    <span class="comment"># as in the VGG models in torchvision.</span></span><br><span class="line">    grad_cam = GradCam(model = models.vgg19(pretrained=<span class="keyword">True</span>), \</span><br><span class="line">                    target_layer_names = [<span class="string">"35"</span>], use_cuda=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">    img = cv2.imread(image_path, <span class="number">1</span>)</span><br><span class="line">    img = np.float32(cv2.resize(img, (<span class="number">224</span>, <span class="number">224</span>))) / <span class="number">255</span></span><br><span class="line">    input = preprocess_image(img)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># If None, returns the map for the highest scoring category.</span></span><br><span class="line">    <span class="comment"># Otherwise, targets the requested index.</span></span><br><span class="line">    target_index = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    mask = grad_cam(input, target_index)</span><br><span class="line"></span><br><span class="line">    show_cam_on_image(img, mask)</span><br><span class="line"></span><br><span class="line">    gb_model = GuidedBackpropReLUModel(model = models.vgg19(pretrained=<span class="keyword">True</span>), use_cuda=<span class="keyword">True</span>)</span><br><span class="line">    gb = gb_model(input, index=target_index)</span><br><span class="line">    utils.save_image(torch.from_numpy(gb), <span class="string">'../../images/gb.jpg'</span>)</span><br><span class="line"></span><br><span class="line">    cam_mask = np.zeros(gb.shape)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, gb.shape[<span class="number">0</span>]):</span><br><span class="line">        cam_mask[i, :, :] = mask</span><br><span class="line"></span><br><span class="line">    cam_gb = np.multiply(cam_mask, gb)</span><br><span class="line">    utils.save_image(torch.from_numpy(cam_gb), <span class="string">'../../images/cam_gb.jpg'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">import torch
+from torch.autograd import Variable
+from torch.autograd import Function
+from torchvision import models
+from torchvision import utils
+import cv2
+import sys
+import numpy as np
+import argparse
+
+class FeatureExtractor():
+    &quot;&quot;&quot; Class for extracting activations and 
+    registering gradients from targetted intermediate layers &quot;&quot;&quot;
+    def __init__(self, model, target_layers):
+        self.model = model
+        self.target_layers = target_layers
+        self.gradients = []
+
+    def save_gradient(self, grad):
+        self.gradients.append(grad)
+
+    def __call__(self, x):
+        outputs = []
+        self.gradients = []
+        for name, module in self.model._modules.items():
+            x = module(x)
+            if name in self.target_layers:
+                x.register_hook(self.save_gradient)
+                outputs += [x]
+        return outputs, x
+
+class ModelOutputs():
+    &quot;&quot;&quot; Class for making a forward pass, and getting:
+    1. The network output.
+    2. Activations from intermeddiate targetted layers.
+    3. Gradients from intermeddiate targetted layers. &quot;&quot;&quot;
+    def __init__(self, model, target_layers):
+        self.model = model
+        self.feature_extractor = FeatureExtractor(self.model.features, target_layers)
+
+    def get_gradients(self):
+        return self.feature_extractor.gradients
+
+    def __call__(self, x):
+        target_activations, output  = self.feature_extractor(x)
+        output = output.view(output.size(0), -1)
+        output = self.model.classifier(output)
+        return target_activations, output
+
+def preprocess_image(img):
+    means=[0.485, 0.456, 0.406]
+    stds=[0.229, 0.224, 0.225]
+
+    preprocessed_img = img.copy()[: , :, ::-1]
+    for i in range(3):
+        preprocessed_img[:, :, i] = preprocessed_img[:, :, i] - means[i]
+        preprocessed_img[:, :, i] = preprocessed_img[:, :, i] / stds[i]
+    preprocessed_img = \
+        np.ascontiguousarray(np.transpose(preprocessed_img, (2, 0, 1)))
+    preprocessed_img = torch.from_numpy(preprocessed_img)
+    preprocessed_img.unsqueeze_(0)
+    input = Variable(preprocessed_img, requires_grad = True)
+    return input
+
+def show_cam_on_image(img, mask):
+    heatmap = cv2.applyColorMap(np.uint8(255*mask), cv2.COLORMAP_JET)
+    heatmap = np.float32(heatmap) / 255
+    cam = heatmap + np.float32(img)
+    cam = cam / np.max(cam)
+    cv2.imwrite(&quot;../../images/cam01.jpg&quot;, np.uint8(255 * cam))
+
+class GradCam:
+    def __init__(self, model, target_layer_names, use_cuda):
+        self.model = model
+        self.model.eval()
+        self.cuda = use_cuda
+        if self.cuda:
+            self.model = model.cuda()
+
+        self.extractor = ModelOutputs(self.model, target_layer_names)
+
+    def forward(self, input):
+        return self.model(input) 
+
+    def __call__(self, input, index = None):
+        if self.cuda:
+            features, output = self.extractor(input.cuda())
+        else:
+            features, output = self.extractor(input)
+
+        if index == None:
+            index = np.argmax(output.cpu().data.numpy())
+
+        one_hot = np.zeros((1, output.size()[-1]), dtype = np.float32)
+        one_hot[0][index] = 1
+        one_hot = Variable(torch.from_numpy(one_hot), requires_grad = True)
+        if self.cuda:
+            one_hot = torch.sum(one_hot.cuda() * output)
+        else:
+            one_hot = torch.sum(one_hot * output)
+
+        self.model.features.zero_grad()
+        self.model.classifier.zero_grad()
+        #one_hot.backward(retain_variables=True)
+        one_hot.backward()
+        grads_val = self.extractor.get_gradients()[-1].cpu().data.numpy()
+
+        target = features[-1]
+        target = target.cpu().data.numpy()[0, :]
+
+        weights = np.mean(grads_val, axis = (2, 3))[0, :]
+        cam = np.zeros(target.shape[1 : ], dtype = np.float32)
+
+        for i, w in enumerate(weights):
+            cam += w * target[i, :, :]
+
+        cam = np.maximum(cam, 0)
+        cam = cv2.resize(cam, (224, 224))
+        cam = cam - np.min(cam)
+        cam = cam / np.max(cam)
+        return cam
+
+class GuidedBackpropReLU(Function):
+
+    def forward(self, input):
+        positive_mask = (input &gt; 0).type_as(input)
+        output = torch.addcmul(torch.zeros(input.size()).type_as(input), input, positive_mask)
+        self.save_for_backward(input, output)
+        return output
+
+    def backward(self, grad_output):
+        input, output = self.saved_tensors
+        grad_input = None
+
+        positive_mask_1 = (input &gt; 0).type_as(grad_output)
+        positive_mask_2 = (grad_output &gt; 0).type_as(grad_output)
+        grad_input = torch.addcmul(torch.zeros(input.size()).type_as(input), torch.addcmul(torch.zeros(input.size()).type_as(input), grad_output, positive_mask_1), positive_mask_2)
+
+        return grad_input
+
+class GuidedBackpropReLUModel:
+    def __init__(self, model, use_cuda):
+        self.model = model
+        self.model.eval()
+        self.cuda = use_cuda
+        if self.cuda:
+            self.model = model.cuda()
+
+        # replace ReLU with GuidedBackpropReLU
+        for idx, module in self.model.features._modules.items():
+            if module.__class__.__name__ == &#39;ReLU&#39;:
+                self.model.features._modules[idx] = GuidedBackpropReLU()
+
+    def forward(self, input):
+        return self.model(input)
+
+    def __call__(self, input, index = None):
+        if self.cuda:
+            output = self.forward(input.cuda())
+        else:
+            output = self.forward(input)
+
+        if index == None:
+            index = np.argmax(output.cpu().data.numpy())
+
+        one_hot = np.zeros((1, output.size()[-1]), dtype = np.float32)
+        one_hot[0][index] = 1
+        one_hot = Variable(torch.from_numpy(one_hot), requires_grad = True)
+        if self.cuda:
+            one_hot = torch.sum(one_hot.cuda() * output)
+        else:
+            one_hot = torch.sum(one_hot * output)
+
+        # self.model.features.zero_grad()
+        # self.model.classifier.zero_grad()
+        one_hot.backward()
+
+        output = input.grad.cpu().data.numpy()
+        output = output[0,:,:,:]
+
+        return output
+
+if __name__ == &#39;__main__&#39;:
+    &quot;&quot;&quot; python grad_cam.py &lt;path_to_image&gt;
+    1. Loads an image with opencv.
+    2. Preprocesses it for VGG19 and converts to a pytorch variable.
+    3. Makes a forward pass to find the category index with the highest score,
+    and computes intermediate activations.
+    Makes the visualization. &quot;&quot;&quot;
+
+    image_path = &quot;../../images/dog-cat.jpg&quot;
+
+    # Can work with any model, but it assumes that the model has a 
+    # feature method, and a classifier method,
+    # as in the VGG models in torchvision.
+    grad_cam = GradCam(model = models.vgg19(pretrained=True), \
+                    target_layer_names = [&quot;35&quot;], use_cuda=True)
+
+    img = cv2.imread(image_path, 1)
+    img = np.float32(cv2.resize(img, (224, 224))) / 255
+    input = preprocess_image(img)
+
+    # If None, returns the map for the highest scoring category.
+    # Otherwise, targets the requested index.
+    target_index = None
+
+    mask = grad_cam(input, target_index)
+
+    show_cam_on_image(img, mask)
+
+    gb_model = GuidedBackpropReLUModel(model = models.vgg19(pretrained=True), use_cuda=True)
+    gb = gb_model(input, index=target_index)
+    utils.save_image(torch.from_numpy(gb), &#39;../../images/gb.jpg&#39;)
+
+    cam_mask = np.zeros(gb.shape)
+    for i in range(0, gb.shape[0]):
+        cam_mask[i, :, :] = mask
+
+    cam_gb = np.multiply(cam_mask, gb)
+    utils.save_image(torch.from_numpy(cam_gb), &#39;../../images/cam_gb.jpg&#39;)
+</code></pre>
 <h5 id="6-参考文献"><a href="#6-参考文献" class="headerlink" title="6. 参考文献"></a>6. 参考文献</h5><ul>
 <li><a href="http://cn.arxiv.org/pdf/1610.02391v3" target="_blank" rel="noopener">《Grad-CAM:Visual Explanations from Deep Networks via Gradient-based Localization》</a></li>
 <li><a href="http://cn.arxiv.org/pdf/1412.6806.pdf" target="_blank" rel="noopener">《Striving for Simplicity: The All Convolutional Net》</a></li>
@@ -878,16 +1171,33 @@
 </ul>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wangliang.leon20@gmail.com </span>
     </div>
 </article>
 
 
-<p>
-    <a class="dashang" onclick="dashangToggle()">💰</a>
-</p>
 
 
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e25cb882a9cfd69b0fcf',
+            clientSecret: '866a281dc860e73a14108d1a2e93dc2e8302340d',
+            repo: 'AzureLeon1.github.io',
+            owner: 'AzureLeon1',
+            admin: ['Leon'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
 
 
 
@@ -937,8 +1247,12 @@
 
     </div>
     <div class="copyright">
-        <p class="footer-entry">
-    ©2016-2020 Yelog
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a href="http://beian.miit.gov.cn/">鲁ICP备18054179号</a>
+        </span>
+    
+    ©2018-2021 Leon
 </p>
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
@@ -949,41 +1263,6 @@
 
     </div>
 </div>
-
-<div class="hide_box" onclick="dashangToggle()"></div>
-<div class="shang_box">
-    <a class="shang_close" onclick="dashangToggle()">×</a>
-    <div class="shang_tit">
-        <p>Help us with donation</p>
-    </div>
-    <div class="shang_payimg">
-        <div class="pay_img">
-            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
-            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
-        </div>
-    </div>
-    <div class="shang_payselect">
-        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
-    </div>
-</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-
 
 </body>
 <script src="/js/jquery.pjax.js?v=1.1.0"></script>
@@ -999,16 +1278,22 @@
 
         /*渲染打赏样式*/
         
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
-        
 
         /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
         
 
         /*访问数量*/
@@ -1025,15 +1310,42 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
 <!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
 
 <!--自定义样式设置-->
 <style>

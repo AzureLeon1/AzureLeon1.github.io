@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   <title>Keras 中的损失函数 | Leon Wang</title>
   <meta name="keywords" content=" 机器学习 ">
   <meta name="description" content="Keras 中的损失函数 | Leon Wang">
@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="http://img.cdn.leonwang.top/pic.jpeg">
 
 
-<link rel="icon" href="/img/avatar.jpg">
+<link rel="icon" href="/images/avatar.jpeg">
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
@@ -43,7 +43,7 @@
 
 <script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
 
-<script src="/js/iconfont.js?v=1.1.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/iconfont.js?v=1.1.0"></script>
 
 </head>
 <div style="display: none">
@@ -58,10 +58,10 @@
 
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.jpg">
+    <img class="avatar" src="/images/avatar.jpeg">
 </a>
 <div class="author">
     <span>Leon Wang</span>
@@ -70,17 +70,7 @@
 <div class="icon">
     
         
-        <a title="rss" href="/atom.xml" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-rss"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="github" href="https://github.com/yelog" target="_blank">
+        <a title="github" href="https://github.com/AzureLeon1" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-github"/>
@@ -90,61 +80,17 @@
         
     
         
-        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+        <a title="linkedin" href="https://www.linkedin.com/in/%E4%BA%AE-%E7%8E%8B-a1baab193/" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-facebook"/>
+                    <use xlink:href="#icon-linkedin"/>
                 </svg>
             
         </a>
         
     
         
-    
-        
-    
-        
-        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-instagram"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-reddit"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-weibo"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-jianshu"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+        <a title="zhihu" href="https://www.zhihu.com/people/wang-liang-62-42" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-zhihu"/>
@@ -154,54 +100,10 @@
         
     
         
-    
-        
-        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-oschina"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-    
-        
-        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+        <a title="email" href="mailto:wangliang.leon20@gmail.com" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-email"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-qq"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="kugou" href="https://www.kugou.com/" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-kugou"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
                 </svg>
             
         </a>
@@ -327,10 +229,10 @@
     
     
     </div>
-    <div><a class="about  hasFriend  site_url" href="/about">About</a><a style="width: 50%" class="friends">Friends</a></div>
+    <div><a class="about  site_url" href="/about">About</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="39">
-
+<input type="hidden" id="yelog_site_word_count" value="49.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -345,8 +247,6 @@
     </div>
     <div class="friends-content">
         <ul>
-            
-            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
             
         </ul>
     </div>
@@ -563,6 +463,10 @@
 
 </div>
 
+    
+    <div id="local-search-result">
+
+    </div>
     
     <nav id="title-list-nav">
         
@@ -810,6 +714,8 @@
     </div>
     <div class="article-meta">
         
+        <span>Count:1.2k</span>
+        
         
         <span id="busuanzi_container_page_pv">
             Views 👀 :<span id="busuanzi_value_page_pv">
@@ -822,6 +728,17 @@
             </span>
         </span>
         
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
         
     </div>
     
@@ -845,94 +762,269 @@
       
         <h1 id="Keras-中的损失函数"><a href="#Keras-中的损失函数" class="headerlink" title="Keras 中的损失函数"></a>Keras 中的损失函数</h1><p><a href="https://zhuanlan.zhihu.com/p/34667893" target="_blank" rel="noopener">Keras 中的损失函数</a></p>
 <p>损失函数是模型优化的目标，所以又叫目标函数、优化评分函数，在keras中，模型编译的参数loss指定了损失函数的类别，有两种指定方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.compile(loss=<span class="string">'mean_squared_error'</span>, optimizer=<span class="string">'sgd'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">model.compile(loss=&#39;mean_squared_error&#39;, optimizer=&#39;sgd&#39;)
+</code></pre>
 <p>或者</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras <span class="keyword">import</span> losses</span><br><span class="line">model.compile(loss=losses.mean_squared_error, optimizer=<span class="string">'sgd'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">from keras import losses
+model.compile(loss=losses.mean_squared_error, optimizer=&#39;sgd&#39;)
+</code></pre>
 <p>你可以传递一个现有的损失函数名，或者一个TensorFlow/Theano符号函数。 该符号函数为每个数据点返回一个标量，有以下两个参数:</p>
 <ul>
 <li>y_true: 真实标签. TensorFlow/Theano张量</li>
 <li>y_pred: 预测值. TensorFlow/Theano张量，其shape与y_true相同</li>
 </ul>
 <p>实际的优化目标是所有数据点的输出数组的平均值。</p>
-<h2 id="mean-squared-error：均方误差"><a href="#mean-squared-error：均方误差" class="headerlink" title="mean_squared_error：均方误差"></a><strong>mean_squared_error：均方误差</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mean_squared_error(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<h2 id="mean-squared-error：均方误差"><a href="#mean-squared-error：均方误差" class="headerlink" title="mean_squared_error：均方误差"></a><strong>mean_squared_error：均方误差</strong></h2><pre><code class="python">mean_squared_error(y_true, y_pred)
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mean_squared_error</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> K.mean(K.square(y_pred - y_true), axis=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def mean_squared_error(y_true, y_pred):
+    return K.mean(K.square(y_pred - y_true), axis=-1)
+</code></pre>
 <p>说明：</p>
 <p>MSE: <img src="https://www.zhihu.com/equation?tex=L%3D+%5Cfrac+%7B1%7D%7Bn%7D+%5Csum%5En_%7Bi%3D1%7D+%28y_%7Btrue%7D%5E%7B%28i%29%7D+-+y_%7Bpred%7D%5E%7B%28i%29%7D%29%5E2" alt="[公式]"></p>
-<h2 id="mean-absolute-error"><a href="#mean-absolute-error" class="headerlink" title="mean_absolute_error"></a><strong>mean_absolute_error</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mean_absolute_error(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<h2 id="mean-absolute-error"><a href="#mean-absolute-error" class="headerlink" title="mean_absolute_error"></a><strong>mean_absolute_error</strong></h2><pre><code class="python">mean_absolute_error(y_true, y_pred)
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mean_absolute_error</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> K.mean(K.abs(y_pred - y_true), axis=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def mean_absolute_error(y_true, y_pred):
+    return K.mean(K.abs(y_pred - y_true), axis=-1)
+</code></pre>
 <p>说明：</p>
 <p>MAE： <img src="https://www.zhihu.com/equation?tex=L%3D+%5Cfrac+%7B1%7D%7Bn%7D+%5Csum%5En_%7Bi%3D1%7D+%7C%28y_%7Btrue%7D%5E%7B%28i%29%7D+-+y_%7Bpred%7D%5E%7B%28i%29%7D%29%7C" alt="[公式]"></p>
-<h2 id="mean-absolute-percentage-error"><a href="#mean-absolute-percentage-error" class="headerlink" title="mean_absolute_percentage_error"></a><strong>mean_absolute_percentage_error</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mean_absolute_percentage_error(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<h2 id="mean-absolute-percentage-error"><a href="#mean-absolute-percentage-error" class="headerlink" title="mean_absolute_percentage_error"></a><strong>mean_absolute_percentage_error</strong></h2><pre><code class="python">mean_absolute_percentage_error(y_true, y_pred)
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mean_absolute_percentage_error</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    diff = K.abs((y_true - y_pred) / K.clip(K.abs(y_true),</span><br><span class="line">                                            K.epsilon(),</span><br><span class="line">                                            <span class="keyword">None</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="number">100.</span> * K.mean(diff, axis=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def mean_absolute_percentage_error(y_true, y_pred):
+    diff = K.abs((y_true - y_pred) / K.clip(K.abs(y_true),
+                                            K.epsilon(),
+                                            None))
+    return 100. * K.mean(diff, axis=-1)
+</code></pre>
 <p>说明：</p>
 <p>MAPE： <img src="https://www.zhihu.com/equation?tex=L%3D+%5Cfrac+%7B1%7D%7Bn%7D+%5Csum%5En_%7Bi%3D1%7D+%7C%5Cfrac+%7By_%7Btrue%7D%5E%7B%28i%29%7D+-+y_%7Bpred%7D%5E%7B%28i%29%7D%7D%7By_%7Btrue%7D%5E%7B%28i%29%7D%7D%7C+%5Ccdot+100" alt="[公式]"></p>
-<h2 id="mean-squared-logarithmic-error"><a href="#mean-squared-logarithmic-error" class="headerlink" title="mean_squared_logarithmic_error"></a><strong>mean_squared_logarithmic_error</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mean_squared_logarithmic_error(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<h2 id="mean-squared-logarithmic-error"><a href="#mean-squared-logarithmic-error" class="headerlink" title="mean_squared_logarithmic_error"></a><strong>mean_squared_logarithmic_error</strong></h2><pre><code class="python">mean_squared_logarithmic_error(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mean_squared_logarithmic_error</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    first_log = K.log(K.clip(y_pred, K.epsilon(), <span class="keyword">None</span>) + <span class="number">1.</span>)</span><br><span class="line">    second_log = K.log(K.clip(y_true, K.epsilon(), <span class="keyword">None</span>) + <span class="number">1.</span>)</span><br><span class="line">    <span class="keyword">return</span> K.mean(K.square(first_log - second_log), axis=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def mean_squared_logarithmic_error(y_true, y_pred):
+    first_log = K.log(K.clip(y_pred, K.epsilon(), None) + 1.)
+    second_log = K.log(K.clip(y_true, K.epsilon(), None) + 1.)
+    return K.mean(K.square(first_log - second_log), axis=-1)
+
+</code></pre>
 <p>说明：</p>
 <p>MAPE： <img src="https://www.zhihu.com/equation?tex=L%3D+%5Cfrac+%7B1%7D%7Bn%7D+%5Csum%5En_%7Bi%3D1%7D+%28log%28y_%7Btrue%7D%5E%7B%28i%29%7D+%2B1%29+-+log%28+y_%7Bpred%7D%5E%7B%28i%29%7D%2B1%29%29%5E2" alt="[公式]"></p>
-<h2 id="squared-hinge"><a href="#squared-hinge" class="headerlink" title="squared_hinge"></a><strong>squared_hinge</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">squared_hinge(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<h2 id="squared-hinge"><a href="#squared-hinge" class="headerlink" title="squared_hinge"></a><strong>squared_hinge</strong></h2><pre><code class="python">squared_hinge(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">squared_hinge</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> K.mean(K.square(K.maximum(<span class="number">1.</span> - y_true * y_pred, <span class="number">0.</span>)), axis=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def squared_hinge(y_true, y_pred):
+    return K.mean(K.square(K.maximum(1. - y_true * y_pred, 0.)), axis=-1)
+
+</code></pre>
 <p>说明：</p>
 <p><img src="https://www.zhihu.com/equation?tex=L%3D+%5Cfrac+%7B1%7D%7Bn%7D+%5Csum%5En_%7Bi%3D1%7D+%28max%280%2C1-y_%7Bpred%7D%5E%7B%28i%29%7D+%5Ccdot+y_%7Btrue%7D%5E%7B%28i%29%7D%29%29%5E2" alt="[公式]"></p>
-<h2 id="hinge"><a href="#hinge" class="headerlink" title="hinge"></a><strong>hinge</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hinge(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<h2 id="hinge"><a href="#hinge" class="headerlink" title="hinge"></a><strong>hinge</strong></h2><pre><code class="python">hinge(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hinge</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> K.mean(K.maximum(<span class="number">1.</span> - y_true * y_pred, <span class="number">0.</span>), axis=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def hinge(y_true, y_pred):
+    return K.mean(K.maximum(1. - y_true * y_pred, 0.), axis=-1)
+
+</code></pre>
 <p>说明：</p>
 <p><img src="https://www.zhihu.com/equation?tex=L%3D+%5Cfrac+%7B1%7D%7Bn%7D+%5Csum%5En_%7Bi%3D1%7D+max%280%2C1-y_%7Bpred%7D%5E%7B%28i%29%7D+%5Ccdot+y_%7Btrue%7D%5E%7B%28i%29%7D%29" alt="[公式]"></p>
-<h2 id="categorical-hinge"><a href="#categorical-hinge" class="headerlink" title="categorical_hinge"></a><strong>categorical_hinge</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">categorical_hinge(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<h2 id="categorical-hinge"><a href="#categorical-hinge" class="headerlink" title="categorical_hinge"></a><strong>categorical_hinge</strong></h2><pre><code class="python">categorical_hinge(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">categorical_hinge</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    pos = K.sum(y_true * y_pred, axis=<span class="number">-1</span>)</span><br><span class="line">    neg = K.max((<span class="number">1.</span> - y_true) * y_pred, axis=<span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">return</span> K.maximum(<span class="number">0.</span>, neg - pos + <span class="number">1.</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="logcosh"><a href="#logcosh" class="headerlink" title="logcosh"></a><strong>logcosh</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logcosh(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def categorical_hinge(y_true, y_pred):
+    pos = K.sum(y_true * y_pred, axis=-1)
+    neg = K.max((1. - y_true) * y_pred, axis=-1)
+    return K.maximum(0., neg - pos + 1.)
+
+</code></pre>
+<h2 id="logcosh"><a href="#logcosh" class="headerlink" title="logcosh"></a><strong>logcosh</strong></h2><pre><code class="python">logcosh(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logcosh</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="string">"""Logarithm of the hyperbolic cosine of the prediction error.</span></span><br><span class="line"><span class="string">    `log(cosh(x))` is approximately equal to `(x ** 2) / 2` for small `x` and</span></span><br><span class="line"><span class="string">    to `abs(x) - log(2)` for large `x`. This means that 'logcosh' works mostly</span></span><br><span class="line"><span class="string">    like the mean squared error, but will not be so strongly affected by the</span></span><br><span class="line"><span class="string">    occasional wildly incorrect prediction.</span></span><br><span class="line"><span class="string">    # Arguments</span></span><br><span class="line"><span class="string">        y_true: tensor of true targets.</span></span><br><span class="line"><span class="string">        y_pred: tensor of predicted targets.</span></span><br><span class="line"><span class="string">    # Returns</span></span><br><span class="line"><span class="string">        Tensor with one scalar loss entry per sample.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_logcosh</span><span class="params">(x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> x + K.softplus(<span class="number">-2.</span> * x) - K.log(<span class="number">2.</span>)</span><br><span class="line">    <span class="keyword">return</span> K.mean(_logcosh(y_pred - y_true), axis=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="categorical-crossentropy"><a href="#categorical-crossentropy" class="headerlink" title="categorical_crossentropy"></a><strong>categorical_crossentropy</strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">categorical_crossentropy(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def logcosh(y_true, y_pred):
+    &quot;&quot;&quot;Logarithm of the hyperbolic cosine of the prediction error.
+    `log(cosh(x))` is approximately equal to `(x ** 2) / 2` for small `x` and
+    to `abs(x) - log(2)` for large `x`. This means that &#39;logcosh&#39; works mostly
+    like the mean squared error, but will not be so strongly affected by the
+    occasional wildly incorrect prediction.
+    # Arguments
+        y_true: tensor of true targets.
+        y_pred: tensor of predicted targets.
+    # Returns
+        Tensor with one scalar loss entry per sample.
+    &quot;&quot;&quot;
+    def _logcosh(x):
+        return x + K.softplus(-2. * x) - K.log(2.)
+    return K.mean(_logcosh(y_pred - y_true), axis=-1)
+
+</code></pre>
+<h2 id="categorical-crossentropy"><a href="#categorical-crossentropy" class="headerlink" title="categorical_crossentropy"></a><strong>categorical_crossentropy</strong></h2><pre><code class="python">categorical_crossentropy(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">categorical_crossentropy</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> K.categorical_crossentropy(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def categorical_crossentropy(y_true, y_pred):
+    return K.categorical_crossentropy(y_true, y_pred)
+
+</code></pre>
 <p>亦称作多类的对数损失，注意使用该目标函数时，需要将标签转化为形如(nb_samples, nb_classes)的二值序列</p>
 <p>注意: 当使用”categorical_crossentropy”作为目标函数时,标签应该为多类模式,即one-hot编码的向量,而不是单个数值. (即，如果你有10个类，每个样本的目标值应该是一个10维的向量，这个向量除了表示类别的那个索引为1，其他均为0)。可以使用工具中的to_categorical函数完成该转换.示例如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.utils.np_utils <span class="keyword">import</span> to_categorical</span><br><span class="line">categorical_labels = to_categorical(int_labels, num_classes=<span class="keyword">None</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">from keras.utils.np_utils import to_categorical
+categorical_labels = to_categorical(int_labels, num_classes=None)
+
+</code></pre>
 <h2 id="sparse-categorical-crossentropy"><a href="#sparse-categorical-crossentropy" class="headerlink" title="sparse_categorical_crossentropy"></a><strong>sparse_categorical_crossentropy</strong></h2><p>如上，但接受稀疏标签。注意，使用该函数时仍然需要你的标签与输出值的维度相同，你可能需要在标签数据上增加一个维度：np.expand_dims(y,-1)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sparse_categorical_crossentropy(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">sparse_categorical_crossentropy(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sparse_categorical_crossentropy</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> K.sparse_categorical_crossentropy(y_true, y_pred)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sparse_categorical_crossentropy</span><span class="params">(target, output, from_logits=False)</span>:</span></span><br><span class="line">    <span class="string">"""Categorical crossentropy with integer targets.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    # Arguments</span></span><br><span class="line"><span class="string">        target: An integer tensor.</span></span><br><span class="line"><span class="string">        output: A tensor resulting from a softmax</span></span><br><span class="line"><span class="string">            (unless `from_logits` is True, in which</span></span><br><span class="line"><span class="string">            case `output` is expected to be the logits).</span></span><br><span class="line"><span class="string">        from_logits: Boolean, whether `output` is the</span></span><br><span class="line"><span class="string">            result of a softmax, or is a tensor of logits.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    # Returns</span></span><br><span class="line"><span class="string">        Output tensor.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># Note: tf.nn.sparse_softmax_cross_entropy_with_logits</span></span><br><span class="line">    <span class="comment"># expects logits, Keras expects probabilities.</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> from_logits:</span><br><span class="line">        _epsilon = _to_tensor(epsilon(), output.dtype.base_dtype)</span><br><span class="line">        output = tf.clip_by_value(output, _epsilon, <span class="number">1</span> - _epsilon)</span><br><span class="line">        output = tf.log(output)</span><br><span class="line"></span><br><span class="line">    output_shape = output.get_shape()</span><br><span class="line">    targets = cast(flatten(target), <span class="string">'int64'</span>)</span><br><span class="line">    logits = tf.reshape(output, [<span class="number">-1</span>, int(output_shape[<span class="number">-1</span>])])</span><br><span class="line">    res = tf.nn.sparse_softmax_cross_entropy_with_logits(</span><br><span class="line">        labels=targets,</span><br><span class="line">        logits=logits)</span><br><span class="line">    <span class="keyword">if</span> len(output_shape) &gt;= <span class="number">3</span>:</span><br><span class="line">        <span class="comment"># if our output includes timestep dimension</span></span><br><span class="line">        <span class="comment"># or spatial dimensions we need to reshape</span></span><br><span class="line">        <span class="keyword">return</span> tf.reshape(res, tf.shape(output)[:<span class="number">-1</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def sparse_categorical_crossentropy(y_true, y_pred):
+    return K.sparse_categorical_crossentropy(y_true, y_pred)
+def sparse_categorical_crossentropy(target, output, from_logits=False):
+    &quot;&quot;&quot;Categorical crossentropy with integer targets.
+
+    # Arguments
+        target: An integer tensor.
+        output: A tensor resulting from a softmax
+            (unless `from_logits` is True, in which
+            case `output` is expected to be the logits).
+        from_logits: Boolean, whether `output` is the
+            result of a softmax, or is a tensor of logits.
+
+    # Returns
+        Output tensor.
+    &quot;&quot;&quot;
+    # Note: tf.nn.sparse_softmax_cross_entropy_with_logits
+    # expects logits, Keras expects probabilities.
+    if not from_logits:
+        _epsilon = _to_tensor(epsilon(), output.dtype.base_dtype)
+        output = tf.clip_by_value(output, _epsilon, 1 - _epsilon)
+        output = tf.log(output)
+
+    output_shape = output.get_shape()
+    targets = cast(flatten(target), &#39;int64&#39;)
+    logits = tf.reshape(output, [-1, int(output_shape[-1])])
+    res = tf.nn.sparse_softmax_cross_entropy_with_logits(
+        labels=targets,
+        logits=logits)
+    if len(output_shape) &gt;= 3:
+        # if our output includes timestep dimension
+        # or spatial dimensions we need to reshape
+        return tf.reshape(res, tf.shape(output)[:-1])
+    else:
+        return res
+
+</code></pre>
 <h2 id="binary-crossentropy"><a href="#binary-crossentropy" class="headerlink" title="binary_crossentropy"></a><strong>binary_crossentropy</strong></h2><p>（亦称作对数损失，logloss）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binary_crossentropy(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">binary_crossentropy(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_crossentropy</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> K.mean(K.binary_crossentropy(y_true, y_pred), axis=<span class="number">-1</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_crossentropy</span><span class="params">(target, output, from_logits=False)</span>:</span></span><br><span class="line">    <span class="string">"""Binary crossentropy between an output tensor and a target tensor.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    # Arguments</span></span><br><span class="line"><span class="string">        target: A tensor with the same shape as `output`.</span></span><br><span class="line"><span class="string">        output: A tensor.</span></span><br><span class="line"><span class="string">        from_logits: Whether `output` is expected to be a logits tensor.</span></span><br><span class="line"><span class="string">            By default, we consider that `output`</span></span><br><span class="line"><span class="string">            encodes a probability distribution.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    # Returns</span></span><br><span class="line"><span class="string">        A tensor.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># Note: tf.nn.sigmoid_cross_entropy_with_logits</span></span><br><span class="line">    <span class="comment"># expects logits, Keras expects probabilities.</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> from_logits:</span><br><span class="line">        <span class="comment"># transform back to logits</span></span><br><span class="line">        _epsilon = _to_tensor(epsilon(), output.dtype.base_dtype)</span><br><span class="line">        output = tf.clip_by_value(output, _epsilon, <span class="number">1</span> - _epsilon)</span><br><span class="line">        output = tf.log(output / (<span class="number">1</span> - output))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> tf.nn.sigmoid_cross_entropy_with_logits(labels=target,</span><br><span class="line">                                                   logits=output)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def binary_crossentropy(y_true, y_pred):
+    return K.mean(K.binary_crossentropy(y_true, y_pred), axis=-1)
+def binary_crossentropy(target, output, from_logits=False):
+    &quot;&quot;&quot;Binary crossentropy between an output tensor and a target tensor.
+
+    # Arguments
+        target: A tensor with the same shape as `output`.
+        output: A tensor.
+        from_logits: Whether `output` is expected to be a logits tensor.
+            By default, we consider that `output`
+            encodes a probability distribution.
+
+    # Returns
+        A tensor.
+    &quot;&quot;&quot;
+    # Note: tf.nn.sigmoid_cross_entropy_with_logits
+    # expects logits, Keras expects probabilities.
+    if not from_logits:
+        # transform back to logits
+        _epsilon = _to_tensor(epsilon(), output.dtype.base_dtype)
+        output = tf.clip_by_value(output, _epsilon, 1 - _epsilon)
+        output = tf.log(output / (1 - output))
+
+    return tf.nn.sigmoid_cross_entropy_with_logits(labels=target,
+                                                   logits=output)
+
+</code></pre>
 <h2 id="kullback-leibler-divergence"><a href="#kullback-leibler-divergence" class="headerlink" title="kullback_leibler_divergence"></a><strong>kullback_leibler_divergence</strong></h2><p>从预测值概率分布Q到真值概率分布P的信息增益,用以度量两个分布的差异</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kullback_leibler_divergence(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">kullback_leibler_divergence(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">kullback_leibler_divergence</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    y_true = K.clip(y_true, K.epsilon(), <span class="number">1</span>)</span><br><span class="line">    y_pred = K.clip(y_pred, K.epsilon(), <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> K.sum(y_true * K.log(y_true / y_pred), axis=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def kullback_leibler_divergence(y_true, y_pred):
+    y_true = K.clip(y_true, K.epsilon(), 1)
+    y_pred = K.clip(y_pred, K.epsilon(), 1)
+    return K.sum(y_true * K.log(y_true / y_pred), axis=-1)
+
+</code></pre>
 <h2 id="poisson"><a href="#poisson" class="headerlink" title="poisson"></a><strong>poisson</strong></h2><p>(predictions - targets * log(predictions))的均值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">poisson(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">poisson(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">poisson</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> K.mean(y_pred - y_true * K.log(y_pred + K.epsilon()), axis=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def poisson(y_true, y_pred):
+    return K.mean(y_pred - y_true * K.log(y_pred + K.epsilon()), axis=-1)
+
+</code></pre>
 <p>说明：</p>
 <p><img src="https://www.zhihu.com/equation?tex=L%3D+%5Cfrac+%7B1%7D%7Bn%7D+%5Csum%5En_%7Bi%3D1%7D+%28y_%7Bpred%7D%5E%7B%28i%29%7D+-+y_%7Btrue%7D%5E%7B%28i%29%7D%5Ccdot+log%28y_%7Bpred%7D%5E%7B%28i%29%7D%29%29" alt="[公式]"></p>
 <h2 id="cosine-proximity"><a href="#cosine-proximity" class="headerlink" title="cosine_proximity"></a><strong>cosine_proximity</strong></h2><p>即预测值与真实标签的余弦距离平均值的相反数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cosine_proximity(y_true, y_pred)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">cosine_proximity(y_true, y_pred)
+
+</code></pre>
 <p>源码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cosine_proximity</span><span class="params">(y_true, y_pred)</span>:</span></span><br><span class="line">    y_true = K.l2_normalize(y_true, axis=<span class="number">-1</span>)</span><br><span class="line">    y_pred = K.l2_normalize(y_pred, axis=<span class="number">-1</span>)</span><br><span class="line">    <span class="keyword">return</span> -K.sum(y_true * y_pred, axis=<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
+<pre><code class="python">def cosine_proximity(y_true, y_pred):
+    y_true = K.l2_normalize(y_true, axis=-1)
+    y_pred = K.l2_normalize(y_pred, axis=-1)
+    return -K.sum(y_true * y_pred, axis=-1)
+
+</code></pre>
 <p>说明：</p>
 <p><img src="https://www.zhihu.com/equation?tex=L%3D+-+%5Cfrac%7B+%5Csum%5En_%7Bi%3D1%7D+y_%7Btrue%7D%5E%7B%28i%29%7D+%5Ccdot+y_%7Bpred%7D%5E%7B%28i%29%7D%7D+%7B%5Csqrt%7B+%5Csum%5En_%7Bi%3D1%7D+%28y_%7Btrue%7D%5E%7B%28i%29%7D%29%5E2%7D+%5Ccdot+%5Csqrt+%7B%5Csum%5En_%7Bi%3D1%7D+%28y_%7Bpred%7D%5E%7B%28i%29%7D%29%5E2%7D%7D" alt="[公式]"></p>
 <p>简写：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mse = MSE = mean_squared_error</span><br><span class="line">mae = MAE = mean_absolute_error</span><br><span class="line">mape = MAPE = mean_absolute_percentage_error</span><br><span class="line">msle = MSLE = mean_squared_logarithmic_error</span><br><span class="line">kld = KLD = kullback_leibler_divergence</span><br><span class="line">cosine = cosine_proximity</span><br></pre></td></tr></table></figure>
+<pre><code class="python">mse = MSE = mean_squared_error
+mae = MAE = mean_absolute_error
+mape = MAPE = mean_absolute_percentage_error
+msle = MSLE = mean_squared_logarithmic_error
+kld = KLD = kullback_leibler_divergence
+cosine = cosine_proximity
+
+</code></pre>
+
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wangliang.leon20@gmail.com </span>
     </div>
 </article>
 
 
-<p>
-    <a class="dashang" onclick="dashangToggle()">💰</a>
-</p>
 
 
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e25cb882a9cfd69b0fcf',
+            clientSecret: '866a281dc860e73a14108d1a2e93dc2e8302340d',
+            repo: 'AzureLeon1.github.io',
+            owner: 'AzureLeon1',
+            admin: ['Leon'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
 
 
 
@@ -982,8 +1074,12 @@
 
     </div>
     <div class="copyright">
-        <p class="footer-entry">
-    ©2016-2020 Yelog
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a href="http://beian.miit.gov.cn/">鲁ICP备18054179号</a>
+        </span>
+    
+    ©2018-2021 Leon
 </p>
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
@@ -994,41 +1090,6 @@
 
     </div>
 </div>
-
-<div class="hide_box" onclick="dashangToggle()"></div>
-<div class="shang_box">
-    <a class="shang_close" onclick="dashangToggle()">×</a>
-    <div class="shang_tit">
-        <p>Help us with donation</p>
-    </div>
-    <div class="shang_payimg">
-        <div class="pay_img">
-            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
-            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
-        </div>
-    </div>
-    <div class="shang_payselect">
-        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
-    </div>
-</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-
 
 </body>
 <script src="/js/jquery.pjax.js?v=1.1.0"></script>
@@ -1044,16 +1105,22 @@
 
         /*渲染打赏样式*/
         
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
-        
 
         /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
         
 
         /*访问数量*/
@@ -1070,15 +1137,42 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
 <!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
 
 <!--自定义样式设置-->
 <style>

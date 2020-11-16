@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <meta charset="utf-8">
   <title>yolov3 Keras实现解读 | Leon Wang</title>
   <meta name="keywords" content=" 机器学习 ">
   <meta name="description" content="yolov3 Keras实现解读 | Leon Wang">
@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="http://img.cdn.leonwang.top/pic.jpeg">
 
 
-<link rel="icon" href="/img/avatar.jpg">
+<link rel="icon" href="/images/avatar.jpeg">
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
@@ -43,7 +43,7 @@
 
 <script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
 
-<script src="/js/iconfont.js?v=1.1.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/iconfont.js?v=1.1.0"></script>
 
 </head>
 <div style="display: none">
@@ -58,10 +58,10 @@
 
 
 <body>
-<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.jpg">
+    <img class="avatar" src="/images/avatar.jpeg">
 </a>
 <div class="author">
     <span>Leon Wang</span>
@@ -70,17 +70,7 @@
 <div class="icon">
     
         
-        <a title="rss" href="/atom.xml" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-rss"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="github" href="https://github.com/yelog" target="_blank">
+        <a title="github" href="https://github.com/AzureLeon1" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-github"/>
@@ -90,61 +80,17 @@
         
     
         
-        <a title="facebook" href="https://www.facebook.com/faker.tops" target="_blank">
+        <a title="linkedin" href="https://www.linkedin.com/in/%E4%BA%AE-%E7%8E%8B-a1baab193/" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-facebook"/>
+                    <use xlink:href="#icon-linkedin"/>
                 </svg>
             
         </a>
         
     
         
-    
-        
-    
-        
-        <a title="instagram" href="https://www.facebook.com/faker.tops" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-instagram"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="reddit" href="https://www.reddit.com/user/yelog/" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-reddit"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="weibo" href="http://weibo.com/u/2307534817" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-weibo"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="jianshu" href="https://www.jianshu.com/u/ff56736de7cf" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-jianshu"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="zhihu" href="https://www.zhihu.com/people/jaytp/activities" target="_blank">
+        <a title="zhihu" href="https://www.zhihu.com/people/wang-liang-62-42" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-zhihu"/>
@@ -154,54 +100,10 @@
         
     
         
-    
-        
-        <a title="oschina" href="https://my.oschina.net/yelog" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-oschina"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-    
-        
-        <a title="email" href="mailto:jaytp@qq.com" target="_blank">
+        <a title="email" href="mailto:wangliang.leon20@gmail.com" target="_blank">
             
                 <svg class="iconfont-svg" aria-hidden="true">
                     <use xlink:href="#icon-email"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-qq"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="kugou" href="https://www.kugou.com/" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-kugou"/>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=88151013" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"/>
                 </svg>
             
         </a>
@@ -327,10 +229,10 @@
     
     
     </div>
-    <div><a class="about  hasFriend  site_url" href="/about">About</a><a style="width: 50%" class="friends">Friends</a></div>
+    <div><a class="about  site_url" href="/about">About</a></div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="39">
-
+<input type="hidden" id="yelog_site_word_count" value="49.6k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -345,8 +247,6 @@
     </div>
     <div class="friends-content">
         <ul>
-            
-            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
             
         </ul>
     </div>
@@ -563,6 +463,10 @@
 
 </div>
 
+    
+    <div id="local-search-result">
+
+    </div>
     
     <nav id="title-list-nav">
         
@@ -810,6 +714,8 @@
     </div>
     <div class="article-meta">
         
+        <span>Count:3.7k</span>
+        
         
         <span id="busuanzi_container_page_pv">
             Views 👀 :<span id="busuanzi_value_page_pv">
@@ -822,6 +728,17 @@
             </span>
         </span>
         
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
         
     </div>
     
@@ -867,18 +784,18 @@
 <p>地址：<a href="https://pjreddie.com/media/files/yolov3.weights" target="_blank" rel="noopener">https://pjreddie.com/media/files/yolov3.weights</a></p>
 <p>将 .weights 文件转换为 Keras支持的 h5 权重文件</p>
 <p>在目录下执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python convert.py yolov3.cfg yolov3.weights model_data/yolo.h5</span><br></pre></td></tr></table></figure>
-<h3 id="进行图片检测"><a href="#进行图片检测" class="headerlink" title="进行图片检测"></a>进行图片检测</h3><p>可以在 <a href="https://github.com/AlexeyAB/darknet/tree/master/data" target="_blank" rel="noopener">https://github.com/AlexeyAB/darknet/tree/master/data</a> 中下载你喜欢的测试图片到项目目录下，当然也可以使用自己的图片</p>
+<pre><code>python convert.py yolov3.cfg yolov3.weights model_data/yolo.h5
+</code></pre><h3 id="进行图片检测"><a href="#进行图片检测" class="headerlink" title="进行图片检测"></a>进行图片检测</h3><p>可以在 <a href="https://github.com/AlexeyAB/darknet/tree/master/data" target="_blank" rel="noopener">https://github.com/AlexeyAB/darknet/tree/master/data</a> 中下载你喜欢的测试图片到项目目录下，当然也可以使用自己的图片</p>
 <p>执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python yolo_video.py --image</span><br></pre></td></tr></table></figure>
-<p>之后会要求输入需要检测的图片名称，输入图片名称之后就会出现检测结果：</p>
+<pre><code>python yolo_video.py --image
+</code></pre><p>之后会要求输入需要检测的图片名称，输入图片名称之后就会出现检测结果：</p>
 <p><img src="http://img.cdn.leonwang.top/20190909193831.png" alt=""></p>
 <p><img src="http://img.cdn.leonwang.top/20190909193901.png" alt=""></p>
 <p><img src="http://img.cdn.leonwang.top/20190909193911.png" alt=""></p>
 <h3 id="利用摄像头进行视频检测"><a href="#利用摄像头进行视频检测" class="headerlink" title="利用摄像头进行视频检测"></a>利用摄像头进行视频检测</h3><p>进行视频检测首先需要 CUDA 9.0+, h5py 以及 OpenCV3.x 的支持，使用 Anaconda 就可以轻松安装</p>
 <p>同样在项目目录下执行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python yolo_video.py</span><br></pre></td></tr></table></figure>
-<p>就可以利用摄像头进行视频检测，也可以加上 <code>--input</code> 参数变为视频检测，参数内容就是要检测的视频文件目录</p>
+<pre><code>python yolo_video.py
+</code></pre><p>就可以利用摄像头进行视频检测，也可以加上 <code>--input</code> 参数变为视频检测，参数内容就是要检测的视频文件目录</p>
 <h3 id="源码解读"><a href="#源码解读" class="headerlink" title="源码解读"></a>源码解读</h3><h4 id="yolo-video-py"><a href="#yolo-video-py" class="headerlink" title="yolo_video.py"></a>yolo_video.py</h4><p>命令行参数：</p>
 <p><code>--image</code> 进入图片检测模式</p>
 <p><code>--model</code> 指定权重文件的位置，默认是 model_data/yolo.h5</p>
@@ -907,8 +824,13 @@
 </ul>
 <p><strong>注意：</strong><br>特征图和卷积核不是一个概念，特征图是指图片在进行卷积等一系列操作之后最终得到的图片，一开始喂给网络的图片也可以称作是特征图，特征图之后也会作为下一层网络的输入<br>，<br>5次步长为2的卷积操作源码：</p>
 <p>位置：keras-yolo3-master\keras-yolo3-master\yolo3\model.py</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = compose(</span><br><span class="line">           DarknetConv2D_BN_Leaky(num_filters, (1,1)),</span><br><span class="line">           DarknetConv2D_BN_Leaky(num_filters*2, (3,3)),</span><br><span class="line">           DarknetConv2D_BN_Leaky(num_filters, (1,1)),</span><br><span class="line">           DarknetConv2D_BN_Leaky(num_filters*2, (3,3)),</span><br><span class="line">           DarknetConv2D_BN_Leaky(num_filters, (1,1)))(x)</span><br></pre></td></tr></table></figure>
-<p><strong>detect_video</strong></p>
+<pre><code>x = compose(
+           DarknetConv2D_BN_Leaky(num_filters, (1,1)),
+           DarknetConv2D_BN_Leaky(num_filters*2, (3,3)),
+           DarknetConv2D_BN_Leaky(num_filters, (1,1)),
+           DarknetConv2D_BN_Leaky(num_filters*2, (3,3)),
+           DarknetConv2D_BN_Leaky(num_filters, (1,1)))(x)
+</code></pre><p><strong>detect_video</strong></p>
 <ul>
 <li>实现视频检测和通过摄像头实时检测的功能，利用到了OpenCV</li>
 </ul>
@@ -924,8 +846,43 @@
 </ul>
 <p>创建模型的时候，默认会预加载 model_data 文件夹下的权重文件</p>
 <p>默认将输入的训练图片转变为 input_shape(默认：416 x 416) 的格式<br>具体转变的过程我看的也不是很明白，但输出一定是 input_shape 的格式，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># 文件路径：./yolo3/utils.py get_random_data函数中</span><br><span class="line"># resize image</span><br><span class="line">   new_ar = w/h * rand(1-jitter,1+jitter)/rand(1-jitter,1+jitter)</span><br><span class="line">   scale = rand(.25, 2)</span><br><span class="line">   if new_ar &lt; 1:</span><br><span class="line">       nh = int(scale*h)</span><br><span class="line">       nw = int(nh*new_ar)</span><br><span class="line">   else:</span><br><span class="line">       nw = int(scale*w)</span><br><span class="line">       nh = int(nw/new_ar)</span><br><span class="line">   image = image.resize((nw,nh), Image.BICUBIC)</span><br><span class="line"></span><br><span class="line">   # place image</span><br><span class="line">   dx = int(rand(0, w-nw))</span><br><span class="line">   dy = int(rand(0, h-nh))</span><br><span class="line">   new_image = Image.new(&apos;RGB&apos;, (w,h), (128,128,128))</span><br><span class="line">   new_image.paste(image, (dx, dy))</span><br><span class="line">   image = new_image</span><br><span class="line"></span><br><span class="line">   # flip image or not</span><br><span class="line">   flip = rand()&lt;.5</span><br><span class="line">   if flip: image = image.transpose(Image.FLIP_LEFT_RIGHT)</span><br><span class="line"></span><br><span class="line">   # distort image</span><br><span class="line">   hue = rand(-hue, hue)</span><br><span class="line">   sat = rand(1, sat) if rand()&lt;.5 else 1/rand(1, sat)</span><br><span class="line">   val = rand(1, val) if rand()&lt;.5 else 1/rand(1, val)</span><br><span class="line">   x = rgb_to_hsv(np.array(image)/255.)</span><br><span class="line">   x[..., 0] += hue</span><br><span class="line">   x[..., 0][x[..., 0]&gt;1] -= 1</span><br><span class="line">   x[..., 0][x[..., 0]&lt;0] += 1</span><br><span class="line">   x[..., 1] *= sat</span><br><span class="line">   x[..., 2] *= val</span><br><span class="line">   x[x&gt;1] = 1</span><br><span class="line">   x[x&lt;0] = 0</span><br><span class="line">   image_data = hsv_to_rgb(x) # numpy array, 0 to 1</span><br></pre></td></tr></table></figure>
-<p>然后将训练的数据进行打乱(shuffle),交叉验证的默认比例是 10%</p>
+<pre><code># 文件路径：./yolo3/utils.py get_random_data函数中
+# resize image
+   new_ar = w/h * rand(1-jitter,1+jitter)/rand(1-jitter,1+jitter)
+   scale = rand(.25, 2)
+   if new_ar &lt; 1:
+       nh = int(scale*h)
+       nw = int(nh*new_ar)
+   else:
+       nw = int(scale*w)
+       nh = int(nw/new_ar)
+   image = image.resize((nw,nh), Image.BICUBIC)
+
+   # place image
+   dx = int(rand(0, w-nw))
+   dy = int(rand(0, h-nh))
+   new_image = Image.new(&#39;RGB&#39;, (w,h), (128,128,128))
+   new_image.paste(image, (dx, dy))
+   image = new_image
+
+   # flip image or not
+   flip = rand()&lt;.5
+   if flip: image = image.transpose(Image.FLIP_LEFT_RIGHT)
+
+   # distort image
+   hue = rand(-hue, hue)
+   sat = rand(1, sat) if rand()&lt;.5 else 1/rand(1, sat)
+   val = rand(1, val) if rand()&lt;.5 else 1/rand(1, val)
+   x = rgb_to_hsv(np.array(image)/255.)
+   x[..., 0] += hue
+   x[..., 0][x[..., 0]&gt;1] -= 1
+   x[..., 0][x[..., 0]&lt;0] += 1
+   x[..., 1] *= sat
+   x[..., 2] *= val
+   x[x&gt;1] = 1
+   x[x&lt;0] = 0
+   image_data = hsv_to_rgb(x) # numpy array, 0 to 1
+</code></pre><p>然后将训练的数据进行打乱(shuffle),交叉验证的默认比例是 10%</p>
 <p>第一个阶段只训练最后的3个输出层</p>
 <p>第二个阶段使用第一阶段的权重参数，继续训练所有的网络，进行权重的微调</p>
 <ul>
@@ -944,11 +901,28 @@
 <p><strong>resblock_body(x, num_filters, num_blocks)</strong></p>
 <p>在yolo中还用到了残差网络，加入了residual blocks的思想，在yolo3的darknet网络架构图中，被一个框框起来的两个卷积网络+一个残差训练就是一个<strong>resblock_body</strong>，利用 <strong>resblock_body</strong>，可以搭建出darknet框架</p>
 <p>源码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&apos;&apos;&apos;A series of resblocks starting with a downsampling Convolution2D&apos;&apos;&apos;</span><br><span class="line">    # Darknet uses left and top padding instead of &apos;same&apos; mode</span><br><span class="line">    x = ZeroPadding2D(((1,0),(1,0)))(x)</span><br><span class="line">	# 进行步长为 2 的卷积操作</span><br><span class="line">    x = DarknetConv2D_BN_Leaky(num_filters, (3,3), strides=(2,2))(x)</span><br><span class="line">    for i in range(num_blocks):</span><br><span class="line">        y = compose(</span><br><span class="line">                DarknetConv2D_BN_Leaky(num_filters//2, (1,1)),</span><br><span class="line">                DarknetConv2D_BN_Leaky(num_filters, (3,3)))(x)</span><br><span class="line">        x = Add()([x,y])</span><br><span class="line">    return x</span><br></pre></td></tr></table></figure>
-<h3 id="darknet框架"><a href="#darknet框架" class="headerlink" title="darknet框架"></a>darknet框架</h3><p>使用了<strong>resblock_body</strong>按照如图所示的框架搭建<br><img src="http://img.cdn.leonwang.top/20190909194027.png" alt=""></p>
+<pre><code>&#39;&#39;&#39;A series of resblocks starting with a downsampling Convolution2D&#39;&#39;&#39;
+    # Darknet uses left and top padding instead of &#39;same&#39; mode
+    x = ZeroPadding2D(((1,0),(1,0)))(x)
+    # 进行步长为 2 的卷积操作
+    x = DarknetConv2D_BN_Leaky(num_filters, (3,3), strides=(2,2))(x)
+    for i in range(num_blocks):
+        y = compose(
+                DarknetConv2D_BN_Leaky(num_filters//2, (1,1)),
+                DarknetConv2D_BN_Leaky(num_filters, (3,3)))(x)
+        x = Add()([x,y])
+    return x
+</code></pre><h3 id="darknet框架"><a href="#darknet框架" class="headerlink" title="darknet框架"></a>darknet框架</h3><p>使用了<strong>resblock_body</strong>按照如图所示的框架搭建<br><img src="http://img.cdn.leonwang.top/20190909194027.png" alt=""></p>
 <p>源码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&apos;&apos;&apos;Darknent body having 52 Convolution2D layers&apos;&apos;&apos;</span><br><span class="line">    x = DarknetConv2D_BN_Leaky(32, (3,3))(x)</span><br><span class="line">    x = resblock_body(x, 64, 1)</span><br><span class="line">    x = resblock_body(x, 128, 2)</span><br><span class="line">    x = resblock_body(x, 256, 8)</span><br><span class="line">    x = resblock_body(x, 512, 8)</span><br><span class="line">    x = resblock_body(x, 1024, 4)</span><br><span class="line">    return x</span><br></pre></td></tr></table></figure>
-<p>由于每一次 <strong>resblock_body</strong> 中都含有一次步长为2的卷积，一共执行了5次，所以一共降维了 倍，因此最后的特征图大小就是 416 / 32 = 13</p>
+<pre><code>&#39;&#39;&#39;Darknent body having 52 Convolution2D layers&#39;&#39;&#39;
+    x = DarknetConv2D_BN_Leaky(32, (3,3))(x)
+    x = resblock_body(x, 64, 1)
+    x = resblock_body(x, 128, 2)
+    x = resblock_body(x, 256, 8)
+    x = resblock_body(x, 512, 8)
+    x = resblock_body(x, 1024, 4)
+    return x
+</code></pre><p>由于每一次 <strong>resblock_body</strong> 中都含有一次步长为2的卷积，一共执行了5次，所以一共降维了 倍，因此最后的特征图大小就是 416 / 32 = 13</p>
 <p>最后输出的网络中的 num_filter = 1024，输出结构是（sample_num, 13, 13, 1024）</p>
 <h3 id="yolo框架"><a href="#yolo框架" class="headerlink" title="yolo框架"></a>yolo框架</h3><p><strong>make_last_layers(x, num_filters, out_filters)</strong></p>
 <p>在 <strong>yolo_body</strong> 中使用到了这个函数，主要用来进行输出的降维操作，共执行2步操作：</p>
@@ -993,37 +967,98 @@
 <p><strong>最终，yolo框架输出的是三个大小不同的特征图</strong></p>
 <p>y1: (sample_num, 26, 26, num_anchors<em>(5 + num_classes))y2: (sample_num, 26, 26, num_anchors</em>(5 + num_classes))<br>y3: (sample_num, 52, 52, num_anchors*(5 + num_classes))</p>
 <p>源码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;Create YOLO_V3 model CNN body in Keras.&quot;&quot;&quot;</span><br><span class="line">    darknet = Model(inputs, darknet_body(inputs))</span><br><span class="line">    </span><br><span class="line"># 13 x 13 特征图</span><br><span class="line">x, y1 = make_last_layers(darknet.output, 512, num_anchors*(num_classes+5))</span><br><span class="line"></span><br><span class="line"># 26 x 26 特征图</span><br><span class="line">    x = compose(</span><br><span class="line">            DarknetConv2D_BN_Leaky(256, (1,1)),</span><br><span class="line">            UpSampling2D(2))(x)</span><br><span class="line">    x = Concatenate()([x,darknet.layers[152].output])</span><br><span class="line">    x, y2 = make_last_layers(x, 256, num_anchors*(num_classes+5))</span><br><span class="line"></span><br><span class="line">	# 52 x 52 特征图</span><br><span class="line">    x = compose(</span><br><span class="line">            DarknetConv2D_BN_Leaky(128, (1,1)),</span><br><span class="line">            UpSampling2D(2))(x)</span><br><span class="line">    x = Concatenate()([x,darknet.layers[92].output])</span><br><span class="line">    x, y3 = make_last_layers(x, 128, num_anchors*(num_classes+5))</span><br><span class="line"></span><br><span class="line">    return Model(inputs, [y1,y2,y3])</span><br></pre></td></tr></table></figure>
-<h3 id="yolo-boxes-and-scores"><a href="#yolo-boxes-and-scores" class="headerlink" title="yolo_boxes_and_scores()"></a>yolo_boxes_and_scores()</h3><p>提取框_boxes和置信度_box_scores</p>
+<pre><code>&quot;&quot;&quot;Create YOLO_V3 model CNN body in Keras.&quot;&quot;&quot;
+    darknet = Model(inputs, darknet_body(inputs))
+
+# 13 x 13 特征图
+x, y1 = make_last_layers(darknet.output, 512, num_anchors*(num_classes+5))
+
+# 26 x 26 特征图
+    x = compose(
+            DarknetConv2D_BN_Leaky(256, (1,1)),
+            UpSampling2D(2))(x)
+    x = Concatenate()([x,darknet.layers[152].output])
+    x, y2 = make_last_layers(x, 256, num_anchors*(num_classes+5))
+
+    # 52 x 52 特征图
+    x = compose(
+            DarknetConv2D_BN_Leaky(128, (1,1)),
+            UpSampling2D(2))(x)
+    x = Concatenate()([x,darknet.layers[92].output])
+    x, y3 = make_last_layers(x, 128, num_anchors*(num_classes+5))
+
+    return Model(inputs, [y1,y2,y3])
+</code></pre><h3 id="yolo-boxes-and-scores"><a href="#yolo-boxes-and-scores" class="headerlink" title="yolo_boxes_and_scores()"></a>yolo_boxes_and_scores()</h3><p>提取框_boxes和置信度_box_scores</p>
 <h3 id="yolo-eval"><a href="#yolo-eval" class="headerlink" title="yolo_eval()"></a>yolo_eval()</h3><p>anchor_mask : anchor的掩码，由于anchor文件中是按从小到大排列的，而model.output输出的层是 13-&gt;52 ，而越小的特征图检测的是越大的物体，也就需要越大的anchor，所以anchor_mask 是倒叙排列</p>
 <p>使用yolo_boxes_and_scores获得提取框_boxes和置信度_box_scores</p>
 <p>然后使用非极大抑制算法筛选标注框</p>
 <p>再使用 K.gather 通过nms_index筛选合格的框和框对应得分</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">boxes_ = K.concatenate(boxes_, axis=0)</span><br><span class="line">scores_ = K.concatenate(scores_, axis=0)</span><br><span class="line">classes_ = K.concatenate(classes_, axis=0)</span><br></pre></td></tr></table></figure>
-<p>// tf.gather 使用实例： <a href="https://blog.csdn.net/guotong1988/article/details/53172882" target="_blank" rel="noopener">https://blog.csdn.net/guotong1988/article/details/53172882</a></p>
+<pre><code>boxes_ = K.concatenate(boxes_, axis=0)
+scores_ = K.concatenate(scores_, axis=0)
+classes_ = K.concatenate(classes_, axis=0)
+
+</code></pre><p>// tf.gather 使用实例： <a href="https://blog.csdn.net/guotong1988/article/details/53172882" target="_blank" rel="noopener">https://blog.csdn.net/guotong1988/article/details/53172882</a></p>
 <p>使用 K.ones_like x c 生成类别信息， 例：[1,1,1] x 4 = [4,4,4] 代表3个类别为4的框</p>
 <p>最后使用 K.concatenate 合并所有的框，合并所有的得分，合并所有的的类别信息</p>
 <h3 id="补充涉及的小细节"><a href="#补充涉及的小细节" class="headerlink" title="补充涉及的小细节"></a>补充涉及的小细节</h3><p>1.<strong>非极大抑制算法</strong></p>
 <p>在 <strong>yolo_eval()</strong> 中用到了 <strong>非极大抑制算法</strong></p>
 <p><strong>非极大抑制算法（NMS）</strong>：用来剔除重合度高于阈值的框，有时候可能会有多个框检测的是同一个物体</p>
 <p>首先从所有的检测框中找到置信度较大的那个框，然后挨个计算其与剩余框的IOU，如果其值大于一定阈值（重合度过高），那么就将该框剔除；然后对剩余的检测框重复上述过程，直到处理完所有的检测框</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 使用方法</span><br><span class="line">tf.image.non_max_suppression(</span><br><span class="line">    boxes, # A 2-D float Tensor of shape [num_boxes, 4]</span><br><span class="line">    scores, # A 1-D float Tensor of shape [num_boxes], 代表每个框的得分</span><br><span class="line">    max_output_size, # 最大被选择的框的数目</span><br><span class="line">    iou_threshold=0.5, # 检测的IOU阈值</span><br><span class="line">    name=None</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>2.<strong>concatenate</strong></p>
+<pre><code># 使用方法
+tf.image.non_max_suppression(
+    boxes, # A 2-D float Tensor of shape [num_boxes, 4]
+    scores, # A 1-D float Tensor of shape [num_boxes], 代表每个框的得分
+    max_output_size, # 最大被选择的框的数目
+    iou_threshold=0.5, # 检测的IOU阈值
+    name=None
+)
+
+</code></pre><p>2.<strong>concatenate</strong></p>
 <p>concatenate 的使用：concatenate将相同维度的数据元素连接到一起<br>例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from keras import backend as K</span><br><span class="line"></span><br><span class="line">sess = K.get_session()</span><br><span class="line"></span><br><span class="line">a = K.constant([[2, 4], [1, 2]])</span><br><span class="line">b = K.constant([[3, 2], [5, 6]])</span><br><span class="line">c = [a, b]</span><br><span class="line">c = K.concatenate(c, axis=0)</span><br><span class="line"></span><br><span class="line">print(sess.run(c))</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">[[2. 4.] [1. 2.] [3. 2.] [5. 6.]]</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p>等待更新….</p>
+<pre><code>from keras import backend as K
+
+sess = K.get_session()
+
+a = K.constant([[2, 4], [1, 2]])
+b = K.constant([[3, 2], [5, 6]])
+c = [a, b]
+c = K.concatenate(c, axis=0)
+
+print(sess.run(c))
+&quot;&quot;&quot;
+[[2. 4.] [1. 2.] [3. 2.] [5. 6.]]
+&quot;&quot;&quot;
+
+</code></pre><h2 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h2><p>等待更新….</p>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wangliang.leon20@gmail.com </span>
     </div>
 </article>
 
 
-<p>
-    <a class="dashang" onclick="dashangToggle()">💰</a>
-</p>
 
 
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e25cb882a9cfd69b0fcf',
+            clientSecret: '866a281dc860e73a14108d1a2e93dc2e8302340d',
+            repo: 'AzureLeon1.github.io',
+            owner: 'AzureLeon1',
+            admin: ['Leon'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
 
 
 
@@ -1073,8 +1108,12 @@
 
     </div>
     <div class="copyright">
-        <p class="footer-entry">
-    ©2016-2020 Yelog
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a href="http://beian.miit.gov.cn/">鲁ICP备18054179号</a>
+        </span>
+    
+    ©2018-2021 Leon
 </p>
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
@@ -1085,41 +1124,6 @@
 
     </div>
 </div>
-
-<div class="hide_box" onclick="dashangToggle()"></div>
-<div class="shang_box">
-    <a class="shang_close" onclick="dashangToggle()">×</a>
-    <div class="shang_tit">
-        <p>Help us with donation</p>
-    </div>
-    <div class="shang_payimg">
-        <div class="pay_img">
-            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
-            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
-        </div>
-    </div>
-    <div class="shang_payselect">
-        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
-    </div>
-</div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config("");
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="custom_mathjax_source">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-
 
 </body>
 <script src="/js/jquery.pjax.js?v=1.1.0"></script>
@@ -1135,16 +1139,22 @@
 
         /*渲染打赏样式*/
         
-        $("input[name=pay]").on("click", function () {
-            if($("input[name=pay]:checked").val()=="weixin"){
-                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
-            } else {
-                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
-            }
-        })
-        
 
         /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
         
 
         /*访问数量*/
@@ -1161,15 +1171,42 @@
 
     /*打赏页面隐藏与展示*/
     
-    function dashangToggle() {
-        $(".shang_box").fadeToggle();
-        $(".hide_box").fadeToggle();
-    }
-    
 
 </script>
 
 <!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
 
 <!--自定义样式设置-->
 <style>
