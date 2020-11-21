@@ -89,6 +89,8 @@
       
       <categories>
           
+          <category> 机器学习 </category>
+          
           <category> 计算机视觉 </category>
           
       </categories>
@@ -107,6 +109,8 @@
       
       
       <categories>
+          
+          <category> 机器学习 </category>
           
           <category> 自然语言处理 </category>
           
@@ -127,7 +131,9 @@
       
       <categories>
           
-          <category> 推荐&amp;广告&amp;搜索 </category>
+          <category> 机器学习 </category>
+          
+          <category> 推荐广告搜索 </category>
           
       </categories>
       
@@ -146,7 +152,9 @@
       
       <categories>
           
-          <category> 图表示学习 </category>
+          <category> 机器学习 </category>
+          
+          <category> Graph </category>
           
       </categories>
       
@@ -270,7 +278,7 @@
     
     
     <entry>
-      <title>LeetCode11 vs LeetCode84</title>
+      <title>LeetCode11 vs LeetCode84 柱状图中的矩形</title>
       <link href="2020/07/11/LeetCode11-vs-LeetCode84/"/>
       <url>2020/07/11/LeetCode11-vs-LeetCode84/</url>
       
@@ -279,7 +287,7 @@
       
       <categories>
           
-          <category> LeetCode </category>
+          <category> 算法与数据结构 </category>
           
       </categories>
       
@@ -287,6 +295,10 @@
         <tags>
             
             <tag> LeetCode </tag>
+            
+            <tag> 双指针 </tag>
+            
+            <tag> 单调栈 </tag>
             
         </tags>
       
@@ -540,7 +552,9 @@
       
       <categories>
           
-          <category> 深度学习 </category>
+          <category> 机器学习 </category>
+          
+          <category> 其他 </category>
           
       </categories>
       
@@ -698,7 +712,9 @@
       
       <categories>
           
-          <category> 深度学习 </category>
+          <category> 机器学习 </category>
+          
+          <category> 计算机视觉 </category>
           
       </categories>
       
@@ -723,7 +739,9 @@
       
       <categories>
           
-          <category> 深度学习 </category>
+          <category> 机器学习 </category>
+          
+          <category> 计算机视觉 </category>
           
       </categories>
       
@@ -887,6 +905,8 @@
       
       <categories>
           
+          <category> Archive </category>
+          
           <category> Web </category>
           
       </categories>
@@ -905,7 +925,7 @@
     
     
     <entry>
-      <title>Analysis and Design of Algorithms</title>
+      <title>算法课笔记</title>
       <link href="2019/03/19/Analysis-and-Design-of-Algorithms/"/>
       <url>2019/03/19/Analysis-and-Design-of-Algorithms/</url>
       
@@ -914,7 +934,7 @@
       
       <categories>
           
-          <category> Algorithm </category>
+          <category> 算法与数据结构 </category>
           
       </categories>
       
@@ -938,6 +958,8 @@
       
       
       <categories>
+          
+          <category> Archive </category>
           
           <category> UML </category>
           
@@ -963,6 +985,8 @@
       
       
       <categories>
+          
+          <category> Archive </category>
           
           <category> Web </category>
           
@@ -993,6 +1017,8 @@
       
       <categories>
           
+          <category> Archive </category>
+          
           <category> ARCore </category>
           
       </categories>
@@ -1021,6 +1047,8 @@
       
       
       <categories>
+          
+          <category> 工具 </category>
           
           <category> Git </category>
           
@@ -1051,6 +1079,8 @@
       
       <categories>
           
+          <category> Archive </category>
+          
           <category> Android </category>
           
       </categories>
@@ -1080,7 +1110,7 @@
       
       <categories>
           
-          <category> Solutions </category>
+          <category> 其他 </category>
           
       </categories>
       
@@ -1104,6 +1134,8 @@
       
       
       <categories>
+          
+          <category> Archive </category>
           
           <category> Web </category>
           
@@ -1136,6 +1168,8 @@
       
       <categories>
           
+          <category> Archive </category>
+          
           <category> 计算机网络 </category>
           
       </categories>
@@ -1163,6 +1197,8 @@
       
       <categories>
           
+          <category> Archive </category>
+          
           <category> 计算机网络 </category>
           
       </categories>
@@ -1189,6 +1225,8 @@
       
       
       <categories>
+          
+          <category> Archive </category>
           
           <category> ARCore </category>
           
@@ -1219,6 +1257,8 @@
       
       <categories>
           
+          <category> Archive </category>
+          
           <category> ARCore </category>
           
       </categories>
@@ -1248,7 +1288,9 @@
       
       <categories>
           
-          <category> Blog搭建 </category>
+          <category> Archive </category>
+          
+          <category> Blog </category>
           
       </categories>
       
