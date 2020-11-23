@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>Neural Graph Collaborative Filtering</title>
+      <link href="2020/11/23/Neural-Graph-Collaborative-Filtering/"/>
+      <url>2020/11/23/Neural-Graph-Collaborative-Filtering/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>Xiang Wang, Xiangnan He, Meng Wang, Fuli Feng, and Tat-Seng Chua (2019). <strong>Neural Graph Collaborative Filtering</strong>, <a href="https://dl.acm.org/citation.cfm?doid=3331184.3331267" target="_blank" rel="noopener">Paper in ACM DL</a> or <a href="https://arxiv.org/abs/1905.08108" target="_blank" rel="noopener">Paper in arXiv</a>. In <strong>SIGIR’19</strong>, Paris, France, July 21-25, 2019.</p></blockquote><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>任务：Vector Representation (aka. embeddings)</p><p><strong>Collaborative Signal</strong>：潜藏在 user-item 的交互中的隐式的协同信号</p><p>问题：已有方法（包括矩阵分解、深度学习方法等）在 embedding 过程中没有对关键的 Collaborative Signal 进行明显的利用和编码</p><p>本文提出的 NGCF 框架：</p><ol><li>构图方式：user 和 item 的二部图，edge 表示 user 和 item 之间的交互历史。</li><li>基于上述构图方式，在图上 propagate embeddings 时就能利用图的结构特点对 user-item 之间的交互进行高效的聚合。</li><li>结果：模型对 user-item 中的 <strong>high-order connectivity</strong> 进行了很好的建模，从而吧 user-item 之间的 Collaborative Signal 编码进了 embedding 中。</li></ol><h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="构图"><a href="#构图" class="headerlink" title="构图"></a>构图</h3><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123210549539.png" alt="user-item交互图与高阶连接" style="zoom:50%;"></p><h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123210805320.png" alt="NGCF模型结构" style="zoom: 50%;"></p><p>先用 user/item 的 feature 向量作为初始化的 embedding。</p><p>然后通过多层 Embedding Propagation layers 进行信息传播，训练 embedding 并引入高阶交互信息。</p><p>然后把user/item在每层的embedding进行concatenate，作为user/item最终的embedding。</p><p>最后计算 user embedding 和 item embedding 的内积作为 y。</p><p>Loss 函数是 pairwise BPR loss。</p><h3 id="一阶-Propagation"><a href="#一阶-Propagation" class="headerlink" title="一阶 Propagation"></a>一阶 Propagation</h3><p>Embedding 更新公式：<br>$$<br>\mathbf{e}_{u}^{(1)}=\text { LeakyReLU }\left(\mathbf{m}_{u \leftarrow u}+\sum_{i \in \mathcal{N}_{u}} \mathbf{m}_{u \leftarrow i}\right)<br>$$<br>其中，$m_{u \leftarrow i}$ 表示 “message from i to u”：<br>$$<br>\mathbf{m}_{u \leftarrow i}=\frac{1}{\sqrt{\left|\mathcal{N}_{u}\right|\left|\mathcal{N}_{i}\right|}}\left(\mathbf{W}_{1} \mathbf{e}_{i}+\mathbf{W}_{2}\left(\mathbf{e}_{i} \odot \mathbf{e}_{u}\right)\right)<br>$$</p><h3 id="高阶-Propagation"><a href="#高阶-Propagation" class="headerlink" title="高阶 Propagation"></a>高阶 Propagation</h3><p>即对上述一阶 Propagation 的过程进行叠加。</p><p>Embedding 更新公式：<br>$$<br>\mathbf{e}_{u}^{(l)}=\text { LeakyReLU }\left(\mathbf{m}_{u \leftarrow u}^{(l)}+\sum_{i \in \mathcal{N}_{u}} \mathbf{m}_{u \leftarrow i}^{(l)}\right)<br>$$<br>其中：<br>$$<br>\left\{\begin{array}{l}<br>\mathbf{m}_{u \leftarrow i}^{(l)}=p_{u i}\left(\mathbf{W}_{1}^{(l)} \mathbf{e}_{i}^{(l-1)}+\mathbf{W}_{2}^{(l)}\left(\mathbf{e}_{i}^{(l-1)} \odot \mathbf{e}_{u}^{(l-1)}\right)\right) \\<br>\mathbf{m}_{u \leftarrow u}^{(l)}=\mathbf{W}_{1}^{(l)} \mathbf{e}_{u}^{(l-1)}<br>\end{array}\right.<br>$$<br>矩阵形式表示为：<br>$$<br>\mathbf{E}^{(l)}=\operatorname{LeakyReLU}\left((\mathcal{L}+\mathbf{I}) \mathbf{E}^{(l-1)} \mathbf{W}_{1}^{(l)}+\mathcal{L} \mathbf{E}^{(l-1)} \odot \mathbf{E}^{(l-1)} \mathbf{W}_{2}^{(l)}\right)<br>$$<br>$\mathcal{L}$ 表示 Graph 的 Laplacian matrix：<br>$$<br>\mathcal{L}=\mathbf{D}^{-\frac{1}{2}} \mathrm{AD}^{-\frac{1}{2}} \text { and } \mathbf{A}=\left[\begin{array}{cc}<br>\mathbf{0} &amp; \mathbf{R} \\<br>\mathbf{R}^{\top} &amp; \mathbf{0}<br>\end{array}\right]<br>$$<br><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123212732843.png" alt="image-20201123212732843" style="zoom:50%;"></p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><a href="https://github.com/xiangwang1223/neural_graph_collaborative_filtering" target="_blank" rel="noopener">https://github.com/xiangwang1223/neural_graph_collaborative_filtering</a></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>个人感觉传统的矩阵方法中也隐含了交互信息，但是交互信息，尤其是高阶交互信息的表达是很微弱的。NGCF 用构造二部图的方式，结合 GNN 的训练过程，对高阶交互信息进行了显式的、更有效的表达。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+          <category> 推荐广告搜索 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> Graph </tag>
+            
+            <tag> 推荐 </tag>
+            
+            <tag> CF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ProtoBuf编译生成Go代码</title>
       <link href="2020/11/23/ProtoBuf%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90Go%E4%BB%A3%E7%A0%81/"/>
       <url>2020/11/23/ProtoBuf%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90Go%E4%BB%A3%E7%A0%81/</url>

@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  <title>归档_todo | Leon Wang</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="归档_todo | Leon Wang">
+  <title>Neural Graph Collaborative Filtering | Leon Wang</title>
+  <meta name="keywords" content=" 机器学习 , Graph , 推荐 , CF ">
+  <meta name="description" content="Neural Graph Collaborative Filtering | Leon Wang">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Leon Wang    I am an undergraduate majoring in Software Engineering in Tongji University.  Interest: &amp;nbsp;&amp;nbsp;&amp;nbsp;Machine Learning, Deep Learning, Computer Vision    GitHub: &amp;nbsp;&amp;nb">
 <meta property="og:type" content="website">
@@ -1058,9 +1058,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-归档-todo" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Neural-Graph-Collaborative-Filtering" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">归档_todo</h1>
+        <h1 class="article-title">Neural Graph Collaborative Filtering</h1>
     
     <div class="article-meta">
         
@@ -1070,20 +1070,35 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Archive">Archive</a>
+            <a  data-rel="机器学习">机器学习</a> > 
+            
+            <a  data-rel="机器学习&lt;---&gt;推荐广告搜索">推荐广告搜索</a>
             
         </span>
         
         
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">机器学习</a>
+            
+            <a class="color1">Graph</a>
+            
+            <a class="color3">推荐</a>
+            
+            <a class="color3">CF</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-11-17 00:42:58'>2020-11-17 00:41</time>
+            Created At : <time class="date" title='Updated At: 2020-11-23 21:33:29'>2020-11-23 21:31</time>
         
     </div>
     <div class="article-meta">
         
-        <span>Count:15</span>
+        <span>Count:688</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1113,7 +1128,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methodology"><span class="toc-text">Methodology</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#构图"><span class="toc-text">构图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型结构"><span class="toc-text">模型结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一阶-Propagation"><span class="toc-text">一阶 Propagation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#高阶-Propagation"><span class="toc-text">高阶 Propagation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1129,7 +1144,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>施工中🚧<br>之前的垃圾都倒到这里来吧</p>
+        <blockquote>
+<p>Xiang Wang, Xiangnan He, Meng Wang, Fuli Feng, and Tat-Seng Chua (2019). <strong>Neural Graph Collaborative Filtering</strong>, <a href="https://dl.acm.org/citation.cfm?doid=3331184.3331267" target="_blank" rel="noopener">Paper in ACM DL</a> or <a href="https://arxiv.org/abs/1905.08108" target="_blank" rel="noopener">Paper in arXiv</a>. In <strong>SIGIR’19</strong>, Paris, France, July 21-25, 2019.</p>
+</blockquote>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>任务：Vector Representation (aka. embeddings)</p>
+<p><strong>Collaborative Signal</strong>：潜藏在 user-item 的交互中的隐式的协同信号</p>
+<p>问题：已有方法（包括矩阵分解、深度学习方法等）在 embedding 过程中没有对关键的 Collaborative Signal 进行明显的利用和编码</p>
+<p>本文提出的 NGCF 框架：</p>
+<ol>
+<li>构图方式：user 和 item 的二部图，edge 表示 user 和 item 之间的交互历史。</li>
+<li>基于上述构图方式，在图上 propagate embeddings 时就能利用图的结构特点对 user-item 之间的交互进行高效的聚合。</li>
+<li>结果：模型对 user-item 中的 <strong>high-order connectivity</strong> 进行了很好的建模，从而吧 user-item 之间的 Collaborative Signal 编码进了 embedding 中。</li>
+</ol>
+<h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="构图"><a href="#构图" class="headerlink" title="构图"></a>构图</h3><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123210549539.png" alt="user-item交互图与高阶连接" style="zoom:50%;"></p>
+<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123210805320.png" alt="NGCF模型结构" style="zoom: 50%;"></p>
+<p>先用 user/item 的 feature 向量作为初始化的 embedding。</p>
+<p>然后通过多层 Embedding Propagation layers 进行信息传播，训练 embedding 并引入高阶交互信息。</p>
+<p>然后把user/item在每层的embedding进行concatenate，作为user/item最终的embedding。</p>
+<p>最后计算 user embedding 和 item embedding 的内积作为 y。</p>
+<p>Loss 函数是 pairwise BPR loss。</p>
+<h3 id="一阶-Propagation"><a href="#一阶-Propagation" class="headerlink" title="一阶 Propagation"></a>一阶 Propagation</h3><p>Embedding 更新公式：<br>$$<br>\mathbf{e}_{u}^{(1)}=\text { LeakyReLU }\left(\mathbf{m}_{u \leftarrow u}+\sum_{i \in \mathcal{N}_{u}} \mathbf{m}_{u \leftarrow i}\right)<br>$$<br>其中，$m_{u \leftarrow i}$ 表示 “message from i to u”：<br>$$<br>\mathbf{m}_{u \leftarrow i}=\frac{1}{\sqrt{\left|\mathcal{N}_{u}\right|\left|\mathcal{N}_{i}\right|}}\left(\mathbf{W}_{1} \mathbf{e}_{i}+\mathbf{W}_{2}\left(\mathbf{e}_{i} \odot \mathbf{e}_{u}\right)\right)<br>$$</p>
+<h3 id="高阶-Propagation"><a href="#高阶-Propagation" class="headerlink" title="高阶 Propagation"></a>高阶 Propagation</h3><p>即对上述一阶 Propagation 的过程进行叠加。</p>
+<p>Embedding 更新公式：<br>$$<br>\mathbf{e}_{u}^{(l)}=\text { LeakyReLU }\left(\mathbf{m}_{u \leftarrow u}^{(l)}+\sum_{i \in \mathcal{N}_{u}} \mathbf{m}_{u \leftarrow i}^{(l)}\right)<br>$$<br>其中：<br>$$<br>\left\{\begin{array}{l}<br>\mathbf{m}_{u \leftarrow i}^{(l)}=p_{u i}\left(\mathbf{W}_{1}^{(l)} \mathbf{e}_{i}^{(l-1)}+\mathbf{W}_{2}^{(l)}\left(\mathbf{e}_{i}^{(l-1)} \odot \mathbf{e}_{u}^{(l-1)}\right)\right) \\<br>\mathbf{m}_{u \leftarrow u}^{(l)}=\mathbf{W}_{1}^{(l)} \mathbf{e}_{u}^{(l-1)}<br>\end{array}\right.<br>$$<br>矩阵形式表示为：<br>$$<br>\mathbf{E}^{(l)}=\operatorname{LeakyReLU}\left((\mathcal{L}+\mathbf{I}) \mathbf{E}^{(l-1)} \mathbf{W}_{1}^{(l)}+\mathcal{L} \mathbf{E}^{(l-1)} \odot \mathbf{E}^{(l-1)} \mathbf{W}_{2}^{(l)}\right)<br>$$<br>$\mathcal{L}$ 表示 Graph 的 Laplacian matrix：<br>$$<br>\mathcal{L}=\mathbf{D}^{-\frac{1}{2}} \mathrm{AD}^{-\frac{1}{2}} \text { and } \mathbf{A}=\left[\begin{array}{cc}<br>\mathbf{0} &amp; \mathbf{R} \\<br>\mathbf{R}^{\top} &amp; \mathbf{0}<br>\end{array}\right]<br>$$<br><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123212732843.png" alt="image-20201123212732843" style="zoom:50%;"></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><a href="https://github.com/xiangwang1223/neural_graph_collaborative_filtering" target="_blank" rel="noopener">https://github.com/xiangwang1223/neural_graph_collaborative_filtering</a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>个人感觉传统的矩阵方法中也隐含了交互信息，但是交互信息，尤其是高阶交互信息的表达是很微弱的。NGCF 用构造二部图的方式，结合 GNN 的训练过程，对高阶交互信息进行了显式的、更有效的表达。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wangliang.leon20@gmail.com </span>
