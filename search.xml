@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>ProtoBuf编译生成Go代码</title>
+      <link href="2020/11/23/ProtoBuf%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90Go%E4%BB%A3%E7%A0%81/"/>
+      <url>2020/11/23/ProtoBuf%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90Go%E4%BB%A3%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<p>Protobuf即Protocol Buffers，是Google公司开发的一种跨语言和平台的序列化数据结构的方式，是一个灵活的、高效的用于序列化数据的协议。与XML和JSON格式相比，Protobuf更小、更快、更便捷。</p><p>Protobuf是跨语言的，并且自带编译器(protoc)，只需要用protoc进行编译，就可以编译成Java、Python、C++、C#、Go等多种语言代码，并可以直接使用。</p><h2 id="编译工具"><a href="#编译工具" class="headerlink" title="编译工具"></a>编译工具</h2><ol><li>protoc</li></ol><p>ProtoBuf 本身提供了一个编译器，即 protoc。通常我们说安装 Protocol Buffer 指的就是安装编译器 protoc 和一套其支持的官方库文件。</p><p><a href="https://developers.google.com/protocol-buffers/docs/overview" target="_blank" rel="noopener">ProtoBuf 官方 Guides</a></p><p><a href="https://github.com/protocolbuffers/protobuf" target="_blank" rel="noopener">ProtoBuf GitHub 仓库</a></p><p>protoc的安装有以下几种方式：</p><ol><li>源码编译安装</li><li>(推荐) 直接下载 release 版本并 copy 进系统环境</li><li>(Mac optional) 使用 brew 安装</li></ol><p>方法一相对比较费时，需要先安装一些依赖，然后再 build，而且 c++ 的项目 build 起来也比较费时。</p><p>方法二相对更加推荐，直接下载对应操作系统的 release 版本，解压后主要有两部分内容，<code>二进制可执行文件protoc</code>和<code>一套官方标准库</code>，直接 copy 到系统的<code>/bin</code>和<code>/include</code>目录下。</p><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123151748180.png" alt="release package" style="zoom: 40%;"></p><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123151904804.png" alt="package structure" style="zoom:50%;"></p><pre><code class="shell">cd ./protoc-3.x.x-osx-x86_64cp -r ./bin/ /usr/local/bincp -r ./include/ /usr/local/include</code></pre><p>方法三是 mac 下另一种比较方便的安装方式，优点是便捷，直接一句 <code>brew install protobuf</code> 搞定，缺点是 brew 默认安装某个版本，如果要安装其他版本，需要克隆 Homebrew-core 仓库查看 commit hash。具体方法参考<a href="https://www.vitah.net/posts/2020/05/use-homebrew-install-elder-version/" target="_blank" rel="noopener">这里</a>。相比方法二要麻烦一些。</p><h2 id="编译Go代码"><a href="#编译Go代码" class="headerlink" title="编译Go代码"></a>编译Go代码</h2><p>因为官方编译工具 protoc 不支持生成 go 代码，所以需要安装额外插件。这里有几个选择：</p><ol><li><p>goprotobuf</p><p>golang官方提供的插件 protoc-gen-go</p><p>GitHub 仓库: <a href="https://github.com/golang/protobuf" target="_blank" rel="noopener">https://github.com/golang/protobuf</a></p><p>安装：</p><pre><code class="shell">go get github.com/golang/protobuf/protoc-gen-go</code></pre><p>编译命令：</p><pre><code class="shell">protoc --go_out=/path/to/output_dir test.proto</code></pre><p>插件版本问题：因为protoc编译出的go代码会因为插件版本而有所不同，具体兼容性未知，理论上来说是向前兼容的。之前实践使用的时候为了保险起见，还是选择了生成和之前相同格式的代码，所以需要对插件版本做降级。降级方法也记录一下：clone 插件代码仓库到 <code>$GOPATH/src</code> ，用git tag查看历史版本，git checkout到对应tag，执行<code>go install ./</code>。</p><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123154129849.png" alt="git tag查看历史版本" style="zoom:50%;"></p><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123154211904.png" alt="切换版本并编译"></p></li><li><p>gogoprotobuf</p><p>这里实际上有两个插件可以用，protoc-gen-gogo 和 protoc-gen-gofast。相比比上面的官方插件在速度和编译出的文件大小等方面有一些优势。</p><ul><li>protoc-gen-gogo：和protoc-gen-go生成的文件差不多，性能也几乎一样(稍微快一点点)</li><li>protoc-gen-gofast：生成的文件更复杂，性能也更高(快5-7倍)</li></ul><p>GitHub 仓库地址: <a href="https://github.com/gogo/protobuf" target="_blank" rel="noopener">https://github.com/gogo/protobuf</a></p><p>安装插件：</p><pre><code class="shell">//gogogo get github.com/gogo/protobuf/protoc-gen-gogo//gofastgo get github.com/gogo/protobuf/protoc-gen-gofast</code></pre><p>安装库文件：</p><pre><code class="shell">go get github.com/gogo/protobuf/protogo get github.com/gogo/protobuf/gogoproto  //这个不装也没关系</code></pre><p>编译命令：</p><pre><code>// gogoprotoc --gogo_out=/path/to/output_dir test.proto// gofastprotoc --gofast_out=/path/to/output_dir test.proto</code></pre></li></ol><p>性能测试：</p><p>参考<a href="https://segmentfault.com/a/1190000009277748" target="_blank" rel="noopener">这里</a></p><pre><code>//goprotobuf&quot;编码&quot;：447ns/op&quot;解码&quot;：422ns/op//gogoprotobuf-go&quot;编码&quot;：433ns/op&quot;解码&quot;：427ns/op//gogoprotobuf-fast&quot;编码&quot;：112ns/op&quot;解码&quot;：112ns/op</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Infra </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Protocol Buffer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hadoop</title>
+      <link href="2020/11/21/Hadoop/"/>
+      <url>2020/11/21/Hadoop/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>归档_todo</title>
       <link href="2020/11/17/%E5%BD%92%E6%A1%A3-todo/"/>
       <url>2020/11/17/%E5%BD%92%E6%A1%A3-todo/</url>
@@ -126,7 +176,7 @@
       <link href="2020/11/17/%E6%8E%A8%E8%8D%90%E5%B9%BF%E5%91%8A%E6%90%9C%E7%B4%A2-todo/"/>
       <url>2020/11/17/%E6%8E%A8%E8%8D%90%E5%B9%BF%E5%91%8A%E6%90%9C%E7%B4%A2-todo/</url>
       
-        <content type="html"><![CDATA[<p>施工中🚧<br>todo: 经典模型到深度模型</p>]]></content>
+        <content type="html"><![CDATA[<p>施工中🚧<br>todo: 经典模型到深度模型</p><p>Deep Retrieval<br>TDM</p>]]></content>
       
       
       <categories>
