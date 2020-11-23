@@ -6,19 +6,14 @@
   <meta name="keywords" content=" 机器学习 , Graph , 推荐 , CF ">
   <meta name="description" content="Neural Graph Collaborative Filtering | Leon Wang">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Leon Wang    I am an undergraduate majoring in Software Engineering in Tongji University.  Interest: &amp;nbsp;&amp;nbsp;&amp;nbsp;Machine Learning, Deep Learning, Computer Vision    GitHub: &amp;nbsp;&amp;nb">
 <meta property="og:type" content="website">
-<meta property="og:title" content="About Me">
-<meta property="og:url" content="http://www.leonwang.top/about/index.html">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://www.leonwang.top/categories/index.html">
 <meta property="og:site_name" content="Leon Wang">
-<meta property="og:description" content="Leon Wang    I am an undergraduate majoring in Software Engineering in Tongji University.  Interest: &amp;nbsp;&amp;nbsp;&amp;nbsp;Machine Learning, Deep Learning, Computer Vision    GitHub: &amp;nbsp;&amp;nb">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://img.cdn.leonwang.top/pic.jpeg">
-<meta property="og:updated_time" content="2020-07-11T10:40:25.000Z">
+<meta property="og:updated_time" content="2018-11-17T04:04:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Me">
-<meta name="twitter:description" content="Leon Wang    I am an undergraduate majoring in Software Engineering in Tongji University.  Interest: &amp;nbsp;&amp;nbsp;&amp;nbsp;Machine Learning, Deep Learning, Computer Vision    GitHub: &amp;nbsp;&amp;nb">
-<meta name="twitter:image" content="http://img.cdn.leonwang.top/pic.jpeg">
+<meta name="twitter:title" content="categories">
 
 
 <link rel="icon" href="/images/avatar.jpeg">
@@ -1093,7 +1088,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-11-23 21:33:29'>2020-11-23 21:31</time>
+            Created At : <time class="date" title='Updated At: 2020-11-23 21:34:55'>2020-11-23 21:31</time>
         
     </div>
     <div class="article-meta">
@@ -1157,7 +1152,7 @@
 <li>结果：模型对 user-item 中的 <strong>high-order connectivity</strong> 进行了很好的建模，从而吧 user-item 之间的 Collaborative Signal 编码进了 embedding 中。</li>
 </ol>
 <h2 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h2><h3 id="构图"><a href="#构图" class="headerlink" title="构图"></a>构图</h3><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123210549539.png" alt="user-item交互图与高阶连接" style="zoom:50%;"></p>
-<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123210805320.png" alt="NGCF模型结构" style="zoom: 50%;"></p>
+<h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201123210805320.png" alt="NGCF模型结构" style="zoom: 25%;"></p>
 <p>先用 user/item 的 feature 向量作为初始化的 embedding。</p>
 <p>然后通过多层 Embedding Propagation layers 进行信息传播，训练 embedding 并引入高阶交互信息。</p>
 <p>然后把user/item在每层的embedding进行concatenate，作为user/item最终的embedding。</p>
@@ -1201,6 +1196,46 @@
 
 
 
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
     
 
 
