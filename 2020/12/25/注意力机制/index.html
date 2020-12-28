@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>注意力机制 | Leon Wang</title>
+  <meta name="keywords" content=" Attention ">
+  <meta name="description" content="注意力机制 | Leon Wang">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://www.leonwang.top/categories/index.html">
+<meta property="og:site_name" content="Leon Wang">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-17T04:04:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+
+
+<link rel="icon" href="/images/avatar.jpeg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.1.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/images/avatar.jpeg" />
+</a>
+<div class="author">
+    <span>Leon Wang</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/AzureLeon1" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="linkedin" href="https://www.linkedin.com/in/%E4%BA%AE-%E7%8E%8B-a1baab193/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-linkedin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/wang-liang-62-42" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:wangliang.leon20@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="All">All<small>(62)</small></div></li>
+    
+        
+            
+            <li><div data-rel="机器学习"><i class="fold iconfont icon-right"></i>机器学习<small>(27)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="机器学习<--->Graph">Graph<small>(6)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->推荐广告搜索">推荐广告搜索<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->自然语言处理">自然语言处理<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->计算机视觉">计算机视觉<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->其他">其他<small>(2)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="数学">数学<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="大数据">大数据<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Infra">Infra<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="分布式">分布式<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Cpp">Cpp<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Python">Python<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Go">Go<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法与数据结构">算法与数据结构<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具"><i class="fold iconfont icon-right"></i>工具<small>(2)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="工具<--->Git">Git<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="其他">其他<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="Archive"><i class="fold iconfont icon-right"></i>Archive<small>(12)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="Archive<--->计算机网络">计算机网络<small>(2)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->Android">Android<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->ARCore">ARCore<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->Blog">Blog<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->UML">UML<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->Web">Web<small>(3)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  site_url"  href="/about">About</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="62">
+<input type="hidden" id="yelog_site_word_count" value="73k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>单调栈</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分割</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分支</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>概率论与数理统计</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>感知机</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>过拟合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>机器学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机视觉</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机网络</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>朴素贝叶斯</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>奇异值</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>奇异值分解</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>欠拟合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>深度学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>双指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>损失函数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>统计学习方法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图结构学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>推荐</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>吴恩达</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性代数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚函数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>异常检测</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>AR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ARCore</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Attention</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Blog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C++</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CF</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Cross Validation</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>css</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GAN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Graph</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Graph Embedding</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>html</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LeetCode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Message Passing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ns-3</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Protocol Buffer</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>React</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Relation Inference</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>solutions</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>U-Net</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Ubuntu</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>UML</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ViewPager</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ViewPagerTransforms</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Web</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All 机器学习 其他 "
+           href="/2020/12/25/注意力机制/"
+           data-tag="Attention"
+           data-author="" >
+            <span class="post-title" title="注意力机制">注意力机制</span>
+            <span class="post-date" title="2020-12-25 15:00:21">2020/12/25</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/12/25/Message-Passing/"
+           data-tag="Graph Embedding,Message Passing"
+           data-author="" >
+            <span class="post-title" title="Message Passing">Message Passing</span>
+            <span class="post-date" title="2020-12-25 14:59:14">2020/12/25</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/12/11/图结构学习/"
+           data-tag="图结构学习"
+           data-author="" >
+            <span class="post-title" title="图结构学习">图结构学习</span>
+            <span class="post-date" title="2020-12-11 14:59:56">2020/12/11</span>
+        </a>
+        
+        <a  class="All 机器学习 推荐广告搜索 "
+           href="/2020/12/04/Recommender-System-模型梳理/"
+           data-tag="推荐"
+           data-author="" >
+            <span class="post-title" title="Recommender System 模型梳理">Recommender System 模型梳理</span>
+            <span class="post-date" title="2020-12-04 14:59:35">2020/12/04</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/27/Graph-Embedding-深层模型-GNNs系列/"
+           data-tag="Graph Embedding"
+           data-author="" >
+            <span class="post-title" title="Graph Embedding 深层模型(GNNs系列)">Graph Embedding 深层模型(GNNs系列)</span>
+            <span class="post-date" title="2020-11-27 14:58:56">2020/11/27</span>
+        </a>
+        
+        <a  class="All 机器学习 推荐广告搜索 "
+           href="/2020/11/23/Neural-Graph-Collaborative-Filtering/"
+           data-tag="机器学习,Graph,推荐,CF"
+           data-author="" >
+            <span class="post-title" title="Neural Graph Collaborative Filtering">Neural Graph Collaborative Filtering</span>
+            <span class="post-date" title="2020-11-23 21:31:09">2020/11/23</span>
+        </a>
+        
+        <a  class="All Infra "
+           href="/2020/11/23/ProtoBuf编译生成Go代码/"
+           data-tag="Protocol Buffer"
+           data-author="" >
+            <span class="post-title" title="ProtoBuf编译生成Go代码">ProtoBuf编译生成Go代码</span>
+            <span class="post-date" title="2020-11-23 14:58:07">2020/11/23</span>
+        </a>
+        
+        <a  class="All 大数据 "
+           href="/2020/11/21/Hadoop/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="Hadoop">Hadoop</span>
+            <span class="post-date" title="2020-11-21 11:14:31">2020/11/21</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/18/Relation-Inference-论文梳理/"
+           data-tag="Relation Inference"
+           data-author="" >
+            <span class="post-title" title="Relation Inference 论文梳理">Relation Inference 论文梳理</span>
+            <span class="post-date" title="2020-11-18 15:32:44">2020/11/18</span>
+        </a>
+        
+        <a  class="All Archive "
+           href="/2020/11/17/归档-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="归档_todo">归档_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:44">2020/11/17</span>
+        </a>
+        
+        <a  class="All 其他 "
+           href="/2020/11/17/其他-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="其他_todo">其他_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:31">2020/11/17</span>
+        </a>
+        
+        <a  class="All 算法与数据结构 "
+           href="/2020/11/17/算法与数据结构-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="算法与数据结构_todo">算法与数据结构_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:22">2020/11/17</span>
+        </a>
+        
+        <a  class="All 工具 "
+           href="/2020/11/17/工具-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="工具_todo">工具_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:11">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 计算机视觉 "
+           href="/2020/11/17/计算机视觉-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="计算机视觉_todo">计算机视觉_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:03">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 自然语言处理 "
+           href="/2020/11/17/自然语言处理-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="自然语言处理_todo">自然语言处理_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:54">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 推荐广告搜索 "
+           href="/2020/11/17/推荐广告搜索-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="推荐广告搜索_todo">推荐广告搜索_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:41">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/17/图表示学习-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="图表示学习_todo">图表示学习_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:30">2020/11/17</span>
+        </a>
+        
+        <a  class="All Go "
+           href="/2020/11/17/Go-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Go_todo">Go_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:18">2020/11/17</span>
+        </a>
+        
+        <a  class="All Python "
+           href="/2020/11/17/Python-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python_todo">Python_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:07">2020/11/17</span>
+        </a>
+        
+        <a  class="All Cpp "
+           href="/2020/11/17/C-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++_todo">C++_todo</span>
+            <span class="post-date" title="2020-11-17 00:39:58">2020/11/17</span>
+        </a>
+        
+        <a  class="All 分布式 "
+           href="/2020/11/17/分布式todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="分布式todo">分布式todo</span>
+            <span class="post-date" title="2020-11-17 00:39:44">2020/11/17</span>
+        </a>
+        
+        <a  class="All Infra "
+           href="/2020/11/17/Infra-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Infra_todo">Infra_todo</span>
+            <span class="post-date" title="2020-11-17 00:39:32">2020/11/17</span>
+        </a>
+        
+        <a  class="All 大数据 "
+           href="/2020/11/17/大数据todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="大数据todo">大数据todo</span>
+            <span class="post-date" title="2020-11-17 00:38:03">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/13/Graph-Embedding-浅层模型/"
+           data-tag="Graph Embedding"
+           data-author="" >
+            <span class="post-title" title="Graph Embedding 浅层模型">Graph Embedding 浅层模型</span>
+            <span class="post-date" title="2020-11-13 14:58:37">2020/11/13</span>
+        </a>
+        
+        <a  class="All 算法与数据结构 "
+           href="/2020/07/11/LeetCode11-vs-LeetCode84/"
+           data-tag="LeetCode,双指针,单调栈"
+           data-author="" >
+            <span class="post-title" title="LeetCode11 vs LeetCode84 柱状图中的矩形">LeetCode11 vs LeetCode84 柱状图中的矩形</span>
+            <span class="post-date" title="2020-07-11 18:32:17">2020/07/11</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/04/07/Loss-Function-for-Medical-and-Non-medical-Image-Segmentation/"
+           data-tag="机器学习,深度学习,分割,计算机视觉,损失函数"
+           data-author="" >
+            <span class="post-title" title="Loss Function for Medical and Non-medical Image Segmentation">Loss Function for Medical and Non-medical Image Segmentation</span>
+            <span class="post-date" title="2020-04-07 19:08:53">2020/04/07</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/03/22/U-Net/"
+           data-tag="机器学习,分割,计算机视觉,U-Net"
+           data-author="" >
+            <span class="post-title" title="U-Net">U-Net</span>
+            <span class="post-date" title="2020-03-22 09:59:36">2020/03/22</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/03/22/Segmentation-Review/"
+           data-tag="机器学习,深度学习,分割,计算机视觉"
+           data-author="" >
+            <span class="post-title" title="Segmentation Review">Segmentation Review</span>
+            <span class="post-date" title="2020-03-22 09:52:25">2020/03/22</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/03/15/Bias-Variance-N-fold-Cross-Validation/"
+           data-tag="机器学习,过拟合,欠拟合,Cross Validation"
+           data-author="" >
+            <span class="post-title" title="Bias, Variance, N-fold Cross Validation">Bias, Variance, N-fold Cross Validation</span>
+            <span class="post-date" title="2020-03-15 10:00:37">2020/03/15</span>
+        </a>
+        
+        <a  class="All 数学 "
+           href="/2020/03/01/概率论与数理统计/"
+           data-tag="概率论与数理统计"
+           data-author="" >
+            <span class="post-title" title="概率论与数理统计">概率论与数理统计</span>
+            <span class="post-date" title="2020-03-01 00:11:03">2020/03/01</span>
+        </a>
+        
+        <a  class="All 数学 "
+           href="/2020/02/29/奇异值分解-SVD-Singular-Value-Decomposition/"
+           data-tag="数学,线性代数,奇异值,奇异值分解"
+           data-author="" >
+            <span class="post-title" title="奇异值分解 (SVD, Singular Value Decomposition)">奇异值分解 (SVD, Singular Value Decomposition)</span>
+            <span class="post-date" title="2020-02-29 01:26:56">2020/02/29</span>
+        </a>
+        
+        <a  class="All 数学 "
+           href="/2020/02/29/Linear-Algebra/"
+           data-tag="数学,线性代数"
+           data-author="" >
+            <span class="post-title" title="Linear Algebra">Linear Algebra</span>
+            <span class="post-date" title="2020-02-29 00:52:49">2020/02/29</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/11/11/朴素贝叶斯分类算法/"
+           data-tag="机器学习,朴素贝叶斯"
+           data-author="" >
+            <span class="post-title" title="朴素贝叶斯分类算法">朴素贝叶斯分类算法</span>
+            <span class="post-date" title="2019-11-11 18:17:47">2019/11/11</span>
+        </a>
+        
+        <a  class="All 机器学习 其他 "
+           href="/2019/11/07/GAN异常检测/"
+           data-tag="深度学习,GAN,异常检测"
+           data-author="" >
+            <span class="post-title" title="GAN异常检测">GAN异常检测</span>
+            <span class="post-date" title="2019-11-07 21:34:36">2019/11/07</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/11/07/机器学习分类/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习分类">机器学习分类</span>
+            <span class="post-date" title="2019-11-07 21:29:27">2019/11/07</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/11/03/关于感知机学习算法的对偶形式/"
+           data-tag="机器学习,统计学习方法,感知机"
+           data-author="" >
+            <span class="post-title" title="关于感知机学习算法的对偶形式">关于感知机学习算法的对偶形式</span>
+            <span class="post-date" title="2019-11-03 16:54:10">2019/11/03</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/10/09/C-vs-Java-之虚函数/"
+           data-tag="C++,Java,虚函数"
+           data-author="" >
+            <span class="post-title" title="C++ vs Java 之虚函数">C++ vs Java 之虚函数</span>
+            <span class="post-date" title="2019-10-09 21:54:29">2019/10/09</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/09/09/yolov3-Keras实现解读/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="yolov3 Keras实现解读">yolov3 Keras实现解读</span>
+            <span class="post-date" title="2019-09-09 19:41:37">2019/09/09</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/24/Stanford-ML-Note/"
+           data-tag="机器学习,吴恩达"
+           data-author="" >
+            <span class="post-title" title="Stanford ML Note">Stanford ML Note</span>
+            <span class="post-date" title="2019-07-24 12:52:02">2019/07/24</span>
+        </a>
+        
+        <a  class="All 机器学习 计算机视觉 "
+           href="/2019/07/23/Global-Average-Pooling/"
+           data-tag="深度学习"
+           data-author="" >
+            <span class="post-title" title="Global Average Pooling">Global Average Pooling</span>
+            <span class="post-date" title="2019-07-23 15:25:20">2019/07/23</span>
+        </a>
+        
+        <a  class="All 机器学习 计算机视觉 "
+           href="/2019/07/23/卷积可视化：Grad-CAM/"
+           data-tag="深度学习"
+           data-author="" >
+            <span class="post-title" title="卷积可视化：Grad-CAM">卷积可视化：Grad-CAM</span>
+            <span class="post-date" title="2019-07-23 14:49:26">2019/07/23</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/21/ResNet-K-Fold-Cross-Validation/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="ResNet &amp; K-Fold Cross Validation">ResNet &amp; K-Fold Cross Validation</span>
+            <span class="post-date" title="2019-07-21 11:32:14">2019/07/21</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/21/Siamese-Network/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Siamese Network">Siamese Network</span>
+            <span class="post-date" title="2019-07-21 11:31:50">2019/07/21</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/21/Keras-中的损失函数/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Keras 中的损失函数">Keras 中的损失函数</span>
+            <span class="post-date" title="2019-07-21 11:31:32">2019/07/21</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/07/16/Xrandr-displaying-“Failed-to-get-size-of-gamma-for-output-default”/"
+           data-tag="Ubuntu"
+           data-author="" >
+            <span class="post-title" title="Xrandr displaying “Failed to get size of gamma for output default”">Xrandr displaying “Failed to get size of gamma for output default”</span>
+            <span class="post-date" title="2019-07-16 10:42:10">2019/07/16</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/07/07/el-button样式/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="el-button样式">el-button样式</span>
+            <span class="post-date" title="2019-07-07 21:26:39">2019/07/07</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/06/05/ajax和axios、fetch的区别/"
+           data-tag="Web"
+           data-author="" >
+            <span class="post-title" title="ajax和axios、fetch的区别">ajax和axios、fetch的区别</span>
+            <span class="post-date" title="2019-06-05 19:40:04">2019/06/05</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/05/18/go-echo后端处理跨域的两种方式/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="go echo后端处理跨域的两种方式">go echo后端处理跨域的两种方式</span>
+            <span class="post-date" title="2019-05-18 00:48:13">2019/05/18</span>
+        </a>
+        
+        <a  class="All Archive Web "
+           href="/2019/05/08/Fetch-API-检测请求是否成功/"
+           data-tag="Web,JavaScript"
+           data-author="" >
+            <span class="post-title" title="Fetch API 检测请求是否成功">Fetch API 检测请求是否成功</span>
+            <span class="post-date" title="2019-05-08 00:12:09">2019/05/08</span>
+        </a>
+        
+        <a  class="All 算法与数据结构 "
+           href="/2019/03/19/Analysis-and-Design-of-Algorithms/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="算法课笔记">算法课笔记</span>
+            <span class="post-date" title="2019-03-19 20:55:58">2019/03/19</span>
+        </a>
+        
+        <a  class="All Archive UML "
+           href="/2019/03/16/UML和模式应用-Note/"
+           data-tag="UML"
+           data-author="" >
+            <span class="post-title" title="UML和模式应用 Note">UML和模式应用 Note</span>
+            <span class="post-date" title="2019-03-16 15:05:56">2019/03/16</span>
+        </a>
+        
+        <a  class="All Archive Web "
+           href="/2019/03/16/React-Note/"
+           data-tag="Web,React,前端"
+           data-author="" >
+            <span class="post-title" title="React Note">React Note</span>
+            <span class="post-date" title="2019-03-16 15:05:38">2019/03/16</span>
+        </a>
+        
+        <a  class="All Archive ARCore "
+           href="/2019/02/14/ARCore踩坑——无法放置3D模型/"
+           data-tag="ARCore,AR,Android"
+           data-author="" >
+            <span class="post-title" title="ARCore踩坑——无法放置3D模型">ARCore踩坑——无法放置3D模型</span>
+            <span class="post-date" title="2019-02-14 12:13:27">2019/02/14</span>
+        </a>
+        
+        <a  class="All 工具 Git "
+           href="/2019/02/02/Git本地分支与远程分支/"
+           data-tag="Git,GitHub,分支"
+           data-author="" >
+            <span class="post-title" title="Git本地分支与远程分支">Git本地分支与远程分支</span>
+            <span class="post-date" title="2019-02-02 11:17:49">2019/02/02</span>
+        </a>
+        
+        <a  class="All Archive Android "
+           href="/2019/01/27/ViewPager与ViewPagerTransforms/"
+           data-tag="Android,ViewPager,ViewPagerTransforms"
+           data-author="" >
+            <span class="post-title" title="ViewPager与ViewPagerTransforms">ViewPager与ViewPagerTransforms</span>
+            <span class="post-date" title="2019-01-27 10:35:51">2019/01/27</span>
+        </a>
+        
+        <a  class="All 其他 "
+           href="/2018/12/14/Awesome-Solutions/"
+           data-tag="solutions"
+           data-author="" >
+            <span class="post-title" title="Awesome Solutions">Awesome Solutions</span>
+            <span class="post-date" title="2018-12-14 20:59:16">2018/12/14</span>
+        </a>
+        
+        <a  class="All Archive Web "
+           href="/2018/12/14/Web开发笔记/"
+           data-tag="Web,前端,html,css"
+           data-author="" >
+            <span class="post-title" title="Web开发笔记">Web开发笔记</span>
+            <span class="post-date" title="2018-12-14 20:25:44">2018/12/14</span>
+        </a>
+        
+        <a  class="All Archive 计算机网络 "
+           href="/2018/12/07/ns-3使用总结/"
+           data-tag="计算机网络,ns-3"
+           data-author="" >
+            <span class="post-title" title="ns-3使用及计网实验总结">ns-3使用及计网实验总结</span>
+            <span class="post-date" title="2018-12-07 23:52:51">2018/12/07</span>
+        </a>
+        
+        <a  class="All Archive 计算机网络 "
+           href="/2018/12/02/ns-3入门/"
+           data-tag="计算机网络,ns-3"
+           data-author="" >
+            <span class="post-title" title="ns-3入门">ns-3入门</span>
+            <span class="post-date" title="2018-12-02 00:44:45">2018/12/02</span>
+        </a>
+        
+        <a  class="All Archive ARCore "
+           href="/2018/11/22/ARCore-3D模型/"
+           data-tag="ARCore,AR,Android"
+           data-author="" >
+            <span class="post-title" title="ARCore 3D模型">ARCore 3D模型</span>
+            <span class="post-date" title="2018-11-22 23:10:23">2018/11/22</span>
+        </a>
+        
+        <a  class="All Archive ARCore "
+           href="/2018/11/22/ARCore-SDK-sample-代码分析/"
+           data-tag="ARCore,AR,Android"
+           data-author="" >
+            <span class="post-title" title="ARCore SDK sample 代码分析">ARCore SDK sample 代码分析</span>
+            <span class="post-date" title="2018-11-22 23:01:45">2018/11/22</span>
+        </a>
+        
+        <a  class="All Archive Blog "
+           href="/2018/11/17/阿里云ECS-Hexo搭建个人博客/"
+           data-tag="Blog,Hexo"
+           data-author="" >
+            <span class="post-title" title="阿里云ECS+Hexo搭建个人博客">阿里云ECS+Hexo搭建个人博客</span>
+            <span class="post-date" title="2018-11-17 00:24:26">2018/11/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-注意力机制" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">注意力机制</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="机器学习">机器学习</a> > 
+            
+            <a  data-rel="机器学习&lt;---&gt;其他">其他</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">Attention</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-12-28 15:48:40'>2020-12-25 15:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:2.2k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Seq2Seq模型的提出"><span class="toc-text">Seq2Seq模型的提出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#传统Seq2Seq模型的局限"><span class="toc-text">传统Seq2Seq模型的局限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention-Mechanism"><span class="toc-text">Attention Mechanism</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#提出"><span class="toc-text">提出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算过程"><span class="toc-text">计算过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心本质"><span class="toc-text">核心本质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Soft-Attention-和-Hard-Attention"><span class="toc-text">Soft Attention 和 Hard Attention</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Global-Attention-和-Local-Attention"><span class="toc-text">Global Attention 和 Local Attention</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Self-Attention-amp-Transformer"><span class="toc-text">Self Attention &amp; Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#QKV"><span class="toc-text">QKV</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Self-Attention"><span class="toc-text">Self Attention</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Transformer"><span class="toc-text">Transformer</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Seq2Seq模型的提出"><span class="toc-text">Seq2Seq模型的提出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#传统Seq2Seq模型的局限"><span class="toc-text">传统Seq2Seq模型的局限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention-Mechanism"><span class="toc-text">Attention Mechanism</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#提出"><span class="toc-text">提出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算过程"><span class="toc-text">计算过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#核心本质"><span class="toc-text">核心本质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Soft-Attention-和-Hard-Attention"><span class="toc-text">Soft Attention 和 Hard Attention</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Global-Attention-和-Local-Attention"><span class="toc-text">Global Attention 和 Local Attention</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Self-Attention-amp-Transformer"><span class="toc-text">Self Attention &amp; Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#QKV"><span class="toc-text">QKV</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Self-Attention"><span class="toc-text">Self Attention</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Transformer"><span class="toc-text">Transformer</span></a></li></ol></li></ol></li></ol></li></ol></div></p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><h4 id="Seq2Seq模型的提出"><a href="#Seq2Seq模型的提出" class="headerlink" title="Seq2Seq模型的提出"></a>Seq2Seq模型的提出</h4><p>为了解决<strong>机器翻译</strong>问题提出的 Seq2Seq模型基于 RNN，最早由这两篇文章提出：</p>
+<ol>
+<li><blockquote>
+<p>Sutskever, I., Vinyals, O., &amp; Le, Q. V. (2014). <strong>Sequence to sequence learning with neural networks</strong>. <em>Advances in neural information processing systems</em>, <em>27</em>, 3104-3112.</p>
+</blockquote>
+<p>  使用 LSTM 来构建 Seq2Seq模型。其中前三个为 Encoder 层，后五个为 Decoder 层。</p>
+<p>  这个最早提出的 Seq2Seq 模型还有一个缺点，只支持固定长度的输入。</p>
+<p>  <img src="http://img.cdn.leonwang.top/image-20201225142512450.png" alt="image-20201225142512450"></p>
+</li>
+<li><blockquote>
+<p>Cho, K., Van Merriënboer, B., Gulcehre, C., Bahdanau, D., Bougares, F., Schwenk, H., &amp; Bengio, Y. (2014). <strong>Learning phrase representations using RNN encoder-decoder for statistical machine translation</strong>. <em>arXiv preprint arXiv:1406.1078</em>.</p>
+</blockquote>
+<p>  提出了基于 GRU 的 Seq2Seq 模型</p>
+<p>  <img src="http://img.cdn.leonwang.top/image-20201225151015755.png" alt="image-20201225142533287"></p>
+</li>
+</ol>
+<h4 id="传统Seq2Seq模型的局限"><a href="#传统Seq2Seq模型的局限" class="headerlink" title="传统Seq2Seq模型的局限"></a>传统Seq2Seq模型的局限</h4><p>传统 Seq2Seq 模型主要由两个 RNN 模型组成，分别起到 Encoder 和 Decoder 的作用，通过“不定长序列 -&gt; 定长隐向量 -&gt; 不定长序列”的转换实现机器翻译。</p>
+<p>传统 Seq2Seq 的局限在于：</p>
+<ol>
+<li>对输入序列缺乏区分度</li>
+<li>对长序列有信息损失。因为会把任何序列都首先转化为定长的隐向量，对于比较长的输入序列会有信息损失。从另一个角度来看，RNN机制本身存在着长程梯度消失的问题。</li>
+</ol>
+<p>为了解决上述问题，引入了 Attention 机制。</p>
+<h3 id="Attention-Mechanism"><a href="#Attention-Mechanism" class="headerlink" title="Attention Mechanism"></a>Attention Mechanism</h3><blockquote>
+<p>Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014). <strong>Neural machine translation by jointly learning to align and translate</strong>. <em>arXiv preprint arXiv:1409.0473</em>.</p>
+</blockquote>
+<h4 id="提出"><a href="#提出" class="headerlink" title="提出"></a>提出</h4><p><img src="http://img.cdn.leonwang.top/image-20201225144843587.png" alt="image-20201225144357457"></p>
+<p>引入 Attention Mechanism 后，Seq2Seq中的encoder被替换为一个双向循环网络（bidirectional RNN），decoder部分则利用encoder部分的所有输入信息（加权求和），这使得对于<strong>每个输出y</strong>，都和之前的输出以及当前的<strong>整个句子</strong>有关。</p>
+<p>同时，原来输出的梯度只能从最后一个时刻的隐含状态向更早时刻传导，有了attention机制之后，梯度能直接传导到输入部分，降低的梯度消失的风险。</p>
+<p>因为不再需要将完整的输入序列编码为固定长度的向量，而是要让全部的原文序列参与到每一步的 decoder 中，那么就会面临一个核心问题，需要在每一步 decoder 中确定输入序列各个部分的权重（物理含义是每一步预测时输入序列的哪些部分对当前预测更加重要）。所以需要对序列的不同部分进行<strong>加权</strong>。</p>
+<h4 id="计算过程"><a href="#计算过程" class="headerlink" title="计算过程"></a>计算过程</h4><ol>
+<li><p>利用 BRNN 结构得到 hidden state： </p>
+</li>
+<li><p>计算当前 state 中每个输入位置  的权重，权重通过相关性算符和softmax计算得到，然后加权求和得到 context vector：</p>
+<p> <img src="http://img.cdn.leonwang.top/image-20201225142533287.png" alt="image-20201225144843587"></p>
+<p> 其中 a(s,h) 表示相关性算符，常见的比如点乘、加权点乘</p>
+</li>
+<li><p>计算输出的条件概率：</p>
+<p> <img src="http://img.cdn.leonwang.top/image-20201225144357457.png" alt="image-20201225151015755"></p>
+</li>
+</ol>
+<p>通过可视化权重矩阵理解模型的工作机制：</p>
+<p><img src="http://img.cdn.leonwang.top/70d4600934a1a5513296c5561bc75962.jpg" alt="image-20201225151345815"></p>
+<h4 id="核心本质"><a href="#核心本质" class="headerlink" title="核心本质"></a>核心本质</h4><p>计算encoder与decoder state之间的关联性的权重，得到Attention分布，从而对于当前输出位置得到比较重要的输入位置的权重，在预测输出时相应的会占较大的比重。</p>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><h5 id="Soft-Attention-和-Hard-Attention"><a href="#Soft-Attention-和-Hard-Attention" class="headerlink" title="Soft Attention 和 Hard Attention"></a>Soft Attention 和 Hard Attention</h5><blockquote>
+<p>Xu, K., Ba, J., Kiros, R., Cho, K., Courville, A., Salakhudinov, R., … &amp; Bengio, Y. (2015, June). <strong>Show, attend and tell: Neural image caption generation with visual attention</strong>. In <em>International conference on machine learning</em> (pp. 2048-2057).</p>
+</blockquote>
+<p>任务：Image Caption</p>
+<p>在Image Caption中引入了Attention，当生成第i个关于图片内容描述的词时，用Attention来关联与i个词相关的图片的区域。</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201225154657676.png" alt="image-20201225152850214"></p>
+<p>论文中使用了两种Attention Mechanism，即Soft Attention和Hard Attention。</p>
+<p>Soft Attention：之前所描述的传统的Attention Mechanism就是Soft Attention。Soft Attention是参数化的（Parameterization），因此可导，可以被嵌入到模型中去，直接训练。梯度可以经过Attention Mechanism模块，反向传播到模型其他部分。</p>
+<p>Hard Attention：Hard Attention是一个随机的过程。Hard Attention不会选择整个encoder的输出做为其输入，Hard Attention会依概率Si来采样输入端的隐状态一部分来进行计算，而不是整个encoder的隐状态。为了实现梯度的反向传播，需要采用蒙特卡洛采样的方法来估计模块的梯度。</p>
+<p>评价：两种Attention Mechanism都有各自的优势，但目前更多的研究和应用还是更倾向于使用Soft Attention，因为其可以直接求导，进行梯度反向传播。</p>
+<h5 id="Global-Attention-和-Local-Attention"><a href="#Global-Attention-和-Local-Attention" class="headerlink" title="Global Attention 和 Local Attention"></a>Global Attention 和 Local Attention</h5><blockquote>
+<p>Luong, M. T., Pham, H., &amp; Manning, C. D. (2015). <strong>Effective approaches to attention-based neural machine translation</strong>. <em>arXiv preprint arXiv:1508.04025</em>.</p>
+</blockquote>
+<p><strong>Global Attention：</strong>和传统的Attention model一样。所有的hidden state都被用于计算Context vector 的权重，即变长的权重向量的其长度等于encoder端输入句子的长度。</p>
+<p>Global Attention有一个明显的缺点，每一次encoder端的所有hidden state都要参与计算，这样做计算开销会比较大，特别是当encoder的句子偏长。</p>
+<p><strong>Local Attention：</strong>Local Attention是一种介于Kelvin Xu所提出的Soft Attention和Hard Attention之间的一种Attention方式，即把两种方式结合起来。其结构如图6所示。</p>
+<p>Local Attention首先会为decoder端当前的词，<strong>预测一个source端对齐位置（aligned position），然后基于选择一个窗口，用于计算背景向量。</strong></p>
+<p><strong><img src="http://img.cdn.leonwang.top/image-20201225152850214.png" alt="image-20201225154657676"></strong></p>
+<p><strong>评价：Global Attention和Local Attention各有优劣，在实际应用中，Global Attention应用更普遍，因为local Attention需要预测位置向量，这就带来两个问题：</strong></p>
+<ol>
+<li><strong>当encoder句子不是很长时，相对Global Attention，计算量并没有明显减小。</strong></li>
+<li><strong>位置向量的预测可能不准确。</strong></li>
+</ol>
+<h5 id="Self-Attention-amp-Transformer"><a href="#Self-Attention-amp-Transformer" class="headerlink" title="Self Attention &amp; Transformer"></a><strong>Self Attention &amp; Transformer</strong></h5><blockquote>
+<p><strong>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., … &amp; Polosukhin, I. (2017). \</strong>Attention is all you need.*<em> In \</em>Advances in neural information processing systems* (pp. 5998-6008).**</p>
+</blockquote>
+<h6 id="QKV"><a href="#QKV" class="headerlink" title="QKV"></a><strong>QKV</strong></h6><p><strong>query：目标向量</strong></p>
+<p><strong>key-value：X/X的矩阵变换</strong></p>
+<h6 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self Attention"></a><strong>Self Attention</strong></h6><p><strong>QKV角度理解：</strong></p>
+<p><strong>KQV分别通过不同的矩阵变换映射到不同的⼦空间中，区别在于以前共享⼀个ctx的Query，self-attention中的Query也不共享了。</strong></p>
+<p><strong>Self Attention与传统的Attention机制的区别：</strong></p>
+<ol>
+<li><p><strong>传统的Attention是基于source端和target端的隐变量（hidden state）计算Attention的，得到的结果是源端的每个词与目标端每个词之间的依赖关系。</strong></p>
+</li>
+<li><p><strong>Self Attention分别在source端和target端进行，仅与source input或者target input自身相关的Self Attention，捕捉source端或target端自身的词与词之间的依赖关系；然后再把source端的得到的self Attention加入到target端得到的Attention中，捕捉source端和target端词与词之间的依赖关系。</strong></p>
+<p> <strong><img src="https://pic2.zhimg.com/v2-ee0044cda391d9a8f6775e74aee972bd_r.jpg" alt="preview"></strong></p>
+<p> <strong>因此，self Attention Attention比传统的Attention mechanism效果要好，主要原因之一是，传统的Attention机制忽略了源端或目标端句子中词与词之间的依赖关系，相对比，self Attention可以不仅可以得到源端与目标端词与词之间的依赖关系，同时还可以有效获取源端或目标端自身词与词之间的依赖关系</strong></p>
+</li>
+</ol>
+<p><strong>Self-attention 计算过程：</strong></p>
+<p><strong><img src="http://img.cdn.leonwang.top/image-20201225151345815.png" alt="img"></strong></p>
+<h6 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a><strong>Transformer</strong></h6><p><strong>不依赖基于RNN的Seq2Seq模型，而是直接用 attention 建模。</strong></p>
+<p><strong>模型结构：</strong></p>
+<p><strong><img src="http://img.cdn.leonwang.top/image-20201225160547407.png" alt="image-20201225160547407"></strong></p>
+<p><strong>左边是encoder (N=6)，右边是decoder (N=6)。</strong></p>
+<p><strong><em>\</em>Encoder部分**</strong></p>
+<p><strong>每个 Encoder Layer 包含两个 sub-layer：</strong></p>
+<p><strong><em>\</em>sub-layer-1：multi-head self-attention mechanism\</strong>，用来进行 self-attention。**</p>
+<p><strong><em>\</em>sub-layer-2：Position-wise Feed-forward Networks\</strong>，简单的全连接网络，对每个 position 的向量分别进行相同的操作，包括两个线性变换和一个 ReLU 激活输出（输入输出层的维度都为 512，中间层为 2048）：**</p>
+<p><strong>每个 sub-layer 都使用了残差连接</strong></p>
+<p><strong><em>\</em>Decoder部分**</strong></p>
+<p><strong>每个 Decoder Layer 包含 3 个 sub-layer：</strong></p>
+<p><strong><em>\</em>sub-layer-1：Masked multi-head self-attention mechanism\</strong>，用来进行self-attention，与Encoder不同：由于是序列生成过程，所以在时刻 i 的时候，大于 i 的时刻都没有结果，只有小于 i 的时刻有结果，因此需要做Mask。**</p>
+<p><strong><em>\</em>sub-layer-2：Position-wise Feed-forward Networks\</strong>，同Encoder。**</p>
+<p><strong><em>\</em>sub-layer-3：Encoder-Decoder attention计算\</strong>。**</p>
+<p><strong><em>\</em>Encoder和Decoder中的Multi-Head Attention单元**</strong></p>
+<p><strong>每一个Multi-Head Attention单元由多个结构相似的Scaled Dot-Product Attention单元组成：</strong></p>
+<p><strong><img src="http://img.cdn.leonwang.top/image-20201225163115469.png" alt="image-20201225163115469"></strong></p>
+<p><strong>Transformer 中的 self-attention 就是在 Scaled Dot-Product Attention 单元中实现的：</strong></p>
+<p><strong>如上图左图所示，首先把输入Input经过线性变换分别得到Q、K、V，注意，Q、K、V都来自于Input，只不过是线性变换的矩阵的权值不同而已。然后把Q和K做dot Product相乘，得到输入Input词与词之间的依赖关系，然后经过尺度变换（scale）、掩码（mask）和softmax操作，得到最终的Self Attention矩阵。尺度变换是为了防止输入值过大导致训练不稳定，mask则是为了保证时间的先后关系。</strong></p>
+<p><strong>最后，把encoder端self Attention计算的结果加入到decoder做为K和V，结合decoder自身的输出做为Q，得到encoder端的attention与decoder端attention之间的依赖关系。</strong></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wangliang.leon20@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e25cb882a9cfd69b0fcf',
+            clientSecret: '866a281dc860e73a14108d1a2e93dc2e8302340d',
+            repo: 'BlogComments',
+            owner: 'AzureLeon1',
+            admin: ['AzureLeon1'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a href="http://beian.miit.gov.cn/">鲁ICP备18054179号</a>
+        </span>
+    
+    ©2018-2021 Leon
+</p>
+<!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'photoSwipe';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, article';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 622px;
+    }
+    .nav.fullscreen {
+        margin-left: -622px;
+    }
+    .nav-left {
+        width: 200px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-left: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-left: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>Graph Embedding 深层模型(GNNs系列) | Leon Wang</title>
+  <meta name="keywords" content=" Graph Embedding ">
+  <meta name="description" content="Graph Embedding 深层模型(GNNs系列) | Leon Wang">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://www.leonwang.top/categories/index.html">
+<meta property="og:site_name" content="Leon Wang">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-17T04:04:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+
+
+<link rel="icon" href="/images/avatar.jpeg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.1.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/images/avatar.jpeg" />
+</a>
+<div class="author">
+    <span>Leon Wang</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/AzureLeon1" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="linkedin" href="https://www.linkedin.com/in/%E4%BA%AE-%E7%8E%8B-a1baab193/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-linkedin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/wang-liang-62-42" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:wangliang.leon20@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="All">All<small>(62)</small></div></li>
+    
+        
+            
+            <li><div data-rel="机器学习"><i class="fold iconfont icon-right"></i>机器学习<small>(27)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="机器学习<--->Graph">Graph<small>(6)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->推荐广告搜索">推荐广告搜索<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->自然语言处理">自然语言处理<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->计算机视觉">计算机视觉<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->其他">其他<small>(2)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="数学">数学<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="大数据">大数据<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Infra">Infra<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="分布式">分布式<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Cpp">Cpp<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Python">Python<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Go">Go<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法与数据结构">算法与数据结构<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具"><i class="fold iconfont icon-right"></i>工具<small>(2)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="工具<--->Git">Git<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="其他">其他<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="Archive"><i class="fold iconfont icon-right"></i>Archive<small>(12)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="Archive<--->计算机网络">计算机网络<small>(2)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->Android">Android<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->ARCore">ARCore<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->Blog">Blog<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->UML">UML<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->Web">Web<small>(3)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  site_url"  href="/about">About</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="62">
+<input type="hidden" id="yelog_site_word_count" value="73k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>单调栈</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分割</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分支</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>概率论与数理统计</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>感知机</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>过拟合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>机器学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机视觉</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机网络</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>朴素贝叶斯</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>奇异值</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>奇异值分解</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>欠拟合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>深度学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>双指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>损失函数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>统计学习方法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图结构学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>推荐</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>吴恩达</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性代数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚函数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>异常检测</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>AR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ARCore</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Attention</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Blog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C++</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CF</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Cross Validation</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>css</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GAN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Graph</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Graph Embedding</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>html</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LeetCode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Message Passing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ns-3</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Protocol Buffer</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>React</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Relation Inference</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>solutions</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>U-Net</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Ubuntu</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>UML</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ViewPager</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ViewPagerTransforms</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Web</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All 机器学习 其他 "
+           href="/2020/12/25/注意力机制/"
+           data-tag="Attention"
+           data-author="" >
+            <span class="post-title" title="注意力机制">注意力机制</span>
+            <span class="post-date" title="2020-12-25 15:00:21">2020/12/25</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/12/25/Message-Passing/"
+           data-tag="Graph Embedding,Message Passing"
+           data-author="" >
+            <span class="post-title" title="Message Passing">Message Passing</span>
+            <span class="post-date" title="2020-12-25 14:59:14">2020/12/25</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/12/11/图结构学习/"
+           data-tag="图结构学习"
+           data-author="" >
+            <span class="post-title" title="图结构学习">图结构学习</span>
+            <span class="post-date" title="2020-12-11 14:59:56">2020/12/11</span>
+        </a>
+        
+        <a  class="All 机器学习 推荐广告搜索 "
+           href="/2020/12/04/Recommender-System-模型梳理/"
+           data-tag="推荐"
+           data-author="" >
+            <span class="post-title" title="Recommender System 模型梳理">Recommender System 模型梳理</span>
+            <span class="post-date" title="2020-12-04 14:59:35">2020/12/04</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/27/Graph-Embedding-深层模型-GNNs系列/"
+           data-tag="Graph Embedding"
+           data-author="" >
+            <span class="post-title" title="Graph Embedding 深层模型(GNNs系列)">Graph Embedding 深层模型(GNNs系列)</span>
+            <span class="post-date" title="2020-11-27 14:58:56">2020/11/27</span>
+        </a>
+        
+        <a  class="All 机器学习 推荐广告搜索 "
+           href="/2020/11/23/Neural-Graph-Collaborative-Filtering/"
+           data-tag="机器学习,Graph,推荐,CF"
+           data-author="" >
+            <span class="post-title" title="Neural Graph Collaborative Filtering">Neural Graph Collaborative Filtering</span>
+            <span class="post-date" title="2020-11-23 21:31:09">2020/11/23</span>
+        </a>
+        
+        <a  class="All Infra "
+           href="/2020/11/23/ProtoBuf编译生成Go代码/"
+           data-tag="Protocol Buffer"
+           data-author="" >
+            <span class="post-title" title="ProtoBuf编译生成Go代码">ProtoBuf编译生成Go代码</span>
+            <span class="post-date" title="2020-11-23 14:58:07">2020/11/23</span>
+        </a>
+        
+        <a  class="All 大数据 "
+           href="/2020/11/21/Hadoop/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="Hadoop">Hadoop</span>
+            <span class="post-date" title="2020-11-21 11:14:31">2020/11/21</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/18/Relation-Inference-论文梳理/"
+           data-tag="Relation Inference"
+           data-author="" >
+            <span class="post-title" title="Relation Inference 论文梳理">Relation Inference 论文梳理</span>
+            <span class="post-date" title="2020-11-18 15:32:44">2020/11/18</span>
+        </a>
+        
+        <a  class="All Archive "
+           href="/2020/11/17/归档-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="归档_todo">归档_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:44">2020/11/17</span>
+        </a>
+        
+        <a  class="All 其他 "
+           href="/2020/11/17/其他-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="其他_todo">其他_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:31">2020/11/17</span>
+        </a>
+        
+        <a  class="All 算法与数据结构 "
+           href="/2020/11/17/算法与数据结构-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="算法与数据结构_todo">算法与数据结构_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:22">2020/11/17</span>
+        </a>
+        
+        <a  class="All 工具 "
+           href="/2020/11/17/工具-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="工具_todo">工具_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:11">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 计算机视觉 "
+           href="/2020/11/17/计算机视觉-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="计算机视觉_todo">计算机视觉_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:03">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 自然语言处理 "
+           href="/2020/11/17/自然语言处理-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="自然语言处理_todo">自然语言处理_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:54">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 推荐广告搜索 "
+           href="/2020/11/17/推荐广告搜索-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="推荐广告搜索_todo">推荐广告搜索_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:41">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/17/图表示学习-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="图表示学习_todo">图表示学习_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:30">2020/11/17</span>
+        </a>
+        
+        <a  class="All Go "
+           href="/2020/11/17/Go-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Go_todo">Go_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:18">2020/11/17</span>
+        </a>
+        
+        <a  class="All Python "
+           href="/2020/11/17/Python-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python_todo">Python_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:07">2020/11/17</span>
+        </a>
+        
+        <a  class="All Cpp "
+           href="/2020/11/17/C-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++_todo">C++_todo</span>
+            <span class="post-date" title="2020-11-17 00:39:58">2020/11/17</span>
+        </a>
+        
+        <a  class="All 分布式 "
+           href="/2020/11/17/分布式todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="分布式todo">分布式todo</span>
+            <span class="post-date" title="2020-11-17 00:39:44">2020/11/17</span>
+        </a>
+        
+        <a  class="All Infra "
+           href="/2020/11/17/Infra-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Infra_todo">Infra_todo</span>
+            <span class="post-date" title="2020-11-17 00:39:32">2020/11/17</span>
+        </a>
+        
+        <a  class="All 大数据 "
+           href="/2020/11/17/大数据todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="大数据todo">大数据todo</span>
+            <span class="post-date" title="2020-11-17 00:38:03">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/13/Graph-Embedding-浅层模型/"
+           data-tag="Graph Embedding"
+           data-author="" >
+            <span class="post-title" title="Graph Embedding 浅层模型">Graph Embedding 浅层模型</span>
+            <span class="post-date" title="2020-11-13 14:58:37">2020/11/13</span>
+        </a>
+        
+        <a  class="All 算法与数据结构 "
+           href="/2020/07/11/LeetCode11-vs-LeetCode84/"
+           data-tag="LeetCode,双指针,单调栈"
+           data-author="" >
+            <span class="post-title" title="LeetCode11 vs LeetCode84 柱状图中的矩形">LeetCode11 vs LeetCode84 柱状图中的矩形</span>
+            <span class="post-date" title="2020-07-11 18:32:17">2020/07/11</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/04/07/Loss-Function-for-Medical-and-Non-medical-Image-Segmentation/"
+           data-tag="机器学习,深度学习,分割,计算机视觉,损失函数"
+           data-author="" >
+            <span class="post-title" title="Loss Function for Medical and Non-medical Image Segmentation">Loss Function for Medical and Non-medical Image Segmentation</span>
+            <span class="post-date" title="2020-04-07 19:08:53">2020/04/07</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/03/22/U-Net/"
+           data-tag="机器学习,分割,计算机视觉,U-Net"
+           data-author="" >
+            <span class="post-title" title="U-Net">U-Net</span>
+            <span class="post-date" title="2020-03-22 09:59:36">2020/03/22</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/03/22/Segmentation-Review/"
+           data-tag="机器学习,深度学习,分割,计算机视觉"
+           data-author="" >
+            <span class="post-title" title="Segmentation Review">Segmentation Review</span>
+            <span class="post-date" title="2020-03-22 09:52:25">2020/03/22</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/03/15/Bias-Variance-N-fold-Cross-Validation/"
+           data-tag="机器学习,过拟合,欠拟合,Cross Validation"
+           data-author="" >
+            <span class="post-title" title="Bias, Variance, N-fold Cross Validation">Bias, Variance, N-fold Cross Validation</span>
+            <span class="post-date" title="2020-03-15 10:00:37">2020/03/15</span>
+        </a>
+        
+        <a  class="All 数学 "
+           href="/2020/03/01/概率论与数理统计/"
+           data-tag="概率论与数理统计"
+           data-author="" >
+            <span class="post-title" title="概率论与数理统计">概率论与数理统计</span>
+            <span class="post-date" title="2020-03-01 00:11:03">2020/03/01</span>
+        </a>
+        
+        <a  class="All 数学 "
+           href="/2020/02/29/奇异值分解-SVD-Singular-Value-Decomposition/"
+           data-tag="数学,线性代数,奇异值,奇异值分解"
+           data-author="" >
+            <span class="post-title" title="奇异值分解 (SVD, Singular Value Decomposition)">奇异值分解 (SVD, Singular Value Decomposition)</span>
+            <span class="post-date" title="2020-02-29 01:26:56">2020/02/29</span>
+        </a>
+        
+        <a  class="All 数学 "
+           href="/2020/02/29/Linear-Algebra/"
+           data-tag="数学,线性代数"
+           data-author="" >
+            <span class="post-title" title="Linear Algebra">Linear Algebra</span>
+            <span class="post-date" title="2020-02-29 00:52:49">2020/02/29</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/11/11/朴素贝叶斯分类算法/"
+           data-tag="机器学习,朴素贝叶斯"
+           data-author="" >
+            <span class="post-title" title="朴素贝叶斯分类算法">朴素贝叶斯分类算法</span>
+            <span class="post-date" title="2019-11-11 18:17:47">2019/11/11</span>
+        </a>
+        
+        <a  class="All 机器学习 其他 "
+           href="/2019/11/07/GAN异常检测/"
+           data-tag="深度学习,GAN,异常检测"
+           data-author="" >
+            <span class="post-title" title="GAN异常检测">GAN异常检测</span>
+            <span class="post-date" title="2019-11-07 21:34:36">2019/11/07</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/11/07/机器学习分类/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习分类">机器学习分类</span>
+            <span class="post-date" title="2019-11-07 21:29:27">2019/11/07</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/11/03/关于感知机学习算法的对偶形式/"
+           data-tag="机器学习,统计学习方法,感知机"
+           data-author="" >
+            <span class="post-title" title="关于感知机学习算法的对偶形式">关于感知机学习算法的对偶形式</span>
+            <span class="post-date" title="2019-11-03 16:54:10">2019/11/03</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/10/09/C-vs-Java-之虚函数/"
+           data-tag="C++,Java,虚函数"
+           data-author="" >
+            <span class="post-title" title="C++ vs Java 之虚函数">C++ vs Java 之虚函数</span>
+            <span class="post-date" title="2019-10-09 21:54:29">2019/10/09</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/09/09/yolov3-Keras实现解读/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="yolov3 Keras实现解读">yolov3 Keras实现解读</span>
+            <span class="post-date" title="2019-09-09 19:41:37">2019/09/09</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/24/Stanford-ML-Note/"
+           data-tag="机器学习,吴恩达"
+           data-author="" >
+            <span class="post-title" title="Stanford ML Note">Stanford ML Note</span>
+            <span class="post-date" title="2019-07-24 12:52:02">2019/07/24</span>
+        </a>
+        
+        <a  class="All 机器学习 计算机视觉 "
+           href="/2019/07/23/Global-Average-Pooling/"
+           data-tag="深度学习"
+           data-author="" >
+            <span class="post-title" title="Global Average Pooling">Global Average Pooling</span>
+            <span class="post-date" title="2019-07-23 15:25:20">2019/07/23</span>
+        </a>
+        
+        <a  class="All 机器学习 计算机视觉 "
+           href="/2019/07/23/卷积可视化：Grad-CAM/"
+           data-tag="深度学习"
+           data-author="" >
+            <span class="post-title" title="卷积可视化：Grad-CAM">卷积可视化：Grad-CAM</span>
+            <span class="post-date" title="2019-07-23 14:49:26">2019/07/23</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/21/ResNet-K-Fold-Cross-Validation/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="ResNet &amp; K-Fold Cross Validation">ResNet &amp; K-Fold Cross Validation</span>
+            <span class="post-date" title="2019-07-21 11:32:14">2019/07/21</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/21/Siamese-Network/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Siamese Network">Siamese Network</span>
+            <span class="post-date" title="2019-07-21 11:31:50">2019/07/21</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/21/Keras-中的损失函数/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Keras 中的损失函数">Keras 中的损失函数</span>
+            <span class="post-date" title="2019-07-21 11:31:32">2019/07/21</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/07/16/Xrandr-displaying-“Failed-to-get-size-of-gamma-for-output-default”/"
+           data-tag="Ubuntu"
+           data-author="" >
+            <span class="post-title" title="Xrandr displaying “Failed to get size of gamma for output default”">Xrandr displaying “Failed to get size of gamma for output default”</span>
+            <span class="post-date" title="2019-07-16 10:42:10">2019/07/16</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/07/07/el-button样式/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="el-button样式">el-button样式</span>
+            <span class="post-date" title="2019-07-07 21:26:39">2019/07/07</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/06/05/ajax和axios、fetch的区别/"
+           data-tag="Web"
+           data-author="" >
+            <span class="post-title" title="ajax和axios、fetch的区别">ajax和axios、fetch的区别</span>
+            <span class="post-date" title="2019-06-05 19:40:04">2019/06/05</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/05/18/go-echo后端处理跨域的两种方式/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="go echo后端处理跨域的两种方式">go echo后端处理跨域的两种方式</span>
+            <span class="post-date" title="2019-05-18 00:48:13">2019/05/18</span>
+        </a>
+        
+        <a  class="All Archive Web "
+           href="/2019/05/08/Fetch-API-检测请求是否成功/"
+           data-tag="Web,JavaScript"
+           data-author="" >
+            <span class="post-title" title="Fetch API 检测请求是否成功">Fetch API 检测请求是否成功</span>
+            <span class="post-date" title="2019-05-08 00:12:09">2019/05/08</span>
+        </a>
+        
+        <a  class="All 算法与数据结构 "
+           href="/2019/03/19/Analysis-and-Design-of-Algorithms/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="算法课笔记">算法课笔记</span>
+            <span class="post-date" title="2019-03-19 20:55:58">2019/03/19</span>
+        </a>
+        
+        <a  class="All Archive UML "
+           href="/2019/03/16/UML和模式应用-Note/"
+           data-tag="UML"
+           data-author="" >
+            <span class="post-title" title="UML和模式应用 Note">UML和模式应用 Note</span>
+            <span class="post-date" title="2019-03-16 15:05:56">2019/03/16</span>
+        </a>
+        
+        <a  class="All Archive Web "
+           href="/2019/03/16/React-Note/"
+           data-tag="Web,React,前端"
+           data-author="" >
+            <span class="post-title" title="React Note">React Note</span>
+            <span class="post-date" title="2019-03-16 15:05:38">2019/03/16</span>
+        </a>
+        
+        <a  class="All Archive ARCore "
+           href="/2019/02/14/ARCore踩坑——无法放置3D模型/"
+           data-tag="ARCore,AR,Android"
+           data-author="" >
+            <span class="post-title" title="ARCore踩坑——无法放置3D模型">ARCore踩坑——无法放置3D模型</span>
+            <span class="post-date" title="2019-02-14 12:13:27">2019/02/14</span>
+        </a>
+        
+        <a  class="All 工具 Git "
+           href="/2019/02/02/Git本地分支与远程分支/"
+           data-tag="Git,GitHub,分支"
+           data-author="" >
+            <span class="post-title" title="Git本地分支与远程分支">Git本地分支与远程分支</span>
+            <span class="post-date" title="2019-02-02 11:17:49">2019/02/02</span>
+        </a>
+        
+        <a  class="All Archive Android "
+           href="/2019/01/27/ViewPager与ViewPagerTransforms/"
+           data-tag="Android,ViewPager,ViewPagerTransforms"
+           data-author="" >
+            <span class="post-title" title="ViewPager与ViewPagerTransforms">ViewPager与ViewPagerTransforms</span>
+            <span class="post-date" title="2019-01-27 10:35:51">2019/01/27</span>
+        </a>
+        
+        <a  class="All 其他 "
+           href="/2018/12/14/Awesome-Solutions/"
+           data-tag="solutions"
+           data-author="" >
+            <span class="post-title" title="Awesome Solutions">Awesome Solutions</span>
+            <span class="post-date" title="2018-12-14 20:59:16">2018/12/14</span>
+        </a>
+        
+        <a  class="All Archive Web "
+           href="/2018/12/14/Web开发笔记/"
+           data-tag="Web,前端,html,css"
+           data-author="" >
+            <span class="post-title" title="Web开发笔记">Web开发笔记</span>
+            <span class="post-date" title="2018-12-14 20:25:44">2018/12/14</span>
+        </a>
+        
+        <a  class="All Archive 计算机网络 "
+           href="/2018/12/07/ns-3使用总结/"
+           data-tag="计算机网络,ns-3"
+           data-author="" >
+            <span class="post-title" title="ns-3使用及计网实验总结">ns-3使用及计网实验总结</span>
+            <span class="post-date" title="2018-12-07 23:52:51">2018/12/07</span>
+        </a>
+        
+        <a  class="All Archive 计算机网络 "
+           href="/2018/12/02/ns-3入门/"
+           data-tag="计算机网络,ns-3"
+           data-author="" >
+            <span class="post-title" title="ns-3入门">ns-3入门</span>
+            <span class="post-date" title="2018-12-02 00:44:45">2018/12/02</span>
+        </a>
+        
+        <a  class="All Archive ARCore "
+           href="/2018/11/22/ARCore-3D模型/"
+           data-tag="ARCore,AR,Android"
+           data-author="" >
+            <span class="post-title" title="ARCore 3D模型">ARCore 3D模型</span>
+            <span class="post-date" title="2018-11-22 23:10:23">2018/11/22</span>
+        </a>
+        
+        <a  class="All Archive ARCore "
+           href="/2018/11/22/ARCore-SDK-sample-代码分析/"
+           data-tag="ARCore,AR,Android"
+           data-author="" >
+            <span class="post-title" title="ARCore SDK sample 代码分析">ARCore SDK sample 代码分析</span>
+            <span class="post-date" title="2018-11-22 23:01:45">2018/11/22</span>
+        </a>
+        
+        <a  class="All Archive Blog "
+           href="/2018/11/17/阿里云ECS-Hexo搭建个人博客/"
+           data-tag="Blog,Hexo"
+           data-author="" >
+            <span class="post-title" title="阿里云ECS+Hexo搭建个人博客">阿里云ECS+Hexo搭建个人博客</span>
+            <span class="post-date" title="2018-11-17 00:24:26">2018/11/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Graph-Embedding-深层模型-GNNs系列" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Graph Embedding 深层模型(GNNs系列)</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="机器学习">机器学习</a> > 
+            
+            <a  data-rel="机器学习&lt;---&gt;Graph">Graph</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">Graph Embedding</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-12-28 15:49:59'>2020-11-27 14:58</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:3.8k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#论文列表"><span class="toc-text">论文列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梳理"><span class="toc-text">梳理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GNNs分类"><span class="toc-text">GNNs分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GNN通用形式"><span class="toc-text">GNN通用形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spatial-domain图卷积-amp-spectral-domain图卷积"><span class="toc-text">spatial domain图卷积 &amp; spectral domain图卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spectral-domain图卷积"><span class="toc-text">spectral domain图卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#图谱理论"><span class="toc-text">图谱理论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图的拉普拉斯矩阵"><span class="toc-text">图的拉普拉斯矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图的拉普拉斯矩阵的谱分解"><span class="toc-text">图的拉普拉斯矩阵的谱分解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图的傅里叶变换和逆变换"><span class="toc-text">图的傅里叶变换和逆变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图的卷积"><span class="toc-text">图的卷积</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GCNs-Deep-Learning中的图卷积"><span class="toc-text">GCNs (Deep Learning中的图卷积)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GCN-1-谱图卷积"><span class="toc-text">GCN-1 (谱图卷积)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GCN-2-ChbeyNet"><span class="toc-text">GCN-2 (ChbeyNet)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GCN-3-semi-GCN"><span class="toc-text">GCN-3 (semi-GCN)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GGNN"><span class="toc-text">GGNN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GraphSAGE"><span class="toc-text">GraphSAGE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GAT"><span class="toc-text">GAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#论文列表"><span class="toc-text">论文列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#梳理"><span class="toc-text">梳理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GNNs分类"><span class="toc-text">GNNs分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GNN通用形式"><span class="toc-text">GNN通用形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spatial-domain图卷积-amp-spectral-domain图卷积"><span class="toc-text">spatial domain图卷积 &amp; spectral domain图卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spectral-domain图卷积"><span class="toc-text">spectral domain图卷积</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#图谱理论"><span class="toc-text">图谱理论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图的拉普拉斯矩阵"><span class="toc-text">图的拉普拉斯矩阵</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图的拉普拉斯矩阵的谱分解"><span class="toc-text">图的拉普拉斯矩阵的谱分解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图的傅里叶变换和逆变换"><span class="toc-text">图的傅里叶变换和逆变换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图的卷积"><span class="toc-text">图的卷积</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GCNs-Deep-Learning中的图卷积"><span class="toc-text">GCNs (Deep Learning中的图卷积)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GCN-1-谱图卷积"><span class="toc-text">GCN-1 (谱图卷积)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GCN-2-ChbeyNet"><span class="toc-text">GCN-2 (ChbeyNet)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GCN-3-semi-GCN"><span class="toc-text">GCN-3 (semi-GCN)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GGNN"><span class="toc-text">GGNN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GraphSAGE"><span class="toc-text">GraphSAGE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GAT"><span class="toc-text">GAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></div></p>
+<h2 id="论文列表"><a href="#论文列表" class="headerlink" title="论文列表"></a>论文列表</h2><p>[1] Bruna, J., Zaremba, W., Szlam, A., &amp; LeCun, Y. (2013). <strong>Spectral networks and locally connected networks on graphs</strong>. <em>arXiv preprint arXiv:1312.6203</em>.</p>
+<p>[2] Defferrard, M., Bresson, X., &amp; Vandergheynst, P. (2016). <strong>Convolutional neural networks on graphs with fast localized spectral filtering</strong>. In <em>Advances in neural information processing systems</em> (pp. 3844-3852).</p>
+<p>[3] Kipf, T. N., &amp; Welling, M. (2016). <strong>Semi-supervised classification with graph convolutional networks</strong>. <em>arXiv preprint arXiv:1609.02907</em>.</p>
+<p>[4] Li, Y., Tarlow, D., Brockschmidt, M., &amp; Zemel, R. (2015). <strong>Gated graph sequence neural networks</strong>. <em>arXiv preprint arXiv:1511.05493</em>.</p>
+<p>[5] Hamilton, W., Ying, Z., &amp; Leskovec, J. (2017). <strong>Inductive representation learning on large graphs</strong>. In <em>Advances in neural information processing systems</em> (pp. 1024-1034).</p>
+<p>[6] Veličković, P., Cucurull, G., Casanova, A., Romero, A., Lio, P., &amp; Bengio, Y. (2017). <strong>Graph attention networks</strong>. <em>arXiv preprint arXiv:1710.10903</em>.</p>
+<h2 id="梳理"><a href="#梳理" class="headerlink" title="梳理"></a>梳理</h2><h3 id="GNNs分类"><a href="#GNNs分类" class="headerlink" title="GNNs分类"></a>GNNs分类</h3><p>之前在梳理图表示学习时，把模型分为了浅层和深层两大类。</p>
+<p>浅层包括基于矩阵分解和基于随机游走等方法。</p>
+<p>深层模型GNNs也可以再细分成不同的种类，在清华大学孙茂松组的综述Graph Neural Networks: A Review of Methods and Applications中提供了这样的分类方法：</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201127153021707.png" alt="GNNs"></p>
+<p>从上面的 Fig. 2(c) 中可以看出，图卷积神经网络网络GCNs是GNNs中的一个重要分支。</p>
+<p>需要注意的是，“图卷积”不等于“图卷积神经网络”。前者图卷积的本质目的是用来提取拓扑图的空间结构，它有 spatial domain 和 spectral domain 两种主流形式；而后者图卷积神经网络GCNs是前者在深度学习领域(layer-wise)的发展。</p>
+<h3 id="GNN通用形式"><a href="#GNN通用形式" class="headerlink" title="GNN通用形式"></a>GNN通用形式</h3><p><img src="http://img.cdn.leonwang.top/image-20201127130330059.png" alt="GNN" style="zoom:25%;"></p>
+<h3 id="spatial-domain图卷积-amp-spectral-domain图卷积"><a href="#spatial-domain图卷积-amp-spectral-domain图卷积" class="headerlink" title="spatial domain图卷积 &amp; spectral domain图卷积"></a>spatial domain图卷积 &amp; spectral domain图卷积</h3><p>简单比较一下 spatial domain 方法和 spectral domain 方法：</p>
+<ul>
+<li><p>spatial domain：比较直观。找到每个顶点相邻的 neighbors 作为 receptive field，然后进行聚合。</p>
+<p>  <img src="http://img.cdn.leonwang.top/v2-5f9cf5fdeed19b63e1079ed2b87617b4_r.png" alt="spatial domain"></p>
+</li>
+<li><p>spectral domain：借助图谱的理论来实现拓扑图上的卷积操作。研究的时间过程是：首先研究 GSP(graph signal processing) 的学者定义了 graph 上的 Fourier Transformation，进而定义了 graph 上的 convolution，最后与深度学习结合提出了 Graph Convolutional Network。</p>
+</li>
+</ul>
+<h3 id="spectral-domain图卷积"><a href="#spectral-domain图卷积" class="headerlink" title="spectral domain图卷积"></a>spectral domain图卷积</h3><p>由于 spectral domain 方法是 GCN 的理论基础，为了后面更好地解释 GCN 论文，这里对 spectral domain 方法进行稍微具体的介绍：</p>
+<blockquote>
+<p>逻辑思路：介绍图的Laplacian矩阵 -&gt; 介绍图的Laplacian矩阵的谱分解 -&gt; 基于图的Laplacian矩阵，把传统的傅里叶变换到Graph上来，得到Graph的傅里叶变换 -&gt; 基于上一步中对图的傅里叶变换的定义，利用卷积定理，把传统的卷积推广到Graph上来，得到Graph的卷积</p>
+</blockquote>
+<h4 id="图谱理论"><a href="#图谱理论" class="headerlink" title="图谱理论"></a>图谱理论</h4><p>图谱理论是借助图的拉普拉斯矩阵的特征值和特征向量来研究图的性质。</p>
+<h4 id="图的拉普拉斯矩阵"><a href="#图的拉普拉斯矩阵" class="headerlink" title="图的拉普拉斯矩阵"></a>图的拉普拉斯矩阵</h4><p>在图的傅里叶变换和图的卷积的定义中都用到了图的拉普拉斯矩阵。</p>
+<p>图的Laplacian矩阵定义为 $L=D-A$，其中$D$是度矩阵，$A$是邻接矩阵，示例如下：</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201127120909962.png" alt="Laplacial矩阵计算"></p>
+<p>需要说明的是，常用的拉普拉斯矩阵实际上有三种：</p>
+<ol>
+<li>$L=D-A$ 定义的 Laplacian 矩阵更专业的名称叫做 Combinatorial Laplacian</li>
+<li>$L^{s y s}=D^{-1 / 2} L D^{-1 / 2}$ 定义的叫做 Symmetric normalized Laplacian，跟多 GCN 的论文中应用的是这种拉普拉斯矩阵</li>
+<li>$L^{r w}=D^{-1} L$ 定义的叫 Random walk normalized Laplacian，它与 Diffusion 有相似之处，二者只差一个相似矩阵的变换</li>
+</ol>
+<blockquote>
+<p>后面的理论只给结论，推导过程比价复杂，具体参考：<a href="https://www.zhihu.com/question/54504471/answer/332657604" target="_blank" rel="noopener">https://www.zhihu.com/question/54504471/answer/332657604</a></p>
+</blockquote>
+<h4 id="图的拉普拉斯矩阵的谱分解"><a href="#图的拉普拉斯矩阵的谱分解" class="headerlink" title="图的拉普拉斯矩阵的谱分解"></a>图的拉普拉斯矩阵的谱分解</h4><p>$$<br>L=U\left(\begin{array}{lll}<br>\lambda_{1} \\<br>&amp; \ddots \\<br>&amp; &amp; \lambda_{n}<br>\end{array}\right) U^{-1}<br>$$</p>
+<p>由于 U 是正交矩阵，即 $U U^{T}=E$，所以拉普拉斯矩阵的谱分解最终被推导出这样的形式：<br>$$<br>L=U\left(\begin{array}{lll}<br>\lambda_{1} &amp; &amp; \\<br>&amp; \ddots &amp; \\<br>&amp; &amp; \lambda_{n}<br>\end{array}\right) U^{T}<br>$$</p>
+<blockquote>
+<p>矩阵的谱分解、特征分解、对角化都是同一个概念</p>
+</blockquote>
+<h4 id="图的傅里叶变换和逆变换"><a href="#图的傅里叶变换和逆变换" class="headerlink" title="图的傅里叶变换和逆变换"></a>图的傅里叶变换和逆变换</h4><p>定义Graph上的傅里叶变换：<br>$$<br>F\left(\lambda_{l}\right)=\hat{f}\left(\lambda_{l}\right)=\sum_{i=1}^{N} f(i) u_{l}^{*}(i)<br>$$<br>利用矩阵乘法将Graph上的傅里叶变换推广到矩阵形式：<br>$$<br>\left(\begin{array}{c}<br>\hat{f}\left(\lambda_{1}\right) \\<br>\hat{f}\left(\lambda_{2}\right) \\<br>\vdots \\<br>\hat{f}\left(\lambda_{N}\right)<br>\end{array}\right)=\left(\begin{array}{cccc}<br>u_{1}(1) &amp; u_{1}(2) &amp; \ldots &amp; u_{1}(N) \\<br>u_{2}(1) &amp; u_{2}(2) &amp; \ldots &amp; u_{2}(N) \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>u_{N}(1) &amp; u_{N}(2) &amp; \ldots &amp; u_{N}(N)<br>\end{array}\right)\left(\begin{array}{c}<br>f(1) \\<br>f(2) \\<br>\vdots \\<br>f(N)<br>\end{array}\right)<br>$$<br>即 $f$ 在Graph上傅里叶变换的矩阵形式为： $\hat{f}=U^{T} f$。（这里的U就是拉普拉斯矩阵谱分解中的U）</p>
+<p>定义Graph上的傅里叶逆变换：<br>$$<br>f(i)=\sum_{l=1}^{N} \hat{f}\left(\lambda_{l}\right) u_{l}(i)<br>$$<br>利用矩阵乘法将Graph上的傅里叶逆变换推广到矩阵形式：<br>$$<br>\left(\begin{array}{c}<br>f(1) \\<br>f(2) \\<br>\vdots \\<br>f(N)<br>\end{array}\right)=\left(\begin{array}{cccc}<br>u_{1}(1) &amp; u_{2}(1) &amp; \ldots &amp; u_{N}(1) \\<br>u_{1}(2) &amp; u_{2}(2) &amp; \ldots &amp; u_{N}(2) \\<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\<br>u_{1}(N) &amp; u_{2}(N) &amp; \ldots &amp; u_{N}(N)<br>\end{array}\right)\left(\begin{array}{c}<br>\hat{f}\left(\lambda_{1}\right) \\<br>\hat{f}\left(\lambda_{2}\right) \\<br>\vdots \\<br>\hat{f}\left(\lambda_{N}\right)<br>\end{array}\right)<br>$$<br>即 $f$ 在Graph上傅里叶逆变换的矩阵形式为： $f=U \hat{f}$。（这里的U也是拉普拉斯矩阵谱分解中的U）</p>
+<h4 id="图的卷积"><a href="#图的卷积" class="headerlink" title="图的卷积"></a>图的卷积</h4><p>卷积定理：函数卷积的傅里叶变换是函数傅里叶变换的乘积，即对于函数$f(t)$与$h(t)$两者的卷积是其函数傅里叶变换乘积的逆变换：<br>$$<br>f * h=\mathcal{F}^{-1}[\hat{f}(\omega) \hat{h}(\omega)]=\frac{1}{2 \Pi} \int \hat{f}(\omega) \hat{h}(\omega) e^{i \omega t} d \omega<br>$$<br>卷积定理的意义：利用卷积定理可以简化卷积的运算量。对于一个长度为 $n$ 的序列，按照卷积的定义来计算则需要做 2n-1 组对位乘法，即时间复杂度为$O(n^2)$ ；而利用傅立叶变换后，只需要计算一组对位乘法，而且离散傅立叶变换有快速的算法（快速傅立叶变换），所以总的计算复杂度为$O(nlog(n))$  。</p>
+<p>把卷积定理类比到Graph上，并把上面得到的Graph的傅里叶变换定义带入，最终推导出Graph的卷积：<br>$$<br>(f * h)_{G}=U\left(\begin{array}{lll}<br>\hat{h}\left(\lambda_{1}\right) &amp; &amp; \\<br>&amp; \ddots &amp; \\<br>&amp; &amp; \hat{h}\left(\lambda_{n}\right)<br>\end{array}\right) U^{T} f<br>$$<br>（这里的U也是拉普拉斯矩阵谱分解中的U）</p>
+<p>上式的另一种等价形式更常出现在论文中：<br>$$<br>(f * h)_{G}=U\left(\left(U^{T} h\right) \odot\left(U^{T} f\right)\right)<br>$$<br>其中，$\odot$ 表示 Hadamard product（哈达马积），对于两个维度相同的张量进行对应位置的逐元素乘积运算。</p>
+<h3 id="GCNs-Deep-Learning中的图卷积"><a href="#GCNs-Deep-Learning中的图卷积" class="headerlink" title="GCNs (Deep Learning中的图卷积)"></a>GCNs (Deep Learning中的图卷积)</h3><p>Deep Learning 中的 Convolution 是要设计含有trainable共享参数的kernel，从图卷积公式中可以看出，图卷积的参数就是$\operatorname{diag}\left(\hat{h}\left(\lambda_{l}\right)\right)$，所以可以把这个理解为卷积核。</p>
+<ul>
+<li>第一代GCN</li>
+<li>第二代GCN</li>
+<li>第三代GCN</li>
+</ul>
+<p>第一代GCN直接使用上面推导出的频谱图卷积作为卷积核；第二代GCN通过引入K阶多项式和切比雪夫展开近似，避免了特征分解，降低了复杂度；在第二代GCN的基础上进一步优化，通过多层卷积层的叠加，直接取K=2，使得可以构建更深的模型，从而有了第三代GCN。</p>
+<p>现在普遍意义上的GCN，一般是指第三代GCN。</p>
+<h2 id="GCN-1-谱图卷积"><a href="#GCN-1-谱图卷积" class="headerlink" title="GCN-1 (谱图卷积)"></a>GCN-1 (谱图卷积)</h2><blockquote>
+<p>Bruna, J., Zaremba, W., Szlam, A., &amp; LeCun, Y. (2013). <strong>Spectral networks and locally connected networks on graphs</strong>. <em>arXiv preprint arXiv:1312.6203</em>.</p>
+</blockquote>
+<p>第一代GCN就是我们上面推导出的图卷积直接作为了权重，按照之前对卷积核的理解，可以理解为直接把 $\operatorname{diag}\left(\hat{h}\left(\lambda_{l}\right)\right)$ 作为了卷积核。</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201127142230726.png" alt="GCN-1" style="zoom:50%;"></p>
+<p>改写成<img src="https://www.zhihu.com/equation?tex=y+%3D%5Csigma%28%5Cmathbf%7BU%7Dg_%7B%5Ctheta%7D%5Cmathbf%7BU%7D%5ETx+%29+%3D%5Csigma%28%5Cmathbf%7BU%7D%7B+diag%5B%5Ctheta_1%2C...%2C%5Ctheta_n+%5D%7D%5Cmathbf%7BU%7D%5ET%7Bx%7D%29+%5C%5C+%5C%5C" alt="[公式]">的形式就跟前面推导的图卷积保持一致了。</p>
+<h2 id="GCN-2-ChbeyNet"><a href="#GCN-2-ChbeyNet" class="headerlink" title="GCN-2 (ChbeyNet)"></a>GCN-2 (ChbeyNet)</h2><blockquote>
+<p>Defferrard, M., Bresson, X., &amp; Vandergheynst, P. (2016). <strong>Convolutional neural networks on graphs with fast localized spectral filtering</strong>. In <em>Advances in neural information processing systems</em> (pp. 3844-3852).</p>
+</blockquote>
+<p>第一代的图卷积神经网络很巧妙的利用图谱理论来实现拓扑图的卷积操作，但其有很多缺点，比如说：计算复杂度太高，我们需要对拉普拉斯矩阵进行谱分解得到特征向量矩阵 <img src="https://www.zhihu.com/equation?tex=%5Cmathbf+U" alt="[公式]">，时间复杂度为 <img src="https://www.zhihu.com/equation?tex=O%28n%5E3%29" alt="[公式]"> ；就算实现完成谱分解，在做矩阵运算时时间复杂度也高达 <img src="https://www.zhihu.com/equation?tex=O%28n%5E2%29" alt="[公式]"> ；此外，GCN-1 的卷积操作是全局的操作，并不是仅来源于节点的邻域。</p>
+<p>针对这些问题，学者提出了第二代 GCN：ChbeyNet。</p>
+<p>首先，考虑到傅里叶计算函数与特征值密切相关，所以用拉普拉斯矩阵的特征值函数代替傅里叶计算。对于不具备局部连通性和时间复杂度高的缺陷，引入 K 阶多项式。代入卷积运算后，就不再需要乘特征向量矩阵U，而是直接使用拉普拉斯矩阵的k次方。</p>
+<p>此外，还引入了切比雪夫展开式来近似拉普拉斯矩阵的k次方。</p>
+<p>得到卷积变换：</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201127145755967.png" alt="GCN-2卷积运算" style="zoom:50%;"></p>
+<h2 id="GCN-3-semi-GCN"><a href="#GCN-3-semi-GCN" class="headerlink" title="GCN-3 (semi-GCN)"></a>GCN-3 (semi-GCN)</h2><blockquote>
+<p>Kipf, T. N., &amp; Welling, M. (2016). <strong>Semi-supervised classification with graph convolutional networks</strong>. <em>arXiv preprint arXiv:1609.02907</em>.</p>
+</blockquote>
+<p><strong>基本问题</strong></p>
+<p>本文解决的是<strong>半监督</strong>的<strong>节点分类</strong>问题。半监督是指只有一部分节点的label已知。</p>
+<p><strong>传统方法</strong></p>
+<p>在这种情况下，我们可以通过正则化的方式对label信息做平滑，比如在<strong>损失函数中加入Laplacian正则项</strong>：<br>$$<br>\mathcal{L}=\mathcal{L}_{0}+\lambda \mathcal{L}_{\mathrm{reg}}, \quad \text { with } \quad \mathcal{L}_{\mathrm{reg}}=\sum_{i, j} A_{i j}\left|f\left(X_{i}\right)-f\left(X_{j}\right)\right|^{2}=f(X)^{\top} \Delta f(X)<br>$$<br>其中，$\mathcal{L}_{0}$ 是图中的有监督部分的损失，$f(\cdot)$ 是类似神经网络的可微函数，$\lambda$ 是权重系数。$X$ 是节点特征矩阵，$\Delta=D-A$ 是无向图 $\mathcal{G}=(\mathcal{V}, \mathcal{E})$ 未归一化的图拉普拉斯矩阵。$A \in \mathbb{R}^{N \times N}$ 是邻接矩阵，$D_{i i}=\sum_{j} A_{i j}$ 是度矩阵。</p>
+<p><strong>传统方法的缺陷</strong></p>
+<p>上面的损失函数依赖一个假设：图中相邻的节点通常更可能有相同的 label。但实际上<strong>这个假设会限制模型空间</strong>，因为 edge 可能不只可以用来编码节点之间的相似度，还可能会包含其他信息。</p>
+<p><strong>本文方法</strong></p>
+<p>为了克服上述传统方法的缺陷，本文提出了新的GCN模型用于解决半监督节点分类任务。GCN是一个采用 layer-wise propagation 的神经网络模型，只用到有监督部分，不用到上面的正则项，并且是谱图卷积的一阶近似。</p>
+<p><strong>Layer-wise Propagation</strong></p>
+<p>GCN 中的层与层之间的信息传播：<br>$$<br>H^{(l+1)}=\sigma\left(\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} H^{(l)} W^{(l)}\right)<br>$$<br>其中：</p>
+<ul>
+<li>$\tilde{A}=A+I_{N}$，$A$ 是无向图邻接矩阵，$I_N$ 是单位矩阵，所以 $\tilde{A}$ 可以看成是在原图基础上加了 self-connection 的新图的邻接矩阵。</li>
+<li>$\tilde{D}_{i i}=\sum_{j} \tilde{A}_{i j}$，即 $\tilde{D}$ 是 $\tilde{A}$ 的度矩阵。</li>
+<li>$W^{(l)}$ 是该层的可训练的权重矩阵。</li>
+<li>$\sigma(\cdot)$ 是激活函数，比如 ReLU。</li>
+<li>$H^{(l)} \in \mathbb{R}^{N \times D}$ 是第 $l$ 层的节点表示，第 0 层时 $H^{(0)}$ 初始化为特征矩阵 $X$。</li>
+</ul>
+<p>文章了证明这个公式的形式可以由频谱卷积核的一阶局部近似得来。</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201120134613155.png" alt="image-20201127151425861" style="zoom:50%;"></p>
+<p><strong>前向传播</strong></p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201127151452236.png" alt="image-20201127151452236" style="zoom:50%;"></p>
+<p>两层的GCN，激活函数分别采用ReLU和Softmax。</p>
+<p><strong>交叉熵损失函数</strong></p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201127151757991.png" alt="image-20201127151757991" style="zoom:50%;"></p>
+<h2 id="GGNN"><a href="#GGNN" class="headerlink" title="GGNN"></a>GGNN</h2><blockquote>
+<p>Li, Y., Tarlow, D., Brockschmidt, M., &amp; Zemel, R. (2015). <strong>Gated graph sequence neural networks</strong>. <em>arXiv preprint arXiv:1511.05493</em>.</p>
+</blockquote>
+<p>基于GRU的经典的空间域message passing的模型</p>
+<p><strong>主要贡献</strong></p>
+<p>基于GRU提出了GGNN，利用RNN类似原理实现了信息在graph中的传递。</p>
+<p>update方式为：</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201127151425861.png" alt="GGNN update" style="zoom: 23%;"></p>
+<p>矩阵A的构建：</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201127155640128.png" alt="矩阵A的构建" style="zoom: 33%;"></p>
+<p>注意图(c)表示邻接矩阵A的构建。其中$B, C, B^{\prime}, C^{\prime}$表示边的特征。</p>
+<p><strong>传播模型</strong></p>
+<p><img src="http://img.cdn.leonwang.top/image-20201127163037999.png" alt="image-20201127163037999" style="zoom:50%;"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190413181441495.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x0aGlyZG9uZWw=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" style="zoom:70%;"><br><strong>输出模型</strong><br><img src="http://img.cdn.leonwang.top/image-20201127161147599.png" alt="在这里插入图片描述" style="zoom:70%;"></p>
+<h2 id="GraphSAGE"><a href="#GraphSAGE" class="headerlink" title="GraphSAGE"></a>GraphSAGE</h2><blockquote>
+<p>Hamilton, W., Ying, Z., &amp; Leskovec, J. (2017). Inductive representation learning on large graphs. In <em>Advances in neural information processing systems</em> (pp. 1024-1034).</p>
+</blockquote>
+<p><strong>motivation</strong></p>
+<p>GCN的缺点： Transductive learning的方式，需要把所有节点都参与训练才能得到node embedding，无法快速得到新node的embedding。</p>
+<blockquote>
+<p><strong>直推式(transductive)学习</strong>：从特殊到特殊，仅考虑当前数据。在图中学习目标是学习目标是直接生成当前节点的embedding，例如DeepWalk、LINE，把每个节点embedding作为参数，并通过SGD优化，又如GCN，在训练过程中使用图的拉普拉斯矩阵进行计算，<br><strong>归纳(inductive)学习</strong>：平时所说的一般的机器学习任务，从特殊到一般：目标是在未知数据上也有区分性。</p>
+</blockquote>
+<p>为了解决transductive问题，GraphSAGE提出一种新的算法框架，可以很方便地得到新node的表示。</p>
+<p><strong>基本思想</strong></p>
+<p>去学习一个节点的信息是怎么通过其邻居节点的特征聚合而来的。 学习到了这样的“<strong>聚合函数</strong>”，而我们本身就已知各个节点的特征和邻居关系，我们就可以很方便地得到一个新节点的表示了。</p>
+<p>GCN等transductive的方法，学到的是每个节点的一个唯一确定的embedding； 而GraphSAGE方法学到的node embedding，是根据node的邻居关系的变化而变化的，也就是说，即使是旧的node，如果建立了一些新的link，那么其对应的embedding也会变化，而且也很方便地学到。</p>
+<p><strong>前向传播算法</strong></p>
+<p><img src="http://img.cdn.leonwang.top/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x0aGlyZG9uZWw=,size_16,color_FFFFFF,t_70.png" alt="image-20201127161147599" style="zoom:50%;"></p>
+<p>循环K次（模型有K层），在每一层，对节点v所有邻居节点的Embedding进行aggregate，把聚合出的邻居信息和节点v上一层的embedding进行拼接，乘上该层的trainable权重矩阵进行线性变换，在过一个非线性激活函数得到新一层的节点v的embedding。</p>
+<p>每完成一轮迭代，对所有节点进行一次归一化。</p>
+<p><strong>aggregate函数</strong></p>
+<ol>
+<li>Mean aggregator</li>
+<li>LSTM aggregator</li>
+<li>Pooling aggregator</li>
+</ol>
+<p><strong>模型配置</strong></p>
+<ul>
+<li>不会对所有邻居做聚合，会采样固定个数的邻居，uniform采样</li>
+<li>当 K=2, S1*S2&lt;500 是模型表现最好</li>
+</ul>
+<h2 id="GAT"><a href="#GAT" class="headerlink" title="GAT"></a>GAT</h2><blockquote>
+<p>Veličković, P., Cucurull, G., Casanova, A., Romero, A., Lio, P., &amp; Bengio, Y. (2017). Graph attention networks. <em>arXiv preprint arXiv:1710.10903</em>.</p>
+</blockquote>
+<p>利用注意力机制给不同的邻居分配不同的权重。</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201127154101734.png" alt="GAT"></p>
+<p>其中，h是每个节点的特征。W是权重矩阵，目标节点和它的邻居是共享这个矩阵的。把目标节点和邻居节点线性变换后的特征拼接起来后，乘上a，a是一个可学习的参数。这样就得到了从邻居节点到目标节点的权重。</p>
+<p>对所有邻居都计算这样的权重，然后softmax归一化到[0, 1]，就得到了最终的注意力权重。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.zhihu.com/question/54504471/answer/332657604" target="_blank" rel="noopener">https://www.zhihu.com/question/54504471/answer/332657604</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/120311352" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/120311352</a></p>
+<p><a href="https://dreamhomes.top/545.html" target="_blank" rel="noopener">https://dreamhomes.top/545.html</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/54505069" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/54505069</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/62750137" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/62750137</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wangliang.leon20@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e25cb882a9cfd69b0fcf',
+            clientSecret: '866a281dc860e73a14108d1a2e93dc2e8302340d',
+            repo: 'BlogComments',
+            owner: 'AzureLeon1',
+            admin: ['AzureLeon1'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a href="http://beian.miit.gov.cn/">鲁ICP备18054179号</a>
+        </span>
+    
+    ©2018-2021 Leon
+</p>
+<!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'photoSwipe';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, article';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 622px;
+    }
+    .nav.fullscreen {
+        margin-left: -622px;
+    }
+    .nav-left {
+        width: 200px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-left: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-left: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+</html>

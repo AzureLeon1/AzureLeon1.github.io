@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  <title>Recommender System 模型梳理 | Leon Wang</title>
+  <meta name="keywords" content=" 推荐 ">
+  <meta name="description" content="Recommender System 模型梳理 | Leon Wang">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://www.leonwang.top/categories/index.html">
+<meta property="og:site_name" content="Leon Wang">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-17T04:04:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+
+
+<link rel="icon" href="/images/avatar.jpeg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0"></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1.1.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true">
+  <input id="theme_highlight_on" value="true">
+  <input id="theme_code_copy" value="true">
+</div>
+
+
+
+<body>
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/images/avatar.jpeg" />
+</a>
+<div class="author">
+    <span>Leon Wang</span>
+</div>
+
+<div class="icon">
+    
+        
+        <a title="github" href="https://github.com/AzureLeon1" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="linkedin" href="https://www.linkedin.com/in/%E4%BA%AE-%E7%8E%8B-a1baab193/" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-linkedin"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="zhihu" href="https://www.zhihu.com/people/wang-liang-62-42" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-zhihu"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="email" href="mailto:wangliang.leon20@gmail.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active" data-rel="All">All<small>(62)</small></div></li>
+    
+        
+            
+            <li><div data-rel="机器学习"><i class="fold iconfont icon-right"></i>机器学习<small>(27)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="机器学习<--->Graph">Graph<small>(6)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->推荐广告搜索">推荐广告搜索<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->自然语言处理">自然语言处理<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->计算机视觉">计算机视觉<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="机器学习<--->其他">其他<small>(2)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="数学">数学<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="大数据">大数据<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Infra">Infra<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="分布式">分布式<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Cpp">Cpp<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Python">Python<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Go">Go<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法与数据结构">算法与数据结构<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具"><i class="fold iconfont icon-right"></i>工具<small>(2)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="工具<--->Git">Git<small>(1)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="其他">其他<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+            <li><div data-rel="Archive"><i class="fold iconfont icon-right"></i>Archive<small>(12)</small></div>
+                
+                    <ul class="sub hide">
+                        
+                        <li><div data-rel="Archive<--->计算机网络">计算机网络<small>(2)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->Android">Android<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->ARCore">ARCore<small>(3)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->Blog">Blog<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->UML">UML<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="Archive<--->Web">Web<small>(3)</small></div>
+                            
+                        </li>
+                            
+                    </ul>
+                
+            </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a class="about  site_url"  href="/about">About</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="62">
+<input type="hidden" id="yelog_site_word_count" value="73k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>单调栈</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分割</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分支</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>概率论与数理统计</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>感知机</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>过拟合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>机器学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机视觉</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机网络</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>朴素贝叶斯</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>奇异值</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>奇异值分解</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>欠拟合</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>深度学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>双指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>损失函数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>统计学习方法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图结构学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>推荐</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>吴恩达</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性代数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚函数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>异常检测</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Algorithm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>AR</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ARCore</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Attention</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Blog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C++</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>CF</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Cross Validation</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>css</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GAN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Graph</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Graph Embedding</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hexo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>html</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>JavaScript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LeetCode</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Message Passing</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ns-3</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Protocol Buffer</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>React</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Relation Inference</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>solutions</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>U-Net</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Ubuntu</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>UML</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ViewPager</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ViewPagerTransforms</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Web</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All 机器学习 其他 "
+           href="/2020/12/25/注意力机制/"
+           data-tag="Attention"
+           data-author="" >
+            <span class="post-title" title="注意力机制">注意力机制</span>
+            <span class="post-date" title="2020-12-25 15:00:21">2020/12/25</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/12/25/Message-Passing/"
+           data-tag="Graph Embedding,Message Passing"
+           data-author="" >
+            <span class="post-title" title="Message Passing">Message Passing</span>
+            <span class="post-date" title="2020-12-25 14:59:14">2020/12/25</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/12/11/图结构学习/"
+           data-tag="图结构学习"
+           data-author="" >
+            <span class="post-title" title="图结构学习">图结构学习</span>
+            <span class="post-date" title="2020-12-11 14:59:56">2020/12/11</span>
+        </a>
+        
+        <a  class="All 机器学习 推荐广告搜索 "
+           href="/2020/12/04/Recommender-System-模型梳理/"
+           data-tag="推荐"
+           data-author="" >
+            <span class="post-title" title="Recommender System 模型梳理">Recommender System 模型梳理</span>
+            <span class="post-date" title="2020-12-04 14:59:35">2020/12/04</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/27/Graph-Embedding-深层模型-GNNs系列/"
+           data-tag="Graph Embedding"
+           data-author="" >
+            <span class="post-title" title="Graph Embedding 深层模型(GNNs系列)">Graph Embedding 深层模型(GNNs系列)</span>
+            <span class="post-date" title="2020-11-27 14:58:56">2020/11/27</span>
+        </a>
+        
+        <a  class="All 机器学习 推荐广告搜索 "
+           href="/2020/11/23/Neural-Graph-Collaborative-Filtering/"
+           data-tag="机器学习,Graph,推荐,CF"
+           data-author="" >
+            <span class="post-title" title="Neural Graph Collaborative Filtering">Neural Graph Collaborative Filtering</span>
+            <span class="post-date" title="2020-11-23 21:31:09">2020/11/23</span>
+        </a>
+        
+        <a  class="All Infra "
+           href="/2020/11/23/ProtoBuf编译生成Go代码/"
+           data-tag="Protocol Buffer"
+           data-author="" >
+            <span class="post-title" title="ProtoBuf编译生成Go代码">ProtoBuf编译生成Go代码</span>
+            <span class="post-date" title="2020-11-23 14:58:07">2020/11/23</span>
+        </a>
+        
+        <a  class="All 大数据 "
+           href="/2020/11/21/Hadoop/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="Hadoop">Hadoop</span>
+            <span class="post-date" title="2020-11-21 11:14:31">2020/11/21</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/18/Relation-Inference-论文梳理/"
+           data-tag="Relation Inference"
+           data-author="" >
+            <span class="post-title" title="Relation Inference 论文梳理">Relation Inference 论文梳理</span>
+            <span class="post-date" title="2020-11-18 15:32:44">2020/11/18</span>
+        </a>
+        
+        <a  class="All Archive "
+           href="/2020/11/17/归档-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="归档_todo">归档_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:44">2020/11/17</span>
+        </a>
+        
+        <a  class="All 其他 "
+           href="/2020/11/17/其他-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="其他_todo">其他_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:31">2020/11/17</span>
+        </a>
+        
+        <a  class="All 算法与数据结构 "
+           href="/2020/11/17/算法与数据结构-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="算法与数据结构_todo">算法与数据结构_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:22">2020/11/17</span>
+        </a>
+        
+        <a  class="All 工具 "
+           href="/2020/11/17/工具-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="工具_todo">工具_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:11">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 计算机视觉 "
+           href="/2020/11/17/计算机视觉-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="计算机视觉_todo">计算机视觉_todo</span>
+            <span class="post-date" title="2020-11-17 00:41:03">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 自然语言处理 "
+           href="/2020/11/17/自然语言处理-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="自然语言处理_todo">自然语言处理_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:54">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 推荐广告搜索 "
+           href="/2020/11/17/推荐广告搜索-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="推荐广告搜索_todo">推荐广告搜索_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:41">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/17/图表示学习-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="图表示学习_todo">图表示学习_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:30">2020/11/17</span>
+        </a>
+        
+        <a  class="All Go "
+           href="/2020/11/17/Go-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Go_todo">Go_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:18">2020/11/17</span>
+        </a>
+        
+        <a  class="All Python "
+           href="/2020/11/17/Python-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Python_todo">Python_todo</span>
+            <span class="post-date" title="2020-11-17 00:40:07">2020/11/17</span>
+        </a>
+        
+        <a  class="All Cpp "
+           href="/2020/11/17/C-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="C++_todo">C++_todo</span>
+            <span class="post-date" title="2020-11-17 00:39:58">2020/11/17</span>
+        </a>
+        
+        <a  class="All 分布式 "
+           href="/2020/11/17/分布式todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="分布式todo">分布式todo</span>
+            <span class="post-date" title="2020-11-17 00:39:44">2020/11/17</span>
+        </a>
+        
+        <a  class="All Infra "
+           href="/2020/11/17/Infra-todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Infra_todo">Infra_todo</span>
+            <span class="post-date" title="2020-11-17 00:39:32">2020/11/17</span>
+        </a>
+        
+        <a  class="All 大数据 "
+           href="/2020/11/17/大数据todo/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="大数据todo">大数据todo</span>
+            <span class="post-date" title="2020-11-17 00:38:03">2020/11/17</span>
+        </a>
+        
+        <a  class="All 机器学习 Graph "
+           href="/2020/11/13/Graph-Embedding-浅层模型/"
+           data-tag="Graph Embedding"
+           data-author="" >
+            <span class="post-title" title="Graph Embedding 浅层模型">Graph Embedding 浅层模型</span>
+            <span class="post-date" title="2020-11-13 14:58:37">2020/11/13</span>
+        </a>
+        
+        <a  class="All 算法与数据结构 "
+           href="/2020/07/11/LeetCode11-vs-LeetCode84/"
+           data-tag="LeetCode,双指针,单调栈"
+           data-author="" >
+            <span class="post-title" title="LeetCode11 vs LeetCode84 柱状图中的矩形">LeetCode11 vs LeetCode84 柱状图中的矩形</span>
+            <span class="post-date" title="2020-07-11 18:32:17">2020/07/11</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/04/07/Loss-Function-for-Medical-and-Non-medical-Image-Segmentation/"
+           data-tag="机器学习,深度学习,分割,计算机视觉,损失函数"
+           data-author="" >
+            <span class="post-title" title="Loss Function for Medical and Non-medical Image Segmentation">Loss Function for Medical and Non-medical Image Segmentation</span>
+            <span class="post-date" title="2020-04-07 19:08:53">2020/04/07</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/03/22/U-Net/"
+           data-tag="机器学习,分割,计算机视觉,U-Net"
+           data-author="" >
+            <span class="post-title" title="U-Net">U-Net</span>
+            <span class="post-date" title="2020-03-22 09:59:36">2020/03/22</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/03/22/Segmentation-Review/"
+           data-tag="机器学习,深度学习,分割,计算机视觉"
+           data-author="" >
+            <span class="post-title" title="Segmentation Review">Segmentation Review</span>
+            <span class="post-date" title="2020-03-22 09:52:25">2020/03/22</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2020/03/15/Bias-Variance-N-fold-Cross-Validation/"
+           data-tag="机器学习,过拟合,欠拟合,Cross Validation"
+           data-author="" >
+            <span class="post-title" title="Bias, Variance, N-fold Cross Validation">Bias, Variance, N-fold Cross Validation</span>
+            <span class="post-date" title="2020-03-15 10:00:37">2020/03/15</span>
+        </a>
+        
+        <a  class="All 数学 "
+           href="/2020/03/01/概率论与数理统计/"
+           data-tag="概率论与数理统计"
+           data-author="" >
+            <span class="post-title" title="概率论与数理统计">概率论与数理统计</span>
+            <span class="post-date" title="2020-03-01 00:11:03">2020/03/01</span>
+        </a>
+        
+        <a  class="All 数学 "
+           href="/2020/02/29/奇异值分解-SVD-Singular-Value-Decomposition/"
+           data-tag="数学,线性代数,奇异值,奇异值分解"
+           data-author="" >
+            <span class="post-title" title="奇异值分解 (SVD, Singular Value Decomposition)">奇异值分解 (SVD, Singular Value Decomposition)</span>
+            <span class="post-date" title="2020-02-29 01:26:56">2020/02/29</span>
+        </a>
+        
+        <a  class="All 数学 "
+           href="/2020/02/29/Linear-Algebra/"
+           data-tag="数学,线性代数"
+           data-author="" >
+            <span class="post-title" title="Linear Algebra">Linear Algebra</span>
+            <span class="post-date" title="2020-02-29 00:52:49">2020/02/29</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/11/11/朴素贝叶斯分类算法/"
+           data-tag="机器学习,朴素贝叶斯"
+           data-author="" >
+            <span class="post-title" title="朴素贝叶斯分类算法">朴素贝叶斯分类算法</span>
+            <span class="post-date" title="2019-11-11 18:17:47">2019/11/11</span>
+        </a>
+        
+        <a  class="All 机器学习 其他 "
+           href="/2019/11/07/GAN异常检测/"
+           data-tag="深度学习,GAN,异常检测"
+           data-author="" >
+            <span class="post-title" title="GAN异常检测">GAN异常检测</span>
+            <span class="post-date" title="2019-11-07 21:34:36">2019/11/07</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/11/07/机器学习分类/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习分类">机器学习分类</span>
+            <span class="post-date" title="2019-11-07 21:29:27">2019/11/07</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/11/03/关于感知机学习算法的对偶形式/"
+           data-tag="机器学习,统计学习方法,感知机"
+           data-author="" >
+            <span class="post-title" title="关于感知机学习算法的对偶形式">关于感知机学习算法的对偶形式</span>
+            <span class="post-date" title="2019-11-03 16:54:10">2019/11/03</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/10/09/C-vs-Java-之虚函数/"
+           data-tag="C++,Java,虚函数"
+           data-author="" >
+            <span class="post-title" title="C++ vs Java 之虚函数">C++ vs Java 之虚函数</span>
+            <span class="post-date" title="2019-10-09 21:54:29">2019/10/09</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/09/09/yolov3-Keras实现解读/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="yolov3 Keras实现解读">yolov3 Keras实现解读</span>
+            <span class="post-date" title="2019-09-09 19:41:37">2019/09/09</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/24/Stanford-ML-Note/"
+           data-tag="机器学习,吴恩达"
+           data-author="" >
+            <span class="post-title" title="Stanford ML Note">Stanford ML Note</span>
+            <span class="post-date" title="2019-07-24 12:52:02">2019/07/24</span>
+        </a>
+        
+        <a  class="All 机器学习 计算机视觉 "
+           href="/2019/07/23/Global-Average-Pooling/"
+           data-tag="深度学习"
+           data-author="" >
+            <span class="post-title" title="Global Average Pooling">Global Average Pooling</span>
+            <span class="post-date" title="2019-07-23 15:25:20">2019/07/23</span>
+        </a>
+        
+        <a  class="All 机器学习 计算机视觉 "
+           href="/2019/07/23/卷积可视化：Grad-CAM/"
+           data-tag="深度学习"
+           data-author="" >
+            <span class="post-title" title="卷积可视化：Grad-CAM">卷积可视化：Grad-CAM</span>
+            <span class="post-date" title="2019-07-23 14:49:26">2019/07/23</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/21/ResNet-K-Fold-Cross-Validation/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="ResNet &amp; K-Fold Cross Validation">ResNet &amp; K-Fold Cross Validation</span>
+            <span class="post-date" title="2019-07-21 11:32:14">2019/07/21</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/21/Siamese-Network/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Siamese Network">Siamese Network</span>
+            <span class="post-date" title="2019-07-21 11:31:50">2019/07/21</span>
+        </a>
+        
+        <a  class="All 机器学习 "
+           href="/2019/07/21/Keras-中的损失函数/"
+           data-tag="机器学习"
+           data-author="" >
+            <span class="post-title" title="Keras 中的损失函数">Keras 中的损失函数</span>
+            <span class="post-date" title="2019-07-21 11:31:32">2019/07/21</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/07/16/Xrandr-displaying-“Failed-to-get-size-of-gamma-for-output-default”/"
+           data-tag="Ubuntu"
+           data-author="" >
+            <span class="post-title" title="Xrandr displaying “Failed to get size of gamma for output default”">Xrandr displaying “Failed to get size of gamma for output default”</span>
+            <span class="post-date" title="2019-07-16 10:42:10">2019/07/16</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/07/07/el-button样式/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="el-button样式">el-button样式</span>
+            <span class="post-date" title="2019-07-07 21:26:39">2019/07/07</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/06/05/ajax和axios、fetch的区别/"
+           data-tag="Web"
+           data-author="" >
+            <span class="post-title" title="ajax和axios、fetch的区别">ajax和axios、fetch的区别</span>
+            <span class="post-date" title="2019-06-05 19:40:04">2019/06/05</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/05/18/go-echo后端处理跨域的两种方式/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="go echo后端处理跨域的两种方式">go echo后端处理跨域的两种方式</span>
+            <span class="post-date" title="2019-05-18 00:48:13">2019/05/18</span>
+        </a>
+        
+        <a  class="All Archive Web "
+           href="/2019/05/08/Fetch-API-检测请求是否成功/"
+           data-tag="Web,JavaScript"
+           data-author="" >
+            <span class="post-title" title="Fetch API 检测请求是否成功">Fetch API 检测请求是否成功</span>
+            <span class="post-date" title="2019-05-08 00:12:09">2019/05/08</span>
+        </a>
+        
+        <a  class="All 算法与数据结构 "
+           href="/2019/03/19/Analysis-and-Design-of-Algorithms/"
+           data-tag="Algorithm"
+           data-author="" >
+            <span class="post-title" title="算法课笔记">算法课笔记</span>
+            <span class="post-date" title="2019-03-19 20:55:58">2019/03/19</span>
+        </a>
+        
+        <a  class="All Archive UML "
+           href="/2019/03/16/UML和模式应用-Note/"
+           data-tag="UML"
+           data-author="" >
+            <span class="post-title" title="UML和模式应用 Note">UML和模式应用 Note</span>
+            <span class="post-date" title="2019-03-16 15:05:56">2019/03/16</span>
+        </a>
+        
+        <a  class="All Archive Web "
+           href="/2019/03/16/React-Note/"
+           data-tag="Web,React,前端"
+           data-author="" >
+            <span class="post-title" title="React Note">React Note</span>
+            <span class="post-date" title="2019-03-16 15:05:38">2019/03/16</span>
+        </a>
+        
+        <a  class="All Archive ARCore "
+           href="/2019/02/14/ARCore踩坑——无法放置3D模型/"
+           data-tag="ARCore,AR,Android"
+           data-author="" >
+            <span class="post-title" title="ARCore踩坑——无法放置3D模型">ARCore踩坑——无法放置3D模型</span>
+            <span class="post-date" title="2019-02-14 12:13:27">2019/02/14</span>
+        </a>
+        
+        <a  class="All 工具 Git "
+           href="/2019/02/02/Git本地分支与远程分支/"
+           data-tag="Git,GitHub,分支"
+           data-author="" >
+            <span class="post-title" title="Git本地分支与远程分支">Git本地分支与远程分支</span>
+            <span class="post-date" title="2019-02-02 11:17:49">2019/02/02</span>
+        </a>
+        
+        <a  class="All Archive Android "
+           href="/2019/01/27/ViewPager与ViewPagerTransforms/"
+           data-tag="Android,ViewPager,ViewPagerTransforms"
+           data-author="" >
+            <span class="post-title" title="ViewPager与ViewPagerTransforms">ViewPager与ViewPagerTransforms</span>
+            <span class="post-date" title="2019-01-27 10:35:51">2019/01/27</span>
+        </a>
+        
+        <a  class="All 其他 "
+           href="/2018/12/14/Awesome-Solutions/"
+           data-tag="solutions"
+           data-author="" >
+            <span class="post-title" title="Awesome Solutions">Awesome Solutions</span>
+            <span class="post-date" title="2018-12-14 20:59:16">2018/12/14</span>
+        </a>
+        
+        <a  class="All Archive Web "
+           href="/2018/12/14/Web开发笔记/"
+           data-tag="Web,前端,html,css"
+           data-author="" >
+            <span class="post-title" title="Web开发笔记">Web开发笔记</span>
+            <span class="post-date" title="2018-12-14 20:25:44">2018/12/14</span>
+        </a>
+        
+        <a  class="All Archive 计算机网络 "
+           href="/2018/12/07/ns-3使用总结/"
+           data-tag="计算机网络,ns-3"
+           data-author="" >
+            <span class="post-title" title="ns-3使用及计网实验总结">ns-3使用及计网实验总结</span>
+            <span class="post-date" title="2018-12-07 23:52:51">2018/12/07</span>
+        </a>
+        
+        <a  class="All Archive 计算机网络 "
+           href="/2018/12/02/ns-3入门/"
+           data-tag="计算机网络,ns-3"
+           data-author="" >
+            <span class="post-title" title="ns-3入门">ns-3入门</span>
+            <span class="post-date" title="2018-12-02 00:44:45">2018/12/02</span>
+        </a>
+        
+        <a  class="All Archive ARCore "
+           href="/2018/11/22/ARCore-3D模型/"
+           data-tag="ARCore,AR,Android"
+           data-author="" >
+            <span class="post-title" title="ARCore 3D模型">ARCore 3D模型</span>
+            <span class="post-date" title="2018-11-22 23:10:23">2018/11/22</span>
+        </a>
+        
+        <a  class="All Archive ARCore "
+           href="/2018/11/22/ARCore-SDK-sample-代码分析/"
+           data-tag="ARCore,AR,Android"
+           data-author="" >
+            <span class="post-title" title="ARCore SDK sample 代码分析">ARCore SDK sample 代码分析</span>
+            <span class="post-date" title="2018-11-22 23:01:45">2018/11/22</span>
+        </a>
+        
+        <a  class="All Archive Blog "
+           href="/2018/11/17/阿里云ECS-Hexo搭建个人博客/"
+           data-tag="Blog,Hexo"
+           data-author="" >
+            <span class="post-title" title="阿里云ECS+Hexo搭建个人博客">阿里云ECS+Hexo搭建个人博客</span>
+            <span class="post-date" title="2018-11-17 00:24:26">2018/11/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Recommender-System-模型梳理" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Recommender System 模型梳理</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="机器学习">机器学习</a> > 
+            
+            <a  data-rel="机器学习&lt;---&gt;推荐广告搜索">推荐广告搜索</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">推荐</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-12-28 15:24:39'>2020-12-04 14:59</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:4.1k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intro"><span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传统推荐模型"><span class="toc-text">传统推荐模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#协同过滤"><span class="toc-text">协同过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵分解算法MF"><span class="toc-text">矩阵分解算法MF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑回归LR"><span class="toc-text">逻辑回归LR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因子分解机FM"><span class="toc-text">因子分解机FM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特征域感知因子分解机FFM"><span class="toc-text">特征域感知因子分解机FFM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GBDT-LR"><span class="toc-text">GBDT+LR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深度推荐模型"><span class="toc-text">深度推荐模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AutoRec"><span class="toc-text">AutoRec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-Crossing"><span class="toc-text">Deep Crossing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NeuralCF"><span class="toc-text">NeuralCF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PNN"><span class="toc-text">PNN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wide-amp-Deep"><span class="toc-text">Wide&amp;Deep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-amp-Cross"><span class="toc-text">Deep&amp;Cross</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FM-深度学习"><span class="toc-text">FM + 深度学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FNN"><span class="toc-text">FNN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DeepFm"><span class="toc-text">DeepFm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NFM"><span class="toc-text">NFM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention机制"><span class="toc-text">Attention机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AFM"><span class="toc-text">AFM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DIN"><span class="toc-text">DIN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#序列模型"><span class="toc-text">序列模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DIEN"><span class="toc-text">DIEN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强化学习"><span class="toc-text">强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DRN"><span class="toc-text">DRN</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intro"><span class="toc-text">Intro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#传统推荐模型"><span class="toc-text">传统推荐模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#协同过滤"><span class="toc-text">协同过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#矩阵分解算法MF"><span class="toc-text">矩阵分解算法MF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑回归LR"><span class="toc-text">逻辑回归LR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因子分解机FM"><span class="toc-text">因子分解机FM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特征域感知因子分解机FFM"><span class="toc-text">特征域感知因子分解机FFM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GBDT-LR"><span class="toc-text">GBDT+LR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#深度推荐模型"><span class="toc-text">深度推荐模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AutoRec"><span class="toc-text">AutoRec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-Crossing"><span class="toc-text">Deep Crossing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NeuralCF"><span class="toc-text">NeuralCF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PNN"><span class="toc-text">PNN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Wide-amp-Deep"><span class="toc-text">Wide&amp;Deep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deep-amp-Cross"><span class="toc-text">Deep&amp;Cross</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FM-深度学习"><span class="toc-text">FM + 深度学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FNN"><span class="toc-text">FNN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DeepFm"><span class="toc-text">DeepFm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NFM"><span class="toc-text">NFM</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention机制"><span class="toc-text">Attention机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AFM"><span class="toc-text">AFM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DIN"><span class="toc-text">DIN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#序列模型"><span class="toc-text">序列模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DIEN"><span class="toc-text">DIEN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强化学习"><span class="toc-text">强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DRN"><span class="toc-text">DRN</span></a></li></ol></li></ol></li></ol></div></p>
+<h2 id="Intro"><a href="#Intro" class="headerlink" title="Intro"></a>Intro</h2><p>对推荐系统模型进行了梳理，分为传统推荐模型和深度推荐模型两大类，主要梳理了以下工作：</p>
+<ul>
+<li>传统推荐模型<ul>
+<li>协同过滤CF</li>
+<li>矩阵分解算法MF</li>
+<li>逻辑回归LR</li>
+<li>因子分解机FM, FFM</li>
+<li>GBDT+LR</li>
+</ul>
+</li>
+<li>深度推荐模型<ul>
+<li>AutoRec</li>
+<li>Deep Crossing</li>
+<li>NeuralCF</li>
+<li>PNN</li>
+<li>Wide&amp;Deep</li>
+<li>深度FM</li>
+<li>Attention机制</li>
+<li>序列模型</li>
+<li>强化学习</li>
+</ul>
+</li>
+</ul>
+<h2 id="传统推荐模型"><a href="#传统推荐模型" class="headerlink" title="传统推荐模型"></a>传统推荐模型</h2><h3 id="协同过滤"><a href="#协同过滤" class="headerlink" title="协同过滤"></a>协同过滤</h3><blockquote>
+<p>[1] Goldberg, D., Nichols, D., Oki, B. M., &amp; Terry, D. (1992). <strong>Using collaborative filtering to weave an information tapestry</strong>. <em>Communications of the ACM</em>, <em>35</em>(12), 61-70.</p>
+<p>[2] Linden, G., Smith, B., &amp; York, J. (2003). <strong>Amazon.com recommendations: Item-to-item collaborative filtering</strong>. <em>IEEE Internet computing</em>, <em>7</em>(1), 76-80.</p>
+</blockquote>
+<p>论文1早在1992提出对协同过滤的研究，开发了一种基于协同过滤的邮件筛选系统，用来过滤用户不感兴趣的无用邮件。</p>
+<p>论文2首次把 CF 模型用于推荐领域。</p>
+<p>CF 模型利用 item 和 user 的共现矩阵计算矩阵中的位置元素，方法是通过计算 user 或 item 之间的相似度，分别称为 UserCF 和 ItemCF，通过对最相似的 top k 个 user/item 的评分进行加权平均，作为未知评分的预估值。</p>
+<p>协同过滤的灵活之处主要在于相似度计算的选择，常用的相似度包括：</p>
+<ol>
+<li>余弦相似度<img src="http://img.cdn.leonwang.top/picgo_img/image-20201204140056408.png" alt="image-20201204140056408" style="zoom:40%;"></li>
+<li>Pearson相关系数<img src="http://img.cdn.leonwang.top/picgo_img/image-20201204140211864.png" alt="image-20201204140211864" style="zoom:40%;"></li>
+</ol>
+<blockquote>
+<p>Pearson相关系数可以理解为中心化的余弦相似度，通过减去 user评分(UserCF) / item被评分(ItemCF) 的均值，消除特定 user/item 的 bias 影响</p>
+</blockquote>
+<p>UserCF与ItemCF的比较：</p>
+<p>业界通常采用ItemCF而不是UserCF，因为UserCF主要有两点缺陷：</p>
+<ol>
+<li>相似度矩阵存储空间开销大。相似度矩阵往往是离线计算好的，UserCF的相似度矩阵大小为$N(user)<em>N(user)$，ItemCF为$N(item)</em>N(item)$。user数量往往远多余item数量。</li>
+<li>用户的历史数据向量更加稀疏。</li>
+</ol>
+<h3 id="矩阵分解算法MF"><a href="#矩阵分解算法MF" class="headerlink" title="矩阵分解算法MF"></a>矩阵分解算法MF</h3><blockquote>
+<p>Koren, Y., Bell, R., &amp; Volinsky, C. (2009). <strong>Matrix factorization techniques for recommender systems</strong>. <em>Computer</em>, <em>42</em>(8), 30-37.</p>
+</blockquote>
+<p><strong>Motivation</strong></p>
+<p>解决协同过滤算法的头部效应明显、<strong>泛化能力</strong>较弱的问题</p>
+<p><strong>Methodology</strong></p>
+<p>在协同过滤算法的共现矩阵的基础上，进行矩阵分解，得到每个 user 和 item 的隐向量，即每个 user 和 item 在隐向量空间中的表达。如下图所示，例如要给 Dave 用户推荐视频，则会选择距离 Dave 用户最近的视频 The Lion King 和 Ocean’s 11。可以按照距离由近到远生成推荐列表。</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204144302463.png" alt="image-20201204142822668" style="zoom:50%;"></p>
+<p>MF算法的关键在于如何进行矩阵分解，常用的矩阵分解方法包括：</p>
+<ol>
+<li>特征值分解 Eigen Decomposition</li>
+<li>奇异值分解 Singular Value Decomposition, SVD</li>
+<li><strong>梯度下降 Gradient Descent</strong></li>
+</ol>
+<p>由于特征值分解只能用于方针，并不适用于 user-item 共现矩阵。</p>
+<p>奇异值分解虽然可用于分解 user-item 共现矩阵，但存在下述两点缺陷：1. 奇异值分解要求矩阵稠密，因此需要对共现矩阵的缺失元素进行填充; 2. 传统奇异值分解的计算复杂度为 $O(mn^2)$，对于互联网大规模数据的场景并不适用。</p>
+<p>所以，梯度下降是MF算法最主要的方法。</p>
+<p>MF中的梯度下降：</p>
+<p>损失函数：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204142822668.png" alt="image-20201204144302463" style="zoom:50%;"></p>
+<p>优化的目标函数是最小化这个损失函数。</p>
+<p>在考虑了每个 user 和 item 的 bias，以及考虑了正则化项（减少过拟合）之后，实际需要优化的目标函数是这样的：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204144336519.png" alt="image-20201204144003238" style="zoom:50%;"></p>
+<p>梯度下降的过程就是对目标函数求偏导，然后沿梯度的反方向更新参数：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204144003238.png" alt="image-20201204144336519" style="zoom:50%;"></p>
+<p><strong>评价</strong></p>
+<p>优点：</p>
+<ul>
+<li>泛化能力强</li>
+<li>空间复杂度低，不需要存储相似度矩阵</li>
+<li>更好的扩展性和灵活性，隐向量已经体现出了Embedding的思想，很方便和其他模型进行组合</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>仍然存在CF算法的一些局限，用到的数据只有共现矩阵，没有user侧特征、item侧特征、上下文特征等，仍然只利用了协同的思想来推荐</li>
+</ul>
+<h3 id="逻辑回归LR"><a href="#逻辑回归LR" class="headerlink" title="逻辑回归LR"></a>逻辑回归LR</h3><p>LR模型比较经典，作用在推荐问题上，可以和CF、MF算法进行对比，其<strong>优点</strong>主要在于不只依赖共现矩阵的协同信息，而能够利用到用户特征、物品特征、上下文特征。</p>
+<p>LR模型的另一个<strong>重要意义</strong>在于：通过把推荐问题抽象为分类问题，预估样本为正样本(会发生购买、观看等行为)的概率，从而把推荐问题转化成了一个CTR预估问题。</p>
+<p>LR比较经典，只把关键点总结一下：</p>
+<ol>
+<li>（线性变换）用权重矩阵对特征向量进行加权求和</li>
+<li>（非线性变换）把上一步的结果输入 sigmoid 函数，映射到 0~1 区间，作为 CTR 预估值</li>
+<li>常用训练方法：梯度下降法、牛顿法、拟牛顿法</li>
+</ol>
+<p>LR的梯度下降法：</p>
+<ol>
+<li>定义样本的损失函数为 cross entropy</li>
+<li>定义优化的目标函数是最小化所有样本损失乘积（极大似然估计），进一步转化为对数似然</li>
+<li>对参数求偏导</li>
+<li>对参数沿着梯度(偏导结果)反方向进行更新</li>
+</ol>
+<p><strong>评价</strong></p>
+<p>优点：</p>
+<ol>
+<li>相比 CF，MF 算法：<ol>
+<li>引入 user、item、context 等更加丰富的特征</li>
+</ol>
+</li>
+<li>相比于深度学习方法：<ol>
+<li>数学含义的支撑，因变量 y 服从伯努利分布的假设</li>
+<li>可解释性强</li>
+<li>模型简单、开销小，符合工程化的需求</li>
+</ol>
+</li>
+</ol>
+<p>局限：</p>
+<ol>
+<li>模型简单，表达能力不强，无法特征交叉、特征筛选，因此有信息损失</li>
+</ol>
+<h3 id="因子分解机FM"><a href="#因子分解机FM" class="headerlink" title="因子分解机FM"></a>因子分解机FM</h3><blockquote>
+<p>Rendle, S. (2010, December). <strong>Factorization machines</strong>. In <em>2010 IEEE International Conference on Data Mining</em> (pp. 995-1000). IEEE.</p>
+</blockquote>
+<p>背景：暴力的特征组合方式 POLY2 模型。缺点在于导致特征向量变得更加稀疏，权重参数的数量也会从 n 直接上升到 $n^2$。</p>
+<p>FM思想：为了解决上述问题，去为每个特征学习一个隐权重向量，即每个特征的权重的隐式表达。接下来在计算组合特征的权重的时候，利用两个特征的权重向量计算内积，来作为组合特征的权重值。</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204154107622.png" alt="image-20201204154107622" style="zoom:50%;"></p>
+<h3 id="特征域感知因子分解机FFM"><a href="#特征域感知因子分解机FFM" class="headerlink" title="特征域感知因子分解机FFM"></a>特征域感知因子分解机FFM</h3><blockquote>
+<p>Juan, Y., Zhuang, Y., Chin, W. S., &amp; Lin, C. J. (2016, September). <strong>Field-aware factorization machines for CTR prediction</strong>. In <em>Proceedings of the 10th ACM Conference on Recommender Systems</em> (pp. 43-50).</p>
+</blockquote>
+<p>引入了特征域感知 field-aware 的概念。和 FM 的区别主要在于每个特征不只对应一个唯一的权重隐向量，而是对应一组权重隐向量。当一个特征的特征值属于不同的特征域时，会用不同的权重隐向量去计算组合特征的权重。其背后的思想是，当一个特征取得不同的特征值(属于不同的特征域)时，这个特征对于特征交叉的影响是不同的。</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204154938102.png" alt="image-20201204154938102" style="zoom:50%;"></p>
+<p>论文里提到，相比FM，虽然需要学习的权重隐向量的个数变多了，但是每个向量的维度会大大减少，因为一个向量只需要能够表示这个 field 的特征交叉的影响力。</p>
+<h3 id="GBDT-LR"><a href="#GBDT-LR" class="headerlink" title="GBDT+LR"></a>GBDT+LR</h3><blockquote>
+<p>He, X., Pan, J., Jin, O., Xu, T., Liu, B., Xu, T., … &amp; Candela, J. Q. (2014, August). <strong>Practical lessons from predicting clicks on ads at facebook</strong>. In <em>Proceedings of the Eighth International Workshop on Data Mining for Online Advertising</em> (pp. 1-9).</p>
+</blockquote>
+<p><strong>Motivation</strong></p>
+<p>上面的方法，从 POLY2 到 FM 再到 FFM，都只能进行特征的二阶交叉。如果要进行更高阶的特征交叉，会面临组合爆炸和计算复杂度过高的问题。因此，必须要进行特征组合和筛选。Facebook 这篇论文提供了基于 GBDT+LR 组合模型的解决方案。</p>
+<p><strong>Methodology</strong></p>
+<p>首先，利用 GBDT 自动进行特征筛选和组合，进而生成新的离散特征向量，再把这个特征向量当做 LR 模型的输入，预估 CTR。</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204155841350.png" alt="image-20201204155841350" style="zoom:50%;"></p>
+<p>实际上GBDT部分和LR两部分是分开独立训练的，不存在LR部分的梯度如何回传到GBDT的问题。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>发展过程：<ol>
+<li>基于协同：CF -&gt; MF</li>
+<li>基于LR，特征组合的阶数越来越高：<ol>
+<li>经典 LR</li>
+<li>二阶特征组合：POLY2 -&gt; FM -&gt; FFM</li>
+<li>特征自动筛选和组合：GBDT+LR</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>在传统推荐模型中也到处隐含着 Embedding 的思想。从 CF, MF 算法族到 FM 算法族，体现了 feature 的 Embedding；从 POLY2 到 FM，体现了 weight 的 Embedding。Embedding 的优势，我理解主要就在于得到了一种隐式向量化表示，具备泛化能力，降低存储和计算开销。</li>
+<li>从 POLY2 到 FM 是泛化，但或许是 FM 的表达过于泛化了，从 FM 到 FFM 又是特化。</li>
+</ol>
+<h2 id="深度推荐模型"><a href="#深度推荐模型" class="headerlink" title="深度推荐模型"></a>深度推荐模型</h2><h3 id="AutoRec"><a href="#AutoRec" class="headerlink" title="AutoRec"></a>AutoRec</h3><blockquote>
+<p>Sedhain, S., Menon, A. K., Sanner, S., &amp; Xie, L. (2015, May). <strong>Autorec: Autoencoders meet collaborative filtering</strong>. In <em>Proceedings of the 24th international conference on World Wide Web</em> (pp. 111-112).</p>
+</blockquote>
+<p>这篇paper拉开了深度学习方法解决推荐问题的序幕。</p>
+<p>思想：基于 CF 中的共现矩阵的行向量/列向量作为 user 或 item 的特征向量，引入 AutoEncoder 即单隐层神经网络来对 特征向量进行重建，重建后的特征向量就是“该用户对每个item的评分”或者“每个用户对该item的评分”。</p>
+<p>模型结构：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204161710996.png" alt="image-20201204161627815" style="zoom:50%;"></p>
+<p>优化目标：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204161733616.png" alt="image-20201204161710996" style="zoom:50%;"></p>
+<p>引入 L2 正则化项的优化目标：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204161627815.png" alt="image-20201204161733616" style="zoom:50%;"></p>
+<h3 id="Deep-Crossing"><a href="#Deep-Crossing" class="headerlink" title="Deep Crossing"></a>Deep Crossing</h3><blockquote>
+<p>Shan, Y., Hoens, T. R., Jiao, J., Wang, H., Yu, D., &amp; Mao, J. C. (2016, August). <strong>Deep crossing: Web-scale modeling without manually crafted combinatorial features.</strong> In <em>Proceedings of the 22nd ACM SIGKDD international conference on knowledge discovery and data mining</em> (pp. 255-262).</p>
+</blockquote>
+<p>AutoRec 基于 CF共现矩阵 和 AutoEncoder，结构非常简单。</p>
+<p>Deep Crossing 则是第一次完整地解决了从特征工程、稀疏向量稠密化、多层神经网络进行优化目标拟合等一系列深度学习在推荐系统中的应用问题，定义了规范的 “Embedding+多层神经网络” 结构。</p>
+<p>模型结构：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204164641405.png" alt="image-20201204164641405" style="zoom:50%;"></p>
+<p>Embedding层：把输入特征处理成embedding，主要任务是完成稀疏向量的稠密化</p>
+<p>Stacking层：把不同的Embedding拼接到一起</p>
+<p>Multiple Residual Units层：多层感知机，采用了多层残差网络的实现，实现特征的交叉组合</p>
+<p>Scoring层：为了拟合优化目标，比如CTR这种二分类问题会采用sigmoid函数，多分类问题会采用softmax函数</p>
+<h3 id="NeuralCF"><a href="#NeuralCF" class="headerlink" title="NeuralCF"></a>NeuralCF</h3><blockquote>
+<p>He, X., Liao, L., Zhang, H., Nie, L., Hu, X., &amp; Chua, T. S. (2017, April). <strong>Neural collaborative filtering</strong>. In <em>Proceedings of the 26th international conference on world wide web</em> (pp. 173-182).</p>
+</blockquote>
+<p>CF 与深度学习的融合</p>
+<p>首先，重新从Deep Crossing框架的角度理解“基于矩阵分解的CF”：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204165315479.png" alt="image-20201204165315479" style="zoom:50%;"></p>
+<p>矩阵分解可以看做Embedding层，计算Embedding内积可以看做Score层，所以基于矩阵分解的CF算法，本身就已经符合Deep Crossing框架中的某些部分。</p>
+<p>在这套框架下，借助神经网络增强模型的表达能力，用 多层神经网络 代替了 内积 操作，就得到了 NeuralCF 模型。</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204165531625.png" alt="image-20201204165531625" style="zoom:50%;"></p>
+<p>更进一步，还可以把不同的网络得到的特征向量拼接起来，整合多个网络。这篇paper给出了一个Neural CF混合模型的例子：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204170343396.png" alt="image-20201204165820178" style="zoom:50%;"></p>
+<p>亮点总结：</p>
+<ol>
+<li><p>用多层神经网络代替CF中的内积操作，加强了模型的表达能力。</p>
+</li>
+<li><p>（更重要）模型组合的思想。这种不同模型进行拼接、混合、组合的思想是非常重要的，体现了神经网络的灵活性，可以灵活地组合特征去拟合任意函数的能力。</p>
+</li>
+</ol>
+<h3 id="PNN"><a href="#PNN" class="headerlink" title="PNN"></a>PNN</h3><blockquote>
+<p>Qu, Y., Cai, H., Ren, K., Zhang, W., Yu, Y., Wen, Y., &amp; Wang, J. (2016, December). <strong>Product-based neural networks for user response prediction</strong>. In <em>2016 IEEE 16th International Conference on Data Mining (ICDM)</em> (pp. 1149-1154). IEEE.</p>
+</blockquote>
+<p>和 Deep Crossing 进行比较，PNN 的区别在于：用乘积层 Product Layer 代替了 Stacking 层，用 Product 操作代替了拼接操作。</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204165820178.png" alt="image-20201204170343396" style="zoom:50%;"></p>
+<p>乘积层有两部分组成：</p>
+<ol>
+<li>z部分：线性操作部分</li>
+<li>p部分：乘积操作部分，又分为内积操作和外积操作</li>
+</ol>
+<h3 id="Wide-amp-Deep"><a href="#Wide-amp-Deep" class="headerlink" title="Wide&amp;Deep"></a>Wide&amp;Deep</h3><blockquote>
+<p>Cheng, H. T., Koc, L., Harmsen, J., Shaked, T., Chandra, T., Aradhye, H., … &amp; Anil, R. (2016, September). <strong>Wide &amp; deep learning for recommender systems</strong>. In <em>Proceedings of the 1st workshop on deep learning for recommender systems</em> (pp. 7-10).</p>
+</blockquote>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204172036211.png" alt="image-20201204171118311"></p>
+<p>结合 Wide 模型和 Deep 模型。其中：</p>
+<ul>
+<li>Wide 部分体现泛化能力，本质上是LR模型</li>
+<li>Deep 部分体现记忆能力，是深层神经网络</li>
+</ul>
+<p>模型举例：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204171459860.png" alt="image-20201204171459860" style="zoom:50%;"></p>
+<h3 id="Deep-amp-Cross"><a href="#Deep-amp-Cross" class="headerlink" title="Deep&amp;Cross"></a>Deep&amp;Cross</h3><blockquote>
+<p>Wang, R., Fu, B., Fu, G., &amp; Wang, M. (2017). Deep &amp; cross network for ad click predictions. In <em>Proceedings of the ADKDD’17</em> (pp. 1-7).</p>
+</blockquote>
+<p>对 Wide&amp;Deep 的改进。主要区别在于把 Wide 部分改进成了 Cross 部分。</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204171118311.png" alt="image-20201204171620942" style="zoom:50%;"></p>
+<p>Cross部分使用 多层交叉层Cross Layer 对输入向量进行特征交叉，第 l+1 层交叉层的输出为：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204171620942.png" alt="image-20201204171948433" style="zoom:50%;"></p>
+<p>可视化为：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204171948433.png" alt="image-20201204172036211" style="zoom:50%;"></p>
+<h3 id="FM-深度学习"><a href="#FM-深度学习" class="headerlink" title="FM + 深度学习"></a>FM + 深度学习</h3><h4 id="FNN"><a href="#FNN" class="headerlink" title="FNN"></a>FNN</h4><blockquote>
+<p>Zhang, W., Du, T., &amp; Wang, J. (2016, March). Deep learning over multi-field categorical data. In <em>European conference on information retrieval</em> (pp. 45-57). Springer, Cham.</p>
+</blockquote>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204172456031.png" alt="image-20201204172230140" style="zoom:50%;"></p>
+<p>结构上还是经典的 Deep Crossing 模型，主要是解决模型收敛速度慢的问题。</p>
+<p>模型收敛速度慢主要是Embedding层收敛慢，原因在于 Embedding 向量是随机初始化的。</p>
+<p>FNN 用 FM 模型训练好的个特征隐向量来初始化 Embedding 层参数，相当于提前引入了有价值的先验信息，从而加速模型收敛。</p>
+<h4 id="DeepFm"><a href="#DeepFm" class="headerlink" title="DeepFm"></a>DeepFm</h4><blockquote>
+<p>Guo, H., Tang, R., Ye, Y., Li, Z., &amp; He, X. (2017). DeepFM: a factorization-machine based neural network for CTR prediction. <em>arXiv preprint arXiv:1703.04247</em>.</p>
+</blockquote>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204173028372.png" alt="image-20201204172456031" style="zoom:50%;"></p>
+<p>相比 Wide&amp;Deep，用 FM 模型替换了原来的 Wide 部分，目的是加强 Wide 部分特征组合的能力。</p>
+<p>左侧 FM 部分和右侧 Deep 部分共享 Embedding 层。</p>
+<p>DeepFM 和 Deep&amp;Cross比较：</p>
+<p>二者动机相同，都是为了改进 Wide 部分的特征组合能力。Deep&amp;Cross把Wide部分替换成了多层Cross网络，而DeepFM把Wide部分替换成了FM模型。</p>
+<h4 id="NFM"><a href="#NFM" class="headerlink" title="NFM"></a>NFM</h4><blockquote>
+<p>He, X., &amp; Chua, T. S. (2017, August). Neural factorization machines for sparse predictive analytics. In <em>Proceedings of the 40th International ACM SIGIR conference on Research and Development in Information Retrieval</em> (pp. 355-364).</p>
+</blockquote>
+<p>NFM在Embedding层和多层神经网络之间加入了 特征交叉池化层Bi-interaction Pooling Layer，加强了特征交叉。</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204173323863.png" alt="image-20201204173028372" style="zoom:50%;"></p>
+<p>特征交叉池化层的操作：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204173559029.png" alt="image-20201204173323863" style="zoom:50%;"></p>
+<blockquote>
+<p>感觉这块还只是特征的二阶交叉</p>
+</blockquote>
+<h3 id="Attention机制"><a href="#Attention机制" class="headerlink" title="Attention机制"></a>Attention机制</h3><h4 id="AFM"><a href="#AFM" class="headerlink" title="AFM"></a>AFM</h4><blockquote>
+<p>Xiao, J., Ye, H., He, X., Zhang, H., Wu, F., &amp; Chua, T. S. (2017). Attentional factorization machines: Learning the weight of feature interactions via attention networks. <em>arXiv preprint arXiv:1708.04617</em>.</p>
+</blockquote>
+<p>浙大</p>
+<p>在Pair-wise特征交叉层和输出层之间加入了一个注意力网络。注意力网络的作用是给每组交叉特征提供权重。</p>
+<p>其中，特征交叉层的交叉方法和 NFM 是一致的。</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204172230140.png" alt="image-20201204173559029" style="zoom:50%;"></p>
+<h4 id="DIN"><a href="#DIN" class="headerlink" title="DIN"></a>DIN</h4><blockquote>
+<p>Zhou, G., Zhu, X., Song, C., Fan, Y., Zhu, H., Ma, X., … &amp; Gai, K. (2018, July). Deep interest network for click-through rate prediction. In <em>Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery &amp; Data Mining</em> (pp. 1059-1068).</p>
+</blockquote>
+<p>阿里巴巴</p>
+<p>面向电商广告推荐场景</p>
+<p>针对用户侧特征和广告侧特种中的id类特征（例如商品id和商铺id），利用attention机制对这些id类特征进行加权。</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204174301831.png" alt="image-20201204174020885" style="zoom:50%;"></p>
+<h3 id="序列模型"><a href="#序列模型" class="headerlink" title="序列模型"></a>序列模型</h3><h4 id="DIEN"><a href="#DIEN" class="headerlink" title="DIEN"></a>DIEN</h4><blockquote>
+<p>Zhou, G., Mou, N., Fan, Y., Pi, Q., Bian, W., Zhou, C., … &amp; Gai, K. (2019, July). Deep interest evolution network for click-through rate prediction. In <em>Proceedings of the AAAI conference on artificial intelligence</em> (Vol. 33, pp. 5941-5948).</p>
+</blockquote>
+<p>阿里对DIN的改进，仍然是面向电商广告推荐场景，新增了对用户兴趣的时序建模。</p>
+<p>体现在对模型结构的改进，即增加了兴趣进化网络（彩色部分），从下到上：</p>
+<ol>
+<li>行为序列层：把原始的id类行为序列转化成Embedding行为序列</li>
+<li><strong>兴趣抽取层</strong>：通过模拟用户的兴趣迁移过程，抽取用户兴趣</li>
+<li><strong>兴趣进化层</strong>：通过在兴趣抽取层基础上加入注意力机制，模拟与当前目标广告相关的兴趣进化过程</li>
+</ol>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204175019739.png" alt="image-20201204174301831" style="zoom:50%;"></p>
+<p>兴趣抽取层基本结构是GRU</p>
+<p>兴趣进化层引入了attention机制</p>
+<h3 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h3><h4 id="DRN"><a href="#DRN" class="headerlink" title="DRN"></a>DRN</h4><blockquote>
+<p>Zheng, G., Zhang, F., Zheng, Z., Xiang, Y., Yuan, N. J., Xie, X., &amp; Li, Z. (2018, April). DRN: A deep reinforcement learning framework for news recommendation. In <em>Proceedings of the 2018 World Wide Web Conference</em> (pp. 167-176).</p>
+</blockquote>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204174731501.png" alt="image-20201204174731501" style="zoom:50%;"></p>
+<p>强化学习框架：</p>
+<ol>
+<li>Agent</li>
+<li>Environment</li>
+<li>Action</li>
+<li>Reward</li>
+<li>State</li>
+</ol>
+<p>Agent是推荐系统本身，也是强化学习推荐框架的核心。在DRN框架中，agent是Deep Q-Network (DQN), Q表示Quality，DQN结构如下：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204174020885.png" alt="image-20201204175019739" style="zoom:50%;"></p>
+<p>学习过程：</p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204175106937.png" alt="image-20201204175106937" style="zoom:50%;"></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wangliang.leon20@gmail.com </span>
+    </div>
+</article>
+
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'e25cb882a9cfd69b0fcf',
+            clientSecret: '866a281dc860e73a14108d1a2e93dc2e8302340d',
+            repo: 'BlogComments',
+            owner: 'AzureLeon1',
+            admin: ['AzureLeon1'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry"><span class="miit">
+                <img src="/img/gov.png" title="中华人民共和国工业和信息化部">
+                <a href="http://beian.miit.gov.cn/">鲁ICP备18054179号</a>
+        </span>
+    
+    ©2018-2021 Leon
+</p>
+<!-- <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p> -->
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'photoSwipe';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, article';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 622px;
+    }
+    .nav.fullscreen {
+        margin-left: -622px;
+    }
+    .nav-left {
+        width: 200px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 542px;
+        }
+        .nav.fullscreen {
+            margin-left: -542px;
+        }
+        .nav-left {
+            width: 150px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 542px;
+            margin-left: -542px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+</html>
