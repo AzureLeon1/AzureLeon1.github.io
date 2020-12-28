@@ -4,6 +4,98 @@
   
     
     <entry>
+      <title>注意力机制</title>
+      <link href="2020/12/28/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/"/>
+      <url>2020/12/28/%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图结构学习</title>
+      <link href="2020/12/28/%E5%9B%BE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0/"/>
+      <url>2020/12/28/%E5%9B%BE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Recommender System 模型梳理</title>
+      <link href="2020/12/28/Recommender-System-%E6%A8%A1%E5%9E%8B%E6%A2%B3%E7%90%86/"/>
+      <url>2020/12/28/Recommender-System-%E6%A8%A1%E5%9E%8B%E6%A2%B3%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Message Passing</title>
+      <link href="2020/12/28/Message-Passing/"/>
+      <url>2020/12/28/Message-Passing/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Graph Embedding 深层模型(GNNs系列)</title>
+      <link href="2020/12/28/Graph-Embedding-%E6%B7%B1%E5%B1%82%E6%A8%A1%E5%9E%8B-GNNs%E7%B3%BB%E5%88%97/"/>
+      <url>2020/12/28/Graph-Embedding-%E6%B7%B1%E5%B1%82%E6%A8%A1%E5%9E%8B-GNNs%E7%B3%BB%E5%88%97/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Graph Embedding 浅层模型</title>
+      <link href="2020/12/28/Graph-Embedding-%E6%B5%85%E5%B1%82%E6%A8%A1%E5%9E%8B/"/>
+      <url>2020/12/28/Graph-Embedding-%E6%B5%85%E5%B1%82%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h2 id="论文列表"><a href="#论文列表" class="headerlink" title="论文列表"></a>论文列表</h2><ol start="0"><li>Word2Vec</li><li>Deep Walk</li><li>Node2Vec</li></ol><h2 id="Word2Vec-Embedding技术的奠基工作"><a href="#Word2Vec-Embedding技术的奠基工作" class="headerlink" title="Word2Vec(Embedding技术的奠基工作)"></a>Word2Vec(Embedding技术的奠基工作)</h2><h4 id="相关论文"><a href="#相关论文" class="headerlink" title="相关论文"></a>相关论文</h4><blockquote><p>[1] Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient estimation of word representations in vector space. <em>ICLR Workshop</em>, 2013</p><p>[2] T. Mikolov, I. Sutskever, K. Chen, G. Corrado, and J. Dean. Distributed Representations of Words and Phrases and their Compositionality. NIPS 2013</p><p>[3] Le Q, Mikolov T. Distributed representations of sentences and documents[C]//International Conference on Machine Learning. 2014: 1188-1196.</p><p>[4] Goldberg Y, Levy O. word2vec Explained: deriving Mikolov et al.’s negative-sampling word-embedding method[J]. arXiv preprint arXiv:1402.3722, 2014.</p><p>[5] Rong X. word2vec parameter learning explained[J]. arXiv preprint arXiv:1411.2738, 2014.</p></blockquote><p>Mikolov等人在2013年的文献[1]中，同时提出了<strong>CBOW(Continuous Bagof-Words)</strong>和<strong>Skip-gram</strong>模型，希望能够用更高效的方法获取词向量。因此，他们根据前人在 NNLM、 RNNLM 和 C&amp;W 模型上的经验，简化了已有模型，保留核心部分，得到了这两个模型。</p><p>Mikolov在2013年又在[2]中提出了训练Skip-gram模型的两个策略：<strong>Hierarchical Softmax</strong>和<strong>Negative Sampling</strong>，用来提高 Word2Vec 模型的训练效率。</p><p>Mikolov在2014年在论文[3]中提出了doc2vec。</p><p>[4], [5] 中对原论文进行了更详细的推导。</p><h4 id="Word2Vec介绍"><a href="#Word2Vec介绍" class="headerlink" title="Word2Vec介绍"></a>Word2Vec介绍</h4><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201113125604428.png" alt="image-20201113125604428"></p><p>Word2vec能训练超过亿万级的文本，将其转化为50-100维度的词向量（word vectors）。在此之前没有模型具备这种从<strong>海量文本</strong>中学习到<strong>高质量词向量</strong>的能力。</p><p>该模型的词向量的<strong>相似度</strong>并不仅仅是简单的句法规则，在词向量上使用<strong>词抵消手段</strong>（即简单的代数运算），可以得到像下述例子这样的结果，例如：vector（国王）- vector（男）+ vector（女）= vector（皇后）。</p><p>论文提出了两种Word2vec的模型结构，它们可以学习词的分布表示（distributed representations）并且最小化其计算复杂度。这两种Word2vec模型结构分别是：<strong>连续词袋模型（Continuous Bag-of-Words Model）</strong>和<strong>连续Skip-gram模型（Continuous Skip-gram Model）</strong>。</p><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201113125634930.png" alt="image-20201113125634930"></p><ul><li>CBOW：基于上下文语境预测当前词</li><li>Skip-gram：给定当前词预测周围的词</li></ul><p>两种结构遵循同样的假设：每个词都跟它相邻的词的关系最密切。具体到每个模型结构来说，CBOW假设每个词都是由相邻的词决定的，skip-gram假设每个词都决定了相邻的词。</p><p>经验上来说，skip-gram的效果更好。下面以Skip-gram为框架介绍Word2Vec的模型细节。</p><h4 id="Skip-gram模型细节"><a href="#Skip-gram模型细节" class="headerlink" title="Skip-gram模型细节"></a>Skip-gram模型细节</h4><p>算法过程：</p><ol><li><p>用滑窗法在句子上从左向右滑动，每移动一次，生成一个训练样本。这里滑窗大小为2c+1，包含了目标词前后各c个词。</p></li><li><p>定义优化目标：基于极大似然估计，希望所有样本的条件概率之积最大，转化为对数概率的和最大<br> $$<br> \frac{1}{T} \sum_{t=1}^{T} \sum_{-c \leq j \leq c, j \neq 0} \log p\left(w_{t+j} \mid w_{t}\right)<br> $$</p></li><li><p>定义上述目标中的条件概率$p\left(w_{t+j} \mid w_{t}\right)$：</p><p> 主要有这两点考虑：a. 作为一个多分类问题，最直接的方法就是用softmax函数；b. word2vec的愿景是希望让词向量的内积能够表示语义的接近程度。</p><p> 基于上述两点，可以给出条件概率的定义如下（softmax的形式&amp;用内积表示距离）：</p></li></ol><p>$$<br>p\left(w_{O} \mid w_{I}\right)=\frac{\exp \left(v_{w_{O}}^{\top} v_{w_{I}}\right)}{\sum_{w=1}^{W} \exp \left(v_{w}^{\prime \top} v_{w_{I}}\right)}<br>$$</p><ol start="4"><li><p>需要注意的是，上面条件概率公式中的输入向量和输出向量并不在同一个向量空间内。具体到神经网络的结构上，输入向量是输入层到隐层的权重矩阵，输出向量是隐层到输出层的权重矩阵。</p><p> <img src="http://img.cdn.leonwang.top/picgo_img/1042406-20170727105326843-18935623.png" alt="img"></p><p> 因此，通过梯度下降训练完成之后，得到的输入层到隐层的权重矩阵就是一个词向量查找表。</p></li></ol><h4 id="加快Word2Vec训练速度的方法"><a href="#加快Word2Vec训练速度的方法" class="headerlink" title="加快Word2Vec训练速度的方法"></a>加快Word2Vec训练速度的方法</h4><p>实际上完全遵循上面原始的 Word2Vec 多分类结构的训练方法是不可行的，因为隐层神经元的个数等于语料库中词的数量，计算量太大。因此实际上会通过下面两种方法来提高训练效率</p><ol><li><p>Hierarchical Softmax</p><p> 改进：</p><ul><li>a. 对于从输入层到隐藏层的映射，没有采取神经网络的线性变换加激活函数的方法，而是采用简单的对所有输入词向量求和并取平均的方法。比如输入的是三个4维词向量：(1,2,3,4),(9,6,11,8),(5,10,7,12),那么我们word2vec映射后的词向量就是(5,6,7,8)。由于这里是从多个词向量变成了一个词向量。</li><li>b. 从隐藏层到输出的softmax层这里的计算量个改进。为了避免要计算所有词的softmax概率，word2vec采样了霍夫曼树来代替从隐藏层到输出softmax层的映射。（详细过程暂不讨论）</li></ul></li><li><p>Negative Sampling</p><p> 相比于计算字典中所有词的预测误差，负采样方法值对采样出的几个负样本预测误差，是多分类问题退化成一个近似二分类问题。用下式替换 $p\left(w_{t+j} \mid w_{t}\right)$。<br> $$<br> \log \sigma\left(v_{w_{0}}^{\prime \top} v_{w_{i}}\right)+\sum_{i=1}^{k} \mathbb{E}_{w_{i} \sim P_{n}(w)}\left[\log \sigma\left(-v_{w_{i}}^{\prime \top} v_{w_{t}}\right)\right]<br> $$</p></li></ol><h2 id="DeepWalk"><a href="#DeepWalk" class="headerlink" title="DeepWalk"></a>DeepWalk</h2><h4 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h4><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201113143229719.png" alt="image-20201113143229719"></p><blockquote><p>Perozzi B, Al-Rfou R, Skiena S. Deepwalk: Online learning of social representations[C]//Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining. 2014: 701-710.</p></blockquote><h4 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h4><p>DeepWalk的思想类似word2vec，使用<strong>图中节点与节点的共现关系</strong>来学习节点的向量表示。那么关键的问题就是如何来描述节点与节点的共现关系，DeepWalk给出的方法是使用随机游走(RandomWalk)的方式在图中进行节点采样。</p><p>RandomWalk是一种<strong>可重复访问已访问节点的深度优先遍历</strong>算法。给定当前访问起始节点，从其邻居中随机采样节点作为下一个访问节点，重复此过程，直到访问序列长度满足预设条件。</p><p>获取足够数量的节点访问序列后，使用skip-gram model 进行向量学习。</p><p>总结算法步骤如下：</p><ol><li><p>随机游走采样节点序列</p><p> 构建同构网络，从网络中的每个节点开始分别进行Random Walk 采样，得到局部相关联的训练数据； </p></li><li><p>skip-gram学习表达向量</p><p> 对采样数据进行SkipGram训练，将离散的网络节点表示成向量化，最大化节点共现，使用Hierarchical Softmax来做超大规模分类的分类器</p></li></ol><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201113143307835.png" alt="image-20201113143307835"></p><h2 id="Node2Vec"><a href="#Node2Vec" class="headerlink" title="Node2Vec"></a>Node2Vec</h2><h4 id="论文-1"><a href="#论文-1" class="headerlink" title="论文"></a>论文</h4><blockquote><p>Grover A, Leskovec J. node2vec: Scalable feature learning for networks[C]//Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discovery and data mining. 2016: 855-864.</p></blockquote><p>node2vec是一种综合考虑DFS邻域和BFS邻域的graph embedding方法。简单来说，可以看作是deepwalk的一种扩展，是结合了DFS和BFS随机游走的deepwalk。</p><p>这篇文章的<strong>主要贡献是在于如何获取一个更有意义的“sentence”，这个sentence能够更好的包含节点相似性和结构相似性问题</strong>（randomwalk采用uniformly一条路走到黑）。等同于说这个<strong>random walk怎么走的问题</strong>（sampling neighbourhoods）。</p><h4 id="算法原理-1"><a href="#算法原理-1" class="headerlink" title="算法原理"></a>算法原理</h4><p>主要分析这篇文章用的随机游走采样策略。</p><p>node2vec依然采用随机游走的方式获取节点的近邻序列，不同的是node2vec采用的是一种有偏的随机游走。</p><p>给定当前节点 $v$ ，访问下一个节点 $x$ 的概率为：<br>$$<br>P\left(c_{i}=x \mid c_{i-1}=v\right)=\left\{\begin{array}{cc}<br>\frac{\pi_{v x}}{Z} &amp; \text { if }(v, x) \in E \\<br>0 &amp; \text { otherwise }<br>\end{array}\right.<br>$$<br>其中，$\pi_{v x}$ 是节点 $v$ 和节点 $x$ 之间的未归一化转移概率， $Z$ 是归一化常数。</p><p>node2vec 引入两个超参数 $p$ 和 $q$ 来控制随机游走的策略，假设当前随机游走经过边 $(t,v)$ 到达节点 $v$ 设 $\pi_{v x}=\alpha_{p q}(t, x) \cdot w_{v x}$ ， $w_{vx}$ 是节点 $v$ 和 $x$ 之间的边的权重，而$\alpha_{p q}(t, x)$ 定义为<br>$$<br>\alpha_{p q}(t, x)=\left\{\begin{array}{ll}<br>\frac{1}{p}= &amp; \text { if } d_{t x}=0 \\<br>1= &amp; \text { if } d_{t x}=1 \\<br>\frac{1}{q}= &amp; \text { if } d_{t x}=2<br>\end{array}\right.<br>$$<br>其中，$d_{tx}$ 为节点 $t$ 和节点  $x$ 之间的最短路径距离。</p><p>下面讨论超参数 $p$ 和 $q$ 对游走策略的影响</p><ul><li>Return parameter, $p$</li></ul><p>参数 $p$ 控制重复访问刚刚访问过的节点的概率。 注意到 $p$ 仅作用于 $d_{tx}=0$ 的情况，而 $d_{tx}=0$ 表示节点 $x$ 就是访问当前节点 $v$ 之前刚刚访问过的节点。 那么若 $p$ 较高，则访问刚刚访问过的节点的概率会变低，反之变高。</p><ul><li>In-out papameter, $q$</li></ul><p>$q$ 控制着游走是向外还是向内，若 $q&gt;1$ ，随机游走倾向于访问和 $t$ 接近的节点(偏向BFS)。若 $q&lt;1$ ，倾向于访问远离  $t$ 的节点(偏向DFS)。</p><p>下面的图描述的是当从 $t$ 访问到 $v$ 时，决定下一个访问节点时每个节点对应的 $\alpha$ 。</p><p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201113145112864.png" alt="image-20201113145112864"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+          <category> Graph </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Graph Embedding </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Neural Graph Collaborative Filtering</title>
       <link href="2020/11/23/Neural-Graph-Collaborative-Filtering/"/>
       <url>2020/11/23/Neural-Graph-Collaborative-Filtering/</url>
