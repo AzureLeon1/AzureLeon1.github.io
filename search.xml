@@ -15,7 +15,7 @@
           
           <category> 机器学习 </category>
           
-          <category> 其他 </category>
+          <category> Common </category>
           
       </categories>
       
@@ -251,44 +251,6 @@
     
     
     <entry>
-      <title>归档_todo</title>
-      <link href="2020/11/17/%E5%BD%92%E6%A1%A3-todo/"/>
-      <url>2020/11/17/%E5%BD%92%E6%A1%A3-todo/</url>
-      
-        <content type="html"><![CDATA[<p>施工中🚧<br>之前的垃圾都倒到这里来吧</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>其他_todo</title>
-      <link href="2020/11/17/%E5%85%B6%E4%BB%96-todo/"/>
-      <url>2020/11/17/%E5%85%B6%E4%BB%96-todo/</url>
-      
-        <content type="html"><![CDATA[<p>施工中🚧</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 其他 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>算法与数据结构_todo</title>
       <link href="2020/11/17/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-todo/"/>
       <url>2020/11/17/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-todo/</url>
@@ -381,27 +343,6 @@
           <category> 机器学习 </category>
           
           <category> 推荐广告搜索 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>图表示学习_todo</title>
-      <link href="2020/11/17/%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0-todo/"/>
-      <url>2020/11/17/%E5%9B%BE%E8%A1%A8%E7%A4%BA%E5%AD%A6%E4%B9%A0-todo/</url>
-      
-        <content type="html"><![CDATA[<p>施工中🚧<br>todo: 概述，论文</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 机器学习 </category>
-          
-          <category> Graph </category>
           
       </categories>
       
@@ -597,9 +538,9 @@
       
         <tags>
             
-            <tag> 机器学习 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 机器学习 </tag>
             
             <tag> 分割 </tag>
             
@@ -661,9 +602,9 @@
       
         <tags>
             
-            <tag> 机器学习 </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> 机器学习 </tag>
             
             <tag> 分割 </tag>
             
@@ -828,7 +769,7 @@
           
           <category> 机器学习 </category>
           
-          <category> 其他 </category>
+          <category> Common </category>
           
       </categories>
       
