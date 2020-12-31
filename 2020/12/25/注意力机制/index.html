@@ -6,19 +6,14 @@
   <meta name="keywords" content=" Attention ">
   <meta name="description" content="注意力机制 | Leon Wang">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Leon Wang    本科： 2017-2021 同济大学软件学院 软件工程   硕士： 2021年入学 中国科学院自动化研究所 数据挖掘   实习经历：2020年7月-2020年12月 字节跳动Data广告部门 算法实习生   兴趣与研究方向: &amp;nbsp;&amp;nbsp;&amp;nbsp;机器学习、统计学习、图学习、数据挖掘、推荐广告搜索    GitHub: &amp;nbsp;&amp;">
 <meta property="og:type" content="website">
-<meta property="og:title" content="About Me">
-<meta property="og:url" content="http://www.leonwang.top/about/index.html">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://www.leonwang.top/categories/index.html">
 <meta property="og:site_name" content="Leon Wang">
-<meta property="og:description" content="Leon Wang    本科： 2017-2021 同济大学软件学院 软件工程   硕士： 2021年入学 中国科学院自动化研究所 数据挖掘   实习经历：2020年7月-2020年12月 字节跳动Data广告部门 算法实习生   兴趣与研究方向: &amp;nbsp;&amp;nbsp;&amp;nbsp;机器学习、统计学习、图学习、数据挖掘、推荐广告搜索    GitHub: &amp;nbsp;&amp;">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://img.cdn.leonwang.top/pic.jpeg">
-<meta property="og:updated_time" content="2020-12-28T08:22:45.268Z">
+<meta property="og:updated_time" content="2018-11-17T04:04:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About Me">
-<meta name="twitter:description" content="Leon Wang    本科： 2017-2021 同济大学软件学院 软件工程   硕士： 2021年入学 中国科学院自动化研究所 数据挖掘   实习经历：2020年7月-2020年12月 字节跳动Data广告部门 算法实习生   兴趣与研究方向: &amp;nbsp;&amp;nbsp;&amp;nbsp;机器学习、统计学习、图学习、数据挖掘、推荐广告搜索    GitHub: &amp;nbsp;&amp;">
-<meta name="twitter:image" content="http://img.cdn.leonwang.top/pic.jpeg">
+<meta name="twitter:title" content="categories">
 
 
 <link rel="icon" href="/images/avatar.jpeg">
@@ -1139,7 +1134,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-12-28 16:15:23'>2020-12-25 15:00</time>
+            Created At : <time class="date" title='Updated At: 2021-01-01 00:36:01'>2020-12-25 15:00</time>
         
     </div>
     <div class="article-meta">
@@ -1196,15 +1191,15 @@
 <li><blockquote>
 <p>Sutskever, I., Vinyals, O., &amp; Le, Q. V. (2014). <strong>Sequence to sequence learning with neural networks</strong>. <em>Advances in neural information processing systems</em>, <em>27</em>, 3104-3112.</p>
 </blockquote>
-<p>  使用 LSTM 来构建 Seq2Seq模型。其中前三个为 Encoder 层，后五个为 Decoder 层。</p>
-<p>  这个最早提出的 Seq2Seq 模型还有一个缺点，只支持固定长度的输入。</p>
-<p>  <img src="http://img.cdn.leonwang.top/image-20201225142512450.png" alt="image-20201225142512450"></p>
+<p> 使用 LSTM 来构建 Seq2Seq模型。其中前三个为 Encoder 层，后五个为 Decoder 层。</p>
+<p> 这个最早提出的 Seq2Seq 模型还有一个缺点，只支持固定长度的输入。</p>
+<p> <img src="http://img.cdn.leonwang.top/image-20201225142512450.png" style="zoom:50%;"></p>
 </li>
 <li><blockquote>
 <p>Cho, K., Van Merriënboer, B., Gulcehre, C., Bahdanau, D., Bougares, F., Schwenk, H., &amp; Bengio, Y. (2014). <strong>Learning phrase representations using RNN encoder-decoder for statistical machine translation</strong>. <em>arXiv preprint arXiv:1406.1078</em>.</p>
 </blockquote>
-<p>  提出了基于 GRU 的 Seq2Seq 模型</p>
-<p>  <img src="http://img.cdn.leonwang.top/image-20201225151015755.png" alt="image-20201225142533287"></p>
+<p> 提出了基于 GRU 的 Seq2Seq 模型</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201225142533287.png" style="zoom:33%;"></p>
 </li>
 </ol>
 <h4 id="传统Seq2Seq模型的局限"><a href="#传统Seq2Seq模型的局限" class="headerlink" title="传统Seq2Seq模型的局限"></a>传统Seq2Seq模型的局限</h4><p>传统 Seq2Seq 模型主要由两个 RNN 模型组成，分别起到 Encoder 和 Decoder 的作用，通过“不定长序列 -&gt; 定长隐向量 -&gt; 不定长序列”的转换实现机器翻译。</p>
@@ -1217,30 +1212,30 @@
 <h3 id="Attention-Mechanism"><a href="#Attention-Mechanism" class="headerlink" title="Attention Mechanism"></a>Attention Mechanism</h3><blockquote>
 <p>Bahdanau, D., Cho, K., &amp; Bengio, Y. (2014). <strong>Neural machine translation by jointly learning to align and translate</strong>. <em>arXiv preprint arXiv:1409.0473</em>.</p>
 </blockquote>
-<h4 id="提出"><a href="#提出" class="headerlink" title="提出"></a>提出</h4><p><img src="http://img.cdn.leonwang.top/image-20201225144843587.png" alt="image-20201225144357457"></p>
+<h4 id="提出"><a href="#提出" class="headerlink" title="提出"></a>提出</h4><p><img src="http://img.cdn.leonwang.top/image-20201225144357457.png" style="zoom:33%;"></p>
 <p>引入 Attention Mechanism 后，Seq2Seq中的encoder被替换为一个双向循环网络（bidirectional RNN），decoder部分则利用encoder部分的所有输入信息（加权求和），这使得对于<strong>每个输出y</strong>，都和之前的输出以及当前的<strong>整个句子</strong>有关。</p>
 <p>同时，原来输出的梯度只能从最后一个时刻的隐含状态向更早时刻传导，有了attention机制之后，梯度能直接传导到输入部分，降低的梯度消失的风险。</p>
 <p>因为不再需要将完整的输入序列编码为固定长度的向量，而是要让全部的原文序列参与到每一步的 decoder 中，那么就会面临一个核心问题，需要在每一步 decoder 中确定输入序列各个部分的权重（物理含义是每一步预测时输入序列的哪些部分对当前预测更加重要）。所以需要对序列的不同部分进行<strong>加权</strong>。</p>
 <h4 id="计算过程"><a href="#计算过程" class="headerlink" title="计算过程"></a>计算过程</h4><ol>
-<li><p>利用 BRNN 结构得到 hidden state： </p>
+<li><p>利用 BRNN 结构得到 hidden state： $s_{t-1}=(h_1, h_2, h_3, …, h_t)$</p>
 </li>
-<li><p>计算当前 state 中每个输入位置  的权重，权重通过相关性算符和softmax计算得到，然后加权求和得到 context vector：</p>
-<p> <img src="http://img.cdn.leonwang.top/image-20201225142533287.png" alt="image-20201225144843587"></p>
+<li><p>计算当前 state 中每个输入位置 $h_i$ 的权重，权重通过相关性算符和softmax计算得到，然后加权求和得到 context vector：$c_t$</p>
+<p> <img src="http://img.cdn.leonwang.top/image-20201225144843587.png" style="zoom:33%;"></p>
 <p> 其中 a(s,h) 表示相关性算符，常见的比如点乘、加权点乘</p>
 </li>
 <li><p>计算输出的条件概率：</p>
-<p> <img src="http://img.cdn.leonwang.top/image-20201225144357457.png" alt="image-20201225151015755"></p>
+<p> <img src="http://img.cdn.leonwang.top/image-20201225151013313.png" style="zoom:33%;"></p>
 </li>
 </ol>
 <p>通过可视化权重矩阵理解模型的工作机制：</p>
-<p><img src="http://img.cdn.leonwang.top/70d4600934a1a5513296c5561bc75962.jpg" alt="image-20201225151345815"></p>
+<p><img src="http://img.cdn.leonwang.top/image-20201225151345815.png" style="zoom:33%;"></p>
 <h4 id="核心本质"><a href="#核心本质" class="headerlink" title="核心本质"></a>核心本质</h4><p>计算encoder与decoder state之间的关联性的权重，得到Attention分布，从而对于当前输出位置得到比较重要的输入位置的权重，在预测输出时相应的会占较大的比重。</p>
 <h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><h5 id="Soft-Attention-和-Hard-Attention"><a href="#Soft-Attention-和-Hard-Attention" class="headerlink" title="Soft Attention 和 Hard Attention"></a>Soft Attention 和 Hard Attention</h5><blockquote>
 <p>Xu, K., Ba, J., Kiros, R., Cho, K., Courville, A., Salakhudinov, R., … &amp; Bengio, Y. (2015, June). <strong>Show, attend and tell: Neural image caption generation with visual attention</strong>. In <em>International conference on machine learning</em> (pp. 2048-2057).</p>
 </blockquote>
 <p>任务：Image Caption</p>
 <p>在Image Caption中引入了Attention，当生成第i个关于图片内容描述的词时，用Attention来关联与i个词相关的图片的区域。</p>
-<p><img src="http://img.cdn.leonwang.top/image-20201225154657676.png" alt="image-20201225152850214"></p>
+<p><img src="http://img.cdn.leonwang.top/image-20201225152850214.png" style="zoom:33%;"></p>
 <p>论文中使用了两种Attention Mechanism，即Soft Attention和Hard Attention。</p>
 <p>Soft Attention：之前所描述的传统的Attention Mechanism就是Soft Attention。Soft Attention是参数化的（Parameterization），因此可导，可以被嵌入到模型中去，直接训练。梯度可以经过Attention Mechanism模块，反向传播到模型其他部分。</p>
 <p>Hard Attention：Hard Attention是一个随机的过程。Hard Attention不会选择整个encoder的输出做为其输入，Hard Attention会依概率Si来采样输入端的隐状态一部分来进行计算，而不是整个encoder的隐状态。为了实现梯度的反向传播，需要采用蒙特卡洛采样的方法来估计模块的梯度。</p>
@@ -1248,54 +1243,53 @@
 <h5 id="Global-Attention-和-Local-Attention"><a href="#Global-Attention-和-Local-Attention" class="headerlink" title="Global Attention 和 Local Attention"></a>Global Attention 和 Local Attention</h5><blockquote>
 <p>Luong, M. T., Pham, H., &amp; Manning, C. D. (2015). <strong>Effective approaches to attention-based neural machine translation</strong>. <em>arXiv preprint arXiv:1508.04025</em>.</p>
 </blockquote>
-<p><strong>Global Attention：</strong>和传统的Attention model一样。所有的hidden state都被用于计算Context vector 的权重，即变长的权重向量的其长度等于encoder端输入句子的长度。</p>
+<p><strong>Global Attention：</strong>和传统的Attention model一样。所有的hidden state都被用于计算Context vector 的权重，即变长的权重向量$a_t$的其长度等于encoder端输入句子的长度。</p>
 <p>Global Attention有一个明显的缺点，每一次encoder端的所有hidden state都要参与计算，这样做计算开销会比较大，特别是当encoder的句子偏长。</p>
 <p><strong>Local Attention：</strong>Local Attention是一种介于Kelvin Xu所提出的Soft Attention和Hard Attention之间的一种Attention方式，即把两种方式结合起来。其结构如图6所示。</p>
-<p>Local Attention首先会为decoder端当前的词，<strong>预测一个source端对齐位置（aligned position），然后基于选择一个窗口，用于计算背景向量。</strong></p>
-<p><strong><img src="http://img.cdn.leonwang.top/image-20201225152850214.png" alt="image-20201225154657676"></strong></p>
-<p><strong>评价：Global Attention和Local Attention各有优劣，在实际应用中，Global Attention应用更普遍，因为local Attention需要预测位置向量，这就带来两个问题：</strong></p>
+<p>Local Attention首先会为decoder端当前的词，<strong>预测一个source端对齐位置（aligned position）$p_t$</strong>，然后基于$p_t$选择一个窗口，用于计算背景向量$c_t$。</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201225154657676.png" style="zoom: 33%;"></p>
+<p>评价：Global Attention和Local Attention各有优劣，在实际应用中，Global Attention应用更普遍，因为local Attention需要预测位置向量$p_t$，这就带来两个问题：</p>
 <ol>
-<li><strong>当encoder句子不是很长时，相对Global Attention，计算量并没有明显减小。</strong></li>
-<li><strong>位置向量的预测可能不准确。</strong></li>
+<li>当encoder句子不是很长时，相对Global Attention，计算量并没有明显减小。</li>
+<li>位置向量$p_t$的预测可能不准确。</li>
 </ol>
-<h5 id="Self-Attention-amp-Transformer"><a href="#Self-Attention-amp-Transformer" class="headerlink" title="Self Attention &amp; Transformer"></a><strong>Self Attention &amp; Transformer</strong></h5><blockquote>
-<p><strong>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., … &amp; Polosukhin, I. (2017). \</strong>Attention is all you need.*<em> In \</em>Advances in neural information processing systems* (pp. 5998-6008).**</p>
+<h5 id="Self-Attention-amp-Transformer"><a href="#Self-Attention-amp-Transformer" class="headerlink" title="Self Attention &amp; Transformer"></a>Self Attention &amp; Transformer</h5><blockquote>
+<p>Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., … &amp; Polosukhin, I. (2017). <strong>Attention is all you need.</strong> In <em>Advances in neural information processing systems</em> (pp. 5998-6008).</p>
 </blockquote>
-<h6 id="QKV"><a href="#QKV" class="headerlink" title="QKV"></a><strong>QKV</strong></h6><p><strong>query：目标向量</strong></p>
-<p><strong>key-value：X/X的矩阵变换</strong></p>
-<h6 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self Attention"></a><strong>Self Attention</strong></h6><p><strong>QKV角度理解：</strong></p>
-<p><strong>KQV分别通过不同的矩阵变换映射到不同的⼦空间中，区别在于以前共享⼀个ctx的Query，self-attention中的Query也不共享了。</strong></p>
-<p><strong>Self Attention与传统的Attention机制的区别：</strong></p>
+<h6 id="QKV"><a href="#QKV" class="headerlink" title="QKV"></a>QKV</h6><p>query：目标向量</p>
+<p>key-value：X/X的矩阵变换</p>
+<h6 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self Attention"></a>Self Attention</h6><p>QKV角度理解：</p>
+<p>KQV分别通过不同的矩阵变换映射到不同的⼦空间中，区别在于以前共享⼀个ctx的Query，self-attention中的Query也不共享了。</p>
+<p>Self Attention与传统的Attention机制的区别：</p>
 <ol>
-<li><p><strong>传统的Attention是基于source端和target端的隐变量（hidden state）计算Attention的，得到的结果是源端的每个词与目标端每个词之间的依赖关系。</strong></p>
+<li><p>传统的Attention是基于source端和target端的隐变量（hidden state）计算Attention的，得到的结果是源端的每个词与目标端每个词之间的依赖关系。</p>
 </li>
-<li><p><strong>Self Attention分别在source端和target端进行，仅与source input或者target input自身相关的Self Attention，捕捉source端或target端自身的词与词之间的依赖关系；然后再把source端的得到的self Attention加入到target端得到的Attention中，捕捉source端和target端词与词之间的依赖关系。</strong></p>
-<p> <strong><img src="https://pic2.zhimg.com/v2-ee0044cda391d9a8f6775e74aee972bd_r.jpg" alt="preview"></strong></p>
-<p> <strong>因此，self Attention Attention比传统的Attention mechanism效果要好，主要原因之一是，传统的Attention机制忽略了源端或目标端句子中词与词之间的依赖关系，相对比，self Attention可以不仅可以得到源端与目标端词与词之间的依赖关系，同时还可以有效获取源端或目标端自身词与词之间的依赖关系</strong></p>
+<li><p>Self Attention分别在source端和target端进行，仅与source input或者target input自身相关的Self Attention，捕捉source端或target端自身的词与词之间的依赖关系；然后再把source端的得到的self Attention加入到target端得到的Attention中，捕捉source端和target端词与词之间的依赖关系。</p>
+<p> <img src="https://pic2.zhimg.com/v2-ee0044cda391d9a8f6775e74aee972bd_r.jpg" alt="preview" style="zoom: 50%;"></p>
+<p> 因此，self Attention Attention比传统的Attention mechanism效果要好，主要原因之一是，传统的Attention机制忽略了源端或目标端句子中词与词之间的依赖关系，相对比，self Attention可以不仅可以得到源端与目标端词与词之间的依赖关系，同时还可以有效获取源端或目标端自身词与词之间的依赖关系</p>
 </li>
 </ol>
-<p><strong>Self-attention 计算过程：</strong></p>
-<p><strong><img src="http://img.cdn.leonwang.top/image-20201225151345815.png" alt="img"></strong></p>
-<h6 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a><strong>Transformer</strong></h6><p><strong>不依赖基于RNN的Seq2Seq模型，而是直接用 attention 建模。</strong></p>
-<p><strong>模型结构：</strong></p>
-<p><strong><img src="http://img.cdn.leonwang.top/image-20201225160547407.png" alt="image-20201225160547407"></strong></p>
-<p><strong>左边是encoder (N=6)，右边是decoder (N=6)。</strong></p>
-<p><strong><em>\</em>Encoder部分**</strong></p>
-<p><strong>每个 Encoder Layer 包含两个 sub-layer：</strong></p>
-<p><strong><em>\</em>sub-layer-1：multi-head self-attention mechanism\</strong>，用来进行 self-attention。**</p>
-<p><strong><em>\</em>sub-layer-2：Position-wise Feed-forward Networks\</strong>，简单的全连接网络，对每个 position 的向量分别进行相同的操作，包括两个线性变换和一个 ReLU 激活输出（输入输出层的维度都为 512，中间层为 2048）：**</p>
-<p><strong>每个 sub-layer 都使用了残差连接</strong></p>
-<p><strong><em>\</em>Decoder部分**</strong></p>
-<p><strong>每个 Decoder Layer 包含 3 个 sub-layer：</strong></p>
-<p><strong><em>\</em>sub-layer-1：Masked multi-head self-attention mechanism\</strong>，用来进行self-attention，与Encoder不同：由于是序列生成过程，所以在时刻 i 的时候，大于 i 的时刻都没有结果，只有小于 i 的时刻有结果，因此需要做Mask。**</p>
-<p><strong><em>\</em>sub-layer-2：Position-wise Feed-forward Networks\</strong>，同Encoder。**</p>
-<p><strong><em>\</em>sub-layer-3：Encoder-Decoder attention计算\</strong>。**</p>
-<p><strong><em>\</em>Encoder和Decoder中的Multi-Head Attention单元**</strong></p>
-<p><strong>每一个Multi-Head Attention单元由多个结构相似的Scaled Dot-Product Attention单元组成：</strong></p>
-<p><strong><img src="http://img.cdn.leonwang.top/image-20201225163115469.png" alt="image-20201225163115469"></strong></p>
-<p><strong>Transformer 中的 self-attention 就是在 Scaled Dot-Product Attention 单元中实现的：</strong></p>
-<p><strong>如上图左图所示，首先把输入Input经过线性变换分别得到Q、K、V，注意，Q、K、V都来自于Input，只不过是线性变换的矩阵的权值不同而已。然后把Q和K做dot Product相乘，得到输入Input词与词之间的依赖关系，然后经过尺度变换（scale）、掩码（mask）和softmax操作，得到最终的Self Attention矩阵。尺度变换是为了防止输入值过大导致训练不稳定，mask则是为了保证时间的先后关系。</strong></p>
-<p><strong>最后，把encoder端self Attention计算的结果加入到decoder做为K和V，结合decoder自身的输出做为Q，得到encoder端的attention与decoder端attention之间的依赖关系。</strong></p>
+<p>Self-attention 计算过程：</p>
+<p><img src="http://img.cdn.leonwang.top/70d4600934a1a5513296c5561bc75962.jpg" alt=""></p>
+<h6 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h6><p>不依赖基于RNN的Seq2Seq模型，而是直接用 attention 建模。</p>
+<p>模型结构：</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201225160547407.png" style="zoom:33%;"></p>
+<p>左边是encoder (N=6)，右边是decoder (N=6)。</p>
+<p><strong>Encoder部分</strong></p>
+<p>每个 Encoder Layer 包含两个 sub-layer：</p>
+<p><strong>sub-layer-1：multi-head self-attention mechanism</strong>，用来进行 self-attention。</p>
+<p><strong>sub-layer-2：Position-wise Feed-forward Networks</strong>，简单的全连接网络，对每个 position 的向量分别进行相同的操作，包括两个线性变换和一个 ReLU 激活输出（输入输出层的维度都为 512，中间层为 2048）：<br>$$<br>\mathrm{FFN}(x)=\max \left(0, x W_{1}+b_{1}\right) W_{2}+b_{2}<br>$$<br>每个 sub-layer 都使用了残差连接</p>
+<p><strong>Decoder部分</strong></p>
+<p>每个 Decoder Layer 包含 3 个 sub-layer：</p>
+<p><strong>sub-layer-1：Masked multi-head self-attention mechanism</strong>，用来进行self-attention，与Encoder不同：由于是序列生成过程，所以在时刻 i 的时候，大于 i 的时刻都没有结果，只有小于 i 的时刻有结果，因此需要做Mask。</p>
+<p><strong>sub-layer-2：Position-wise Feed-forward Networks</strong>，同Encoder。</p>
+<p><strong>sub-layer-3：Encoder-Decoder attention计算</strong>。</p>
+<p><strong>Encoder和Decoder中的Multi-Head Attention单元</strong></p>
+<p>每一个Multi-Head Attention单元由多个结构相似的Scaled Dot-Product Attention单元组成：</p>
+<p><img src="http://img.cdn.leonwang.top/image-20201225163115469.png" style="zoom:33%;"></p>
+<p>Transformer 中的 self-attention 就是在 Scaled Dot-Product Attention 单元中实现的：</p>
+<p>如上图左图所示，首先把输入Input经过线性变换分别得到Q、K、V，注意，Q、K、V都来自于Input，只不过是线性变换的矩阵的权值不同而已。然后把Q和K做dot Product相乘，得到输入Input词与词之间的依赖关系，然后经过尺度变换（scale）、掩码（mask）和softmax操作，得到最终的Self Attention矩阵。尺度变换是为了防止输入值过大导致训练不稳定，mask则是为了保证时间的先后关系。</p>
+<p>最后，把encoder端self Attention计算的结果加入到decoder做为K和V，结合decoder自身的输出做为Q，得到encoder端的attention与decoder端attention之间的依赖关系。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wangliang.leon20@gmail.com </span>
