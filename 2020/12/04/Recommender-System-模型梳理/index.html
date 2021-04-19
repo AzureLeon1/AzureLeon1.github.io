@@ -118,7 +118,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="All">All<small>(60)</small></div></li>
+    <li><div class="all active" data-rel="All">All<small>(61)</small></div></li>
     
         
             
@@ -234,11 +234,15 @@
     
         
             
-            <li><div data-rel="工具"><i class="fold iconfont icon-right"></i>工具<small>(2)</small></div>
+            <li><div data-rel="工具"><i class="fold iconfont icon-right"></i>工具<small>(3)</small></div>
                 
                     <ul class="sub hide">
                         
                         <li><div data-rel="工具<--->Git">Git<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="工具<--->Vim">Vim<small>(1)</small></div>
                             
                         </li>
                             
@@ -316,6 +320,10 @@
             
         
     
+        
+            
+        
+    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -326,8 +334,8 @@
     </div>
     <div><a class="about  site_url"  href="/about">About</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="60">
-<input type="hidden" id="yelog_site_word_count" value="75.3k">
+<input type="hidden" id="yelog_site_posts_number" value="61">
+<input type="hidden" id="yelog_site_word_count" value="76.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -603,6 +611,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Vim</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Web</a>
             </li>
         
@@ -616,6 +628,14 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="All 工具 Vim "
+           href="/2021/04/19/Vim-Cheat-Sheet/"
+           data-tag="Vim"
+           data-author="" >
+            <span class="post-title" title="Vim Cheat Sheet">Vim Cheat Sheet</span>
+            <span class="post-date" title="2021-04-19 11:25:38">2021/04/19</span>
+        </a>
         
         <a  class="All 其他 "
            href="/2021/01/03/字节跳动实习记录/"
@@ -1143,7 +1163,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2020-12-28 15:24:39'>2020-12-04 14:59</time>
+            Created At : <time class="date" title='Updated At: 2021-04-19 11:32:30'>2020-12-04 14:59</time>
         
     </div>
     <div class="article-meta">
@@ -1246,7 +1266,7 @@
 <p>解决协同过滤算法的头部效应明显、<strong>泛化能力</strong>较弱的问题</p>
 <p><strong>Methodology</strong></p>
 <p>在协同过滤算法的共现矩阵的基础上，进行矩阵分解，得到每个 user 和 item 的隐向量，即每个 user 和 item 在隐向量空间中的表达。如下图所示，例如要给 Dave 用户推荐视频，则会选择距离 Dave 用户最近的视频 The Lion King 和 Ocean’s 11。可以按照距离由近到远生成推荐列表。</p>
-<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204144302463.png" alt="image-20201204142822668" style="zoom:50%;"></p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204142822668.png" alt="image-20201204144302463" style="zoom:50%;"></p>
 <p>MF算法的关键在于如何进行矩阵分解，常用的矩阵分解方法包括：</p>
 <ol>
 <li>特征值分解 Eigen Decomposition</li>
@@ -1258,7 +1278,7 @@
 <p>所以，梯度下降是MF算法最主要的方法。</p>
 <p>MF中的梯度下降：</p>
 <p>损失函数：</p>
-<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204142822668.png" alt="image-20201204144302463" style="zoom:50%;"></p>
+<p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204144302463.png" alt="image-20201204142822668" style="zoom:50%;"></p>
 <p>优化的目标函数是最小化这个损失函数。</p>
 <p>在考虑了每个 user 和 item 的 bias，以及考虑了正则化项（减少过拟合）之后，实际需要优化的目标函数是这样的：</p>
 <p><img src="http://img.cdn.leonwang.top/picgo_img/image-20201204144336519.png" alt="image-20201204144003238" style="zoom:50%;"></p>

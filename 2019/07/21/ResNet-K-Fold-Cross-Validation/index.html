@@ -118,7 +118,7 @@
 
 
 <ul>
-    <li><div class="all active" data-rel="All">All<small>(60)</small></div></li>
+    <li><div class="all active" data-rel="All">All<small>(61)</small></div></li>
     
         
             
@@ -234,11 +234,15 @@
     
         
             
-            <li><div data-rel="工具"><i class="fold iconfont icon-right"></i>工具<small>(2)</small></div>
+            <li><div data-rel="工具"><i class="fold iconfont icon-right"></i>工具<small>(3)</small></div>
                 
                     <ul class="sub hide">
                         
                         <li><div data-rel="工具<--->Git">Git<small>(1)</small></div>
+                            
+                        </li>
+                            
+                        <li><div data-rel="工具<--->Vim">Vim<small>(1)</small></div>
                             
                         </li>
                             
@@ -316,6 +320,10 @@
             
         
     
+        
+            
+        
+    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -326,8 +334,8 @@
     </div>
     <div><a class="about  site_url"  href="/about">About</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="60">
-<input type="hidden" id="yelog_site_word_count" value="75.3k">
+<input type="hidden" id="yelog_site_posts_number" value="61">
+<input type="hidden" id="yelog_site_word_count" value="76.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -603,6 +611,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Vim</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Web</a>
             </li>
         
@@ -616,6 +628,14 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="All 工具 Vim "
+           href="/2021/04/19/Vim-Cheat-Sheet/"
+           data-tag="Vim"
+           data-author="" >
+            <span class="post-title" title="Vim Cheat Sheet">Vim Cheat Sheet</span>
+            <span class="post-date" title="2021-04-19 11:25:38">2021/04/19</span>
+        </a>
         
         <a  class="All 其他 "
            href="/2021/01/03/字节跳动实习记录/"
@@ -1141,7 +1161,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2019-07-21 11:48:16'>2019-07-21 11:32</time>
+            Created At : <time class="date" title='Updated At: 2021-04-19 11:33:43'>2019-07-21 11:32</time>
         
     </div>
     <div class="article-meta">
@@ -1195,7 +1215,7 @@
         <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概念"><span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ResNet"><span class="toc-text">ResNet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K-Fold-Cross-Validation"><span class="toc-text">K-Fold Cross Validation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#scikit-Learn和Keras实践"><span class="toc-text">scikit-Learn和Keras实践</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scikit-Learn-中的交叉验证"><span class="toc-text">Scikit-Learn 中的交叉验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scikit-Learn-对-Keras-模型的交叉验证"><span class="toc-text">Scikit-Learn 对 Keras 模型的交叉验证</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Tutorial-1：使用Scikit-learn调用Keras模型"><span class="toc-text">Tutorial 1：使用Scikit-learn调用Keras模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tutorial-2：基于-skl3earn-和-keras-的数据切分与交叉验证"><span class="toc-text">Tutorial 2：基于 skl3earn 和 keras 的数据切分与交叉验证</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自动切分"><span class="toc-text">自动切分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#手动切分"><span class="toc-text">手动切分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#K折交叉验证"><span class="toc-text">K折交叉验证</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-text">References</span></a></li></ol></li></ol></div></p>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><p>目的：解决深度网络的退化问题</p>
 <p>随着网络的加深，出现了<strong>训练集</strong>准确率下降的现象，我们可以确定<strong>这不是由于Overfit过拟合造成的</strong>(过拟合的情况训练集应该准确率很高)；所以作者针对这个问题提出了一种全新的网络，叫深度残差网络，它允许网络尽可能的加深，其中引入了全新的结构如图（残差学习单元）； </p>
-<p><img src="http://img.cdn.leonwang.top/resnet.png" alt=""></p>
+<p><img src="http://img.cdn.leonwang.top/resnet.png" style="zoom: 33%;"></p>
 <p><strong>残差</strong></p>
 <p>残差指的是预测值和观测值之间的差异</p>
 <blockquote>
