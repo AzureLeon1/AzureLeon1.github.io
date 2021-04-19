@@ -1163,7 +1163,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2021-04-19 16:57:29'>2021-04-19 11:25</time>
+            Created At : <time class="date" title='Updated At: 2021-04-19 17:02:12'>2021-04-19 11:25</time>
         
     </div>
     <div class="article-meta">
@@ -1218,36 +1218,43 @@
 <h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><ul>
 <li><code>h, j, k, l</code> - 光标左移、下移、上移、右移</li>
 </ul>
+<hr>
 <ul>
 <li><code>w</code> - 移动到下个单词开头</li>
 <li><code>e</code> - 移动到下个单词结尾</li>
 <li><code>b</code> - 移动到上个单词开头</li>
 </ul>
+<hr>
 <ul>
 <li><code>0</code> - 移动到行首</li>
 <li><code>^</code> - 移动到行首的非空白符</li>
 <li><code>$</code> - 移动到行尾</li>
 <li><code>g_</code> - 移动到行内最后一个非空白符</li>
 </ul>
+<hr>
 <ul>
 <li><code>H</code> - 移动到当前页面顶部</li>
 <li><code>M</code> - 移动到当前页面中间</li>
 <li><code>L</code> - 移动到当前页面底部</li>
 </ul>
+<hr>
 <ul>
 <li><code>gg</code>：移动到文件第一行</li>
 <li><code>G</code> - 移动到文件最后一行</li>
 <li><code>5gg or 5G</code> - 移动到第五行</li>
 </ul>
+<hr>
 <ul>
 <li><code>}</code> - 移动到下一个段落 (当编辑代码时则为函数／代码块)</li>
 <li><code>{</code> - 移动到上一个段落 (当编辑代码时则为函数／代码块)</li>
 <li><code>Ctrl + d</code> - 向下滚动半屏</li>
 <li><code>Ctrl + u</code> - 向上滚动半屏</li>
 </ul>
+<hr>
 <ul>
 <li><code>zz</code> - 移动屏幕使光标居中</li>
 </ul>
+<hr>
 <ul>
 <li><code>%</code> - 跳转到配对的符号(默认支持的配对符号组:: ‘()’, ‘{}’, ‘[]’ - 在vim中使用 <code>:h matchpairs</code> 获得更多信息)</li>
 </ul>
@@ -1334,7 +1341,7 @@
 </li>
 </ul>
 <h2 id="文字缩进"><a href="#文字缩进" class="headerlink" title="文字缩进"></a>文字缩进</h2><ul>
-<li><code>\&gt;&gt;</code> - 将当前行向右缩进，宽度由 shiftwidth 控制</li>
+<li><code>&gt;&gt;</code> - 将当前行向右缩进，宽度由 shiftwidth 控制</li>
 <li><code>&lt;&lt;</code> - 将当前行向左缩进，宽度由 shiftwidth 控制</li>
 <li><code>==</code> - 自动缩进</li>
 </ul>
@@ -1390,44 +1397,31 @@
 <li><a href="https://www.ruanyifeng.com/blog/2018/09/vimrc.html" target="_blank" rel="noopener">阮一峰vim配置入门</a></li>
 </ul>
 <h3 id="Nerd-Tree插件"><a href="#Nerd-Tree插件" class="headerlink" title="Nerd Tree插件"></a>Nerd Tree插件</h3><ul>
-<li><p><code>,nn</code> - 打开关闭目录树</p>
-</li>
-<li><p><code>q</code>        关闭 NERDTree</p>
-</li>
+<li><code>,nn</code> - 打开关闭目录树</li>
+<li><code>q</code>        关闭 NERDTree</li>
+<li><code>o</code>        在已有窗口中打开文件或目录，并将光标跳到该窗口</li>
+<li><code>go</code>      在已有窗口中打开文件或目录，但不跳到该窗口</li>
+<li><code>O</code>        递归打开选中 结点下的所有目录</li>
+<li><code>t</code>       在新 Tab 中打开选中文件/书签，并跳到新 Tab</li>
+<li><code>T</code>       在新 Tab 中打开选中文件/书签，但不跳到新 Tab</li>
+<li><code>i</code>       split 一个新窗口打开选中文件，并跳到该窗口</li>
+<li><code>gi</code>      split 一个新窗口打开选中文件，但不跳到该窗口</li>
+<li><code>s</code>       vsplit 一个新窗口打开选中文件，并跳到该窗口</li>
+<li><code>gs</code>      vsplit 一个新 窗口打开选中文件，但不跳到该窗口</li>
+<li><code>x</code>        合拢选中结点的父目录</li>
+<li><code>X</code>        递归 合拢选中结点下的所有目录</li>
+<li><code>p</code>        跳到父结点</li>
+<li><code>P</code>        跳到根结点</li>
+<li><code>u</code>        设置上级目录为根路径</li>
+<li><code>U</code>        设置上级目录为跟路径，但是维持原来目录打开的状态</li>
+<li><code>r</code>        刷新光标所在的目录</li>
+<li><code>R</code>        刷新当前根路径</li>
+<li><code>I</code>        显示或者不显示隐藏文件</li>
+<li><code>f</code>        打开和关闭文件过滤器</li>
+<li><code>A</code>        全屏显示 NERDTree，或者关闭全屏</li>
+<li><code>C</code>        将根路径设置为光标所在的目录</li>
 </ul>
-<p><code>o</code>        在已有窗口中打开文件或目录，并将光标跳到该窗口</p>
-<p><code>go</code>      在已有窗口中打开文件或目录，但不跳到该窗口</p>
-<p><code>O</code>        递归打开选中 结点下的所有目录</p>
-<p><code>t</code>       在新 Tab 中打开选中文件/书签，并跳到新 Tab</p>
-<p><code>T</code>       在新 Tab 中打开选中文件/书签，但不跳到新 Tab</p>
-<pre><code>`i`       split 一个新窗口打开选中文件，并跳到该窗口
-
-`gi`      split 一个新窗口打开选中文件，但不跳到该窗口
-
-`s`       vsplit 一个新窗口打开选中文件，并跳到该窗口
-</code></pre><p><code>gs</code>      vsplit 一个新 窗口打开选中文件，但不跳到该窗口</p>
-<p><code>x</code>        合拢选中结点的父目录</p>
-<p><code>X</code>        递归 合拢选中结点下的所有目录</p>
-<pre><code>`p`        跳到父结点
-
-`P`        跳到根结点
-
-`u`        设置上级目录为根路径
-
-`U`        设置上级目录为跟路径，但是维持原来目录打开的状态
-
-`r`        刷新光标所在的目录
-
-`R`        刷新当前根路径
-
-`I`        显示或者不显示隐藏文件
-
-`f`        打开和关闭文件过滤器
-
-`A`        全屏显示 NERDTree，或者关闭全屏
-
-`C`        将根路径设置为光标所在的目录
-</code></pre><h3 id="Chrome-扩展-vimium"><a href="#Chrome-扩展-vimium" class="headerlink" title="Chrome 扩展 vimium"></a>Chrome 扩展 vimium</h3><p><a href="https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en" target="_blank" rel="noopener">vimium</a></p>
+<h3 id="Chrome-扩展-vimium"><a href="#Chrome-扩展-vimium" class="headerlink" title="Chrome 扩展 vimium"></a>Chrome 扩展 vimium</h3><p><a href="https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb?hl=en" target="_blank" rel="noopener">vimium</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/30263616" target="_blank" rel="noopener">vimium教程</a></p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><p>[1] vimtutor v1.7</p>
 <p>[2] <a href="https://vim.rtorr.com/lang/zh_cn" target="_blank" rel="noopener">Vim Cheat Sheet</a></p>
