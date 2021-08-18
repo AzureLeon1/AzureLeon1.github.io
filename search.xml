@@ -94,7 +94,7 @@
           
           <category> 机器学习 </category>
           
-          <category> Common </category>
+          <category> Vanilla </category>
           
       </categories>
       
@@ -262,7 +262,9 @@
       
       <categories>
           
-          <category> Infra </category>
+          <category> 工具 </category>
+          
+          <category> 序列化 </category>
           
       </categories>
       
@@ -270,31 +272,6 @@
         <tags>
             
             <tag> Protocol Buffer </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hadoop</title>
-      <link href="2020/11/21/Hadoop/"/>
-      <url>2020/11/21/Hadoop/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h1>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大数据 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Hadoop </tag>
             
         </tags>
       
@@ -330,25 +307,6 @@
     
     
     <entry>
-      <title>算法与数据结构_todo</title>
-      <link href="2020/11/17/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-todo/"/>
-      <url>2020/11/17/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-todo/</url>
-      
-        <content type="html"><![CDATA[<p>施工中🚧</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法与数据结构 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>自然语言处理_todo</title>
       <link href="2020/11/17/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-todo/"/>
       <url>2020/11/17/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86-todo/</url>
@@ -361,46 +319,6 @@
           <category> 机器学习 </category>
           
           <category> 自然语言处理 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>推荐广告搜索_todo</title>
-      <link href="2020/11/17/%E6%8E%A8%E8%8D%90%E5%B9%BF%E5%91%8A%E6%90%9C%E7%B4%A2-todo/"/>
-      <url>2020/11/17/%E6%8E%A8%E8%8D%90%E5%B9%BF%E5%91%8A%E6%90%9C%E7%B4%A2-todo/</url>
-      
-        <content type="html"><![CDATA[<p>施工中🚧<br>todo: 经典模型到深度模型</p><p>Deep Retrieval<br>TDM</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 机器学习 </category>
-          
-          <category> 推荐广告搜索 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Go_todo</title>
-      <link href="2020/11/17/Go-todo/"/>
-      <url>2020/11/17/Go-todo/</url>
-      
-        <content type="html"><![CDATA[<p>施工中🚧<br>todo:</p><ul><li>goroutine and pipeline</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Go </category>
           
       </categories>
       
@@ -439,63 +357,6 @@
       <categories>
           
           <category> Cpp </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>分布式todo</title>
-      <link href="2020/11/17/%E5%88%86%E5%B8%83%E5%BC%8Ftodo/"/>
-      <url>2020/11/17/%E5%88%86%E5%B8%83%E5%BC%8Ftodo/</url>
-      
-        <content type="html"><![CDATA[<p>施工中🚧<br>raft, rpc, thrift<br>微服务</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 分布式 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Infra_todo</title>
-      <link href="2020/11/17/Infra-todo/"/>
-      <url>2020/11/17/Infra-todo/</url>
-      
-        <content type="html"><![CDATA[<p>施工中🚧<br>架构向 工程向<br>todo:</p><ul><li>redis</li><li>k8s &amp; docker</li><li>nsq</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Infra </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>大数据todo</title>
-      <link href="2020/11/17/%E5%A4%A7%E6%95%B0%E6%8D%AEtodo/"/>
-      <url>2020/11/17/%E5%A4%A7%E6%95%B0%E6%8D%AEtodo/</url>
-      
-        <content type="html"><![CDATA[<p>施工中🚧<br>todo: flink, kafka, hadoop, spark, hdfs, mapreduce, hive</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大数据 </category>
           
       </categories>
       
@@ -800,8 +661,8 @@
     
     <entry>
       <title>GAN异常检测</title>
-      <link href="2019/11/07/GAN%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/"/>
-      <url>2019/11/07/GAN%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/</url>
+      <link href="2019/11/07/%E5%9F%BA%E4%BA%8EGAN%E7%9A%84%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/"/>
+      <url>2019/11/07/%E5%9F%BA%E4%BA%8EGAN%E7%9A%84%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/</url>
       
         <content type="html"><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>使用GAN做异常检测有两个思路</p><ol><li>【原始GAN】（generator + discriminator):在推断阶段，GAN的输入的是随机的噪声向量z，输出为discriminator的对G(z)的分数。</li><li>【变异GAN】(encoder + generator + discriminator)：在推断阶段，GAN的输入是样本x，输出为discriminator对重构样本x’(x’ = G(E(x)))的分数。</li></ol><p>那么，【变异GAN】相对【原始GAN】有哪些方面的改进？这种改进是为了解决了什么问题？</p><p>【原始GAN】通过训练，得到了一个 generator（使用z生成x） 和1个 discriminator（对x打分）。但是在inference阶段，我们拿到手的样本是想，而这个时候gan的generator用不了这种输入，还要做一层变换–即<strong>“找到x对应的z”</strong>，然后使用generator生成对应的x。但是“找到x对应的z”，就是去解另外一个优化问题了（梯度下降，迭代），计算量很大。所以【变异GAN】就在【原始GAN】的架构最前面加了一个encoder，目的是，在训练的时候把这个encoder一起训练出来了，后面就不用做一次推断再接一个优化问题（“<strong>找到x对应的z</strong>”）了。</p><h2 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h2><p>构建 三个网络结构, E(encoder /G的逆)， G(generator/decoder）， D(discriminator)。</p><p>原始的信号是正常样本， generator生成的信号是异常样本。</p><p>原始特征+encoder之后的隐层特征作为discriminator的输入特征.</p><h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><p>三个网络联合训练，，然后把正常样本和异常样本一起丢进discriminator。</p><p>目标函数定义为：</p><p>$$\min _{G, E} \max _{D} V(D, E, G)$$</p><p>其中</p><p><img src="http://img.cdn.leonwang.top/20191107214752.png" alt=""></p><p>这个目标函数左边是正常样本 ，右边是异常样本。</p><p>D是discriminator预测x是正常的概率，log项表示预测值和真实值的交叉熵的负数。</p><h2 id="推断"><a href="#推断" class="headerlink" title="推断"></a>推断</h2><p>通过训练固定好GAN的参数之后，就可以来检测新来样本是否是异常了。</p><p>定义:计算异常得分的函数可以定义为：<br>$$<br>A(x)=\alpha L_{G}(x)+(1-\alpha) L_{D}(x)<br>$$<br>这里 $L_{G}$ 表示重构误差， $L_D$ 表示判别器误差（discriminator-based）误差。</p><p>背后的intution是：</p><ul><li>重构误差：利用生成模型，来判断x跟真实数据的差异。</li><li>判别器误差: 从判别器的角度来确定x跟真实样本的差异。</li></ul><p>—没想清楚这两种误差有什么联系？</p><p>具体来说</p><p>$$L_{G}(x)=|x-G(E(x))|_{1}$$</p><p>$L_{D}(x)=\sigma(D(x, E(x)), 1)$ , 表示预测概率与真实值的交叉熵，当x越异常时，D就会远离1，交叉熵就越大。</p><p>x是原始信号，G(z)是重构信号，然后分别把这两个信号通过f映射到另外一个空间，在另外一个空间衡量距离，如果x是正常的，应该跟G(z)的距离很小，映射到另外一个空间之后，距离也会保持很小。经过f之后 ，能把 正常样本 跟 异常样本分的更开，</p><p>参考资料</p><p>[1] <a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1703.05921.pdf" target="_blank" rel="noopener">方法1</a></p><p>[2] <a href="https://link.zhihu.com/?target=https%3A//arxiv.org/pdf/1802.06222.pdf" target="_blank" rel="noopener">方法2</a></p><p>[3] <a href="https://link.zhihu.com/?target=https%3A//github.com/houssamzenati/Efficient-GAN-Anomaly-Detection" target="_blank" rel="noopener">houssamzenati/Efficient-GAN-Anomaly-Detection</a></p>]]></content>
       
@@ -810,7 +671,7 @@
           
           <category> 机器学习 </category>
           
-          <category> Common </category>
+          <category> 异常检测 </category>
           
       </categories>
       
@@ -1152,35 +1013,6 @@
     
     
     <entry>
-      <title>Fetch API 检测请求是否成功</title>
-      <link href="2019/05/08/Fetch-API-%E6%A3%80%E6%B5%8B%E8%AF%B7%E6%B1%82%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F/"/>
-      <url>2019/05/08/Fetch-API-%E6%A3%80%E6%B5%8B%E8%AF%B7%E6%B1%82%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F/</url>
-      
-        <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener">MDN Web docs</a>中的解释：</p><blockquote><p>请注意，<code>fetch</code>规范与<code>jQuery.ajax()</code>主要有两种方式的不同，牢记：</p><ul><li>当接收到一个代表错误的 HTTP 状态码时，从 <code>fetch()</code>返回的 Promise <strong>不会被标记为 reject，</strong> 即使该 HTTP 响应的状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 resolve 的返回值的 <code>ok</code> 属性设置为 false ），仅当网络故障时或请求被阻止时，才会标记为 reject。</li><li>默认情况下，<code>fetch</code> <strong>不会从服务端发送或接收任何 cookies</strong>, 如果站点依赖于用户 session，则会导致未经认证的请求（要发送 cookies，必须设置 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch#参数" target="_blank" rel="noopener">credentials</a> 选项）。自从2017年8月25日后，默认的credentials政策变更为<code>same-origin</code>Firefox也在61.0b13中改变默认值</li></ul></blockquote><p>因为Promise不会被标记为reject，不能使用<code>.catch()</code>来检测请求是否成功（例如响应状态码是404或500）。</p><h1 id="检测请求是否成功的方法"><a href="#检测请求是否成功的方法" class="headerlink" title="检测请求是否成功的方法"></a>检测请求是否成功的方法</h1><p>如果遇到网络故障，<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalFetch/fetch" target="_blank" rel="noopener"><code>fetch()</code></a> promise 将会 reject，带上一个 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/TypeError" target="_blank" rel="noopener"><code>TypeError</code></a> 对象。虽然这个情况经常是遇到了权限问题或类似问题——比如 404 不是一个网络故障。想要精确的判断 <code>fetch()</code> 是否成功，需要包含 promise resolved 的情况，此时再判断 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Response/ok" target="_blank" rel="noopener"><code>Response.ok</code></a> 是不是为 true。类似以下代码：</p><pre><code class="js">fetch(&#39;flowers.jpg&#39;).then(function(response) {  if(response.ok) {    return response.blob();  }  throw new Error(&#39;Network response was not ok.&#39;);}).then(function(myBlob) {   var objectURL = URL.createObjectURL(myBlob);   myImage.src = objectURL; }).catch(function(error) {  console.log(&#39;There has been a problem with your fetch operation: &#39;, error.message);});</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-          <category> Web </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Web </tag>
-            
-            <tag> JavaScript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>算法课笔记</title>
       <link href="2019/03/19/Analysis-and-Design-of-Algorithms/"/>
       <url>2019/03/19/Analysis-and-Design-of-Algorithms/</url>
@@ -1198,95 +1030,6 @@
         <tags>
             
             <tag> Algorithm </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>UML和模式应用 Note</title>
-      <link href="2019/03/16/UML%E5%92%8C%E6%A8%A1%E5%BC%8F%E5%BA%94%E7%94%A8-Note/"/>
-      <url>2019/03/16/UML%E5%92%8C%E6%A8%A1%E5%BC%8F%E5%BA%94%E7%94%A8-Note/</url>
-      
-        <content type="html"><![CDATA[<table><thead><tr><th>Date</th><th>Content</th></tr></thead><tbody><tr><td>2019-3-16</td><td>[Chapter 1 : Chapter 5]</td></tr></tbody></table><p>本书的内容是在OOA/D（面向对象的分析和设计）和相关需求分析的语境下，对UML应用、模型和迭代过程的全景揭示。</p><h2 id="一、绪论"><a href="#一、绪论" class="headerlink" title="一、绪论"></a>一、绪论</h2><h3 id="面向对象分析和设计"><a href="#面向对象分析和设计" class="headerlink" title="面向对象分析和设计"></a>面向对象分析和设计</h3><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g14f3dbeupj30p101xdg1.jpg" alt=""></p><p>在<strong>需求分析</strong>中进行用例的编写。</p><p>在OO开发中，至关重要的能力是熟练地为软件<strong>对象</strong>分配<strong>职责</strong>。</p><p>GRASP在本书中指对象设计恶化指责分配的9项基本原则。</p><p>分析强调的是对问题和需求的调查研究，而不是解决方案；设计强调的是满足需求的概念上的解决方案，而不是其实现。</p><p>步骤：定义用例-&gt;定义领域模型-&gt;定义交互图-&gt;定义设计类图</p><p>领域模型表示的是真实世界的类，设计类图表示的是软件类。</p><p>UML的核心是可视化、图形化表示。</p><p>应用UML的三种透视图：</p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g14iqe8drpj30qa0cvjsz.jpg" alt="image-20190316122316601"></p><p>概念透视图表示领域模型，后两种都表示设计类图。</p><p>UML中的矩形框被称为类，在不同的模型中类表示不同的含义。概念类、软件类、实现类。</p><h3 id="迭代、进化和建模"><a href="#迭代、进化和建模" class="headerlink" title="迭代、进化和建模"></a>迭代、进化和建模</h3><p><strong>瀑布模型</strong>提倡在编程之前预先完成需求和设计步骤，项目失败率高；而<strong>迭代和进化式开发</strong>对部分系统及早地引入编程和测试，并重复这一循环，项目失败率低。</p><p>软件开发过程：构造、部署以及维护软件的方式。</p><p>统一过程（UP）：一种流行的<strong>面向对象</strong>系统的<strong>迭代</strong>软件开发过程。</p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g14jsfzaqxj30of04ygmg.jpg" alt=""></p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g14k3t8fzrj30nr0aeq3o.jpg" alt=""></p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g14k41sxezj30or07d3zk.jpg" alt=""></p><p>一次迭代的持续时间是2～6周。小步骤、快速反馈和调整。</p><p>迭代的一个关键思想是时间定量。不能拖延。如果无法完成，应从本次迭代中除去部分任务和需求，分配在将来的迭代中，而不是推迟完成日期。</p><p>不要让瀑布思维侵蚀迭代或UP项目。</p><p>UP提倡风险驱动和客户驱动相结合的迭代计划。意味着早期的迭代目标要能识别和降低最高风险，并能构造客户最关心的可视化特性。</p><p>敏捷开发（agile development）：<img src="http://img.cdn.leonwang.top/006tKfTcly1g14kn3an9mj30np022wep.jpg" alt=""></p><p>UP的关键实践：</p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g14kzfyy6bj30or09a0ts.jpg" alt=""></p><p>UP的四个阶段：</p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g14kztzmhvj30p0041wey.jpg" alt=""></p><p>科目：discipline。一个主题域中的一组活动及相关制品。</p><p>制品：artifact。所有工作产品。</p><p>UP的科目：</p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g14l5p9erzj30pu0ek3zz.jpg" alt=""></p><p>注意UP的阶段和科目的关系：每个阶段都会设计几乎所有的科目，只是科目的工作量不同。</p><h3 id="案例研究"><a href="#案例研究" class="headerlink" title="案例研究"></a>案例研究</h3><h2 id="二、初始阶段"><a href="#二、初始阶段" class="headerlink" title="二、初始阶段"></a>二、初始阶段</h2><h3 id="初始不是需求阶段"><a href="#初始不是需求阶段" class="headerlink" title="初始不是需求阶段"></a>初始不是需求阶段</h3><p>初始阶段的目标不是定义所有需求</p><p>初始阶段的制品：</p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g14lsahp3oj30o209xwfy.jpg" alt=""></p><h3 id="进化式需求"><a href="#进化式需求" class="headerlink" title="进化式需求"></a>进化式需求</h3><h3 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h3><h3 id="其他需求"><a href="#其他需求" class="headerlink" title="其他需求"></a>其他需求</h3>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-          <category> UML </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> UML </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>React Note</title>
-      <link href="2019/03/16/React-Note/"/>
-      <url>2019/03/16/React-Note/</url>
-      
-        <content type="html"><![CDATA[<p>修改历史：</p><table><thead><tr><th>Date</th><th>Content</th></tr></thead><tbody><tr><td>2019-3-14</td><td>[:this的绑定]</td></tr></tbody></table><p>React 是一个使用 JavaScript 和 XML 技术（可选）构建可组合用户界面的引擎。</p><p>JSX语法扩展，可以直接在代码中书写XML（以生成HTML）。</p><hr><p>单页应用程序</p><p>概念：</p><p>只有一张Web页面的应用，是加载单个HTML 页面并在用户与应用程序交互时动态更新该页面的Web应用程序。避免即使仅有一点不同还要发送一整页新的页面的情况。</p><p>方式：</p><ol><li>传统的数据绑定技术。在可维护性、可扩展性和性能上都有一些缺陷。</li><li>响应式渲染。用一种声明的方式定义组件的外观和行为。概念上重新渲染整个页面，实际上使用了一种内存中的虚拟DOM。</li></ol><hr><p>面向组件开发</p><p>纯JavaScript</p><hr><p>一个React组件就是一个带有render方法，并且返回组件UI描述的JavaScript类。</p><hr><pre><code class="html">&lt;script src=&quot;https://cdn.staticfile.org/react/16.4.0/umd/react.development.js&quot;&gt;&lt;/script&gt;&lt;script src=&quot;https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js&quot;&gt;&lt;/script&gt;&lt;!-- 生产环境中不建议使用 --&gt;&lt;script src=&quot;https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js&quot;&gt;&lt;/script&gt;</code></pre><ul><li><strong>react.min.js</strong> - React 的核心库</li><li><strong>react-dom.min.js</strong> - 提供与 DOM 相关的功能</li><li><strong>babel.min.js</strong> - Babel 可以将 ES6 代码转为 ES5 代码，这样我们就能在目前不支持 ES6 浏览器上执行 React 代码。Babel 内嵌了对 JSX 的支持。通过将 Babel 和 babel-sublime 包（package）一同使用可以让源码的语法渲染上升到一个全新的水平。</li></ul><hr><p>组件可以用函数定义，也可以用类定义（es6）</p><hr><p>对于事件处理，需要注意的一点就是this的绑定，其他跟普通Dom绑定监听事件一样，this的绑定有以下几种方式：</p><ol><li>在构造函数中使用bind绑定this</li><li>在调用的时候使用bind绑定this</li><li>在调用的时候使用箭头函数绑定this</li><li>使用属性初始化器语法绑定this</li></ol><hr><p><img src="http://img.cdn.leonwang.top/react.png" alt=""></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-          <category> Web </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Web </tag>
-            
-            <tag> React </tag>
-            
-            <tag> 前端 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ARCore踩坑——无法放置3D模型</title>
-      <link href="2019/02/14/ARCore%E8%B8%A9%E5%9D%91%E2%80%94%E2%80%94%E6%97%A0%E6%B3%95%E6%94%BE%E7%BD%AE3D%E6%A8%A1%E5%9E%8B/"/>
-      <url>2019/02/14/ARCore%E8%B8%A9%E5%9D%91%E2%80%94%E2%80%94%E6%97%A0%E6%B3%95%E6%94%BE%E7%BD%AE3D%E6%A8%A1%E5%9E%8B/</url>
-      
-        <content type="html"><![CDATA[<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><p>按照 Google ARCore 官方文档实践 Sceneform 项目，实现 hellosceneform 示例项目的效果。</p><p>要在项目中使用 Sceneform 和 ARCore，需要执行以下操作：</p><ol><li><a href="https://developers.google.com/ar/develop/java/sceneform/?hl=zh-cn#configure-project" target="_blank" rel="noopener">配置您项目的 <code>build.gradle</code> 文件</a></li><li><a href="https://developers.google.com/ar/develop/java/sceneform/?hl=zh-cn#manifest" target="_blank" rel="noopener">更新您的 <code>AndroidManifest.xml</code></a></li><li><a href="https://developers.google.com/ar/develop/java/sceneform/?hl=zh-cn#scene-view" target="_blank" rel="noopener">执行运行时检查并创建场景图</a></li><li><a href="https://developers.google.com/ar/develop/java/sceneform/?hl=zh-cn#renderables" target="_blank" rel="noopener">创建可渲染对象</a></li><li><a href="https://developers.google.com/ar/develop/java/sceneform/?hl=zh-cn#scene" target="_blank" rel="noopener">构建场景</a></li></ol><p>按照文档说明进行操作。在 Android Studio 中安装 <code>Google Sceneform Tools (Beta)</code> 插件，手动修改 <code>build.gradle</code> 和<code>AndroidManifest.xml</code>相关配置，导入3D asset，java和xml布局直接复制自 hellosceneform 示例。</p><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>运行发现点击屏幕并不能在相应的位置放置3D模型，除此之外其他功能均正常。</p><h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><p>首先在负责响应点击事件的代码部分添加 Log 代码。</p><p> <img src="http://img.cdn.leonwang.top/006tKfTcly1g05vipar3nj319a0luada.jpg" alt=""></p><p>其中第一个参数 TAG 定义为<code>private static final String TAG = MainActivity.class.getSimpleName();</code>，即类的名字<code>MainActivity</code>。</p><p>重新运行，发现在点击屏幕后有以下 log 信息（用MainActivity进行过滤）：</p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g05visza9aj324u0eu7b2.jpg" alt=""></p><p>可以知道 ModelRenderable 对象为 null。</p><p>以 Debug 模式运行，查看 console 输出：</p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g05vivpwtrj325o0ssnb2.jpg" alt=""></p><p>其中关键语句：<code>Rendercore bundle (.rcb) version not supported, max version supported is 0.52.X. Version requested for loading is 0.54.1</code></p><p>基本可以确定问题是模型版本过高，渲染依赖不支持。</p><p>通过Google该问题得到以下信息：</p><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g05vizf44gj30u01qdqbr.jpg" alt=""></p><p>是官方github项目仓库中的一个issue，已经有人汇报过这个问题并得到了解决。</p><p>进一步确定了该问题的原因：3D asset是通过最新的<code>Google Sceneform Tools (Beta)</code> 插件产生，而在<code>build.gradle</code>中添加的依赖<code>implementation &#39;com.google.ar.sceneform.ux:sceneform-ux:1.5.0&#39;</code>版本较低，无法渲染版本较高的3D asset。</p><h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><p><img src="http://img.cdn.leonwang.top/006tKfTcly1g05vj3420sj30v802awem.jpg" alt=""></p><p>把<code>build.gradle</code>中依赖的版本由1.5.0改为最新的1.6.0</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>依赖信息是按照 Google 的官方文档添加，Google ARCore 相关文档的更新没有及时跟上 sdk 的更新速度。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-          <category> ARCore </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ARCore </tag>
-            
-            <tag> AR </tag>
-            
-            <tag> Android </tag>
             
         </tags>
       
@@ -1326,37 +1069,6 @@
     
     
     <entry>
-      <title>ViewPager与ViewPagerTransforms</title>
-      <link href="2019/01/27/ViewPager%E4%B8%8EViewPagerTransforms/"/>
-      <url>2019/01/27/ViewPager%E4%B8%8EViewPagerTransforms/</url>
-      
-        <content type="html"><![CDATA[<p>ViewPager 是 Android 官方支持的一个类，可以实现视图的切换，用于实现页面导航、图片轮播等功能，并支持自定义 ViewPager 的切换动画，自行实现翻页动画效果。</p><p>ViewPagerTransforms 是 github 上一个实现了 Viewpager 多种切换动画的开源库，提供了一些现成的PageTransformer 来实现一些动画，同样支持在此基础上进行自定义动画。</p><h2 id="ViewPager"><a href="#ViewPager" class="headerlink" title="ViewPager"></a>ViewPager</h2><p><a href="https://developer.android.com/reference/android/support/v4/view/ViewPager#setpagetransformer" target="_blank" rel="noopener">官方文档</a></p><p><a href="https://www.runoob.com/w3cnote/android-tutorial-viewpager.html" target="_blank" rel="noopener">简介</a></p><p><a href="https://www.jianshu.com/p/e5abbda4a71c" target="_blank" rel="noopener">优秀文章</a></p><h3 id="ViewPager的简介和作用"><a href="#ViewPager的简介和作用" class="headerlink" title="ViewPager的简介和作用"></a>ViewPager的简介和作用</h3><p> ViewPager是android扩展包v4包中的类，这个类可以让用户左右切换当前的view<br> 1）ViewPager类直接继承了ViewGroup类，所有它是一个容器类，可以在其中添加其他的view类。<br> 2）ViewPager类需要一个PagerAdapter适配器类给它提供数据。<br> 3）ViewPager经常和Fragment一起使用，并且提供了专门的FragmentPagerAdapter和FragmentStatePagerAdapter类供Fragment中的ViewPager使用。</p><h3 id="ViewPager的适配器"><a href="#ViewPager的适配器" class="headerlink" title="ViewPager的适配器"></a>ViewPager的适配器</h3><p> 简介中提到了PagerAdapter，和ListView等控件使用一样,需要ViewPager设置PagerAdapter来完成页面和数据的绑定，这个PagerAdapter是一个基类适配器，我们经常用它来实现app引导图，它的子类有FragmentPagerAdapter和FragmentStatePagerAdapter,这两个子类适配器用于和Fragment一起使用，在安卓应用中它们就像listview一样出现的频繁。</p><h3 id="ViewPager的翻页动画"><a href="#ViewPager的翻页动画" class="headerlink" title="ViewPager的翻页动画"></a>ViewPager的翻页动画</h3><p> 为ViewPager设置适配器后，就可以正常使用了，接下来我们为ViewPager增加翻页动画，毕竟人的审美会疲劳，加上一些动画交互会提高不少逼格~~，ViewPager提供了<strong>PageTransformer</strong>接口用于实现翻页动画。<br> 官方提供了PageTransformer的实现例子。</p><pre><code class="java">public class DepthPageTransformer implements ViewPager.PageTransformer {  private static final float MIN_SCALE = 0.75f;  public void transformPage(View view, float position) {      Log.d(&quot;DepthPageTransformer&quot;, view.getTag() + &quot; , &quot; + position + &quot;&quot;);      int pageWidth = view.getWidth();      if (position &lt; -1) { // [-Infinity,-1)          // This page is way off-screen to the left.          view.setAlpha(0);      } else if (position &lt;= 0) { // [-1,0]          // Use the default slide transition when moving to the left page          view.setAlpha(1);          view.setTranslationX(0);          view.setScaleX(1);          view.setScaleY(1);      } else if (position &lt;= 1) { // (0,1]          // Fade the page out.          view.setAlpha(1 - position);          // Counteract the default slide transition          view.setTranslationX(pageWidth * -position);          // Scale the page down (between MIN_SCALE and 1)          float scaleFactor = MIN_SCALE                  + (1 - MIN_SCALE) * (1 - Math.abs(position));          view.setScaleX(scaleFactor);          view.setScaleY(scaleFactor);      } else { // (1,+Infinity]          // This page is way off-screen to the right.          view.setAlpha(0);      }  }}</code></pre><pre><code class="java">public class ZoomOutPageTransformer implements ViewPager.PageTransformer {  private static final float MIN_SCALE = 0.85f;  private static final float MIN_ALPHA = 0.5f;  @SuppressLint(&quot;NewApi&quot;)  public void transformPage(View view, float position) {      int pageWidth = view.getWidth();      int pageHeight = view.getHeight();      Log.e(&quot;TAG&quot;, view + &quot; , &quot; + position + &quot;&quot;);      if (position &lt; -1) { // [-Infinity,-1)          // This page is way off-screen to the left.          view.setAlpha(0);      } else if (position &lt;= 1)       { // [-1,1]          // Modify the default slide transition to shrink the page as well          float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));          float vertMargin = pageHeight * (1 - scaleFactor) / 2;          float horzMargin = pageWidth * (1 - scaleFactor) / 2;          if (position &lt; 0) {              view.setTranslationX(horzMargin - vertMargin / 2);          } else {              view.setTranslationX(-horzMargin + vertMargin / 2);          }          // Scale the page down (between MIN_SCALE and 1)          view.setScaleX(scaleFactor);          view.setScaleY(scaleFactor);          // Fade the page relative to its size.          view.setAlpha(MIN_ALPHA + (scaleFactor - MIN_SCALE)                  / (1 - MIN_SCALE) * (1 - MIN_ALPHA));      } else { // (1,+Infinity]          // This page is way off-screen to the right.          view.setAlpha(0);      }  }}</code></pre><p>实现翻页动画的关键就是重写transformPage方法，方法里有两个参数view和position,理解这两个参数非常重要。假设有三个页面view1，view2，view3从左至右在viewPager中显示</p><ul><li>往左滑动时：view1，view2，view3的position都是不断变小的。<br>   view1的position: 0 → -1 → 负无穷大<br>   view2的position: 1 → 0 → -1<br>   view3的position: 1 → 0</li><li>往右滑动时：view1，view2，view3的position都是不断变大的。<br>   view1的position: -1 → 0<br>   view2的position: -1 → 0 → 1<br>   view3的position: 0 → 1→ 正无穷大<br>   当position是正负无穷大时view就离开屏幕视野了。因此最核心的控制逻辑是在[-1,0]和(0,1]这两个区间，通过设置透明度，平移，旋转，缩放等动画组合可以实现各式各样的页面变化效果。</li></ul><h2 id="ViewPagerTransforms"><a href="#ViewPagerTransforms" class="headerlink" title="ViewPagerTransforms"></a>ViewPagerTransforms</h2><h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p>Github: <a href="https://github.com/ToxicBakery/ViewPagerTransforms" target="_blank" rel="noopener">https://github.com/ToxicBakery/ViewPagerTransforms</a></p><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><strong>ViewPagerTransforms</strong>库的代码结构很简单，干干净净的只有各种PageTransformer：</p><p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fzkxqmbey0j30pm0w813a.jpg" alt="image-20190127103046569"></p><p>有了<strong>ViewPagerTransforms</strong>提供的各种例子，即使不满足它的这些效果想自己实现更多更复杂的效果也会容易一些。</p><p>不过<strong>ViewPagerTransforms</strong>因为使用了view的属性设置方法，所以并不支持2.x低版本，但是这个问题可以使用nineoldandroids解决。参见：<a href="http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0815/1651.html" target="_blank" rel="noopener">如何在低api中使用View的属性设置方法如setAlpha等</a></p><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul><li><p>添加依赖</p><p>  在内部 build.gradle 的 dependencies 中添加</p><pre><code>  implementation &#39;com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar&#39;</code></pre></li><li><p>使用</p><p>  引入 transforms 包：</p><pre><code class="java">  import com.ToxicBakery.viewpager.transforms.*;</code></pre><p>  设置 transform 效果：</p><pre><code class="java">  viewPager.setPageTransformer(true, new ZoomOutTranformer());</code></pre><p>  完整 Activity 示例：</p><p>  <code>`</code>java<br>  package se.tongji.transformtest;</p><p>  import android.support.v7.app.AppCompatActivity;<br>  import android.os.Bundle;<br>  import java.util.ArrayList;<br>  import java.util.List;<br>  import android.support.v4.view.PagerAdapter;<br>  import android.support.v4.view.ViewPager;<br>  import android.view.LayoutInflater;<br>  import android.view.View;<br>  import android.view.ViewGroup;</p><p>  import com.ToxicBakery.viewpager.transforms.*;</p><p>  public class MainActivity extends AppCompatActivity {</p><pre><code>  private View view1, view2, view3;  private ViewPager viewPager;  //对应的viewPager  private List&lt;View&gt; viewList;//view数组</code></pre></li></ul><pre><code>    @Override    protected void onCreate(Bundle savedInstanceState) {        super.onCreate(savedInstanceState);        setContentView(R.layout.activity_main);        // 使用layout填充View        viewPager = (ViewPager) findViewById(R.id.viewpager);        LayoutInflater inflater=getLayoutInflater();        view1 = inflater.inflate(R.layout.layout1, null);        view2 = inflater.inflate(R.layout.layout2,null);        view3 = inflater.inflate(R.layout.layout3, null);        viewList = new ArrayList&lt;View&gt;();// 将要分页显示的View装入数组中        viewList.add(view1);        viewList.add(view2);        viewList.add(view3);        PagerAdapter pagerAdapter = new PagerAdapter() {            @Override            public boolean isViewFromObject(View arg0, Object arg1) {                // TODO Auto-generated method stub                return arg0 == arg1;            }            @Override            public int getCount() {                // TODO Auto-generated method stub                return viewList.size();            }            @Override            public void destroyItem(ViewGroup container, int position,                                    Object object) {                // TODO Auto-generated method stub                container.removeView(viewList.get(position));            }            @Override            public Object instantiateItem(ViewGroup container, int position) {                // TODO Auto-generated method stub                container.addView(viewList.get(position));                return viewList.get(position);            }        };        viewPager.setAdapter(pagerAdapter);        viewPager.setPageTransformer(true, new ZoomOutTranformer());    }}```</code></pre><h3 id="Custom"><a href="#Custom" class="headerlink" title="Custom"></a>Custom</h3><h4 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h4><p>All ViewPagerTransform implementations extend <a href="https://github.com/ToxicBakery/ViewPagerTransforms/blob/master/library/src/main/java/com/ToxicBakery/viewpager/transforms/ABaseTransformer.java" target="_blank" rel="noopener">ABaseTransformer</a> providing useful hooks improving readability of animations and basic functionality important when switching between animations. <a href="https://github.com/ToxicBakery/ViewPagerTransforms/blob/master/library/src/main/java/com/ToxicBakery/viewpager/transforms/ABaseTransformer.java" target="_blank" rel="noopener">ABaseTransformer</a> provides three lifecycle hooks and two flags for default handling of hiding offscreen fragments and mimicking the default paging functionality of the ViewPager.</p><ul><li><a href="https://github.com/ToxicBakery/ViewPagerTransforms/blob/master/library/src/main/java/com/ToxicBakery/viewpager/transforms/ABaseTransformer.java#L85" target="_blank" rel="noopener">onPreTransform(View view, float position)</a></li><li>Default implementation resets the animation state of the fragment to defaults that will place it on the screen if its position permits.</li><li><a href="https://github.com/ToxicBakery/ViewPagerTransforms/blob/master/library/src/main/java/com/ToxicBakery/viewpager/transforms/ABaseTransformer.java#L33" target="_blank" rel="noopener">onTransform(View view, float position)</a></li><li>Animations should perform all or most of their work inside this callback.</li><li><a href="https://github.com/ToxicBakery/ViewPagerTransforms/blob/master/library/src/main/java/com/ToxicBakery/viewpager/transforms/ABaseTransformer.java#L116" target="_blank" rel="noopener">onPostTransform(View view, float position)</a></li><li>Default implementation does nothing. This provides a logical location for any additional work to be done that is not directly related to the animation.</li></ul><h4 id="example"><a href="#example" class="headerlink" title="example"></a>example</h4><p>extends TransformAdapter to custom view animations,for example:</p><pre><code class="java">public class ZoomBothTransform extends TransformAdapter {    @Override    public void onRightScorlling(View view, float position) {        view.setScaleX(1 - position / 2);        view.setScaleY(1 - position / 2);    }    @Override    public void onLeftScorlling(View view, float position) {        view.setScaleX(1 + position / 2);        view.setScaleY(1 + position / 2);    }}</code></pre><p>TransformAdapter has 4 can override method</p><ul><li>onRightScorlling</li></ul><pre><code class="java">/**    * @param view     right view    * @param position right to center 1-&gt;0    *                 center to right 0-&gt;1    */   public void onRightScorlling(View view, float position) {   }</code></pre><ul><li>onLeftScorlling</li></ul><pre><code class="java">/**     * @param view     left view     * @param position left to center  -1-&gt;0     *                 center to left  0-&gt;-1     */    public void onLeftScorlling(View view, float position) {    }</code></pre><ul><li>onCenterIdle</li></ul><pre><code class="java">public void onCenterIdle(View view) {    }</code></pre><ul><li>onTransform</li></ul><pre><code class="java">/**     *     * @param view left and right view both callback     * @param position [-1,1]     */    public void onTransform(View view, float position) {    }</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-          <category> Android </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Android </tag>
-            
-            <tag> ViewPager </tag>
-            
-            <tag> ViewPagerTransforms </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Awesome Solutions</title>
       <link href="2018/12/14/Awesome-Solutions/"/>
       <url>2018/12/14/Awesome-Solutions/</url>
@@ -1374,159 +1086,6 @@
         <tags>
             
             <tag> solutions </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Web开发笔记</title>
-      <link href="2018/12/14/Web%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
-      <url>2018/12/14/Web%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Web开发笔记"><a href="#Web开发笔记" class="headerlink" title="Web开发笔记"></a>Web开发笔记</h1><h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><ul><li><p>色彩网站：<a href="https://flatuicolors.com/palette/gb" target="_blank" rel="noopener">https://flatuicolors.com/palette/gb</a></p></li><li><p>Font awesome：<a href="https://fontawesome.com/" target="_blank" rel="noopener">https://fontawesome.com/</a></p></li></ul><blockquote><p>SVG 与 Webfont中相同图标的显示效果可能不同</p></blockquote><h2 id="Projects"><a href="#Projects" class="headerlink" title="Projects"></a>Projects</h2><ol><li>Search Box (using only html &amp; css)</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-          <category> Web </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Web </tag>
-            
-            <tag> 前端 </tag>
-            
-            <tag> html </tag>
-            
-            <tag> css </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ns-3使用及计网实验总结</title>
-      <link href="2018/12/07/ns-3%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/"/>
-      <url>2018/12/07/ns-3%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</url>
-      
-        <content type="html"><![CDATA[<h1 id="ns-3使用及计网实验总结"><a href="#ns-3使用及计网实验总结" class="headerlink" title="ns-3使用及计网实验总结"></a>ns-3使用及计网实验总结</h1><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><ol><li><p>由于ubuntu18.04中删去了可视化工具pyViz依赖的几个python包，所以在ubuntu18.04下无法实现pyViz的可视化。</p><p>计网设计实验采用的环境：Ubuntu14.04.5 + ns-3.25</p></li><li><p>具体搭建过程参照官网installation instruction的wiki即可。</p></li></ol><h2 id="可视化方式"><a href="#可视化方式" class="headerlink" title="可视化方式"></a>可视化方式</h2><ol><li><p>ns-3提供了两种可视化工具：</p><ul><li><p>PyViz：功能较简单，运行时实时显示node和数据传输状态。使用方便，但功能相对单一。使用时需在脚本文件的<code>main()</code>中加入以下两行代码，并在terminal中运行时加入<code>--vis</code> 选项。</p><pre><code class="c++">CommandLine cmd;cmd.Parse(argc,argv);</code></pre><p>效果如下（鼠标悬停在结点处可显示结点详细信息）：</p><p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxymojcdawj30vd0u0b29.jpg" alt=""></p></li><li><p>NetAnim：一个独立的、基于Qt4的离线动画演示工具，在ns-3仿真过程中生成xml格式的trace文件，仿真结束后NetAnim读取该文件显示网络拓扑和结点间数据分组流等动画过程。</p><p>NetAnim需单独编译。</p><p>使用时需在脚本文件中加入生成xml文件的代码，如：</p><pre><code class="c++">AnimationInterface anim (&quot;animation.xml&quot;);</code></pre><p>使用NetAnim加载后效果如下（双击结点可显示结点详细信息）：</p><p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxymtq1zsbj30ve0u0ts0.jpg" alt=""></p></li></ul></li></ol><h2 id="学习过程"><a href="#学习过程" class="headerlink" title="学习过程"></a>学习过程</h2><ol><li>首先了解基本ns-3基本知识，可以阅读《NS-3网络模拟器基础与应用》。</li><li>阅读 example/tutorials 中的代码，从first.cc开始，逐步加深。多阅读官方案例代码，官方提供了丰富的案例，除 example 文件夹外，在 src/module_name/example 中也有每个模块的样例代码。</li></ol><h2 id="实验项目题目选择"><a href="#实验项目题目选择" class="headerlink" title="实验项目题目选择"></a>实验项目题目选择</h2><ol><li><p>用ns-3实现组网、组播、无线网络等都相对比较简单，没有难度和创新性。</p></li><li><p>用ns-3比较难实现选择实验中的物理（相对于使用ns-3模拟）防火墙实验项目，因为防火墙需要配置NAT，而ns-3并没有提供NAT的相关模块，需要自行编写。</p><p>ns-3虽然没有提供官方的NAT模块，但官网有收录了一个<a href="https://www.nsnam.org/wiki/GSOC2012NetworkAddressTranslation" target="_blank" rel="noopener">NAT项目</a>（收录于<a href="https://www.nsnam.org/wiki/GSOC2012AcceptedProjects" target="_blank" rel="noopener">GSOC2012AcceptedProjects</a>）。尝试对 final review 中的内容进行安装（参考<a href="https://blog.csdn.net/barcodegun/article/details/6898193" target="_blank" rel="noopener">如何在ns-3中添加模块</a>），需要安装patch1和patch3中的内容，但添加模块有难度。因为该NAT模块不仅编写了自己的文件，还对官方的internet模块内已有的文件进行了改动，然而几年来官方也对这几个文件进行了更新，可以理解为git上不同分支产生了冲突。</p><p>于是，放弃了实现NAT和基于NAT的防火墙的想法…但是如果有兴趣，应该也可以自己编写实验需要的静态NAT协议，不需要写得像官方收录的NAT项目那么复杂。</p></li><li><p>最终选择题目：使用Fat-Tree拓扑结构的数据中心网络(DCN, data center network)</p><p>使用NetAnim进行演示。</p></li></ol><h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><ul><li>官网</li><li>《NS-3网络模拟器基础与应用》</li><li>阅读样例代码</li><li>google group讨论区</li><li>github</li><li>有问题多google</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-          <category> 计算机网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 计算机网络 </tag>
-            
-            <tag> ns-3 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ns-3入门</title>
-      <link href="2018/12/02/ns-3%E5%85%A5%E9%97%A8/"/>
-      <url>2018/12/02/ns-3%E5%85%A5%E9%97%A8/</url>
-      
-        <content type="html"><![CDATA[<h1 id="ns-3入门"><a href="#ns-3入门" class="headerlink" title="ns-3入门"></a>ns-3入门</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://www.nsnam.org/wiki/Installation" target="_blank" rel="noopener">官方Installtion</a></p><p><a href="https://blog.csdn.net/u010394419/article/details/80441518" target="_blank" rel="noopener">硬盘安装Ubuntu18.04+NS3.27过程总结-CSDN</a></p><h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><p><a href="https://wenku.baidu.com/view/0b46126fee06eff9aef807dd.html" target="_blank" rel="noopener">中文教程-百度文库</a></p><p><a href="https://wenku.baidu.com/view/a9bc68620b1c59eef8c7b496.html?sxts=1543720223233" target="_blank" rel="noopener">Ns3网络仿真系统软件介绍-百度文库</a></p><h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><h3 id="hello-simulator-cc"><a href="#hello-simulator-cc" class="headerlink" title="hello-simulator.cc"></a>hello-simulator.cc</h3><pre><code class="c++">/* -*- Mode:C++; c-file-style:&quot;gnu&quot;; indent-tabs-mode:nil; -*- *//* * This program is free software; you can redistribute it and/or modify * it under the terms of the GNU General Public License version 2 as * published by the Free Software Foundation; * * This program is distributed in the hope that it will be useful, * but WITHOUT ANY WARRANTY; without even the implied warranty of * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License for more details. * * You should have received a copy of the GNU General Public License * along with this program; if not, write to the Free Software * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */#include &quot;ns3/core-module.h&quot;using namespace ns3;NS_LOG_COMPONENT_DEFINE (&quot;HelloSimulator&quot;);intmain (int argc, char *argv[]){  NS_LOG_UNCOND (&quot;Hello Simulator&quot;);}</code></pre><p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxrq06w8uej313z05utb5.jpg" alt=""></p><h3 id="first-cc"><a href="#first-cc" class="headerlink" title="first.cc"></a>first.cc</h3><pre><code class="c++">/* -*- Mode:C++; c-file-style:&quot;gnu&quot;; indent-tabs-mode:nil; -*- *//* * This program is free software; you can redistribute it and/or modify * it under the terms of the GNU General Public License version 2 as * published by the Free Software Foundation; * * This program is distributed in the hope that it will be useful, * but WITHOUT ANY WARRANTY; without even the implied warranty of * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the * GNU General Public License for more details. * * You should have received a copy of the GNU General Public License * along with this program; if not, write to the Free Software * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */#include &quot;ns3/core-module.h&quot;#include &quot;ns3/network-module.h&quot;#include &quot;ns3/internet-module.h&quot;#include &quot;ns3/point-to-point-module.h&quot;#include &quot;ns3/applications-module.h&quot;using namespace ns3;//这一行声明了一个叫FirstScriptExample的日志构件，通过引用FirstScriptExample这个名字的操作，可以实现打开或者关闭控制台日志的输出。NS_LOG_COMPONENT_DEFINE (&quot;FirstScriptExample&quot;);intmain (int argc, char *argv[]){  CommandLine cmd;  cmd.Parse (argc, argv);  Time::SetResolution (Time::NS);    //下面两行脚本是用来使两个日志组件生效的。它们被内建在Echo Client 和Echo Server 应用中  LogComponentEnable (&quot;UdpEchoClientApplication&quot;, LOG_LEVEL_INFO);  LogComponentEnable (&quot;UdpEchoServerApplication&quot;, LOG_LEVEL_INFO);  NodeContainer nodes;  nodes.Create (2);  PointToPointHelper pointToPoint;  pointToPoint.SetDeviceAttribute (&quot;DataRate&quot;, StringValue (&quot;5Mbps&quot;));  pointToPoint.SetChannelAttribute (&quot;Delay&quot;, StringValue (&quot;2ms&quot;));  NetDeviceContainer devices;  devices = pointToPoint.Install (nodes);  InternetStackHelper stack;  stack.Install (nodes);  Ipv4AddressHelper address;  address.SetBase (&quot;10.1.1.0&quot;, &quot;255.255.255.0&quot;);  Ipv4InterfaceContainer interfaces = address.Assign (devices);  UdpEchoServerHelper echoServer (9);  ApplicationContainer serverApps = echoServer.Install (nodes.Get (1));  serverApps.Start (Seconds (1.0));  serverApps.Stop (Seconds (10.0));  UdpEchoClientHelper echoClient (interfaces.GetAddress (1), 9);  echoClient.SetAttribute (&quot;MaxPackets&quot;, UintegerValue (1));  echoClient.SetAttribute (&quot;Interval&quot;, TimeValue (Seconds (1.0)));  echoClient.SetAttribute (&quot;PacketSize&quot;, UintegerValue (1024));  ApplicationContainer clientApps = echoClient.Install (nodes.Get (0));  clientApps.Start (Seconds (2.0));  clientApps.Stop (Seconds (10.0));  Simulator::Run ();  Simulator::Destroy ();  return 0;}</code></pre><p>代码分析：</p><p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxynrtbgtvj31a50u0hdz.jpg" alt=""></p><p>脚本运行：</p><p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxrq0i6ettj313608sdk7.jpg" alt=""></p><p>后加 <code>--vis</code>实现可视化</p><p><img src="http://img.cdn.leonwang.top/006tNbRwly1fxs9lr4fj4j319n0u07av.jpg" alt=""></p><h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><p>OpenFlow，一种网上通信协议，属于数据链路层，能够控制网上交换器或路由器的转发平面（forwarding plane），借此改变网上数据包所走的网上路径。</p><p>Berkeley套接字（也作BSD套接字应用程序接口）包括了一个用C语言写成的应用程序开发库，主要用于实现进程间通讯，在计算机网络通讯方面被广泛使用。</p><h2 id="踩坑"><a href="#踩坑" class="headerlink" title="踩坑"></a>踩坑</h2><p>编译时路径内不能有中文</p><p>ubuntu18版本内缺少可视化组件需要的python包，最终实现可视化的环境是ubuntu + ns-3.25</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-          <category> 计算机网络 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 计算机网络 </tag>
-            
-            <tag> ns-3 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ARCore 3D模型</title>
-      <link href="2018/11/22/ARCore-3D%E6%A8%A1%E5%9E%8B/"/>
-      <url>2018/11/22/ARCore-3D%E6%A8%A1%E5%9E%8B/</url>
-      
-        <content type="html"><![CDATA[<h1 id="本文档解决的问题"><a href="#本文档解决的问题" class="headerlink" title="本文档解决的问题"></a>本文档解决的问题</h1><ul><li style="list-style: none"><input type="checkbox" checked> 模型格式</li><li style="list-style: none"><input type="checkbox" checked> 支持动画的模型类型</li><li style="list-style: none"><input type="checkbox"> 是否需要人工打光</li></ul><hr><h1 id="官方sample模型格式"><a href="#官方sample模型格式" class="headerlink" title="官方sample模型格式"></a>官方sample模型格式</h1><p>官方SDK的sample中均使用<strong>.obj</strong>格式文件。</p><p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxh59jhswaj30si0iyn0a.jpg" alt=""></p><p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxh59e3nerj30qi0j0n08.jpg" alt=""></p><p><strong>obj文件</strong>：obj文件是3D模型文件格式。由Alias|Wavefront公司为3D建模和动画软件”Advanced Visualizer”开发的一种标准，适合用于3D软件模型之间的互导，也可以通过Maya读写。</p><p><strong>文件特点</strong>：OBJ3.0文件格式支持直线(Line)、多边形(Polygon)、表面(Surface)和自由形态曲线(Free-form Curve)。直线和多边形通过它们的点来描述，曲线和表面则根据它们的控制点和依附于曲线类型的额外信息来定义，这些信息支持规则和不规则的曲线，包括那些基于贝塞尔曲线(Bezier)、B样条(B-spline)、基数(Cardinal/Catmull-Rom)和泰勒方程(Taylor equations)的曲线。其他特点如下：</p><ol><li>OBJ文件是一种3D模型文件。<strong>不包含</strong>动画、材质特性、贴图路径、动力学、粒子等信息。</li><li>OBJ文件主要支持多边形(Polygons)模型。虽然也支持曲线(Curves)、表面(Surfaces)、点组材质(Point Group Materials)，但Maya导出的OBJ文件并不包括这些信息。</li><li>OBJ文件支持三个点以上的面，这一点很有用。很多其它的模型文件格式只支持三个点的面，所以导入Maya的模型经常被三角化了，这对于我们对模型进行再加工甚为不利。</li><li>OBJ文件<strong>支持法线和贴图坐标</strong>。在其它软件中调整好贴图后，贴图坐标信息可以存入OBJ文件中，这样文件导入Maya后只需指定一下贴图文件路径就行了，不需要再调整贴图坐标。</li></ol><p><strong><em><u>！！！不支持动画</u></em></strong></p><hr><h1 id="ARCore-Sceneform支持的三种3D模型类型"><a href="#ARCore-Sceneform支持的三种3D模型类型" class="headerlink" title="ARCore Sceneform支持的三种3D模型类型"></a>ARCore Sceneform支持的三种3D模型类型</h1><h2 id="Sceneform-概览"><a href="#Sceneform-概览" class="headerlink" title="Sceneform 概览"></a>Sceneform 概览</h2><p><a href="https://developers.google.cn/ar/develop/java/sceneform/" target="_blank" rel="noopener">Sceneform</a> 让 Android 开发者不必学习 3D 图形和 OpenGL 就能使用 ARCore。 它包括一个高级场景图 API，仿真基于物理的渲染器，一个用于导入、查看和构建 3D 资产的 Android Studio 插件，并且可以轻松地集成到 ARCore 内进行简单的 AR 应用构建。</p><h2 id="模型类型支持"><a href="#模型类型支持" class="headerlink" title="模型类型支持"></a>模型类型支持</h2><p>阅读官方文档，ARCore支持 OBJ、FBX 和 glTF 格式的 3D 资产，并提供了相关工具和插件。</p><p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxh7svmrf2j31cq0u047i.jpg" alt=""></p><p><a href="https://developers.google.cn/ar/develop/java/sceneform/create-renderables" target="_blank" rel="noopener">官方文档：创建可渲染对象</a></p><p><a href="https://developers.google.cn/ar/develop/java/sceneform/import-assets" target="_blank" rel="noopener">官方文档：导入和预览3D资产</a></p><h2 id="三种模型比较"><a href="#三种模型比较" class="headerlink" title="三种模型比较"></a>三种模型比较</h2><h4 id="obj"><a href="#obj" class="headerlink" title=".obj"></a>.obj</h4><p>OBJ文件是Alias|Wavefront公司为它的一套基于工作站的3D建模和动画软件”Advanced Visualizer”开发的一种标准3D模型文件格式，很适合用于3D软件模型之间的互导。目前几乎所有知名的3D软件都支持OBJ文件的读写。OBJ文件是一种文本文件，可以直接用写字板打开进行查看和编辑修改。</p><p>. obj 格式， 静态多边形模型 - 附带 UV 信息及材质路径！<strong>不包含动画</strong>、材质特性、贴图路径、动力学、粒子等信息。主要支持多边形(Polygons)模型。是最受欢迎的格式。</p><h4 id="glTF"><a href="#glTF" class="headerlink" title=".glTF"></a>.glTF</h4><p>glTF是一种可以减少3D格式中与渲染无关的冗余数据并且在更加适合OpenGL簇加载的一种3D文件格式。glTF的提出是源自于3D工业和媒体发展的过程中，对3D格式统一化的急迫需求。如果用一句话来描述：glTF 就是三维文件的 JPEG ，三维格式的 MP3。在没有glTF的时候，大家都要花很长的的时间来处理模型的载入。很多的游戏引擎或者工控渲染引擎，都使用的是插件的方式来载入各种格式的模型。可是，各种格式的模型都包含了很多无关的信息。就glTF格式而言，虽然以前有很多3D格式，但是各种3D模型渲染程序都要处理很多种的格式。对于那些对载入格式不是那么重要的软件，可以显著减少代码量，所以也有人说，最大的受益者是那些对程序大小敏感的3D Web渲染引擎，只需要很少的代码就可以顺利地载入各种模型了。此外，glTF是对近二十年来各种3D格式的总结，使用最优的数据结构，来保证最大的兼容性以及可伸缩性。这就好比是本世纪初xml的提出。glTF使用json格式进行描述，也可以编译成二进制的内容：bglTF。<strong>glTF可以包括场景、摄像机、动画等，也可以包括网格、材质、纹理，甚至包括了渲染技术（technique）、着色器以及着色器程序。</strong>同时由于json格式的特点，它支持预留一般以及特定供应商的扩展。</p><p>.glTF 格式，<strong>支持动画</strong>等！.gITF 2.0 格式逐步的完成了 WebGL 的布局，也成为了这个领域的专用格式，随着发展游戏领域的应用也会越来越广泛。官网细节：<a href="https://www.khronos.org/gltf/" target="_blank" rel="noopener">gltf</a></p><h4 id="fbx"><a href="#fbx" class="headerlink" title=".fbx"></a>.fbx</h4><p>FBX 是 FilmBoX 这套软件所使用的格式，后改称 Motionbuilder。因为Motionbuilder扮演的是动作制作的平台，所以在前端的modeling和后端的rendering也都有赖于其它软件的配合，所以Motionbuilder在档案的转换上自然下了一番功夫。FBX最大的用途是用在诸如在 Max、Maya、Softimage 等软件间进行模型、材质、动作和摄影机信息的互导，这样就可以发挥 Max 和 Maya 等软件的优势。可以说，FBX 方案是非常好的互导方案。</p><p>. fbx 格式，Autodesk 家族格式 ，<strong>支持动画</strong>！这是一个商业的格式，兼容最好的当属 Autodesk 家族的软件了。fbx 也开放给了第三方软件，但总是感觉除了他自己的软件之外或多或少的都有解决不完的问题。 毋庸置疑，FBX 现在是最受欢迎的格式。</p><hr><h1 id="Google-Poly（3D对象库）"><a href="#Google-Poly（3D对象库）" class="headerlink" title="Google Poly（3D对象库）"></a>Google Poly（3D对象库）</h1><p>网址：<a href="https://poly.google.com/" target="_blank" rel="noopener">Google Poly</a></p><p>Google对外推出了Poly，这是一个用于增强和虚拟现实应用程序的对象库。3D对象可以免费下载，并且可以兼容ARR/VR平台，比如Google的ARCore和苹果的ARKit。</p><p><em>经过简单浏览，主要是VR模型。</em></p><hr><h1 id="其他参考资料"><a href="#其他参考资料" class="headerlink" title="其他参考资料"></a>其他参考资料</h1><ul><li><a href="http://www.zwqxin.com/archives/opengl/obj-model-format-import-and-render-1.html" target="_blank" rel="noopener">OBJ模型文件的结构、导入与渲染</a></li><li><p><a href="http://www.zwqxin.com/archives/opengl/model-fbx-dae-format-import-animation.html" target="_blank" rel="noopener">FBX、DAE模型的格式、导入与骨骼动画</a></p></li><li><p><a href="http://www.bgteach.com/article/132" target="_blank" rel="noopener">三维文件知多少</a></p></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-          <category> ARCore </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ARCore </tag>
-            
-            <tag> AR </tag>
-            
-            <tag> Android </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>ARCore SDK sample 代码分析</title>
-      <link href="2018/11/22/ARCore-SDK-sample-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/"/>
-      <url>2018/11/22/ARCore-SDK-sample-%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90/</url>
-      
-        <content type="html"><![CDATA[<p>本文档将分析两个官方 SDK 中各一个 sample 案例。</p><ul><li>arcore-android-sdk-1.5.0 中的 hello_ar_java，本案例未使用 Sceneform 。</li><li>sceneform-android-sdk-1.5.1 中的 hellosceneform，本案例使用 Sceneform 进行构建。</li></ul><hr><h1 id="hello-ar-java-项目"><a href="#hello-ar-java-项目" class="headerlink" title="hello_ar_java 项目"></a>hello_ar_java 项目</h1><p>该项目未使用Google提供的 Sceneform</p><h2 id="obj模型的导入"><a href="#obj模型的导入" class="headerlink" title="obj模型的导入"></a>obj模型的导入</h2><p>jar包：<a href="https://mvnrepository.com/artifact/de.javagl/obj/0.2.1" target="_blank" rel="noopener">obj-0.2.1-sources.jar</a></p><p><a href="https://github.com/javagl/Obj" target="_blank" rel="noopener">Github page</a></p><p>A simple Wavefront OBJ file loader and writer.</p><p>该sample使用此jar包进行obj模型的导入。</p><p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxh7lqzfizj31ko0k8agy.jpg" alt=""></p><p><img src="http://img.cdn.leonwang.top/006tNbRwgy1fxh7nq7lf3j317q0nydmb.jpg" alt=""></p><hr><h1 id="hellosceneform-项目"><a href="#hellosceneform-项目" class="headerlink" title="hellosceneform 项目"></a>hellosceneform 项目</h1><p>本项目使用 <a href="https://developers.google.cn/ar/develop/java/sceneform/" target="_blank" rel="noopener">Sceneform</a> 构建,不必学习 3D 图形和 OpenGL 就能使用 ARCore。 </p><h2 id="HelloSceneformActivity-源码"><a href="#HelloSceneformActivity-源码" class="headerlink" title="HelloSceneformActivity 源码"></a>HelloSceneformActivity 源码</h2><pre><code class="java">/* * Copyright 2018 Google LLC. All Rights Reserved. * * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;); * you may not use this file except in compliance with the License. * You may obtain a copy of the License at * *      http://www.apache.org/licenses/LICENSE-2.0 * * Unless required by applicable law or agreed to in writing, software * distributed under the License is distributed on an &quot;AS IS&quot; BASIS, * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. * See the License for the specific language governing permissions and * limitations under the License. */package com.google.ar.sceneform.samples.hellosceneform;import android.app.Activity;import android.app.ActivityManager;import android.content.Context;import android.os.Build;import android.os.Build.VERSION_CODES;import android.os.Bundle;import android.support.v7.app.AppCompatActivity;import android.util.Log;import android.view.Gravity;import android.view.MotionEvent;import android.widget.Toast;import com.google.ar.core.Anchor;import com.google.ar.core.HitResult;import com.google.ar.core.Plane;import com.google.ar.sceneform.AnchorNode;import com.google.ar.sceneform.rendering.ModelRenderable;import com.google.ar.sceneform.ux.ArFragment;import com.google.ar.sceneform.ux.TransformableNode;/** * This is an example activity that uses the Sceneform UX package to make common AR tasks easier. */public class HelloSceneformActivity extends AppCompatActivity {  private static final String TAG = HelloSceneformActivity.class.getSimpleName();  private static final double MIN_OPENGL_VERSION = 3.0;  private ArFragment arFragment;  private ModelRenderable andyRenderable;  @Override  @SuppressWarnings({&quot;AndroidApiChecker&quot;, &quot;FutureReturnValueIgnored&quot;})  // CompletableFuture requires api level 24  // FutureReturnValueIgnored is not valid  protected void onCreate(Bundle savedInstanceState) {    super.onCreate(savedInstanceState);    if (!checkIsSupportedDeviceOrFinish(this)) {      return;    }    setContentView(R.layout.activity_ux);    arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);    // When you build a Renderable, Sceneform loads its resources in the background while returning    // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().    ModelRenderable.builder()        .setSource(this, R.raw.andy)        .build()        .thenAccept(renderable -&gt; andyRenderable = renderable)        .exceptionally(            throwable -&gt; {              Toast toast =                  Toast.makeText(this, &quot;Unable to load andy renderable&quot;, Toast.LENGTH_LONG);              toast.setGravity(Gravity.CENTER, 0, 0);              toast.show();              return null;            });    arFragment.setOnTapArPlaneListener(        (HitResult hitResult, Plane plane, MotionEvent motionEvent) -&gt; {          if (andyRenderable == null) {            return;          }          // Create the Anchor.          Anchor anchor = hitResult.createAnchor();          AnchorNode anchorNode = new AnchorNode(anchor);          anchorNode.setParent(arFragment.getArSceneView().getScene());          // Create the transformable andy and add it to the anchor.          TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());          andy.setParent(anchorNode);          andy.setRenderable(andyRenderable);          andy.select();        });  }  /**   * Returns false and displays an error message if Sceneform can not run, true if Sceneform can run   * on this device.   *   * &lt;p&gt;Sceneform requires Android N on the device as well as OpenGL 3.0 capabilities.   *   * &lt;p&gt;Finishes the activity if Sceneform can not run   */  public static boolean checkIsSupportedDeviceOrFinish(final Activity activity) {    if (Build.VERSION.SDK_INT &lt; VERSION_CODES.N) {      Log.e(TAG, &quot;Sceneform requires Android N or later&quot;);      Toast.makeText(activity, &quot;Sceneform requires Android N or later&quot;, Toast.LENGTH_LONG).show();      activity.finish();      return false;    }    String openGlVersionString =        ((ActivityManager) activity.getSystemService(Context.ACTIVITY_SERVICE))            .getDeviceConfigurationInfo()            .getGlEsVersion();    if (Double.parseDouble(openGlVersionString) &lt; MIN_OPENGL_VERSION) {      Log.e(TAG, &quot;Sceneform requires OpenGL ES 3.0 later&quot;);      Toast.makeText(activity, &quot;Sceneform requires OpenGL ES 3.0 or later&quot;, Toast.LENGTH_LONG)          .show();      activity.finish();      return false;    }    return true;  }}</code></pre><h2 id="模型的导入"><a href="#模型的导入" class="headerlink" title="模型的导入"></a>模型的导入</h2><p>onCreate() 中对模型资源位置进行了设置。</p><p>Sceneform中3D资源的导入方法（官方文档）：<a href="https://developers.google.cn/ar/develop/java/sceneform/import-assets" target="_blank" rel="noopener">导入和预览 3D 资产</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Archive </category>
-          
-          <category> ARCore </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ARCore </tag>
-            
-            <tag> AR </tag>
-            
-            <tag> Android </tag>
             
         </tags>
       
