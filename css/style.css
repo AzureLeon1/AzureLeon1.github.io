@@ -550,7 +550,7 @@
   line-height: 19px;
 }
 .nav-left .icon a:hover {
-  color: #309e85;
+  color: #6190e8;
 }
 .nav-left .icon a.rss:before {
   content: "\ea9b";
@@ -825,7 +825,7 @@
   width: 3px;
 }
 .nav-right .title-list .tags-list .tag-wrapper::-webkit-scrollbar-thumb {
-  background: #309e85;
+  background: #6190e8;
 }
 .nav-right .title-list .tags-list .tag-wrapper li {
   float: none;
@@ -870,7 +870,7 @@
   width: 3px;
 }
 .nav-right .title-list #outline-list::-webkit-scrollbar-thumb {
-  background: #309e85;
+  background: #6190e8;
 }
 .nav-right .title-list #outline-list .toc {
   list-style-type: none;
@@ -956,7 +956,7 @@
 }
 .nav-right .title-list nav::-webkit-scrollbar-thumb,
 .nav-right .title-list #local-search-result::-webkit-scrollbar-thumb {
-  background: #309e85;
+  background: #6190e8;
 }
 .nav-right .title-list nav #no-item-tips,
 .nav-right .title-list #local-search-result #no-item-tips {
@@ -1000,7 +1000,7 @@
   left: 12px;
   z-index: 1;
   font-size: 18px;
-  color: #309e85;
+  color: #6190e8;
 }
 .nav-right .title-list nav a#top:before,
 .nav-right .title-list #local-search-result a#top:before {
@@ -1221,7 +1221,7 @@
 }
 #post ::selection {
   color: #fff;
-  background: #33caa6;
+  background: #66b3ed;
   text-shadow: none;
 }
 #post .pjax {
@@ -1349,10 +1349,10 @@
   left: 2px;
 }
 #post .pjax article .article-meta .tag a.color1 {
-  background: #ff945c;
+  background: #94635c;
 }
 #post .pjax article .article-meta .tag a.color1:before {
-  border-right-color: #ff945c;
+  border-right-color: #94635c;
 }
 #post .pjax article .article-meta .tag a.color2 {
   background: #cc8167;
@@ -1367,10 +1367,10 @@
   border-right-color: #ba8f6c;
 }
 #post .pjax article .article-meta .tag a.color4 {
-  background: #94635c;
+  background: #ff945c;
 }
 #post .pjax article .article-meta .tag a.color4:before {
-  border-right-color: #94635c;
+  border-right-color: #ff945c;
 }
 #post .pjax article .article-meta .tag a.color5 {
   background: #7b5d5f;
@@ -1503,6 +1503,11 @@
   color: #eee;
   border: 1px solid #009688;
   background-color: #009688;
+}
+#post .pjax article table.my_custom_title tr th {
+  color: #fff;
+  border: 1px solid #669bed;
+  background-color: #669bed;
 }
 #post .pjax article :not(pre) > code {
   background-color: #fff5f5;
@@ -1702,7 +1707,7 @@ h2 {
   width: 20px;
   height: 40px;
   border-radius: 0 100px 100px 0;
-  background-color: #42b983;
+  background-color: #6190e8;
   cursor: pointer;
   margin-left: -20px;
   transition: margin-left 0.5s cubic-bezier(0.77, 0, 0.175, 1);

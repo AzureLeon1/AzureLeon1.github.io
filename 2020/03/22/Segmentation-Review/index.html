@@ -23,7 +23,7 @@
 
 <link href="/css/style.css?v=1.1.0" rel="stylesheet">
 
-<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+<link href="/css/hl_theme/github.css?v=1.1.0" rel="stylesheet">
 
 <link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
 
@@ -901,8 +901,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-3 i,
-    .toc-level-3 ol {
+    .toc-level-6 i,
+    .toc-level-6 ol {
         display: none !important;
     }
 </style>
@@ -1233,7 +1233,7 @@
     function initArticle() {
         /*渲染对应的表格样式*/
         
-            $("#post .pjax table").addClass("green_title");
+            $("#post .pjax table").addClass("my_custom_title");
         
 
         /*渲染打赏样式*/
@@ -1548,7 +1548,7 @@
         border-right: 1px solid #C3CCD0;
         text-align: right;
         color: #AAA;
-        background-color: #fafafa;
+        background-color: ;
     }
     .pre-numbering.widther {
         width: 35px;
@@ -1560,13 +1560,13 @@
     
     
     .nav {
-        width: 622px;
+        width: 572px;
     }
     .nav.fullscreen {
-        margin-left: -622px;
+        margin-left: -572px;
     }
     .nav-left {
-        width: 200px;
+        width: 150px;
     }
     
     
@@ -1614,7 +1614,7 @@
     
     
     .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
+        background-color: #d8e8f4;
     }
     
     
@@ -1633,6 +1633,16 @@
     /*文章列表背景图*/
     
 
+    
+    #post .pjax article :not(pre) > code {
+        color: #24292e;
+        font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+        background-color: rgba(27,31,35,.05);
+        border-radius: 3px;
+        font-size: 85%;
+        margin: 0;
+        padding: .2em .4em;
+    }
     
 </style>
 
