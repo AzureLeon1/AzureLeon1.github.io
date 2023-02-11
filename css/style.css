@@ -128,3 +128,9 @@ a:hover:before {
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
 } */
+
+.phd {
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-weight: 800;
+}
