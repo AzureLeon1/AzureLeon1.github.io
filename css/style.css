@@ -165,12 +165,6 @@ a:hover:before {
     border-radius: 50%; /* 使其成为圆形 */
 }
 
-/* .avatar img{
-    position: absolute;
-    top: 20%;
-    /* transform: translateY(-50%); */
-} */
-
 .custom-list li h7 { /* 假设你使用<p>或自定义的<h7> */
     margin-left: 20px; /* 根据实际情况调整 */
     margin-top: 0; /* 移除上方的默认边距，如有必要 */
