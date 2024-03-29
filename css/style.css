@@ -56,11 +56,15 @@ body {
     border-radius                       : 50%;
 }
 
-:root {
+/* :root {
     --mainColor: #5daae0;
+} */
+:root {
+    --mainColor: #19ac9e;
 }
 
 .link {
+    color: #19ac9e;
     background:
         linear-gradient(to bottom, var(--mainColor) 0%,
             var(--mainColor) 100%);
@@ -159,4 +163,30 @@ a:hover:before {
     height: 6px; /* 圆点的大小 */
     background-color: black; /* 圆点的颜色 */
     border-radius: 50%; /* 使其成为圆形 */
+}
+
+/* .avatar img{
+    position: absolute;
+    top: 20%;
+    /* transform: translateY(-50%); */
+} */
+
+.custom-list li h7 { /* 假设你使用<p>或自定义的<h7> */
+    margin-left: 20px; /* 根据实际情况调整 */
+    margin-top: 0; /* 移除上方的默认边距，如有必要 */
+}
+
+.paper-icon {
+    padding: 0 6px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    /* color: #000; */
+    background-color: #4db6ac;
+    /* border-radius: 3px; */
+}
+
+.row-center {
+    display: flex;
+    align-items: center; /* 这会使所有子元素垂直居中 */
 }
