@@ -140,13 +140,13 @@ a:hover:before {
 }
 
 .paper-title {
-    margin-left: 20px;
+    margin-left: 40px;
 }
 
 .custom-list {
     list-style: none; /* 移除默认的列表样式 */
     padding-left: 0; /* 调整这个值以增加左边距 */
-    margin-left: 25px; /* 如果需要，可以调整外边距 */
+    margin-left: 60px; /* 如果需要，可以调整外边距 */
 }
 
 .custom-list li {
@@ -208,4 +208,12 @@ a:hover:before {
 
 .link2:hover {
     background-size: 2px 2px;
+}
+
+.subsection-header {
+    /* color: #00897b; */
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
 }
