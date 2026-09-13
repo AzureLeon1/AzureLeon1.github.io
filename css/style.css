@@ -124,6 +124,11 @@ a:hover:before {
     font-weight: 800;
 }
 
+.bio-contact {
+    padding: 15px 18px;
+    margin: 15px 0;
+}
+
 .paper-title {
     margin-left: 40px;
 }
@@ -153,6 +158,73 @@ a:hover:before {
 .custom-list li h7 {
     margin-left: 20px;
     margin-top: 0;
+}
+
+.bio-contact,
+.news-scroll {
+    box-sizing: border-box;
+    background-color: #fafafa;
+    border: 1px solid rgba(25, 172, 158, 0.2);
+    border-left: 3px solid var(--mainColor);
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.news-scroll:hover {
+    border-color: rgba(25, 172, 158, 0.38);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.08);
+}
+
+.news-scroll {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    padding: 12px 10px 12px 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(25, 172, 158, 0.55) transparent;
+}
+
+.news-scroll::-webkit-scrollbar {
+    width: 9px;
+}
+
+.news-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.news-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(25, 172, 158, 0.55);
+    background-clip: content-box;
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+
+.news-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(25, 172, 158, 0.8);
+}
+
+.news-scroll .custom-list {
+    margin: 0 0 0 32px;
+    padding: 2px 8px 2px 0;
+}
+
+.news-scroll .custom-list li:not(:last-child) {
+    margin-bottom: 9px;
+}
+
+.news-scroll .custom-list li::before {
+    background-color: var(--mainColor);
+    box-shadow: 0 0 0 3px rgba(25, 172, 158, 0.1);
+}
+
+.news-scroll .custom-list li h7 {
+    line-height: 1.55;
+}
+
+.news-scroll:focus-visible {
+    outline: 2px solid var(--mainColor);
+    outline-offset: 2px;
 }
 
 .paper-icon {

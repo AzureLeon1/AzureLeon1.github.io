@@ -65,3 +65,38 @@ const scrollHandler = () => {
 
 // document.addEventListener('scroll', pinElement)
 // document.addEventListener('scroll', scrollHandler);
+
+const resizeNewsWindow = () => {
+    const newsWindow = document.querySelector('.news-scroll');
+    if (!newsWindow) return;
+
+    const newsItems = newsWindow.querySelectorAll('.custom-list > li');
+    const visibleItemCount = Number.parseInt(newsWindow.dataset.visibleItems, 10) || 5;
+
+    newsWindow.style.height = 'auto';
+
+    if (newsItems.length <= visibleItemCount) return;
+
+    const lastVisibleItem = newsItems[visibleItemCount - 1];
+    const firstHiddenItem = newsItems[visibleItemCount];
+    const windowStyle = window.getComputedStyle(newsWindow);
+    const windowTop = newsWindow.getBoundingClientRect().top;
+    const lastVisibleBottom = lastVisibleItem.getBoundingClientRect().bottom;
+    const firstHiddenTop = firstHiddenItem.getBoundingClientRect().top;
+    const gapMiddle = lastVisibleBottom + (firstHiddenTop - lastVisibleBottom) / 2;
+    const bottomBorder = Number.parseFloat(windowStyle.borderBottomWidth);
+
+    newsWindow.style.height = `${Math.floor(gapMiddle - windowTop + bottomBorder)}px`;
+};
+
+let newsResizeFrame;
+window.addEventListener('resize', () => {
+    window.cancelAnimationFrame(newsResizeFrame);
+    newsResizeFrame = window.requestAnimationFrame(resizeNewsWindow);
+});
+
+window.addEventListener('DOMContentLoaded', resizeNewsWindow);
+
+if (document.fonts) {
+    document.fonts.ready.then(resizeNewsWindow);
+}
